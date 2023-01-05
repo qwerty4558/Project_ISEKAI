@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 30f;
 
@@ -15,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
 
     Vector3 dir = Vector3.zero;
+    bool isMove = false;
+
 
 
     void Start()
@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-
         Player_Run();
+        
     }
 
     private void Move()
@@ -38,16 +38,22 @@ public class PlayerController : MonoBehaviour
         dir.Normalize();
 
         if (dir != Vector3.zero)
-        {    
-            transform.forward = Vector3.Lerp(transform.forward, dir, rotateSpeed * Time.deltaTime);
-            animator.SetBool("isWalk", true);
-        }else animator.SetBool("isWalk", false);
+        {
+            isMove = true;
+            transform.forward = Vector3.Lerp(transform.forward, dir/2, rotateSpeed * Time.deltaTime);
+            animator.SetBool("isWalk", isMove);
+        }
+        else
+        {
+            isMove = false;
+            animator.SetBool("isWalk", isMove);
+        }
 
         rigidbody.MovePosition(this.gameObject.transform.position + dir * moveSpeed * Time.deltaTime);
     }
     private void Player_Run()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && isMove)
         {
             moveSpeed = 5.5f;
             animator.SetBool("isJog", true);
