@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 30f;
-
+    [SerializeField] GameObject inventory;
+    [SerializeField] GameObject recipi;
+    [SerializeField] GameObject map;
     Rigidbody rigidbody;
     Animator animator;
 
@@ -23,22 +25,56 @@ public class PlayerController : MonoBehaviour
     Vector3 heading;
 
     bool isMove = false;
-
-
+    bool isInventoryActive = false;
+    bool isRecipiActive = false;
+    bool isMapActive = false;
+    
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        inventory.SetActive(isInventoryActive); 
+        recipi.SetActive(isRecipiActive);
+        map.SetActive(isMapActive);
     }
 
-   
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
+        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
+        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
+        ViewInventory(isInventoryActive);
+        ViewRecipi(isRecipiActive);
+        ViewMap(isMapActive);
+    }
+
     void FixedUpdate()
     {
-        Move();
-        Player_Run();
-        PlayerSetAnimations();
+        if (!isMapActive)
+        {
+            Move();
+            Player_Run();
+            PlayerSetAnimations();
+        }
+        else return;
+        
     }
+
+    private void ViewInventory(bool isActive)
+    {        
+        inventory.SetActive(isActive);
+    }
+
+    private void ViewRecipi(bool isActive)
+    {
+        recipi.SetActive(isActive);
+    }
+    private void ViewMap(bool isActive)
+    {
+        map.SetActive(isActive);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -5,17 +5,11 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    
 
+    SphereCollider col;
     private void Start()
     {
-    
-        
-    }
-
-    private void Update()
-    {
-
+        col = GetComponent<SphereCollider>();
     }
 
 }
