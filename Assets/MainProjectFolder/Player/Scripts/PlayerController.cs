@@ -75,26 +75,6 @@ public class PlayerController : MonoBehaviour
         map.SetActive(isActive);
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Tree")) Debug.Log("Enter Tree");
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Tree"))
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                other.GetComponent<Tree>().Mine();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Tree")) Debug.Log("Exit Tree");
-    }
-
     private void Move()
     {
 
@@ -108,9 +88,12 @@ public class PlayerController : MonoBehaviour
         dir = heading * Time.deltaTime * ver_Move * moveSpeed;
         dir += Quaternion.Euler(0, 90, 0) * heading * Time.deltaTime * hor_Move * moveSpeed;
 
+        
+
         if (dir != Vector3.zero)
         {
             isMove = true;
+            transform.Translate(dir);
             //transform.forward = Vector3.Lerp(transform.forward, dir, rotateSpeed * Time.deltaTime);            
         }
         else
@@ -118,7 +101,8 @@ public class PlayerController : MonoBehaviour
             isMove = false;            
         }
         //rigidbody.MovePosition(dir  * Time.deltaTime);
-        transform.Translate(dir);
+        
+        
     }
 
     private void Player_Run()
