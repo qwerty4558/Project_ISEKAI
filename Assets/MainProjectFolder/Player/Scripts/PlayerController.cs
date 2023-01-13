@@ -1,10 +1,14 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+
 public class PlayerController : MonoBehaviour
 {
+
     float hor_Move;
     float ver_Move;
 
@@ -17,7 +21,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
 
 
-    /*[SerializeField] float dashSpeed = 7f;*/
+    //[SerializeField] float dashSpeed = 7f;
 
 
     Vector3 dir = Vector3.zero;
@@ -28,13 +32,13 @@ public class PlayerController : MonoBehaviour
     bool isInventoryActive = false;
     bool isRecipiActive = false;
     bool isMapActive = false;
-    
+
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        inventory.SetActive(isInventoryActive); 
+        inventory.SetActive(isInventoryActive);
         recipi.SetActive(isRecipiActive);
         map.SetActive(isMapActive);
     }
@@ -58,11 +62,11 @@ public class PlayerController : MonoBehaviour
             PlayerSetAnimations();
         }
         else return;
-        
+
     }
 
     private void ViewInventory(bool isActive)
-    {        
+    {
         inventory.SetActive(isActive);
     }
 
@@ -77,32 +81,32 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-
         hor_Move = Input.GetAxis("Horizontal");
         ver_Move = Input.GetAxis("Vertical");
 
-        heading = Camera.main.transform.rotation * Vector3.forward;
+        heading = Camera.main.transform.forward;
         heading.y = 0;
         heading = heading.normalized;
 
+        
+
         dir = heading * Time.deltaTime * ver_Move * moveSpeed;
         dir += Quaternion.Euler(0, 90, 0) * heading * Time.deltaTime * hor_Move * moveSpeed;
-
-        
 
         if (dir != Vector3.zero)
         {
             isMove = true;
             transform.Translate(dir);
             //transform.forward = Vector3.Lerp(transform.forward, dir, rotateSpeed * Time.deltaTime);            
+            // 
         }
         else
         {
-            isMove = false;            
+            isMove = false;
         }
         //rigidbody.MovePosition(dir  * Time.deltaTime);
-        
-        
+
+
     }
 
     private void Player_Run()
