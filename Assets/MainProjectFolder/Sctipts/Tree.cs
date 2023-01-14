@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class Tree : MonoBehaviour, IDamage
 {
     [SerializeField] int tree_HP;
 
@@ -20,9 +20,10 @@ public class Tree : MonoBehaviour
         col = GetComponent<SphereCollider>();
     }
 
-    public void Mine()
+    public void Damage(int playerHit)
     {
-        tree_HP--;
+        tree_HP -= playerHit;
+        
         if(tree_HP <= 0)
         {
             Destruction();

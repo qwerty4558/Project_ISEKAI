@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public interface IDamage
 {
-    
+    void Damage(int Damage);
 }
