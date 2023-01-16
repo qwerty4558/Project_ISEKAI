@@ -1,7 +1,5 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -10,11 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 40f;
+    [SerializeField] float interactionRange = 2f;
+    [SerializeField] float playerAttackDamage = 1f;
+
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject recipi;
     [SerializeField] GameObject map;
-
-    Player player;
 
     Rigidbody rigidbody;
     Animator animator;
@@ -28,10 +27,10 @@ public class PlayerController : MonoBehaviour
     Vector3 heading;
 
     bool isMove = false;
+    bool isRun = false;
     bool isInventoryActive = false;
     bool isRecipiActive = false;
     bool isMapActive = false;
-    bool isAction = false;
 
 
     void Start()
@@ -47,13 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
-        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
-        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
-        if (Input.GetMouseButton(0)) isAction = !isAction;
-        ViewInventory(isInventoryActive);
-        ViewRecipi(isRecipiActive);
-        ViewMap(isMapActive);
+        InputCheckBool();
+        ViewUI();
     }
 
     void FixedUpdate()
@@ -68,31 +62,50 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void ViewInventory(bool isActive)
+    private void ViewUI()
     {
-        inventory.SetActive(isActive);
+        inventory.SetActive(isInventoryActive);
+        recipi.SetActive(isRecipiActive);
+        map.SetActive(isMapActive);
+
+        if (Input.GetMouseButton(0)) Interaction();
     }
 
-    private void ViewRecipi(bool isActive)
+    private void InputCheckBool()
     {
-        recipi.SetActive(isActive);
-    }
-    private void ViewMap(bool isActive)
-    {
-        map.SetActive(isActive);
+        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
+        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
+        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        IDamage damage = other.GetComponent<IDamage>();
-        
-        if (damage != null)
+    private void Interaction()
+    {        
+        Ray ray = new Ray
         {
-            damage.Damage(1);
+            origin = transform.position,
+            direction = transform.forward
+        };
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, interactionRange))
+        {
+            IDamage damage = hit.collider.GetComponent<IDamage>();
+            if (damage != null)
+            {
+                damage.Damage(playerAttackDamage);
+                Debug.Log("Attack");
+            }
+
+            Tree tree = hit.collider.GetComponent<Tree>();
+            if (tree != null)
+            {
+                tree.Damage(playerAttackDamage);
+            }
         }
     }
 
-
+    // 이동
     private void Move()
     {
         // 입력값을 Vector3에 저장
@@ -100,7 +113,8 @@ public class PlayerController : MonoBehaviour
         player_Move_Input.Normalize(); 
 
         //Debug.Log("input Vector : " + player_Move_Input);
-        //Debug.Log("this rotation y value : " + transform.localRotation.eulerAngles.y);
+        //Debug.Log("this rotation y value : " + transform.localRotation.eulerAngles.y)
+                
         // 카메라의 Forward를 가져옴
         heading = Camera.main.transform.forward;
         heading.y = 0;
@@ -108,8 +122,6 @@ public class PlayerController : MonoBehaviour
 
         heading = heading - player_Move_Input;
 
-        
-        
         if (player_Move_Input != Vector3.zero)
         {
             isMove = true;
@@ -117,8 +129,6 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
-            
-            //transform.rotation =  Quaternion.Euler(0, angle, 0);
 
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }
@@ -133,16 +143,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && isMove)
         {
             moveSpeed = 5.5f;
-            animator.SetBool("isJog", true);
+            isRun = true;
         }
         else
         {
             moveSpeed = 4f;
-            animator.SetBool("isJog", false);
+            isRun = false;
         }
     }
     private void PlayerSetAnimations()
     {
         animator.SetBool("isWalk", isMove);
+        animator.SetBool("isJog", isRun);
     }
 }
