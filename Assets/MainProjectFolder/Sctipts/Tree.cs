@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour, IDamage
 {
-    [SerializeField] int tree_HP;
+    [SerializeField] float tree_HP;
 
     [SerializeField] float destroy_Time;
 
@@ -20,16 +20,6 @@ public class Tree : MonoBehaviour, IDamage
         col = GetComponent<SphereCollider>();
     }
 
-    public void Damage(int playerHit)
-    {
-        tree_HP -= playerHit;
-        
-        if(tree_HP <= 0)
-        {
-            Destruction();
-        }
-    }
-
     private void Destruction()
     {
         col.enabled= false;
@@ -38,5 +28,20 @@ public class Tree : MonoBehaviour, IDamage
         go_Debris.SetActive(true);
         Destroy(go_Tree, destroy_Time);
 
+    }
+
+    public void Hit(float damage)
+    {
+        tree_HP -= damage;
+
+        if (tree_HP <= 0)
+        {
+            Destruction();
+        }
+    }
+
+    public void Damage(float damage)
+    {
+        Hit(damage);
     }
 }
