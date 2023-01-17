@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerInterface;
 
 
-
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IAttack, IChackObj
 {
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 40f;
@@ -46,8 +46,22 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         InputCheckBool();
         ViewUI();
+=======
+        InputUIController();
+        Interaction();
+        ViewUI();
+    }
+
+    private void InputUIController()
+    {
+        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
+        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
+        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
+        if (Input.GetMouseButton(0)) isAction = !isAction;
+>>>>>>> Stashed changes
     }
 
     void FixedUpdate()
@@ -59,9 +73,9 @@ public class PlayerController : MonoBehaviour
             PlayerSetAnimations();
         }
         else return;
-
     }
 
+<<<<<<< Updated upstream
     private void ViewUI()
     {
         inventory.SetActive(isInventoryActive);
@@ -76,6 +90,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
         if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
         if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
+=======
+
+    private void ViewUI()
+    {
+        inventory.SetActive(isInventoryActive);
+        recipi.SetActive(isRecipiActive);
+        map.SetActive(isMapActive);
+>>>>>>> Stashed changes
     }
 
     private void Interaction()
@@ -151,9 +173,20 @@ public class PlayerController : MonoBehaviour
             isRun = false;
         }
     }
+
+    private void Interaction()
+    {
+
+    }
+
     private void PlayerSetAnimations()
     {
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isJog", isRun);
+    }
+
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
     }
 }
