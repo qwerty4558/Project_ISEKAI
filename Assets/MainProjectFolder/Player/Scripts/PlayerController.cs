@@ -4,11 +4,8 @@ using UnityEngine;
 
 
 
-public class PlayerController : MonoBehaviour ,IDamage
+public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField] float playerHp = 100f;
-
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
@@ -71,7 +68,7 @@ public class PlayerController : MonoBehaviour ,IDamage
         recipi.SetActive(isRecipiActive);
         map.SetActive(isMapActive);
 
-        if (Input.GetMouseButtonDown(0)) Interaction();
+        if (Input.GetMouseButton(0)) Interaction();
     }
 
     private void InputCheckBool()
@@ -98,6 +95,12 @@ public class PlayerController : MonoBehaviour ,IDamage
             {
                 damage.Damage(playerAttackDamage);
                 Debug.Log("Attack");
+            }
+
+            Tree tree = hit.collider.GetComponent<Tree>();
+            if (tree != null)
+            {
+                tree.Damage(playerAttackDamage);
             }
         }
     }
@@ -152,10 +155,5 @@ public class PlayerController : MonoBehaviour ,IDamage
     {
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isJog", isRun);
-    }
-
-    public void Damage(float damage)
-    {
-        
     }
 }
