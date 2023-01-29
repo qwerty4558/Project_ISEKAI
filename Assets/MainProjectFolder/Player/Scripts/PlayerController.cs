@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
 
-    [SerializeField] GameObject inventory;
+    
     [SerializeField] GameObject recipi;
     [SerializeField] GameObject map;
 
@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
 
-        inventory.SetActive(isInventoryActive);
-        recipi.SetActive(isRecipiActive);
+        
+        //recipi.SetActive(isRecipiActive);
         map.SetActive(isMapActive);
     }
 
@@ -64,11 +64,11 @@ public class PlayerController : MonoBehaviour
 
     private void ViewUI()
     {
-        inventory.SetActive(isInventoryActive);
-        recipi.SetActive(isRecipiActive);
+       
+        //recipi.SetActive(isRecipiActive);
         map.SetActive(isMapActive);
 
-        if (Input.GetMouseButton(0)) Interaction();
+        if (Input.GetMouseButtonDown(0)) Interaction();
     }
 
     private void InputCheckBool()
@@ -96,12 +96,6 @@ public class PlayerController : MonoBehaviour
                 damage.Damage(playerAttackDamage);
                 Debug.Log("Attack");
             }
-
-            Tree tree = hit.collider.GetComponent<Tree>();
-            if (tree != null)
-            {
-                tree.Damage(playerAttackDamage);
-            }
         }
     }
 
@@ -128,6 +122,7 @@ public class PlayerController : MonoBehaviour
 
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
