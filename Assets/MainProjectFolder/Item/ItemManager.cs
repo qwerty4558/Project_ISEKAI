@@ -6,6 +6,8 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using Unity.VisualScripting;
+using UnityEditor.VersionControl;
+using System;
 
 public class ItemManager : MonoBehaviour
 {
@@ -54,6 +56,7 @@ public class ItemManager : MonoBehaviour
         for (int i = 0; i < length; ++i)
         {
             string[] row = line[i].Split('\t');
+            row[3] = row[3].Replace("\r", "");
             all_Items.Add(new Ingredient_Item(row[0], row[1], row[2], row[3]));
         }
     }
@@ -65,13 +68,23 @@ public class ItemManager : MonoBehaviour
             slot[i].item_Id = my_Items[i].id;
             slot[i].item_Name = my_Items[i].name;
             slot[i].item_NameKR = my_Items[i].name_KR;
+            slot[i].item_Image_FileName = my_Items[i].icon_File_Name;
         }
 
         // 인벤토리 슬롯 출력
         int slot_lenght = slot.Length;
         for (int i = 0; i < slot_lenght; i++)
-        {             
-            slot[i].text.text = i < my_Items.Count ? my_Items[i].name_KR + slot[i].item_Count : "";
+        {
+            if (slot[i].item_Id != 0)
+            {
+                slot[i].text.text = i < my_Items.Count ? my_Items[i].name_KR + slot[i].item_Count : "";
+                slot[i].ImageRead();
+            }
+            else
+            {
+                slot[i].SetDefaultSprite();
+                slot[i].text.text = null;
+            }
         }
 
         // 조합 아이템 슬롯 출력
@@ -79,11 +92,12 @@ public class ItemManager : MonoBehaviour
         createSlot[1].text.text = createSlot[1].item_NameKR + createSlot[1].item_Count;
 
         // 결과 아이템 슬롯 출력
-        resultSlot.text.text = resultSlot.item_NameKR + resultSlot.item_Price;
+        resultSlot.text.text = resultSlot.item_NameKR + "\n" +resultSlot.item_Price;
     }
 
     public void SlotClick(int slotNum)
     {
+        if (slot[slotNum].item_Id == 0) return;
         if (slot[slotNum].item_Count <= 0) return;
 
         if (createSlot[0].item_Count == 0 || createSlot[0].item_Id == slot[slotNum].item_Id)
@@ -92,6 +106,8 @@ public class ItemManager : MonoBehaviour
 
             createSlot[0].item_Id = slot[slotNum].item_Id;
             createSlot[0].item_NameKR = slot[slotNum].item_NameKR;
+            createSlot[0].item_Image_FileName = slot[slotNum].item_Image_FileName;
+            createSlot[0].ImageRead();
             createSlot[0].item_Count++;
 
             ViewItem();
@@ -102,6 +118,8 @@ public class ItemManager : MonoBehaviour
 
             createSlot[1].item_Id = slot[slotNum].item_Id;
             createSlot[1].item_NameKR = slot[slotNum].item_NameKR;
+            createSlot[1].item_Image_FileName = slot[slotNum].item_Image_FileName;
+            createSlot[1].ImageRead();
             createSlot[1].item_Count++;
             ViewItem();            
         }
@@ -114,17 +132,20 @@ public class ItemManager : MonoBehaviour
     {
         int result_List_Lenght = result_List.Count;
         
+        
+
         for(int i = 0; i < result_List_Lenght; i++)
         {
             if (result_List[i].main_Ingredient_TID ==  com1.item_Id && result_List[i].sub_Ingredient_TID == com2.item_Id)
             {
+
                 if (result_List[i].main_Count == com1.item_Count && result_List[i].sub_Count == com2.item_Count)
                 {
                     resultSlot.item_NameKR = result_List[i].result_Item_Name;
                     resultSlot.item_Price = result_List[i].result_Item_Price;
                 }                
                 ViewItem();
-            }
+            }            
         }
     }
 
@@ -136,7 +157,7 @@ public class ItemManager : MonoBehaviour
             ViewItem();
             return;
         }
-        createSlot[resultSlotNum].item_Count--;
+         createSlot[resultSlotNum].item_Count--;
         ViewItem();
     }
 

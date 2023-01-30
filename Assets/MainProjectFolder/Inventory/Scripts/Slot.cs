@@ -9,14 +9,28 @@ public class Slot : MonoBehaviour
     public int item_Count = 0;
     public string item_Name;
     public string item_NameKR;
-
+    public string item_Image_FileName;
     public int item_Price;
     public Text text;
     public Image item_Image;
+    public Sprite default_Sprite;
+    
+
     private void Awake()
     {
         text = GetComponentInChildren<Text>();
-        item_Image = GetComponentInChildren<Image>();
+        item_Image = transform.GetChild(0).GetComponent<Image>();
+        SetDefaultSprite();
+    }
+
+    public void ImageRead()
+    {
+        item_Image.sprite = Resources.Load<Sprite>(item_Image_FileName);
+    }
+
+    public void SetDefaultSprite()
+    {
+        item_Image.sprite = default_Sprite;
     }
 
     public void ClearSlot()
@@ -25,5 +39,6 @@ public class Slot : MonoBehaviour
         item_Count = 0;
         item_Name = null;
         item_NameKR = null;
+        SetDefaultSprite();
     }
 }
