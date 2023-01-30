@@ -21,6 +21,7 @@ public class Ingredient_Item
         name_KR = _name_KR;
         icon_File_Name = _icon_File_Name;
     }
+
 }
 
 

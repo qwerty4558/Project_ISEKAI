@@ -18,13 +18,11 @@ public class ItemManager : MonoBehaviour
     public List<Result_Item> result_List;
     
 
-    public Slot[] slot;
+    public Slot[] slot; // 인벤토리의 슬롯
 
-    public Slot[] createSlot;
-
-    public Slot resultSlot;
-
-    public string curType;
+    public Slot[] createSlot; // 초합창의 슬롯
+    
+    public Slot resultSlot; // 조합의 결과    
 
 
     private void Awake()
@@ -68,11 +66,20 @@ public class ItemManager : MonoBehaviour
             slot[i].item_Name = my_Items[i].name;
             slot[i].item_NameKR = my_Items[i].name_KR;
         }
+
+        // 인벤토리 슬롯 출력
         int slot_lenght = slot.Length;
         for (int i = 0; i < slot_lenght; i++)
         {             
             slot[i].text.text = i < my_Items.Count ? my_Items[i].name_KR + slot[i].item_Count : "";
         }
+
+        // 조합 아이템 슬롯 출력
+        createSlot[0].text.text = createSlot[0].item_NameKR + createSlot[0].item_Count;
+        createSlot[1].text.text = createSlot[1].item_NameKR + createSlot[1].item_Count;
+
+        // 결과 아이템 슬롯 출력
+        resultSlot.text.text = resultSlot.item_NameKR + resultSlot.item_Price;
     }
 
     public void SlotClick(int slotNum)
@@ -84,26 +91,53 @@ public class ItemManager : MonoBehaviour
             slot[slotNum].item_Count--;
 
             createSlot[0].item_Id = slot[slotNum].item_Id;
+            createSlot[0].item_NameKR = slot[slotNum].item_NameKR;
             createSlot[0].item_Count++;
+
+            ViewItem();
         }
         else if(createSlot[1].item_Count == 0 || createSlot[1].item_Id == slot[slotNum].item_Id)
         {
             slot[slotNum].item_Count--;
 
             createSlot[1].item_Id = slot[slotNum].item_Id;
+            createSlot[1].item_NameKR = slot[slotNum].item_NameKR;
             createSlot[1].item_Count++;
+            ViewItem();            
         }
-        
-        
+        CombinationItem(createSlot[0], createSlot[1]);
         ViewItem();
         Save();
     }
 
+    public void CombinationItem(Slot com1, Slot com2)
+    {
+        int result_List_Lenght = result_List.Count;
+        
+        for(int i = 0; i < result_List_Lenght; i++)
+        {
+            if (result_List[i].main_Ingredient_TID ==  com1.item_Id && result_List[i].sub_Ingredient_TID == com2.item_Id)
+            {
+                if (result_List[i].main_Count == com1.item_Count && result_List[i].sub_Count == com2.item_Count)
+                {
+                    resultSlot.item_NameKR = result_List[i].result_Item_Name;
+                    resultSlot.item_Price = result_List[i].result_Item_Price;
+                }                
+                ViewItem();
+            }
+        }
+    }
 
     public void RemoveSlotItem(int resultSlotNum)
     {
-        if (createSlot[resultSlotNum].item_Count <= 0) return;
+        if (createSlot[resultSlotNum].item_Count == 0)
+        {
+            createSlot[resultSlotNum].ClearSlot();
+            ViewItem();
+            return;
+        }
         createSlot[resultSlotNum].item_Count--;
+        ViewItem();
     }
 
     void Save()
