@@ -26,10 +26,13 @@ public class ItemManager : MonoBehaviour
     
     public Slot resultSlot; // 조합의 결과    
 
+    public CircleGauge cir_Gauge;
 
+    GameObject obj;
     private void Awake()
     {
-
+        obj= GetComponent<GameObject>();
+        
     }
     void Start()
     {
@@ -128,7 +131,7 @@ public class ItemManager : MonoBehaviour
         Save();
     }
 
-    public void CombinationItem(Slot com1, Slot com2)
+    private void CombinationItem(Slot com1, Slot com2)
     {
         int result_List_Lenght = result_List.Count;
         
@@ -141,6 +144,7 @@ public class ItemManager : MonoBehaviour
 
                 if (result_List[i].main_Count == com1.item_Count && result_List[i].sub_Count == com2.item_Count)
                 {
+                    resultSlot.item_Id = result_List[i].result_ID;
                     resultSlot.item_NameKR = result_List[i].result_Item_Name;
                     resultSlot.item_Price = result_List[i].result_Item_Price;
                 }                

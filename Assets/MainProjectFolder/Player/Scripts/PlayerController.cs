@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         
         //recipi.SetActive(isRecipiActive);
-        map.SetActive(isMapActive);
+        //map.SetActive(isMapActive);
     }
 
     private void Update()
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
        
         //recipi.SetActive(isRecipiActive);
-        map.SetActive(isMapActive);
+        //wwmap.SetActive(isMapActive);
 
         if (Input.GetMouseButtonDown(0)) Interaction();
     }
