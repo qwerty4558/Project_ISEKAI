@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +13,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float playerAttackDamage = 1f;
 
     
-    [SerializeField] GameObject recipi;
+    [SerializeField] GameObject inventory;
     [SerializeField] GameObject map;
+
+    [SerializeField] CinemachineVirtualCamera vCam;
 
     Rigidbody rigidbody;
     Animator animator;
 
     BoxCollider hitCollider;
+
+    
 
     //[SerializeField] float dashSpeed = 7f;
 
@@ -29,9 +34,13 @@ public class PlayerController : MonoBehaviour
     bool isMove = false;
     bool isRun = false;
     bool isInventoryActive = false;
-    bool isRecipiActive = false;
     bool isMapActive = false;
 
+
+    private void Awake()
+    {
+        vCam = GetComponent<CinemachineVirtualCamera>();
+    }
 
     void Start()
     {
@@ -39,9 +48,9 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
 
-        
-        //recipi.SetActive(isRecipiActive);
-        //map.SetActive(isMapActive);
+
+        inventory.SetActive(isInventoryActive);
+        map.SetActive(isMapActive);
     }
 
     private void Update()
@@ -65,8 +74,8 @@ public class PlayerController : MonoBehaviour
     private void ViewUI()
     {
        
-        //recipi.SetActive(isRecipiActive);
-        //wwmap.SetActive(isMapActive);
+        inventory.SetActive(isInventoryActive);
+        map.SetActive(isMapActive);
 
         if (Input.GetMouseButtonDown(0)) Interaction();
     }
@@ -74,7 +83,6 @@ public class PlayerController : MonoBehaviour
     private void InputCheckBool()
     {
         if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
-        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
         if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
     }
 

@@ -25,21 +25,39 @@ public class ItemManager : MonoBehaviour
     public Slot[] createSlot; // 초합창의 슬롯
     
     public Slot resultSlot; // 조합의 결과    
+    [Space]
+    public Image prograss_Circular;
+    private float max_Gauge = 1f;
+    private float gage = 0f;
+    private float ingredient_Gauge = 0f;
 
-    public CircleGauge cir_Gauge;
 
-    GameObject obj;
     private void Awake()
     {
-        obj= GetComponent<GameObject>();
         
     }
-    void Start()
+
+    private void Start()
     {
         InitItemDatabase();
         InitResultItemDatabase();
         Save();
         Load();
+    }
+
+    private void Update()
+    {
+        ProcessCirculator();
+    }
+
+    private void ProcessCirculator()
+    {
+        if (gage < ingredient_Gauge)
+        {
+            gage += Time.deltaTime * 2f;
+
+        }
+        prograss_Circular.fillAmount = gage / max_Gauge;
     }
 
     private void InitResultItemDatabase()
@@ -133,15 +151,14 @@ public class ItemManager : MonoBehaviour
 
     private void CombinationItem(Slot com1, Slot com2)
     {
-        int result_List_Lenght = result_List.Count;
-        
-        
+        int result_List_Lenght = result_List.Count;    
 
         for(int i = 0; i < result_List_Lenght; i++)
         {
             if (result_List[i].main_Ingredient_TID ==  com1.item_Id && result_List[i].sub_Ingredient_TID == com2.item_Id)
             {
-
+                ingredient_Gauge = (float)(com1.item_Count + com2.item_Count);
+                max_Gauge = (float)(result_List[i].main_Count + result_List[i].sub_Count);
                 if (result_List[i].main_Count == com1.item_Count && result_List[i].sub_Count == com2.item_Count)
                 {
                     resultSlot.item_Id = result_List[i].result_ID;
@@ -165,6 +182,8 @@ public class ItemManager : MonoBehaviour
         ViewItem();
     }
 
+    
+
     void Save()
     {
         string jdata = JsonConvert.SerializeObject(all_Items);
@@ -186,7 +205,7 @@ public class ItemManager : MonoBehaviour
 
         for(int i = 0; i < item_Lenght; i++)
         {
-            slot[i].GetComponent<Slot>().item_Count++;
+            slot[i].item_Count++;
         }
         ViewItem();
     }
