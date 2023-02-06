@@ -28,13 +28,41 @@ public class ItemManager : MonoBehaviour
     [Space]
     public Image prograss_Circular;
     private float max_Gauge = 1f;
-    private float gage = 0f;
+    private float gauge = 0f;
     private float ingredient_Gauge = 0f;
+
+    int _main_Ingrident;
+    int _sub_Ingrident;
+
+    private static ItemManager _instance = null;
+    
 
 
     private void Awake()
     {
-        
+        if(null == _instance)
+        {
+            _instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    public static ItemManager Instance
+    {
+        get
+        {
+            if(null == _instance)
+            {
+                return null;
+            }
+            return _instance;
+        }
     }
 
     private void Start()
@@ -52,12 +80,10 @@ public class ItemManager : MonoBehaviour
 
     private void ProcessCirculator()
     {
-        if (gage < ingredient_Gauge)
-        {
-            gage += Time.deltaTime * 2f;
+        ingredient_Gauge = (float)(_main_Ingrident + _sub_Ingrident);
+        gauge = ingredient_Gauge;
+        prograss_Circular.fillAmount = Mathf.Lerp(prograss_Circular.fillAmount, gauge / max_Gauge, Time.deltaTime);
 
-        }
-        prograss_Circular.fillAmount = gage / max_Gauge;
     }
 
     private void InitResultItemDatabase()
@@ -151,35 +177,68 @@ public class ItemManager : MonoBehaviour
 
     private void CombinationItem(Slot com1, Slot com2)
     {
-        int result_List_Lenght = result_List.Count;    
+        int result_List_Lenght = result_List.Count;
 
-        for(int i = 0; i < result_List_Lenght; i++)
+        
+        for (int i = 0; i < result_List_Lenght; i++)
         {
             if (result_List[i].main_Ingredient_TID ==  com1.item_Id && result_List[i].sub_Ingredient_TID == com2.item_Id)
             {
-                ingredient_Gauge = (float)(com1.item_Count + com2.item_Count);
+
+
+                if (com1.item_Count <= result_List[i].main_Count)
+                {
+                    _main_Ingrident = com1.item_Count;
+                }
+                else return;
+                if (com2.item_Count <= result_List[i].sub_Count)
+                {
+                    _sub_Ingrident = com2.item_Count;
+                }
+                else return;
+                
                 max_Gauge = (float)(result_List[i].main_Count + result_List[i].sub_Count);
-                if (result_List[i].main_Count == com1.item_Count && result_List[i].sub_Count == com2.item_Count)
+                if (result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
                 {
                     resultSlot.item_Id = result_List[i].result_ID;
                     resultSlot.item_NameKR = result_List[i].result_Item_Name;
                     resultSlot.item_Price = result_List[i].result_Item_Price;
-                }                
+                }                       
                 ViewItem();
             }            
         }
     }
 
-    public void RemoveSlotItem(int resultSlotNum)
+    public void SellItem()
     {
-        if (createSlot[resultSlotNum].item_Count == 0)
+        GameManager playerInfo = FindObjectOfType<GameManager>();
+        if(resultSlot.item_Id != 0)
         {
-            createSlot[resultSlotNum].ClearSlot();
-            ViewItem();
-            return;
+            playerInfo.player_Money += resultSlot.item_Price;
+            playerInfo.selling_Count--;
+            createSlot[0].ClearSlot();
+            createSlot[1].ClearSlot();
+            resultSlot.ClearSlot();
+            _main_Ingrident = 0;
+            _sub_Ingrident = 0;
+            
         }
-         createSlot[resultSlotNum].item_Count--;
-        ViewItem();
+    }
+    
+
+    public void RemoveSlotItem()
+    {
+        createSlot[0].item_Count = 0;
+        createSlot[1].item_Count = 0;
+
+        createSlot[0].ClearSlot();
+        createSlot[1].ClearSlot();
+
+        _main_Ingrident = 0;
+        _sub_Ingrident = 0;
+
+        ProcessCirculator();
+        ViewItem();          
     }
 
     

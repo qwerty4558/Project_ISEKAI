@@ -1,34 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour, IDamage
 {
+    public float max_HP = 5;
+    private float testval = 5;
 
-    [SerializeField] float monster_Hp = 5f;
-    [SerializeField] float monster_Attack_Damage = 1f;
-    [SerializeField] float destroy_Time;
-
-    SphereCollider col;
-
-    [SerializeField] GameObject go_Monster;
-
-    [SerializeField] GameObject go_Drop_Item;
-
+    public Image monster_HPImage;
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<SphereCollider>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if(max_HP < testval)
+        {
+            testval -= Time.deltaTime; 
+        }
+        monster_HPImage.fillAmount = testval / 5;
 
-    public void Damage(float Damage)
+        if (max_HP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+  
+    public void Damage(float damage)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Player Hit Monster");
+        max_HP -= damage;        
     }
 }

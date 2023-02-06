@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
@@ -23,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     BoxCollider hitCollider;
 
-    
+    private static PlayerController _instance;
 
     //[SerializeField] float dashSpeed = 7f;
 
@@ -39,7 +37,27 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        vCam = GetComponent<CinemachineVirtualCamera>();
+        if(null == _instance)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public static PlayerController Instance
+    {
+        get
+        {
+            if (null == _instance)
+            {
+                return null;
+            }
+            return _instance;
+        }
     }
 
     void Start()
@@ -131,7 +149,7 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
             //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }

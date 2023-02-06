@@ -24,7 +24,7 @@ public class Tree : MonoBehaviour, IDamage
     {
         col.enabled= false;
         Destroy(go_Tree);
-
+        
         go_Debris.SetActive(true);
         Destroy(go_Tree, destroy_Time);
 
@@ -42,6 +42,7 @@ public class Tree : MonoBehaviour, IDamage
 
     public void Damage(float damage)
     {
+        Debug.Log("Player Hit Tree");
         Hit(damage);
     }
 }
