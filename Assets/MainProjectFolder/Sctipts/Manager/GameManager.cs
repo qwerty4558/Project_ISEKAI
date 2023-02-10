@@ -6,13 +6,12 @@ using System.IO;
 using UnityEngine.UI;
 using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
+using Cinemachine.Editor;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-
-
-    [Header("Player Infomations")]
-    [SerializeField] protected  GameObject player_Prefab;
+    [Header("Player Infomations")]    
     [SerializeField] public  int player_Money = 0;
     [SerializeField] protected  float player_HP;
     [SerializeField] protected  int day_Count = 0;
@@ -25,89 +24,100 @@ public class GameManager : MonoBehaviour
     [Header("Shop Game Infomations")]
     [SerializeField] public int selling_Count = 10;
 
-    [Header("UI Object on Village")]
-    [SerializeField] Text countText;
-    [SerializeField] Text moneyText;
-    [SerializeField] GameObject showPressKeyText;
+    GameManager instance = null;
 
-    GameObject player;
-
-    [SerializeField] GameObject startPosition;
-
+    [Header("Is Scene Change?")]
     [SerializeField] bool isChangeScene;
 
     Vector3 player_start_Position;
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public GameManager Instance
+    {
+        get 
+        { 
+            if(instance == null)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
     private void Start()
     {
-        player_start_Position = startPosition.transform.position;
-        player = Instantiate(player_Prefab);
-        player.transform.position = player_start_Position;
+        InitGameManager();
+    }
 
+    private void InitGameManager()
+    {
         isChangeScene = false;
-        //showPressKeyText.SetActive(false);
-        countText.text = " 남은 채집 횟수 " + colected_Count.ToString();
-        moneyText.text = " G : " + player_Money.ToString();
     }
 
     private void Update()
     {
-        SetTimer();
-        UpdateUI();
+        SetMoveToOtherScene();
+        
         InputControl();
-        if (selling_Count < 0)
-        {
-            isChangeScene = true;
-        }
-        moneyText.text = " G : " + player_Money.ToString();
+        
     }
-
-    public void SetTimer()
+    public void SetMoveToOtherScene()
     {
         if (colected_Time > 0)
         {
             colected_Time -= Time.deltaTime;
         }
         else isChangeScene = true;
+        if (colected_Count == 0)
+        {
+            isChangeScene = true;
+        }
     }
 
     public void SetColectCount()
     {
         if (colected_Count > 0)
         {
-            countText.text = " 남은 채집 횟수 " + colected_Count.ToString();
+            
         }
         else isChangeScene = false;
     }
 
-    public void UpdateUI()
-    {
-        //showPressKeyText.SetActive(isChangeScene);
-    }
-
+  
     public void InputControl()
     {
         if (isChangeScene)
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                if (SceneManager.GetActiveScene().name == "v02")
+                if (SceneManager.GetActiveScene().name == "Village")
                 {
-                    SceneManager.LoadScene("TestUI");
-                    DontDestroyOnLoad(this.gameObject);
+                    isChangeScene = false;
+                    SceneManager.LoadScene("ShopScene");                    
+                    DontDestroyOnLoad(gameObject);
                     selling_Count = 10;
-                    isChangeScene = false;
                 }                    
-                else if (SceneManager.GetActiveScene().name == "TestUI")
+                else if (SceneManager.GetActiveScene().name == "ShopScene")
                 {
-                    SceneManager.LoadScene("v02");
-                    DontDestroyOnLoad(this.gameObject);
-                    colected_Time = 20f;
-                    day_Count++;
                     isChangeScene = false;
+                    SceneManager.LoadScene("Village");
+                    InitGameManager();
+                    colected_Time = 20f;                    
+                    day_Count++;                    
                 }                  
             }
         }
     }
-
 }

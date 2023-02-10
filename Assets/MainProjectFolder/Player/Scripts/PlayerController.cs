@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject map;
 
-    [SerializeField] CinemachineVirtualCamera vCam;
-
     Rigidbody rigidbody;
     Animator animator;
 

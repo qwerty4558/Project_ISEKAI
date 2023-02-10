@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,15 +12,13 @@ public class Slot : MonoBehaviour
     public string item_NameKR;
     public string item_Image_FileName;
     public int item_Price;
-    public Text text;
+    public TMP_Text text;
     public Image item_Image;
     public Sprite default_Sprite;
     
 
     private void Awake()
     {
-        text = GetComponentInChildren<Text>();
-        item_Image = transform.GetChild(0).GetComponent<Image>();
         SetDefaultSprite();
     }
 

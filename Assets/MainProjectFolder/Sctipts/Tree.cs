@@ -22,6 +22,9 @@ public class Tree : MonoBehaviour, IDamage
 
     private void Destruction()
     {
+        GameManager gamemanager = FindObjectOfType<GameManager>();
+
+        gamemanager.colected_Count--;
         col.enabled= false;
         Destroy(go_Tree);
         

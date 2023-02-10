@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public partial class FrameWork : MonoBehaviour
 {
@@ -31,12 +32,18 @@ public partial class FrameWork : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.sceneCount == 1)
+        {
+            SceneManager.LoadScene("Title", new LoadSceneParameters
+            {
+                loadSceneMode = LoadSceneMode.Additive,
+                localPhysicsMode = LocalPhysicsMode.None
+            });
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        DataTableManager.ForceDestroy();
+        _instance = null;
     }
 }
