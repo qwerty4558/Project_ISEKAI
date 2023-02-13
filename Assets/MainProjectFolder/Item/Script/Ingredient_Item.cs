@@ -28,6 +28,7 @@ public class Ingredient_Item
 [System.Serializable]
 public class Result_Item
 {
+    public int grup_ID;
     public int main_Ingredient_TID;
     public int main_Count;
     public int sub_Ingredient_TID;
@@ -39,6 +40,7 @@ public class Result_Item
 
 
     public Result_Item(
+        string _grup_ID,
         string _main_Ingredient_TID, 
         string _main_Count, 
         string _sub_Ingredient_TID, 
@@ -48,6 +50,7 @@ public class Result_Item
         string _result_Item_Price,
         string _icon_File_Name)
     {
+        grup_ID = Convert.ToInt32(_grup_ID);
         main_Ingredient_TID = Convert.ToInt32(_main_Ingredient_TID);
         main_Count = Convert.ToInt32(_main_Count);
         sub_Ingredient_TID = Convert.ToInt32(_sub_Ingredient_TID);

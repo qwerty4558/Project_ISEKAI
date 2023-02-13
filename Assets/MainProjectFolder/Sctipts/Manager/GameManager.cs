@@ -18,13 +18,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Village Game Infomations")]
     [SerializeField] public int colected_Count = 5;
-    [SerializeField] public  float colected_Time = 360f;
-    
+    [SerializeField] public  float colected_Time;
 
     [Header("Shop Game Infomations")]
     [SerializeField] public int selling_Count = 10;
 
-    GameManager instance = null;
+    [Header("Item Management")]
+    [SerializeField] TextAsset ingrident_List;
+    [SerializeField] TextAsset result_List;
+
+
+    public static GameManager instance = null;
 
     [Header("Is Scene Change?")]
     [SerializeField] bool isChangeScene;
@@ -47,7 +51,7 @@ public class GameManager : MonoBehaviour
     public GameManager Instance
     {
         get 
-        { 
+        {
             if(instance == null)
             {
                 return null;
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InitGameManager();
+        Debug.Log("Start");
     }
 
     private void InitGameManager()
@@ -104,16 +109,14 @@ public class GameManager : MonoBehaviour
             {
                 if (SceneManager.GetActiveScene().name == "Village")
                 {
-                    isChangeScene = false;
-                    SceneManager.LoadScene("ShopScene");                    
-                    DontDestroyOnLoad(gameObject);
+                    isChangeScene = false;                    
+                    LoadingSceneController.LoadScene("ShopScene");                    
                     selling_Count = 10;
                 }                    
                 else if (SceneManager.GetActiveScene().name == "ShopScene")
                 {
-                    isChangeScene = false;
-                    SceneManager.LoadScene("Village");
-                    InitGameManager();
+                    isChangeScene = false;                    
+                    LoadingSceneController.LoadScene("Village");                    
                     colected_Time = 20f;                    
                     day_Count++;                    
                 }                  

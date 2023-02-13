@@ -32,9 +32,9 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < my_Items.Count; i++)
         {
-            slot[i].item_Id = my_Items[i].id;
-            slot[i].item_Name = my_Items[i].name;
-            slot[i].item_NameKR = my_Items[i].name_KR;
+            slot[i].item_Id             = my_Items[i].id;
+            slot[i].item_Name           = my_Items[i].name;
+            slot[i].item_NameKR         = my_Items[i].name_KR;
             slot[i].item_Image_FileName = my_Items[i].icon_File_Name;
         }
 
@@ -51,9 +51,11 @@ public class Inventory : MonoBehaviour
             {
                 slot[i].SetDefaultSprite();
                 slot[i].text.text = null;
-            }
+            } 
         }
     }
+
+
 
     void Load()
     {

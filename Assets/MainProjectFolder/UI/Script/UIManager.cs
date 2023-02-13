@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NowPageSetting();
+       
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (!isUIActive)
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
             {
                 gameUI.DOMoveX(-420, 0.5f);
                 isUIActive = false;
-                inventory_Popup.SetActive(false);
+                
             }
         }
     }
@@ -61,35 +61,8 @@ public class UIManager : MonoBehaviour
     public void ClickToPage(int to_page)
     {
         now_Page = (WATCH_PAGE)to_page;
-        switch (now_Page)
-        {
-            case WATCH_PAGE.MAIN_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(388, 0.5f);
-                watch_Equipment_Page.transform.DOLocalMoveX(-400, 0.5f);
-                watch_Learning_Page.transform.DOLocalMoveX(-400, 0.5f);
-                inventory_Popup.SetActive(false);
-                break;
-            case WATCH_PAGE.EQUIPMENT_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 0.5f);
-                watch_Equipment_Page.transform.DOLocalMoveX(388, 0.5f);
-                watch_Learning_Page.transform.DOLocalMoveX(-400, 0.5f);
-                inventory_Popup.SetActive(false);
-                break;
-            case WATCH_PAGE.LEARNING_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 0.5f);
-                watch_Equipment_Page.transform.DOLocalMoveX(-400, 0.5f);
-                watch_Learning_Page.transform.DOLocalMoveX(388, 0.5f);
-                inventory_Popup.SetActive(false);
-                break;
-            case WATCH_PAGE.INVENTORY:
-                inventory_Popup.SetActive(true);
-                break;
-        }
-    }
-    
-    public void NowPageSetting()
-    {
-        
+       
+       
     }
 
 }

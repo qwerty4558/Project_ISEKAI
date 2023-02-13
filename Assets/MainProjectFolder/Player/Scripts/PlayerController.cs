@@ -10,10 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
 
-    
-    [SerializeField] GameObject inventory;
-    [SerializeField] GameObject map;
-
     Rigidbody rigidbody;
     Animator animator;
 
@@ -63,10 +59,6 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
-
-
-        inventory.SetActive(isInventoryActive);
-        map.SetActive(isMapActive);
     }
 
     private void Update()
@@ -84,15 +76,10 @@ public class PlayerController : MonoBehaviour
             PlayerSetAnimations();
         }
         else return;
-
     }
 
     private void ViewUI()
     {
-       
-        inventory.SetActive(isInventoryActive);
-        map.SetActive(isMapActive);
-
         if (Input.GetMouseButtonDown(0)) Interaction();
     }
 
@@ -129,9 +116,6 @@ public class PlayerController : MonoBehaviour
         // 입력값을 Vector3에 저장
         player_Move_Input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         player_Move_Input.Normalize(); 
-
-        //Debug.Log("input Vector : " + player_Move_Input);
-        //Debug.Log("this rotation y value : " + transform.localRotation.eulerAngles.y)
                 
         // 카메라의 Forward를 가져옴
         heading = Camera.main.transform.forward;
@@ -146,7 +130,6 @@ public class PlayerController : MonoBehaviour
 
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);

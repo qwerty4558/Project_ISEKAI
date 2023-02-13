@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Combination_Item : MonoBehaviour
 {
-    Inventory inventory;
 
     public TextAsset resultItemDatabase; // 제작완료아이템
     public List<Result_Item> result_List;
@@ -23,7 +22,7 @@ public class Combination_Item : MonoBehaviour
 
     public void Awake()
     {
-        inventory = FindObjectOfType<Inventory>();
+        
         InitResultItemDatabase();
     }
 
@@ -46,34 +45,34 @@ public class Combination_Item : MonoBehaviour
         for (int i = 0; i < line.Length; i++)
         {
             string[] row = line[i].Split("\t");
-            result_List.Add(new Result_Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7]));
+            result_List.Add(new Result_Item(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]));
         }
     }
 
     public void SlotClick(int slotNum)
     {
-        if (inventory.slot[slotNum].item_Id == 0) return;
-        if (inventory.slot[slotNum].item_Count <= 0) return;
+        if (Inventory.instance.slot[slotNum].item_Id == 0) return;
+        if (Inventory.instance.slot[slotNum].item_Count <= 0) return;
 
-        if (createSlot[0].item_Count == 0 || createSlot[0].item_Id == inventory.slot[slotNum].item_Id)
+        if (createSlot[0].item_Count == 0 || createSlot[0].item_Id == Inventory.instance.slot[slotNum].item_Id)
         {
-            inventory.slot[slotNum].item_Count--;
+            Inventory.instance.slot[slotNum].item_Count--;
 
-            createSlot[0].item_Id = inventory.slot[slotNum].item_Id;
-            createSlot[0].item_NameKR = inventory.slot[slotNum].item_NameKR;
-            createSlot[0].item_Image_FileName = inventory.slot[slotNum].item_Image_FileName;
-            createSlot[0].ImageRead();
+            createSlot[0].item_Id = Inventory.instance.slot[slotNum].item_Id;
+            createSlot[0].item_NameKR = Inventory.instance.slot[slotNum].item_NameKR;
+            createSlot[0].item_Image_FileName = Inventory.instance.slot[slotNum].item_Image_FileName;
+            createSlot[0].ImageRead();  
             createSlot[0].item_Count++;
 
             ViewItem();
         }
-        else if (createSlot[1].item_Count == 0 || createSlot[1].item_Id == inventory.slot[slotNum].item_Id)
+        else if (createSlot[1].item_Count == 0 || createSlot[1].item_Id == Inventory.instance.slot[slotNum].item_Id)
         {
-            inventory.slot[slotNum].item_Count--;
+            Inventory.instance.slot[slotNum].item_Count--;
 
-            createSlot[1].item_Id = inventory.slot[slotNum].item_Id;
-            createSlot[1].item_NameKR = inventory.slot[slotNum].item_NameKR;
-            createSlot[1].item_Image_FileName = inventory.slot[slotNum].item_Image_FileName;
+            createSlot[1].item_Id               = Inventory.instance.slot[slotNum].item_Id;
+            createSlot[1].item_NameKR           = Inventory.instance.slot[slotNum].item_NameKR;
+            createSlot[1].item_Image_FileName   = Inventory.instance.slot[slotNum].item_Image_FileName;
             createSlot[1].ImageRead();
             createSlot[1].item_Count++;
             ViewItem();

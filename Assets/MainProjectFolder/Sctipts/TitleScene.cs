@@ -15,4 +15,17 @@ public class TitleScene : MonoBehaviour
     {
         
     }
+
+    public void ClickButton(int btnNum)
+    {
+        if(btnNum == 0)
+        {
+            GameManager.instance.colected_Time = 30f; 
+            LoadingSceneController.LoadScene("Village");
+        }
+        else
+        {
+            
+        }
+    }
 }
