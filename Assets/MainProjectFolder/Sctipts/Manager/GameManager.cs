@@ -18,14 +18,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Village Game Infomations")]
     [SerializeField] public int colected_Count = 5;
-    [SerializeField] public  float colected_Time;
+    [SerializeField] public float colected_Time;
 
     [Header("Shop Game Infomations")]
     [SerializeField] public int selling_Count = 10;
-
-    [Header("Item Management")]
-    [SerializeField] TextAsset ingrident_List;
-    [SerializeField] TextAsset result_List;
 
 
     public static GameManager instance = null;

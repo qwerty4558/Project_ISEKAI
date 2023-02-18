@@ -12,7 +12,7 @@ public class Slot : MonoBehaviour
     public string item_NameKR;
     public string item_Image_FileName;
     public int item_Price;
-    public TMP_Text text;
+    public TMP_Text count_Text;
     public Image item_Image;
     public Sprite default_Sprite;
     

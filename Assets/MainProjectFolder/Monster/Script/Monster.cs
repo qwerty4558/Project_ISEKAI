@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour, IDamage
         {
             testval -= Time.deltaTime; 
         }
-        monster_HPImage.fillAmount = testval / 5;
+        //monster_HPImage.fillAmount = testval / 5;
 
         if (max_HP <= 0)
         {

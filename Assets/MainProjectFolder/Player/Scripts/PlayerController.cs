@@ -14,9 +14,6 @@ public class PlayerController : MonoBehaviour
     Animator animator;
 
     BoxCollider hitCollider;
-
-    private static PlayerController _instance;
-
     //[SerializeField] float dashSpeed = 7f;
 
     Vector3 player_Move_Input;
@@ -27,32 +24,6 @@ public class PlayerController : MonoBehaviour
     bool isRun = false;
     bool isInventoryActive = false;
     bool isMapActive = false;
-
-
-    private void Awake()
-    {
-        if(null == _instance)
-        {
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    public static PlayerController Instance
-    {
-        get
-        {
-            if (null == _instance)
-            {
-                return null;
-            }
-            return _instance;
-        }
-    }
 
     void Start()
     {

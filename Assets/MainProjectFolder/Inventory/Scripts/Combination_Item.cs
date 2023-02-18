@@ -35,7 +35,7 @@ public class Combination_Item : MonoBehaviour
     {
         ingredient_Gauge = (float)(_main_Ingrident + _sub_Ingrident);
         gauge = ingredient_Gauge;
-        prograss_Circular.fillAmount = Mathf.Lerp(prograss_Circular.fillAmount, gauge / max_Gauge, Time.deltaTime);
+       // prograss_Circular.fillAmount = Mathf.Lerp(prograss_Circular.fillAmount, gauge / max_Gauge, Time.deltaTime);
 
     }
 
@@ -58,9 +58,9 @@ public class Combination_Item : MonoBehaviour
         {
             Inventory.instance.slot[slotNum].item_Count--;
 
-            createSlot[0].item_Id = Inventory.instance.slot[slotNum].item_Id;
-            createSlot[0].item_NameKR = Inventory.instance.slot[slotNum].item_NameKR;
-            createSlot[0].item_Image_FileName = Inventory.instance.slot[slotNum].item_Image_FileName;
+            createSlot[0].item_Id               = Inventory.instance.slot[slotNum].item_Id;
+            createSlot[0].item_NameKR           = Inventory.instance.slot[slotNum].item_NameKR;
+            createSlot[0].item_Image_FileName   = Inventory.instance.slot[slotNum].item_Image_FileName;
             createSlot[0].ImageRead();  
             createSlot[0].item_Count++;
 
@@ -104,9 +104,9 @@ public class Combination_Item : MonoBehaviour
                 max_Gauge = (float)(result_List[i].main_Count + result_List[i].sub_Count);
                 if (result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
                 {
-                    resultSlot.item_Id = result_List[i].result_ID;
-                    resultSlot.item_NameKR = result_List[i].result_Item_Name;
-                    resultSlot.item_Price = result_List[i].result_Item_Price;
+                    resultSlot.item_Id      = result_List[i].result_ID;
+                    resultSlot.item_NameKR  = result_List[i].result_Item_Name;
+                    resultSlot.item_Price   = result_List[i].result_Item_Price;
                 }
                 ViewItem();
             }
@@ -115,11 +115,10 @@ public class Combination_Item : MonoBehaviour
 
     public void SellItem()
     {
-        GameManager playerInfo = FindObjectOfType<GameManager>();
         if (resultSlot.item_Id != 0)
         {
-            playerInfo.player_Money += resultSlot.item_Price;
-            playerInfo.selling_Count--;
+            GameManager.instance.player_Money += resultSlot.item_Price;
+            GameManager.instance.selling_Count--;
             createSlot[0].ClearSlot();
             createSlot[1].ClearSlot();
             resultSlot.ClearSlot();
@@ -144,10 +143,10 @@ public class Combination_Item : MonoBehaviour
     public void ViewItem()
     {
         // 조합 아이템 슬롯 출력
-        createSlot[0].text.text = createSlot[0].item_NameKR + createSlot[0].item_Count;
-        createSlot[1].text.text = createSlot[1].item_NameKR + createSlot[1].item_Count;
+        createSlot[0].count_Text.text = createSlot[0].item_NameKR + createSlot[0].item_Count;
+        createSlot[1].count_Text.text = createSlot[1].item_NameKR + createSlot[1].item_Count;
 
         // 결과 아이템 슬롯 출력
-        resultSlot.text.text = resultSlot.item_NameKR + "\n" + resultSlot.item_Price;
+        resultSlot.count_Text.text = resultSlot.item_NameKR + "\n" + resultSlot.item_Price;
     }
 }

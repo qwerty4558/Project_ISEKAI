@@ -25,12 +25,12 @@ public class Inventory : MonoBehaviour
         { 
             Destroy(this.gameObject);
         }
-        this.gameObject.SetActive(false);
+        
     }
 
     public void ViewItem()
     {
-        for (int i = 0; i < my_Items.Count; i++)
+        for (int i = 0; i < my_Items.Count; i++) // 저장되어 있는 아이템 리스트 들을 각 슬롯에 저장
         {
             slot[i].item_Id             = my_Items[i].id;
             slot[i].item_Name           = my_Items[i].name;
@@ -44,14 +44,14 @@ public class Inventory : MonoBehaviour
         {
             if (slot[i].item_Id != 0)
             {
-                slot[i].text.text = i < my_Items.Count ? slot[i].item_Count.ToString() : "";
+                slot[i].count_Text.text = i < my_Items.Count ? slot[i].item_Count.ToString() : "";
                 slot[i].ImageRead();
             }
             else
             {
                 slot[i].SetDefaultSprite();
-                slot[i].text.text = null;
-            } 
+                slot[i].count_Text.text = null;
+            }
         }
     }
 
