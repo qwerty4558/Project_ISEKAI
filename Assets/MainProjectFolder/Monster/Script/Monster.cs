@@ -11,9 +11,9 @@ public class Monster : MonoBehaviour, IDamage
 
     SphereCollider col;
 
-    [SerializeField] GameObject go_Monster;
+    //[SerializeField] GameObject go_Monster;
 
-    [SerializeField] GameObject go_Drop_Item;
+    //[SerializeField] GameObject go_Drop_Item;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,10 @@ public class Monster : MonoBehaviour, IDamage
 
     public void Damage(float Damage)
     {
-        throw new System.NotImplementedException();
+        monster_Hp -= Damage;
+        if (monster_Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

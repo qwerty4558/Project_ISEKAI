@@ -46,22 +46,8 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
 
     private void Update()
     {
-<<<<<<< Updated upstream
         InputCheckBool();
         ViewUI();
-=======
-        InputUIController();
-        Interaction();
-        ViewUI();
-    }
-
-    private void InputUIController()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
-        if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
-        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
-        if (Input.GetMouseButton(0)) isAction = !isAction;
->>>>>>> Stashed changes
     }
 
     void FixedUpdate()
@@ -75,14 +61,11 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
         else return;
     }
 
-<<<<<<< Updated upstream
     private void ViewUI()
     {
         inventory.SetActive(isInventoryActive);
         recipi.SetActive(isRecipiActive);
         map.SetActive(isMapActive);
-
-        if (Input.GetMouseButton(0)) Interaction();
     }
 
     private void InputCheckBool()
@@ -90,18 +73,10 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
         if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
         if (Input.GetKeyDown(KeyCode.R)) isRecipiActive = !isRecipiActive;
         if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
-=======
-
-    private void ViewUI()
-    {
-        inventory.SetActive(isInventoryActive);
-        recipi.SetActive(isRecipiActive);
-        map.SetActive(isMapActive);
->>>>>>> Stashed changes
+        if (Input.GetMouseButtonDown(0)) Interaction();
     }
-
     private void Interaction()
-    {        
+    {
         Ray ray = new Ray
         {
             origin = transform.position,
@@ -118,12 +93,6 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
                 damage.Damage(playerAttackDamage);
                 Debug.Log("Attack");
             }
-
-            Tree tree = hit.collider.GetComponent<Tree>();
-            if (tree != null)
-            {
-                tree.Damage(playerAttackDamage);
-            }
         }
     }
 
@@ -132,11 +101,11 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
     {
         // 입력값을 Vector3에 저장
         player_Move_Input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        player_Move_Input.Normalize(); 
+        player_Move_Input.Normalize();
 
         //Debug.Log("input Vector : " + player_Move_Input);
         //Debug.Log("this rotation y value : " + transform.localRotation.eulerAngles.y)
-                
+
         // 카메라의 Forward를 가져옴
         heading = Camera.main.transform.forward;
         heading.y = 0;
@@ -174,11 +143,6 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
         }
     }
 
-    private void Interaction()
-    {
-
-    }
-
     private void PlayerSetAnimations()
     {
         animator.SetBool("isWalk", isMove);
@@ -189,4 +153,5 @@ public class PlayerController : MonoBehaviour, IAttack, IChackObj
     {
         throw new System.NotImplementedException();
     }
+
 }
