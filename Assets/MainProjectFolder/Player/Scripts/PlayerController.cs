@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [SerializeField] float moveSpeed = 4f;
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
-
-    Rigidbody rigidbody;
+    [SerializeField] string now_Scene;
     Animator animator;
 
     BoxCollider hitCollider;
@@ -27,15 +26,13 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
-        InputCheckBool();
-        ViewUI();
+        if (Input.GetMouseButtonDown(0)) Interaction();
     }
 
     void FixedUpdate()
@@ -47,17 +44,6 @@ public class PlayerController : MonoBehaviour
             PlayerSetAnimations();
         }
         else return;
-    }
-
-    private void ViewUI()
-    {
-        if (Input.GetMouseButtonDown(0)) Interaction();
-    }
-
-    private void InputCheckBool()
-    {
-        if (Input.GetKeyDown(KeyCode.I)) isInventoryActive = !isInventoryActive;
-        if (Input.GetKeyDown(KeyCode.M)) isMapActive = !isMapActive;
     }
 
     private void Interaction()

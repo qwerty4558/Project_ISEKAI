@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
         InitItemDatabase();        
         Save();
     }
-
+    
     private void Update()
     {
 

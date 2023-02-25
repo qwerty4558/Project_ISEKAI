@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         if (colected_Count > 0)
         {
-            
+            isChangeScene = true;
         }
         else isChangeScene = false;
     }

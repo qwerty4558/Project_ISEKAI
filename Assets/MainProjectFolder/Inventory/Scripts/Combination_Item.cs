@@ -51,28 +51,28 @@ public class Combination_Item : MonoBehaviour
 
     public void SlotClick(int slotNum)
     {
-        if (Inventory.instance.slot[slotNum].item_Id == 0) return;
-        if (Inventory.instance.slot[slotNum].item_Count <= 0) return;
+        if (Inventory.Instance.slot[slotNum].item_Id == 0) return;
+        if (Inventory.Instance.slot[slotNum].item_Count <= 0) return;
 
-        if (createSlot[0].item_Count == 0 || createSlot[0].item_Id == Inventory.instance.slot[slotNum].item_Id)
+        if (createSlot[0].item_Count == 0 || createSlot[0].item_Id == Inventory.Instance.slot[slotNum].item_Id)
         {
-            Inventory.instance.slot[slotNum].item_Count--;
+            Inventory.Instance.slot[slotNum].item_Count--;
 
-            createSlot[0].item_Id               = Inventory.instance.slot[slotNum].item_Id;
-            createSlot[0].item_NameKR           = Inventory.instance.slot[slotNum].item_NameKR;
-            createSlot[0].item_Image_FileName   = Inventory.instance.slot[slotNum].item_Image_FileName;
+            createSlot[0].item_Id               = Inventory.Instance.slot[slotNum].item_Id;
+            createSlot[0].item_NameKR           = Inventory.Instance.slot[slotNum].item_NameKR;
+            createSlot[0].item_Image_FileName   = Inventory.Instance.slot[slotNum].item_Image_FileName;
             createSlot[0].ImageRead();  
             createSlot[0].item_Count++;
 
             ViewItem();
         }
-        else if (createSlot[1].item_Count == 0 || createSlot[1].item_Id == Inventory.instance.slot[slotNum].item_Id)
+        else if (createSlot[1].item_Count == 0 || createSlot[1].item_Id == Inventory.Instance.slot[slotNum].item_Id)
         {
-            Inventory.instance.slot[slotNum].item_Count--;
+            Inventory.Instance.slot[slotNum].item_Count--;
 
-            createSlot[1].item_Id               = Inventory.instance.slot[slotNum].item_Id;
-            createSlot[1].item_NameKR           = Inventory.instance.slot[slotNum].item_NameKR;
-            createSlot[1].item_Image_FileName   = Inventory.instance.slot[slotNum].item_Image_FileName;
+            createSlot[1].item_Id               = Inventory.Instance.slot[slotNum].item_Id;
+            createSlot[1].item_NameKR           = Inventory.Instance.slot[slotNum].item_NameKR;
+            createSlot[1].item_Image_FileName   = Inventory.Instance.slot[slotNum].item_Image_FileName;
             createSlot[1].ImageRead();
             createSlot[1].item_Count++;
             ViewItem();

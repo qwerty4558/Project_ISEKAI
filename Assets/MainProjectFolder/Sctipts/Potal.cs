@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Potal : MonoBehaviour
 {
-    [SerializeField] string to_Scene;
-    [SerializeField] string from_Scene;
+    [SerializeField] string to_Scene_Name;
+    private PlayerController player;
+
+    private void Start()
+    {
+        if(player == null)
+        {
+            player = FindObjectOfType<PlayerController>();
+        }
+    }
 
     public void Move_Scene()
     {
-        LoadingSceneController.LoadScene(to_Scene);        
+        LoadingSceneController.LoadScene(to_Scene_Name);        
     }
 
     private void OnTriggerEnter(Collider other)

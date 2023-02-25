@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour
+public class Inventory : SingletonMonoBehaviour<Inventory>
 {
-    public static Inventory instance;
-
     public List<Ingredient_Item> my_Items;
 
     public Slot[] slot; // 인벤토리의 슬롯
@@ -15,17 +13,7 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            Load();
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        { 
-            Destroy(this.gameObject);
-        }
-        
+        Load();
     }
 
     public void ViewItem()
