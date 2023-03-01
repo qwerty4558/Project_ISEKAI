@@ -5,6 +5,13 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 {
 	Properties
 	{
+		[Enum(Front, 2, Back, 1, Both, 0)] _Cull ("Render Face", Float) = 2.0
+		[TCP2ToggleNoKeyword] _ZWrite ("Depth Write", Float) = 1.0
+		[HideInInspector] _RenderingMode ("rendering mode", Float) = 0.0
+		[HideInInspector] _SrcBlend ("blending source", Float) = 1.0
+		[HideInInspector] _DstBlend ("blending destination", Float) = 0.0
+		[TCP2Separator]
+
 		[TCP2HeaderHelp(Base)]
 		_BaseColor ("Color", Color) = (1,1,1,1)
 		[TCP2ColorNoAlpha] _HColor ("Highlight Color", Color) = (0.75,0.75,0.75,1)
@@ -97,8 +104,10 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 			{
 				"LightMode"="UniversalForward"
 			}
+		Blend [_SrcBlend] [_DstBlend]
+		Cull [_Cull]
+		ZWrite [_ZWrite]
 			AlphaToMask On
-			Cull Back
 
 			HLSLPROGRAM
 			// Required to compile gles 2.0 with standard SRP library
@@ -129,6 +138,10 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 
 			#pragma vertex Vertex
 			#pragma fragment Fragment
+
+			//--------------------------------------
+			// Toony Colors Pro 2 keywords
+		#pragma shader_feature_local _ _ALPHAPREMULTIPLY_ON
 
 			// vertex input
 			struct Attributes
@@ -349,6 +362,11 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 				// apply ambient
 				color += indirectDiffuse;
 
+				// Premultiply blending
+				#if defined(_ALPHAPREMULTIPLY_ON)
+					color.rgb *= alpha;
+				#endif
+
 				color += emission;
 
 				return half4(color, alpha);
@@ -526,7 +544,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 			AlphaToMask On
 			ZWrite On
 			ColorMask 0
-			Cull Back
+			Cull [_Cull]
 
 			HLSLPROGRAM
 
@@ -554,5 +572,5 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 	CustomEditor "ToonyColorsPro.ShaderGenerator.MaterialInspector_SG2"
 }
 
-/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","WIND_ANIM_SIN","TEMPLATE_LWRP"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
-/* TCP_HASH 9c4e627b29308875d646d1ff56283145 */
+/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","AUTO_TRANSPARENT_BLENDING","WIND_ANIM_SIN","TEMPLATE_LWRP"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
+/* TCP_HASH 535be9454c860bf2003ee838d313e0de */
