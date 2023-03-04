@@ -21,7 +21,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     bool isMove = false;
     bool isRun = false;
-    bool isInventoryActive = false;
     bool isMapActive = false;
 
     void Start()

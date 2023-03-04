@@ -106,10 +106,10 @@ public class GameManager : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "Village")
                 {
                     isChangeScene = false;                    
-                    LoadingSceneController.LoadScene("ShopScene");                    
+                    LoadingSceneController.LoadScene("Shop");                    
                     selling_Count = 10;
                 }                    
-                else if (SceneManager.GetActiveScene().name == "ShopScene")
+                else if (SceneManager.GetActiveScene().name == "Shop")
                 {
                     isChangeScene = false;                    
                     LoadingSceneController.LoadScene("Village");                    

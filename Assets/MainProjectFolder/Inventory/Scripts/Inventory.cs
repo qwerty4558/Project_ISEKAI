@@ -20,9 +20,9 @@ public class Inventory : SingletonMonoBehaviour<Inventory>
     {
         for (int i = 0; i < my_Items.Count; i++) // 저장되어 있는 아이템 리스트 들을 각 슬롯에 저장
         {
-            slot[i].item_Id             = my_Items[i].id;
-            slot[i].item_Name           = my_Items[i].name;
-            slot[i].item_NameKR         = my_Items[i].name_KR;
+            slot[i].item_Id            = my_Items[i].id;
+            slot[i].item_Name          = my_Items[i].name;
+            slot[i].item_NameKR        = my_Items[i].name_KR;
             slot[i].item_Image_FileName = my_Items[i].icon_File_Name;
         }
 

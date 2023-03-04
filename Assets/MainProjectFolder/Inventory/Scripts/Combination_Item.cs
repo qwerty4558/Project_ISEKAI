@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Combination_Item : MonoBehaviour
 {
-
     public TextAsset resultItemDatabase; // 제작완료아이템
     public List<Result_Item> result_List;
     public Slot[] createSlot; // 초합창의 슬롯
@@ -21,8 +20,7 @@ public class Combination_Item : MonoBehaviour
     int _sub_Ingrident;
 
     public void Awake()
-    {
-        
+    {        
         InitResultItemDatabase();
     }
 
@@ -58,9 +56,9 @@ public class Combination_Item : MonoBehaviour
         {
             Inventory.Instance.slot[slotNum].item_Count--;
 
-            createSlot[0].item_Id               = Inventory.Instance.slot[slotNum].item_Id;
-            createSlot[0].item_NameKR           = Inventory.Instance.slot[slotNum].item_NameKR;
-            createSlot[0].item_Image_FileName   = Inventory.Instance.slot[slotNum].item_Image_FileName;
+            createSlot[0].item_Id                               = Inventory.Instance.slot[slotNum].item_Id;
+            createSlot[0].item_NameKR                    = Inventory.Instance.slot[slotNum].item_NameKR;
+            createSlot[0].item_Image_FileName      = Inventory.Instance.slot[slotNum].item_Image_FileName;
             createSlot[0].ImageRead();  
             createSlot[0].item_Count++;
 
@@ -70,9 +68,9 @@ public class Combination_Item : MonoBehaviour
         {
             Inventory.Instance.slot[slotNum].item_Count--;
 
-            createSlot[1].item_Id               = Inventory.Instance.slot[slotNum].item_Id;
-            createSlot[1].item_NameKR           = Inventory.Instance.slot[slotNum].item_NameKR;
-            createSlot[1].item_Image_FileName   = Inventory.Instance.slot[slotNum].item_Image_FileName;
+            createSlot[1].item_Id                              = Inventory.Instance.slot[slotNum].item_Id;
+            createSlot[1].item_NameKR                   = Inventory.Instance.slot[slotNum].item_NameKR;
+            createSlot[1].item_Image_FileName     = Inventory.Instance.slot[slotNum].item_Image_FileName;
             createSlot[1].ImageRead();
             createSlot[1].item_Count++;
             ViewItem();

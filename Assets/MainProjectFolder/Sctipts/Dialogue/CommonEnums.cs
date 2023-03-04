@@ -1,8 +1,8 @@
 public enum EWorkTable : int
 {
     None = 0,
-    Smithy = 1,
-    Carpentry = 2,
+    Carpentry = 1,
+    Smithy = 2,
     Alchemy = 3,
 }
 

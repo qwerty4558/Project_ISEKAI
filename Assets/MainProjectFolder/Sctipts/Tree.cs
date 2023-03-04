@@ -15,16 +15,22 @@ public class Tree : MonoBehaviour, IDamage
 
     [SerializeField] GameObject go_Debris;
 
+    [SerializeField] Outline _outline;
+
     private void Start()
     {
         col = GetComponent<SphereCollider>();
+        _outline = GetComponent<Outline>();
+    }
+    
+    void Update()
+    {
+        _outline.OutlineWidth = 2f;
     }
 
     private void Destruction()
     {
-        GameManager gamemanager = FindObjectOfType<GameManager>();
-
-        gamemanager.colected_Count--;
+        GameManager.instance.colected_Count--;
         col.enabled= false;
         Destroy(go_Tree);
         
