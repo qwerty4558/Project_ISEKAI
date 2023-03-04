@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static bool _shuttingDown = false;
     private static object _lock = new object();
     private static T _instance;
-
-
 
     public static T Instance
     {
@@ -16,7 +15,6 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
             {
                 return null;
             }
-
 
             lock (_lock)
             {
@@ -35,6 +33,7 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
                         DontDestroyOnLoad(singletObject);
                     }
                 }
+
                 return _instance;
             }
         }
