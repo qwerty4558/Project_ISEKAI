@@ -1,53 +1,61 @@
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingSceneController : MonoBehaviour
+public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneController>
 {
-    static string nextScene;
+    private bool loadingFlag = false;
 
-    [SerializeField]
-    Image prograssBar;
+    [SerializeField] private GameObject visualGroupObj;
+    [SerializeField] private Slider progressBar;
+    [SerializeField] private DOTweenAnimation coverAnimation;
 
-    public static void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        nextScene = sceneName;
-        SceneManager.LoadScene("Loading_Scene");
+        if (loadingFlag) return;
+
+        StopAllCoroutines();
+        StartCoroutine(Cor_LoadNewScene(sceneName));
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public IEnumerator YieldLoadScene(string sceneName)
     {
-        StartCoroutine(LoadSceneProcess()); 
+        if (loadingFlag) yield return null;
+
+        StopAllCoroutines();
+        yield return StartCoroutine(Cor_LoadNewScene(sceneName));
     }
 
-    IEnumerator LoadSceneProcess()
+    private IEnumerator Cor_LoadNewScene(string SceneName)
     {
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
-        op.allowSceneActivation = false;
+        loadingFlag = true;
 
+        var async = SceneManager.LoadSceneAsync(SceneName);
+       // async.allowSceneActivation = false;
 
-        float timer = 0f;
-        while(!op.isDone)
+        var tw = coverAnimation.tween;
+        coverAnimation.DORestartById("Loader_Close");
+        yield return tw.WaitForCompletion();
+
+        visualGroupObj.SetActive(true);
+
+        for(float asy = async.progress; async.progress < 0.9f;)
         {
-            yield return null;
-
-            if(op.progress < 0.9f)
-            {
-                prograssBar.fillAmount = op.progress;
-            }
-            else
-            {
-                timer += Time.unscaledDeltaTime;
-                prograssBar.fillAmount = Mathf.Lerp(0.9f,1f,timer);
-                if(prograssBar.fillAmount >= 1f)
-                {
-                    op.allowSceneActivation = true;
-                    yield break;
-                }
-            }
+            progressBar.value = asy / 0.9f;
+            yield return asy;
         }
+
+        yield return new WaitForEndOfFrame();
+
+      //  async.allowSceneActivation = true;
+
+        coverAnimation.DORestartById("Loader_Open");
+        yield return tw.WaitForCompletion();
+
+        visualGroupObj.SetActive(false);
+        loadingFlag = false;
     }
 }
