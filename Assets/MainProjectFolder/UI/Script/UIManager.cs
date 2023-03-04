@@ -86,7 +86,6 @@ public class UIManager : MonoBehaviour
                 map_Page.transform.DOLocalMoveX(-400, 1);
                 recipe_Page.transform.DOLocalMoveX(388, 1);
                 break;
-        }
-       
+        }       
     }
 }

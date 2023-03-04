@@ -9,7 +9,7 @@ public class Potal : MonoBehaviour
 
     private void Start()
     {
-        if(player == null)
+        if (player == null)
         {
             player = FindObjectOfType<PlayerController>();
         }
@@ -17,12 +17,12 @@ public class Potal : MonoBehaviour
 
     public void Move_Scene()
     {
-        LoadingSceneController.LoadScene(to_Scene_Name);        
+        LoadingSceneController.LoadScene(to_Scene_Name);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-        Move_Scene();
+        if (other.CompareTag("Player"))
+            Move_Scene();
     }
 }
