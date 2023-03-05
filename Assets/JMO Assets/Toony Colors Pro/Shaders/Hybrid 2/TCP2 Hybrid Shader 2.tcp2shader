@@ -281,7 +281,8 @@ Shader "Toony Colors Pro 2/Hybrid Shader 2"
 
 			// -------------------------------------
 			// Universal Render Pipeline keywords
-			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN     /*** OPTION: "Main Light Shadows (URP)" ***/
+			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS            /*** OPTION: "Main Light Shadows (URP)" ***/
+			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE    /*** OPTION: "Main Light Shadows (URP)" ***/
 			#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS     /*** OPTION: "Additional Lights (URP)" ***/
 			#pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS    /*** OPTION: "Additional Lights Shadows" ***/
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT    /*** OPTION: "Soft Shadows (URP)" ***/
