@@ -27,6 +27,7 @@ public class Combination_Item : MonoBehaviour
     public void Update()
     {
         ProcessCirculator();
+        ViewItem();
     }
 
     private void ProcessCirculator()

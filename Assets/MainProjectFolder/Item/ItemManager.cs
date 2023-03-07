@@ -36,6 +36,5 @@ public class ItemManager : MonoBehaviour
     {
         string jdata = JsonConvert.SerializeObject(all_Items);
         File.WriteAllText(Application.dataPath + "/MainProjectFolder/Item/ItemDatabase/MyItemText.txt", jdata);        
-        //TabClick(curType);
     }
 }

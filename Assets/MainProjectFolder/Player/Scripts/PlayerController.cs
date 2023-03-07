@@ -10,7 +10,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
     [SerializeField] string now_Scene;
+    [SerializeField] Camera mainCam;
+
     Animator animator;
+
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -21,7 +24,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     bool isMove = false;
     bool isRun = false;
-    bool isMapActive = false;
+
+    bool idleB = false;
+
+    [SerializeField]float idleChangeTime = 5.5f;
+
 
     void Start()
     {
@@ -36,13 +43,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void FixedUpdate()
     {
-        if (!isMapActive)
-        {
             Move();
             Player_Run();
-            PlayerSetAnimations();
-        }
-        else return;
+            PlayerSetAnimations();        
     }
 
     private void Interaction()
@@ -111,7 +114,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     }
     private void PlayerSetAnimations()
     {
+        if (!isRun && !isMove)
+        {
+            idleChangeTime -= Time.deltaTime;
+            if (idleChangeTime <= 0)
+            {
+                idleB = !idleB;
+                idleChangeTime = 5.5f;
+            }
+            animator.SetBool("IdleB", idleB);
+        }
+
         animator.SetBool("isWalk", isMove);
-        animator.SetBool("isJog", isRun);
+        animator.SetBool("isRun", isRun);
     }
 }
