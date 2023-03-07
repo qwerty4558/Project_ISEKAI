@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    public GameObject portal;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,15 @@ public class Portal : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag(""))
+        if (col.CompareTag("ForestMove"))
         {
             SceneManager.LoadScene("L_forest");
         }
 
-        else if (col.CompareTag(""))
+     /*   else if (col.gameObject.tag.Equals("MineMove"))
+        {
+
+        }*/
     }
 
 }
