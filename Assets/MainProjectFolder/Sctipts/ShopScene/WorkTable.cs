@@ -48,6 +48,7 @@ public class WorkTable
         for(int i =0; i < combinationPanelLengh; ++i)
         {
             combinataionPanel[i].transform.DOLocalMoveY(-217, 1);
+            combinataionPanel[i].gameObject.SetActive(false);
         }
     }
 
@@ -60,22 +61,32 @@ public class WorkTable
                 for(int i = 0;i < length; ++i)
                 {
                     combinataionPanel[i].transform.DOLocalMoveY(-217, 1);
+                    combinataionPanel[i].gameObject.SetActive(false);
                 }
                 break;
             case EWorkTable.Carpentry:
-                combinataionPanel[0].transform.DOLocalMoveY(500, 1);
+                combinataionPanel[0].transform.DOLocalMoveY(700, 1);
+                combinataionPanel[0].gameObject.SetActive(true);
                 combinataionPanel[1].transform.DOLocalMoveY(-217, 1);
+                combinataionPanel[1].gameObject.SetActive(false);
                 combinataionPanel[2].transform.DOLocalMoveY(-217, 1);
+                combinataionPanel[2].gameObject.SetActive(false);
                 break;
             case EWorkTable.Smithy:
                 combinataionPanel[0].transform.DOLocalMoveY(-217, 1);
-                combinataionPanel[1].transform.DOLocalMoveY(500, 1);
+                combinataionPanel[0].gameObject.SetActive(false);
+                combinataionPanel[1].transform.DOLocalMoveY(700, 1);
+                combinataionPanel[1].gameObject.SetActive(true);
                 combinataionPanel[2].transform.DOLocalMoveY(-217, 1);
+                combinataionPanel[2].gameObject.SetActive(false);
                 break;
             case EWorkTable.Alchemy:
                 combinataionPanel[0].transform.DOLocalMoveY(-217, 1);
+                combinataionPanel[0].gameObject.SetActive(false);
                 combinataionPanel[1].transform.DOLocalMoveY(-217, 1);
-                combinataionPanel[2].transform.DOLocalMoveY(500, 1);
+                combinataionPanel[1].gameObject.SetActive(false);
+                combinataionPanel[2].transform.DOLocalMoveY(700, 1);
+                combinataionPanel[2].gameObject.SetActive(true);
                 break;
         }
     }

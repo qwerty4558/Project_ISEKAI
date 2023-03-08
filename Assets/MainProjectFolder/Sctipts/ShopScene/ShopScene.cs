@@ -5,7 +5,8 @@ using DG.Tweening;
 
 public class ShopScene : MonoBehaviour
 {
-    [SerializeField] Canvas shopCanvas;
+    [SerializeField] GameObject _inventory;
+    [SerializeField] GameObject _resultPanel;
     public WorkTable workTableSelector;
     private void Awake()
     {
@@ -21,5 +22,6 @@ public class ShopScene : MonoBehaviour
     void Update()
     {
         workTableSelector.Tick();
+        Inventory.Instance.ViewItem();
     }
 }

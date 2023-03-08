@@ -43,7 +43,15 @@ public class Inventory : SingletonMonoBehaviour<Inventory>
         }
     }
 
+    public void AllPlusItem() 
+    {
+        int slotLenght = slot.Length;
 
+        for(int i = 0; i < slotLenght; ++i)
+        {
+            slot[i].item_Count++;
+        }
+    }
 
     void Load()
     {

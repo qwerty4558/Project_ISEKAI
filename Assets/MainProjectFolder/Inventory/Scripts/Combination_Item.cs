@@ -11,16 +11,16 @@ public class Combination_Item : MonoBehaviour
     public Slot[] createSlot; // 초합창의 슬롯
     public Slot resultSlot; // 조합의 결과    
 
-    public Image prograss_Circular;
-    private float max_Gauge = 1f;
-    private float gauge = 0f;
+    public int _grupID;   
+    
     private float ingredient_Gauge = 0f;
 
     int _main_Ingrident;
     int _sub_Ingrident;
 
     public void Awake()
-    {        
+    {
+        RemoveSlotItem();
         InitResultItemDatabase();
     }
 
@@ -33,7 +33,6 @@ public class Combination_Item : MonoBehaviour
     private void ProcessCirculator()
     {
         ingredient_Gauge = (float)(_main_Ingrident + _sub_Ingrident);
-        gauge = ingredient_Gauge;
        // prograss_Circular.fillAmount = Mathf.Lerp(prograss_Circular.fillAmount, gauge / max_Gauge, Time.deltaTime);
 
     }
@@ -100,8 +99,7 @@ public class Combination_Item : MonoBehaviour
                 }
                 else return;
 
-                max_Gauge = (float)(result_List[i].main_Count + result_List[i].sub_Count);
-                if (result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
+                if (result_List[i].grup_ID == _grupID &&result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
                 {
                     resultSlot.item_Id      = result_List[i].result_ID;
                     resultSlot.item_NameKR  = result_List[i].result_Item_Name;
@@ -142,8 +140,8 @@ public class Combination_Item : MonoBehaviour
     public void ViewItem()
     {
         // 조합 아이템 슬롯 출력
-        createSlot[0].count_Text.text = createSlot[0].item_NameKR + createSlot[0].item_Count;
-        createSlot[1].count_Text.text = createSlot[1].item_NameKR + createSlot[1].item_Count;
+        createSlot[0].count_Text.text =  createSlot[0].item_Count.ToString();
+        createSlot[1].count_Text.text =  createSlot[1].item_Count.ToString();
 
         // 결과 아이템 슬롯 출력
         resultSlot.count_Text.text = resultSlot.item_NameKR + "\n" + resultSlot.item_Price;

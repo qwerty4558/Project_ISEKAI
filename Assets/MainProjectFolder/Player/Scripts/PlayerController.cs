@@ -10,7 +10,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
     [SerializeField] string now_Scene;
-    [SerializeField] Camera mainCam;
+
 
     Animator animator;
 
