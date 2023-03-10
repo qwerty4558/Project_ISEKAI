@@ -6,14 +6,12 @@ using UnityEngine;
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [SerializeField] float moveSpeed = 4f;
-    [SerializeField] float rotateSpeed = 40f;
+    [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
     [SerializeField] string now_Scene;
 
-
     Animator animator;
-
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -83,13 +81,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         heading = heading - player_Move_Input;
 
+
         if (player_Move_Input != Vector3.zero)
         {
             isMove = true;
 
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, (angle), 0), Time.deltaTime * rotateSpeed);
 
             transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         }

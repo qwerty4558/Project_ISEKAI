@@ -12,7 +12,7 @@ enum WATCH_PAGE
 }
 
 public class UI_VillageScene : MonoBehaviour
-{
+{    
     public Transform gameUI;
     [Header("Children Page")]
     [SerializeField] GameObject watch_Main_Page;
@@ -32,7 +32,7 @@ public class UI_VillageScene : MonoBehaviour
         watch_Main_Page.transform.DOLocalMoveX(388, 1);
         inventory_Page.transform.DOLocalMoveX(-400, 1);
         map_Page.transform.DOLocalMoveX(-400, 1);
-        recipe_Page.transform.DOLocalMoveX(-400, 1);
+        recipe_Page.transform.DOLocalMoveX(-400, 1);        
     }
 
     // Update is called once per frame
