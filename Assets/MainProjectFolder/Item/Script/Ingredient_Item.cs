@@ -7,6 +7,7 @@ using UnityEngine;
 public class Ingredient_Item
 {
     public int id;
+    public int itemCount;
     public string name;
     public string name_KR;
     public string icon_File_Name;
@@ -20,6 +21,7 @@ public class Ingredient_Item
         name = _name;
         name_KR = _name_KR;
         icon_File_Name = _icon_File_Name;
+        itemCount = 0;
     }
 }
 

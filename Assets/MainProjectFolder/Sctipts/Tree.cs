@@ -30,8 +30,8 @@ public class Tree : MonoBehaviour, IDamage
 
     private void Destruction()
     {
-        GameManager.Instance.colected_Count--;
-        col.enabled= false;
+        //GameManager.Instance.colected_Count--;
+        col.enabled = false;
         Destroy(go_Tree);
         
         go_Debris.SetActive(true);

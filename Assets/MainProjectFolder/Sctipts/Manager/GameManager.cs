@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using Cinemachine.Editor;
 using Cinemachine;
 
-public class GameManager : SingletonMonoBehaviour<GameManager>
+public class GameManager : MonoBehaviour
 {
     [Header("Player Infomations")]    
     [SerializeField] public  int player_Money = 0;
