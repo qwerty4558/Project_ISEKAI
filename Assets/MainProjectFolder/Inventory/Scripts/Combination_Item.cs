@@ -1,18 +1,20 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
 
 public class Combination_Item : MonoBehaviour
 {
-    public TextAsset resultItemDatabase; // 제작완료아이템
-    public List<Result_Item> result_List;
-    public Slot[] createSlot; // 초합창의 슬롯
-    public Slot resultSlot; // 조합의 결과    
-
-    public int _grupID;   
+    public  TextAsset resultItemDatabase; // 제작완료아이템
+    public  List<Result_Item> result_List;
+    public  Slot[] createSlot; // 초합창의 슬롯
+    public  Slot resultSlot; // 조합의 결과    
     
+    public  EWorkTable workTable = EWorkTable.None;
+
     private float ingredient_Gauge = 0f;
 
     int _main_Ingrident;
@@ -20,8 +22,8 @@ public class Combination_Item : MonoBehaviour
 
     public void Awake()
     {
-        RemoveSlotItem();
         InitResultItemDatabase();
+        RemoveSlotItem();        
     }
 
     public void Update()
@@ -76,8 +78,7 @@ public class Combination_Item : MonoBehaviour
             ViewItem();
         }
         CombinationItem(createSlot[0], createSlot[1]);
-        ViewItem();
-        
+        ViewItem();        
     }
     private void CombinationItem(Slot com1, Slot com2)
     {
@@ -93,13 +94,14 @@ public class Combination_Item : MonoBehaviour
                     _main_Ingrident = com1.item_Count;
                 }
                 else return;
+
                 if (com2.item_Count <= result_List[i].sub_Count)
                 {
                     _sub_Ingrident = com2.item_Count;
                 }
                 else return;
 
-                if (result_List[i].grup_ID == _grupID &&result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
+                if (result_List[i].main_Count == _main_Ingrident && result_List[i].sub_Count == _sub_Ingrident)
                 {
                     resultSlot.item_Id      = result_List[i].result_ID;
                     resultSlot.item_NameKR  = result_List[i].result_Item_Name;
@@ -114,8 +116,8 @@ public class Combination_Item : MonoBehaviour
     {
         if (resultSlot.item_Id != 0)
         {
-            GameManager.instance.player_Money += resultSlot.item_Price;
-            GameManager.instance.selling_Count--;
+            GameManager.Instance.player_Money += resultSlot.item_Price;
+            GameManager.Instance.selling_Count--;
             createSlot[0].ClearSlot();
             createSlot[1].ClearSlot();
             resultSlot.ClearSlot();
@@ -132,6 +134,8 @@ public class Combination_Item : MonoBehaviour
         createSlot[0].ClearSlot();
         createSlot[1].ClearSlot();
 
+        resultSlot.ClearSlot();
+        resultSlot.count_Text.text = " ";
         _main_Ingrident = 0;
         _sub_Ingrident = 0;
         ViewItem();

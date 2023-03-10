@@ -3,89 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-enum WATCH_PAGE
+public abstract class UIManager : SingletonMonoBehaviour<UIManager>
 {
-    MAIN_PAGE,
-    INVENTORY_PAGE,
-    MAP_PAGE,
-    RECIPE_PAGE
-}
+    [SerializeField] private UI_View _startingView;
 
+    [SerializeField] private UI_View[] _view;
 
-public class UIManager : MonoBehaviour
-{
-    public Transform gameUI;
-    [Header("Children Page")]
-    [SerializeField] GameObject watch_Main_Page;
-    [SerializeField] GameObject map_Page;
-    [SerializeField] GameObject inventory_Page;
-    [SerializeField] GameObject recipe_Page;
-    
-    
-    [SerializeField]bool isUIActive = false;
-    WATCH_PAGE now_Page;
-    
+    private UI_View _currentView;
 
-    // Start is called before the first frame update
-    void Start()
+    private readonly Stack<UI_View> _viewStack = new Stack<UI_View>();
+
+    public static T GetView<T>() where T : UI_View
     {
-        now_Page = WATCH_PAGE.MAIN_PAGE;
-        watch_Main_Page.transform.DOLocalMoveX(388, 1);
-        inventory_Page.transform.DOLocalMoveX(-400, 1);
-        map_Page.transform.DOLocalMoveX(-400, 1);
-        recipe_Page.transform.DOLocalMoveX(-400, 1);
+        for(int i = 0; i < Instance._view.Length; i++)
+        {
+            if (Instance._view[i] is T tTiew)
+            {
+                return tTiew;
+            }
+        }
+        return null;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Show<T>(bool remember = true) where T : UI_View
     {
-       
-        if (Input.GetKeyDown(KeyCode.C))
+        for (int i = 0; i < Instance._view.Length; i++) 
         {
-            if (!isUIActive)
+            if (Instance._view[i] is T)
             {
-                gameUI.DOLocalMoveX(120, 0.5f);
-                isUIActive = true;
-            }
-            else
-            {
-                gameUI.DOLocalMoveX(-840, 0.5f);
-                isUIActive = false;
-                
+                if(Instance._currentView != null)
+                {
+                    if (remember)
+                    {
+                        Instance._viewStack.Push(Instance._currentView);
+                    }
+
+                    Instance._currentView.Hide();
+                }
+
+                Instance._view[i].Show();
+
+                Instance._currentView = Instance._view[i];
             }
         }
     }
 
-    public void ClickToPage(int to_page)
+    public static void Show(UI_View v, bool remember = true)
     {
-        now_Page = (WATCH_PAGE)to_page;
-
-        switch (now_Page)
+        if(Instance._currentView != null)
         {
-            case WATCH_PAGE.MAIN_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(388, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
-                break;
-            case WATCH_PAGE.INVENTORY_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
-                inventory_Page.transform.DOLocalMoveX(388, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
-                break;
-            case WATCH_PAGE.MAP_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
-                map_Page.transform.DOLocalMoveX(388, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
-                break;
-            case WATCH_PAGE.RECIPE_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
-                recipe_Page.transform.DOLocalMoveX(388, 1);
-                break;
-        }       
+            if (remember)
+            {
+                Instance._viewStack.Push(Instance._currentView);
+            }
+
+            Instance._currentView.Hide();
+        }
+
+        v.Show();
+
+        Instance._currentView = v;
+    }
+
+    public static void ShowLast()
+    {
+        if (Instance._viewStack.Count != 0) 
+        {
+            Show(Instance._viewStack.Pop(), false);
+        }
     }
 }

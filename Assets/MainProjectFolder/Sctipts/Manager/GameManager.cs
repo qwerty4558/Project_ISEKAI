@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using Cinemachine.Editor;
 using Cinemachine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [Header("Player Infomations")]    
     [SerializeField] public  int player_Money = 0;
@@ -23,37 +23,13 @@ public class GameManager : MonoBehaviour
     [Header("Shop Game Infomations")]
     [SerializeField] public int selling_Count = 10;
 
-
-    public static GameManager instance = null;
-
     [Header("Is Scene Change?")]
     [SerializeField] bool isChangeScene;
 
-    Vector3 player_start_Position;
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    public GameManager Instance
-    {
-        get 
-        {
-            if(instance == null)
-            {
-                return null;
-            }
-            return instance;
-        }
+        
     }
 
     private void Start()

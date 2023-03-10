@@ -30,7 +30,7 @@ public class Tree : MonoBehaviour, IDamage
 
     private void Destruction()
     {
-        GameManager.instance.colected_Count--;
+        GameManager.Instance.colected_Count--;
         col.enabled= false;
         Destroy(go_Tree);
         
