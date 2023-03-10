@@ -116,8 +116,8 @@ public class Combination_Item : MonoBehaviour
     {
         if (resultSlot.item_Id != 0)
         {
-            GameManager.Instance.player_Money += resultSlot.item_Price;
-            GameManager.Instance.selling_Count--;
+            //GameManager.Instance.player_Money += resultSlot.item_Price;
+            //GameManager.Instance.selling_Count--;
             createSlot[0].ClearSlot();
             createSlot[1].ClearSlot();
             resultSlot.ClearSlot();

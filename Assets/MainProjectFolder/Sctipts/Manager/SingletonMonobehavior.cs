@@ -33,7 +33,6 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
                         DontDestroyOnLoad(singletObject);
                     }
                 }
-
                 return _instance;
             }
         }
