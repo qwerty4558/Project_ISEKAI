@@ -25,7 +25,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     [Header("Is Scene Change?")]
     [SerializeField] bool isChangeScene;
-
+    [SerializeField] string nowScene;
 
     private void Awake()
     {
@@ -41,6 +41,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void InitGameManager()
     {
         isChangeScene = false;
+        nowScene = SceneManager.GetActiveScene().name;
     }
 
     private void Update()
@@ -79,7 +80,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                if (SceneManager.GetActiveScene().name == "Village")
+                if (SceneManager.GetActiveScene().name == "L_Main")
                 {
                     isChangeScene = false;                    
                     LoadingSceneController.Instance.LoadScene("Shop");                    
@@ -88,7 +89,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 else if (SceneManager.GetActiveScene().name == "Shop")
                 {
                     isChangeScene = false;                    
-                    LoadingSceneController.Instance.LoadScene("Village");                    
+                    LoadingSceneController.Instance.LoadScene("L_Main");                    
                     colected_Time = 20f;                    
                     day_Count++;                    
                 }                  

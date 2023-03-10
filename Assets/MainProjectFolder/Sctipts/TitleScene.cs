@@ -21,7 +21,7 @@ public class TitleScene : MonoBehaviour
         if(btnNum == 0)
         {
             GameManager.Instance.colected_Time = 30f; 
-            LoadingSceneController.Instance.LoadScene("Village");
+            LoadingSceneController.Instance.LoadScene("L_Main");
         }
         else
         {
