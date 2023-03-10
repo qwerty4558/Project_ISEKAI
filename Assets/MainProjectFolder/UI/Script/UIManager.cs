@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,9 +10,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject gamePlayInVillageScene;
     [SerializeField] GameObject shopScene;
 
+    private void Start()
+    {
+        
+    }
 
     public static void CheckScene()
     {
-
+        
     }
 }
