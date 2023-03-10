@@ -1,34 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public GameObject portal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string to_Scene_Name;
+    [SerializeField] string Destination_Point_ID;
+    private PlayerController player;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.CompareTag("ForestMove"))
+        if(player == null)
         {
-            SceneManager.LoadScene("L_forest");
+            player = FindObjectOfType<PlayerController>();
+        }
+    }
+
+    public void Move_Scene()
+    {
+       StopAllCoroutines();
+       StartCoroutine( Cor_MoveScene(to_Scene_Name, Destination_Point_ID));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        Move_Scene();
+    }
+
+    private IEnumerator Cor_MoveScene(string SceneName,string destPointID)
+    {
+        DontDestroyOnLoad(gameObject);
+
+        yield return StartCoroutine(LoadingSceneController.Instance.YieldLoadScene(SceneName));
+
+        if(Destination_Point_ID != string.Empty)
+        {
+            PortalDestinationPoints portalDest;
+
+            if(FindObjectOfType<PortalDestinationPoints>())
+            {
+                portalDest = FindObjectOfType<PortalDestinationPoints>();
+                portalDest.SetPlayerDestPosition(destPointID);
+            }
         }
 
-     /*   else if (col.gameObject.tag.Equals("MineMove"))
-        {
-
-        }*/
+        Destroy(gameObject);
     }
-
 }
