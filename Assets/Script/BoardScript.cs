@@ -5,9 +5,9 @@ using UnityEngine;
 public class BoardScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Board;
-    public GameObject Boardpick;
-    private bool state;
+    public GameObject Board;//ui판넬
+    public GameObject Boardpick;//퀘스트보드 접근 시
+    private bool state;//판넬상태
     bool BoardPick = false;
 
     void Start()
