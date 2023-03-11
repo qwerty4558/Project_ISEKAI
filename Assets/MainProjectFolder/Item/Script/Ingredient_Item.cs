@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Ingredient_Item
-{
+
+public class Ingredient_Item : ScriptableObject 
+{ 
     public int id;
-    public int itemCount;
-    public string name;
+    public new string name;
     public string name_KR;
     public string icon_File_Name;
     
@@ -17,14 +16,12 @@ public class Ingredient_Item
 
     public Ingredient_Item(string _id, string _name, string _name_KR, string _icon_File_Name)
     {
-        id = Convert.ToInt32(_id);
-        name = _name;
-        name_KR = _name_KR;
-        icon_File_Name = _icon_File_Name;
-        itemCount = 0;
+        this.id = Convert.ToInt32(_id);
+        this.name = _name;
+        this.name_KR = _name_KR;
+        this.icon_File_Name = _icon_File_Name;
     }
 }
-
 
 [System.Serializable]
 public class Result_Item

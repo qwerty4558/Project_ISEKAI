@@ -1,12 +1,8 @@
 using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 using System.IO;
-using Newtonsoft.Json.Linq;
-using Unity.VisualScripting;
-using UnityEditor.VersionControl;
+using UnityEditor;
 using System;
 
 public class ItemManager : MonoBehaviour
@@ -38,3 +34,4 @@ public class ItemManager : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/MainProjectFolder/Item/ItemDatabase/MyItemText.txt", jdata);        
     }
 }
+
