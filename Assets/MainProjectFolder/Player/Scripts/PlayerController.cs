@@ -11,7 +11,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] float playerAttackDamage = 1f;
     [SerializeField] string now_Scene;
 
-
+    public GameObject BoardText;
     Animator animator;
 
 
@@ -127,5 +127,22 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isRun", isRun);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("QuestBoard"))
+        {
+            BoardText.SetActive(true);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("QuestBoard"))
+        {
+            BoardText.SetActive(false);
+        }
     }
 }
