@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class Managers : SingletonMonoBehaviour<Managers>
 {
-    [Header("Manager Inspector")]
-    //GameManager
-    [SerializeField] GameManager gameManager;
-
-    //UIManager
-    [SerializeField] UIManager uiManater;
-
-    //ItemManager
-    [SerializeField] ItemManager itemManager;
-    // 차후 추가될 것들
-    //EventManager
-    //PollingManager
-    //AudioManager
-    //ControllerManager
+    private GameManager gameManager;
+    private UIManager uiManager;
+    private ItemManager itemManager;
 
     public static GameManager GM { get => Instance.gameManager; }
+    public static UIManager UI { get => Instance.uiManager; }
+    public static ItemManager Item { get => Instance.itemManager; }
 
-    public static UIManager UI { get=> Instance.uiManater; }
-
-    public static ItemManager item { get => Instance.itemManager; }
-
+    protected override void Awake()
+    {
+        base.Awake();
+        gameManager = new GameManager();
+        uiManager = new UIManager();
+        itemManager = new ItemManager();
+    }
 }

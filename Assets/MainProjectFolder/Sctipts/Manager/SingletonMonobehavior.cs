@@ -3,43 +3,36 @@ using UnityEngine;
 
 public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static bool _shuttingDown = false;
-    private static object _lock = new object();
-    private static T _instance;
+    private static T instance;
 
     public static T Instance
     {
         get
         {
-            if (_shuttingDown)
+            if (instance == null)
             {
-                return null;
-            }
-
-            lock (_lock)
-            {
-                if(_instance== null)
+                instance = FindObjectOfType<T>();
+                if (instance == null)
                 {
-                    _instance = (T)FindObjectOfType(typeof(T));
-
-                    if(_instance == null)
-                    {
-                        var singletObject = new GameObject();
-
-                        _instance = singletObject.AddComponent<T>();
-
-                        singletObject.name = typeof(T).ToString() + "(singleton)";
-
-                        DontDestroyOnLoad(singletObject);
-                    }
+                    GameObject obj = new GameObject();
+                    obj.name = typeof(T).Name;
+                    instance = obj.AddComponent<T>();
                 }
-                return _instance;
             }
+            return instance;
         }
     }
 
-    private void OnApplicationQuit()
+    protected virtual void Awake()
     {
-        _shuttingDown = true;
+        if (instance == null)
+        {
+            instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
