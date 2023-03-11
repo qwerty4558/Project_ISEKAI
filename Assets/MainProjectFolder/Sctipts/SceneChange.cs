@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
-    public void Change()
+/*    public void Change()
     {
         //if ()
             SceneManager.LoadScene("Ingame");
-    }
+    }*/
 }
