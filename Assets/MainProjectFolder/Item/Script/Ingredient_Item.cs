@@ -24,7 +24,7 @@ public class Ingredient_Item : ScriptableObject
 }
 
 [System.Serializable]
-public class Result_Item
+public class Result_Item : ScriptableObject
 {
     public int grup_ID;
     public int main_Ingredient_TID;
