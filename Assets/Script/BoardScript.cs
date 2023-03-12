@@ -20,8 +20,21 @@ public class BoardScript : MonoBehaviour
     void Update()
     {
         Debug.Log(state);
-        if (Input.GetKeyDown(KeyCode.T)) state = !state;
-        ViewUI();
+
+        //if (BoardPick == true)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.T))
+        //    {
+        //        state = !state;
+
+        //    }
+        //}
+        //ViewUI();
+        //if (BoardPick == true)
+        //{
+            if (Input.GetKeyDown(KeyCode.T)) state = !state;
+            ViewUI();
+        //}
 
     }
 
@@ -41,7 +54,9 @@ public class BoardScript : MonoBehaviour
         {
             BoardPick = true;
             Debug.Log("Taged player  " + BoardPick);
+
         }
+
     }
 
     void OnTriggerExit(Collider col)
