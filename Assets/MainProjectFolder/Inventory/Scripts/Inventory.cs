@@ -53,6 +53,11 @@ public class Inventory : SingletonMonoBehaviour<Inventory>
         }
     }
 
+    public void GetItem()
+    {
+
+    }
+
     void Load()
     {
         string jdata = File.ReadAllText(Application.dataPath + "/MainProjectFolder/Item/ItemDatabase/MyItemText.txt");

@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     public float sensitivity = 100f;
 
-    public float clampAngle = 70f;
+    public float clampAngle = 40f;
 
     private float rotationX;
     private float rotationY;
@@ -42,8 +42,8 @@ public class CameraFollow : MonoBehaviour
         rotationX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
         rotationY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, - clampAngle, clampAngle);
-        
+        rotationX = Mathf.Clamp(rotationX, 0, clampAngle);
+        //rotationY  = Mathf.Clamp(rotationY, - clampAngle, clampAngle);
 
         Quaternion rot = Quaternion.Euler(rotationX, rotationY, 0);
 
