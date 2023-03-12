@@ -14,6 +14,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public GameObject BoardText;
     Animator animator;
 
+    public GameObject Dialog_Test;
+
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -27,29 +29,32 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     bool idleB = false;
 
-    [SerializeField]float idleChangeTime = 5.5f;
+    [SerializeField] float idleChangeTime = 5.5f;
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
+        Dialog_Test.SetActive(false);
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) Interaction();
+        DialogTest();
+        DialogTest2();
     }
 
     void FixedUpdate()
     {
-            Move();
-            Player_Run();
-            PlayerSetAnimations();        
+        Move();
+        Player_Run();
+        PlayerSetAnimations();
     }
 
     private void Interaction()
-    {        
+    {
         Ray ray = new Ray
         {
             origin = transform.position,
@@ -74,8 +79,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         // 입력값을 Vector3에 저장
         player_Move_Input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        player_Move_Input.Normalize(); 
-                
+        player_Move_Input.Normalize();
+
         // 카메라의 Forward를 가져옴
         heading = Camera.main.transform.forward;
         heading.y = 0;
@@ -128,7 +133,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isRun", isRun);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("QuestBoard"))
@@ -137,6 +141,20 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
     }
 
+    private void DialogTest()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            Dialog_Test.SetActive(true);
+        }
+    }
+    private void DialogTest2()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Dialog_Test.SetActive(false);
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {

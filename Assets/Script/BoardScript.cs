@@ -19,7 +19,7 @@ public class BoardScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
 
         //if (BoardPick == true)
         //{
