@@ -24,11 +24,11 @@ public class BoardScript : MonoBehaviour
 
         if (BoardPick)
         {
-            if (Input.GetKeyDown(KeyCode.T)) state = !state;
+            if(Input.GetKeyDown(KeyCode.T)) state = !state;
             Debug.Log(BoardPick);
             //Debug.Log(state);
         }
-        if (state)
+        if(state)
         {
             BoardPick = false;
         }
