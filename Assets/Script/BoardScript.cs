@@ -8,12 +8,13 @@ public class BoardScript : MonoBehaviour
     public GameObject Board;//uiÆÇ³Ú
     public GameObject Boardpick;//Äù½ºÆ®º¸µå Á¢±Ù ½Ã
     private bool state;//ÆÇ³Ú»óÅÂ
-    bool BoardPick = false;
+    private bool BoardPick;
 
     void Start()
     {
         Boardpick.SetActive(false);
         state = false;
+        BoardPick = false;
         Board.SetActive(state);
     }
 
@@ -21,13 +22,15 @@ public class BoardScript : MonoBehaviour
     {
         Debug.Log(state);
 
-        if (BoardPick == true)
+        if (BoardPick)
         {
-            if(Input.GetKeyDown(KeyCode.T)) state = !state;
-            {
-                
-            }
-
+            if (Input.GetKeyDown(KeyCode.T)) state = !state;
+            Debug.Log(BoardPick);
+            //Debug.Log(state);
+        }
+        if (state)
+        {
+            BoardPick = false;
         }
         ViewUI();
     }
@@ -35,6 +38,7 @@ public class BoardScript : MonoBehaviour
     void ViewUI()
     {
         Board.SetActive(state);
+        Boardpick.SetActive(BoardPick);
     }
 
     public void ClickNoButton()
@@ -60,6 +64,7 @@ public class BoardScript : MonoBehaviour
         {
             BoardPick = false;
             Debug.Log("Un Taged player  " + BoardPick);
+            state = false;
         }
     }
 
