@@ -31,6 +31,11 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 		_WindStrength ("Strength", Range(0,0.2)) = 0.025
 		_WindSpeed ("Speed", Range(0,10)) = 2.5
 		
+		[TCP2HeaderHelp(Dissolve)]
+		[NoScaleOffset] _DissolveMap ("Map", 2D) = "gray" {}
+		_DissolveValue ("Value", Range(0,1)) = 0.5
+		[TCP2Separator]
+		
 		[ToggleOff(_RECEIVE_SHADOWS_OFF)] _ReceiveShadowsOff ("Receive Shadows", Float) = 1
 
 		// Avoid compile error if the properties are ending with a drawer
@@ -75,6 +80,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 
 		// Shader Properties
 		TCP2_TEX2D_WITH_SAMPLER(_BaseMap);
+		TCP2_TEX2D_WITH_SAMPLER(_DissolveMap);
 
 		CBUFFER_START(UnityPerMaterial)
 			
@@ -83,6 +89,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 			float4 _WindDirection;
 			float _WindStrength;
 			float4 _BaseMap_ST;
+			float _DissolveValue;
 			float _Cutoff;
 			fixed4 _BaseColor;
 			float _RampThreshold;
@@ -238,6 +245,8 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 				float4 __albedo = ( TCP2_TEX2D_SAMPLE(_BaseMap, _BaseMap, input.pack0.xy).rgba );
 				float4 __mainColor = ( _BaseColor.rgba );
 				float __alpha = ( __albedo.a * __mainColor.a );
+				float __dissolveMap = ( TCP2_TEX2D_SAMPLE(_DissolveMap, _DissolveMap, input.pack0.xy).r );
+				float __dissolveValue = ( _DissolveValue );
 				float __cutoff = ( _Cutoff );
 				float __ambientIntensity = ( 1.0 );
 				float __rampThreshold = ( _RampThreshold );
@@ -250,6 +259,12 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 				half alpha = __alpha;
 
 				half3 emission = half3(0,0,0);
+				
+				//Dissolve
+				half dissolveMap = __dissolveMap;
+				half dissolveValue = __dissolveValue;
+				float dissValue = dissolveValue;
+				clip(dissolveMap - dissValue * 1.001);
 				// Alpha Testing
 				half cutoffValue = __cutoff;
 				// Sharpen Alpha-to-Coverage
@@ -481,11 +496,19 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 				float4 __albedo = ( TCP2_TEX2D_SAMPLE(_BaseMap, _BaseMap, input.pack0.xy).rgba );
 				float4 __mainColor = ( _BaseColor.rgba );
 				float __alpha = ( __albedo.a * __mainColor.a );
+				float __dissolveMap = ( TCP2_TEX2D_SAMPLE(_DissolveMap, _DissolveMap, input.pack0.xy).r );
+				float __dissolveValue = ( _DissolveValue );
 				float __cutoff = ( _Cutoff );
 
 				half3 albedo = half3(1,1,1);
 				half alpha = __alpha;
 				half3 emission = half3(0,0,0);
+				
+				//Dissolve
+				half dissolveMap = __dissolveMap;
+				half dissolveValue = __dissolveValue;
+				float dissValue = dissolveValue;
+				clip(dissolveMap - dissValue * 1.001);
 				// Alpha Testing
 				half cutoffValue = __cutoff;
 				// Sharpen Alpha-to-Coverage
@@ -572,5 +595,5 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 	CustomEditor "ToonyColorsPro.ShaderGenerator.MaterialInspector_SG2"
 }
 
-/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","AUTO_TRANSPARENT_BLENDING","WIND_ANIM_SIN","TEMPLATE_LWRP"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
-/* TCP_HASH 535be9454c860bf2003ee838d313e0de */
+/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","AUTO_TRANSPARENT_BLENDING","WIND_ANIM_SIN","DISSOLVE","DISSOLVE_CLIP","SS_SCREEN_INFLUENCE","SS_MULTIPLICATIVE","SUBSURFACE_AMB_COLOR","TEMPLATE_LWRP"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
+/* TCP_HASH 968cc83dfdf71f38c1db58eb6301df45 */

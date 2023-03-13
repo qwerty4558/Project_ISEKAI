@@ -22,7 +22,7 @@ public class ActionController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.F))
         {
             if (pickupActived)
             {
