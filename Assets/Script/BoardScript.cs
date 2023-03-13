@@ -19,7 +19,7 @@ public class BoardScript : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(state);
+        Debug.Log(state);
 
         //if (BoardPick == true)
         //{
@@ -32,8 +32,8 @@ public class BoardScript : MonoBehaviour
         //ViewUI();
         //if (BoardPick == true)
         //{
-            if (Input.GetKeyDown(KeyCode.T)) state = !state;
-            ViewUI();
+        /*if (Input.GetKeyDown(KeyCode.T)) state = !state;
+        ViewUI();*/
         //}
 
     }
@@ -57,6 +57,15 @@ public class BoardScript : MonoBehaviour
 
         }
 
+    }
+
+    private void OnTriggerStay(Collider col)///이부분에서 콜라이더 비교~~~~~~~
+    {
+        if (col.CompareTag("Player"))
+        {
+            BoardPick = false;
+            Debug.Log("Un Taged player  " + BoardPick);
+        }
     }
 
     void OnTriggerExit(Collider col)
