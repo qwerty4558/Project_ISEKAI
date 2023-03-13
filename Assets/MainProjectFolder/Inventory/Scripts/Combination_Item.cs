@@ -4,16 +4,23 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Linq;
 
 
 public class Combination_Item : MonoBehaviour
 {
     public  TextAsset resultItemDatabase; // 제작완료아이템
     public  List<Result_Item> result_List;
-    public  Slot[] createSlot; // 초합창의 슬롯
+    public  Slot[] createSlot; // 조합창의 슬롯
     public  Slot resultSlot; // 조합의 결과    
-    
-    public  EWorkTable workTable = EWorkTable.None;
+    public Text resultText; // 랜덤으로 3개 선택된 결과템의 정보
+
+    [SerializeField]
+    public GameObject parentObject;
+
+
+    public EWorkTable workTable = EWorkTable.None;
 
     private float ingredient_Gauge = 0f;
 
@@ -23,7 +30,7 @@ public class Combination_Item : MonoBehaviour
     public void Awake()
     {
         InitResultItemDatabase();
-        RemoveSlotItem();        
+        RemoveSlotItem();
     }
 
     public void Update()
@@ -149,5 +156,73 @@ public class Combination_Item : MonoBehaviour
 
         // 결과 아이템 슬롯 출력
         resultSlot.count_Text.text = resultSlot.item_NameKR + "\n" + resultSlot.item_Price;
+    }
+
+
+
+
+    public void PrintRandomResultItemInfo()
+    {
+        List<int> randomIndexes = GenerateRandomList(3); // 중복 없이 결과템 3개 랜덤 선출
+
+        Debug.Log(string.Join(", ", randomIndexes));
+
+
+        Transform parentTransform = parentObject.transform;
+
+        for (int i = 0; i < 3; i++)
+        {
+            int ItemNameNum =       ((i + 1) * 3) - 3;
+            int result_Item_Price = ((i + 1) * 3) - 2;
+            int icon_File_Name =    ((i + 1) * 3) - 1;
+
+            Result_Item item = result_List[randomIndexes[i]];
+
+            /*
+            Debug.Log("제작장소: " + item.grup_ID);
+            Debug.Log("주재료: " + item.main_Ingredient_TID);
+            Debug.Log("주재료 요구량: " + item.main_Count);
+            Debug.Log("부재료: " + item.sub_Ingredient_TID);
+            Debug.Log("부재료 요구량: " + item.sub_Count);
+            Debug.Log("결과템 ID: " + item.result_ID);
+            Debug.Log("결과템 한글 이름: " + item.result_Item_Name);
+            Debug.Log("가격: " + item.result_Item_Price);
+            Debug.Log("결과템 아이콘 파일 이름: " + item.icon_File_Name);
+            Debug.Log("------------------------");
+            */
+
+            Transform Item = parentTransform.GetChild(ItemNameNum);
+            Text childItem = Item.GetComponent<Text>();
+                // childItem 값을 변경한다
+                childItem.text = item.result_ID.ToString();
+
+            Transform Price = parentTransform.GetChild(result_Item_Price);
+            Text childPrice = Price.GetComponent<Text>();
+                // childPrice 값을 변경한다
+                childPrice.text = item.result_Item_Price.ToString();
+
+            Transform File_Name = parentTransform.GetChild(icon_File_Name);
+            Text childFile_Name = File_Name.GetComponent<Text>();
+            // childFile_Name 값을 변경한다
+            childFile_Name.text = item.icon_File_Name.ToString();
+
+        }
+    }
+
+    List<int> GenerateRandomList(int count)
+    {
+        int List_Lenght = result_List.Count;
+
+        List<int> resultList = new List<int>();
+
+        while (resultList.Count < count)
+        {
+            int randomNumber = UnityEngine.Random.Range(List_Lenght / 2, List_Lenght);
+            if (!resultList.Contains(randomNumber))
+            {
+                resultList.Add(randomNumber);
+            }
+        }
+        return resultList;
     }
 }
