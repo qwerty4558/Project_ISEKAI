@@ -66,6 +66,7 @@ public class ActionController : MonoBehaviour
         if (pickupActived == true)
         {
             Debug.Log(col.transform.GetComponent<ItemPickUp>().item.name_KR + "획득했습니다."); // 이 부분은 인벤토리로 간다(다음  작업)
+            
             Destroy(col.transform.gameObject);
             ItemInfoDisAppare();            
         }
