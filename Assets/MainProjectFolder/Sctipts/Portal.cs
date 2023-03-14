@@ -34,17 +34,16 @@ public class Portal : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-       
-
         if(destPointID != string.Empty)
         {
             PortalDestinationPoints portalDest;
 
-            if(FindObjectOfType<PortalDestinationPoints>())
+            yield return StartCoroutine(LoadingSceneController.Instance.YieldLoadScene(SceneName));
+
+            if (FindObjectOfType<PortalDestinationPoints>())
             {
                 portalDest = FindObjectOfType<PortalDestinationPoints>();
                 portalDest.SetPlayerDestPosition(destPointID);
-                yield return StartCoroutine(LoadingSceneController.Instance.YieldLoadScene(SceneName));
             }
         }
 
