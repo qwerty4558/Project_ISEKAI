@@ -44,8 +44,9 @@ public class Portal : MonoBehaviour
                 portalDest.SetPlayerDestPosition(destPointID);
 
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }
 
