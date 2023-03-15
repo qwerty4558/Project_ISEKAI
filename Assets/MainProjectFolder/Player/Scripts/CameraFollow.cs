@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;
+    public GameObject pivot;
     public float followSpeed;
 
     public float sensitivity = 100f;
@@ -27,6 +27,8 @@ public class CameraFollow : MonoBehaviour
     {
         rotationX = transform.localRotation.eulerAngles.x;
         rotationY = transform.localRotation.eulerAngles.y;
+
+        pivot = GameObject.FindGameObjectWithTag("Player");
 
         dirNomalized = cameraTransform.localPosition.normalized;
 
@@ -52,7 +54,7 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, followSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, pivot.transform.position, followSpeed * Time.deltaTime);
         finalDir = transform.TransformPoint(dirNomalized * maxDistance);
 
         RaycastHit hit;

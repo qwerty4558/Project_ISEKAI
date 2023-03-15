@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
-        if(player == null)
+        if (player == null)
         {
             player = FindObjectOfType<PlayerController>();
         }
@@ -20,33 +20,34 @@ public class Portal : MonoBehaviour
 
     public void Move_Scene()
     {
-       StopAllCoroutines();
-       StartCoroutine( Cor_MoveScene(to_Scene_Name, Destination_Point_ID));
+        StopAllCoroutines();
+        StartCoroutine(Cor_MoveScene(to_Scene_Name, Destination_Point_ID));
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-        Move_Scene();
+        if (other.CompareTag("Player"))
+            Move_Scene();
     }
-
-    private IEnumerator Cor_MoveScene(string SceneName,string destPointID)
+    private IEnumerator Cor_MoveScene(string SceneName, string destPointID)
     {
         DontDestroyOnLoad(gameObject);
-
-        yield return StartCoroutine(LoadingSceneController.Instance.YieldLoadScene(SceneName));
-
-        if(Destination_Point_ID != string.Empty)
+        if (destPointID != string.Empty)
         {
             PortalDestinationPoints portalDest;
 
-            if(FindObjectOfType<PortalDestinationPoints>())
+            yield return StartCoroutine(LoadingSceneController.Instance.YieldLoadScene(SceneName));
+
+            if (FindObjectOfType<PortalDestinationPoints>())
             {
                 portalDest = FindObjectOfType<PortalDestinationPoints>();
                 portalDest.SetPlayerDestPosition(destPointID);
+
             }
+
         }
 
         Destroy(gameObject);
     }
 }
+
