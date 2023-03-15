@@ -5,7 +5,24 @@ using UnityEngine;
 
 public class PortalDestinationPoints : SerializedMonoBehaviour
 {
+    static private PortalDestinationPoints instance;
+    static public PortalDestinationPoints Instance
+    {
+        get { return instance; }
+    }
+
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else { Destroy(this); }
+    }
+
     [SerializeField] private Dictionary<string, Transform> destinationPoints;
+
+    private void Start()
+    {
+        SetPlayerDestPosition(MultisceneDatapass.Instance.PortalDestinationID);
+    }
 
     public bool SetPlayerDestPosition(string point_ID)
     {
