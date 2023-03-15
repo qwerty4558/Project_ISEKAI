@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5067146261717482713}
   - component: {fileID: 5067146261717482718}
   - component: {fileID: 5067146261717482715}
+  - component: {fileID: 118768776}
   m_Layer: 5
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -176,6 +177,19 @@ MonoBehaviour:
   visualGroupObj: {fileID: 5067146262633230837}
   progressBar: {fileID: 5067146262108355267}
   coverAnimation: {fileID: 5067146262777357776}
+--- !u!114 &118768776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067146261717482719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a9a1fa3d51afd4e84d602ac1cbed81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PortalDestinationID: 
 --- !u!1 &5067146261842560215
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +559,7 @@ RectTransform:
   m_GameObject: {fileID: 5067146262777357780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5067146261717482712}
@@ -788,7 +802,7 @@ MonoBehaviour:
   animationType: 5
   targetType: 11
   forcedTargetType: 0
-  autoPlay: 0
+  autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
   endValueV3: {x: 1, y: 0, z: 0}
