@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
         rotationX = transform.localRotation.eulerAngles.x;
         rotationY = transform.localRotation.eulerAngles.y;
 
-        pivot = GameObject.FindGameObjectWithTag("Player");
+        pivot = GameObject.FindGameObjectWithTag("CamPivot");
 
         dirNomalized = cameraTransform.localPosition.normalized;
 
