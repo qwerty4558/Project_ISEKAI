@@ -34,7 +34,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         loadingFlag = true;
 
         var async = SceneManager.LoadSceneAsync(SceneName);
-       // async.allowSceneActivation = false;
+        // async.allowSceneActivation = false;
 
         var tw = coverAnimation.tween;
         coverAnimation.DORestartById("Loader_Close");
@@ -42,7 +42,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
 
         visualGroupObj.SetActive(true);
 
-        for(float asy = async.progress; async.progress < 0.9f;)
+        for (float asy = async.progress; async.progress < 0.9f;)
         {
             progressBar.value = asy / 0.9f;
             yield return asy;
@@ -50,7 +50,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
 
         yield return new WaitForEndOfFrame();
 
-      //  async.allowSceneActivation = true;
+        //  async.allowSceneActivation = true;
 
         coverAnimation.DORestartById("Loader_Open");
         yield return tw.WaitForCompletion();

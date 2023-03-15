@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PortalDestinationPoints : SerializedMonoBehaviour
 {
-    [SerializeField] private Dictionary<string,Transform> destinationPoints;
+    [SerializeField] private Dictionary<string, Transform> destinationPoints;
 
     public bool SetPlayerDestPosition(string point_ID)
     {
@@ -29,14 +29,14 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
     public Vector3 GetSpawnPoint(string str)
     {
         Transform point;
-        if(PlayerController.Instance != null) point = PlayerController.Instance.transform;
-        if(destinationPoints.TryGetValue(str,out point))
+        if (PlayerController.Instance != null) point = PlayerController.Instance.transform;
+        if (destinationPoints.TryGetValue(str, out point))
         {
             return point.position;
         }
         else
         {
-            if(point == null) return Vector3.zero;
+            if (point == null) return Vector3.zero;
             else return point.position;
         }
     }
