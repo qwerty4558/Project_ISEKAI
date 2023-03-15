@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2023 Jean Moreno
+// (c) 2014-2022 Jean Moreno
 
 #NAME=Default
 #ID=TEMPLATE_DEFAULT
@@ -749,7 +749,6 @@ Shader "@%SHADER_NAME%@"
 		float4 _CustomTime;
 ///
 		[[VARIABLES_OUTSIDE_CBUFFER_INCLUDE]]
-		[[MODULE:VARIABLES_OUTSIDE_CBUFFER]]
 		[[VARIABLES_INCLUDE]]
 
 		[[INJECTION_POINT:Variables/Outside CBuffer]]
@@ -1569,7 +1568,7 @@ Shader "@%SHADER_NAME%@"
 			half ndv;
 			half ndvRaw;
 ///
-/// IF USE_NORMAL_TANGENT_SPACE_LIGHTING
+/// IF BUMP
 			float3 normalTS;
 ///
 

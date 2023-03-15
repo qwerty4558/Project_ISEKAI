@@ -9,25 +9,20 @@ public class Inventory : SingletonMonoBehaviour<Inventory>
     public List<Ingredient_Item> my_Items;
 
     public Slot[] slot; // 인벤토리의 슬롯
+    
 
-    public void Start()
+    private void Awake()
     {
-        if(my_Items == null)
-        {
-            for (int i = 0; i < slot.Length; ++i)
-            {
-
-            }
-        }        
+        Load();
     }
 
     public void ViewItem()
     {
         for (int i = 0; i < my_Items.Count; i++) // 저장되어 있는 아이템 리스트 들을 각 슬롯에 저장
         {
-            slot[i].item_Id                          = my_Items[i].id;
-            slot[i].item_Name                    = my_Items[i].name;
-            slot[i].item_NameKR                = my_Items[i].name_KR;
+            slot[i].item_Id            = my_Items[i].id;
+            slot[i].item_Name          = my_Items[i].name;
+            slot[i].item_NameKR        = my_Items[i].name_KR;
             slot[i].item_Image_FileName = my_Items[i].icon_File_Name;
         }
 
