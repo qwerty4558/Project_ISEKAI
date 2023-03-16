@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
-    [SerializeField] float moveSpeed = 4f;
+    [SerializeField] float moveSpeed = 4;
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
@@ -113,7 +113,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
         else
         {
-            moveSpeed = 4f;
+            moveSpeed = 2.75f;
             isRun = false;
         }
     }
