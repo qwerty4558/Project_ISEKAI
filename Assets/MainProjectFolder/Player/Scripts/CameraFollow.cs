@@ -37,6 +37,10 @@ public class CameraFollow : MonoBehaviour
         finalDistance = cameraTransform.localPosition.magnitude;
 
         Cursor.lockState = CursorLockMode.Locked;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+        }
         Cursor.visible = false;
     }
 
