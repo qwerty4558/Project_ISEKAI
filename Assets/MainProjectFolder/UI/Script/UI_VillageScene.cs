@@ -38,21 +38,27 @@ public class UI_VillageScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ShowWatch();
+        
+    }
 
+    private void ShowWatch()
+    {
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (!isUIActive)
             {
                 gameUI.DOLocalMoveX(120, 0.5f);
                 isUIActive = true;
+                Cursor.lockState = CursorLockMode.None ;
             }
             else
             {
                 gameUI.DOLocalMoveX(-840, 0.5f);
                 isUIActive = false;
-
             }
         }
+        Cursor.visible = isUIActive;
     }
 
     public void ClickToPage(int to_page)
