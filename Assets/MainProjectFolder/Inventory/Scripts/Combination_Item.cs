@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using TMPro;
 
 
 public class Combination_Item : MonoBehaviour
@@ -17,6 +18,9 @@ public class Combination_Item : MonoBehaviour
     public Text resultText; // 랜덤으로 3개 선택된 결과템의 정보
 
     [SerializeField]
+    public GameObject FirstQuestSlot;
+    public GameObject SecondQuestSlot;
+    public GameObject ThirdQuestSlot;
     public GameObject parentObject;
 
 
@@ -225,4 +229,103 @@ public class Combination_Item : MonoBehaviour
         }
         return resultList;
     }
+
+    // 퀘스트를 불러오는 함수 입니다. 일단 임시로 불러오는 버튼을 만들었으니, 나중에 게시판 상호작용과 연결시켜 보세요
+    public void PrintResultItemInfo()
+    {
+        Debug.Log("Quest Loading");
+
+        int count = 1;
+
+        // count 는 퀘스트 루틴 횟수를 뜻하며 처음 실행할 때 1, 퀘스트 끝나면 ++i 되어 2 이런식으로 1씩 늘어나게 할 겁니다.
+        // 지금은 퀘스트 시스템을 만들어 두진 않았으니 1로 설정해 둡시다. 
+
+        int first = 0 + (count - 1) * 3;
+        int second = first + 1;
+        int third = second + 1;
+
+        // i가 1일 경우 0, 1, 2. i가 2일 경우 3, 4, 5... 
+
+        Debug.Log(string.Join(", ", first, second, third));
+
+        Debug.Log(string.Join(" ", result_List.Count));
+
+        Result_Item Firstitem = result_List[first];
+        Result_Item Seconditem = result_List[second];
+        Result_Item Thirditem = result_List[third];
+
+        Debug.Log(string.Join(", ", result_List[first].result_Item_Name, result_List[second].result_Item_Name, result_List[third].result_Item_Name));
+
+        // ResultItemDatabase에 있는 결과 아이템 3개(i가 1이니 18번, 19번, 20번 아이템)씩 순서대로 갖고 옵니다.
+
+        Transform FirstParent = FirstQuestSlot.transform;
+        Transform SecondParent = SecondQuestSlot.transform;
+        Transform ThirdParent = ThirdQuestSlot.transform;
+
+        //퀘스트 란 입니다. 각각 Quest1, Quest1 (1), Quest1 (2) 에 대응 합니다.
+
+        // 첫번째 퀘스트
+
+        Transform ItemName1 = FirstParent.GetChild(0);
+        TMP_Text childItem1 = ItemName1.GetComponent<TMP_Text>();
+        // childItem1 값을 변경한다
+        childItem1.text = Firstitem.result_Item_Name.ToString();
+
+        Debug.Log("아이템 이름 : " + Firstitem.result_Item_Name.ToString());
+
+        Transform Price1 = FirstParent.GetChild(5);
+        TMP_Text childPrice1 = Price1.GetComponent<TMP_Text>();
+        // childPrice1 값을 변경한다
+        childPrice1.text = Firstitem.result_Item_Price.ToString();
+
+        Debug.Log("가격 : " + Firstitem.result_Item_Price.ToString());
+
+        Transform File_Name1 = FirstParent.GetChild(6);
+        TMP_Text childFile_Name1 = File_Name1.GetComponent<TMP_Text>();
+        // childFile_Name1 값을 변경한다
+        childFile_Name1.text = Firstitem.icon_File_Name.ToString();
+
+        Debug.Log("파일이름 : " + Firstitem.icon_File_Name.ToString());
+        // 아이콘 파일 이름은 알겠는데 파일 위치를 몰라서 일단 파일 이름만 뜨게 해놨습니다.
+
+
+        // 두번째 퀘스트
+
+        Transform ItemName2 = SecondParent.GetChild(0);
+        TMP_Text childItem2 = ItemName2.GetComponent<TMP_Text>();
+        // childItem2 값을 변경한다
+        childItem2.text = Seconditem.result_Item_Name.ToString();
+
+        Transform Price2 = SecondParent.GetChild(5);
+        TMP_Text childPrice2 = Price2.GetComponent<TMP_Text>();
+        // childPrice2 값을 변경한다
+        childPrice2.text = Seconditem.result_Item_Price.ToString();
+
+        Transform File_Name2 = SecondParent.GetChild(6);
+        TMP_Text childFile_Name2 = File_Name2.GetComponent<TMP_Text>();
+        // childFile_Name2 값을 변경한다
+        childFile_Name2.text = Seconditem.icon_File_Name.ToString();
+        // 아이콘 파일 이름은 알겠는데 파일 위치를 몰라서 일단 파일 이름만 뜨게 해놨습니다.
+
+        // 새번째 퀘스트
+
+        Transform ItemName3 = ThirdParent.GetChild(0);
+        TMP_Text childItem3 = ItemName3.GetComponent<TMP_Text>();
+        // childItem3 값을 변경한다
+        childItem3.text = Thirditem.result_Item_Name.ToString();
+
+        Transform Price3 = ThirdParent.GetChild(5);
+        TMP_Text childPrice3 = Price3.GetComponent<TMP_Text>();
+        // childPrice3 값을 변경한다
+        childPrice3.text = Thirditem.result_Item_Price.ToString();
+
+        Transform File_Name3 = ThirdParent.GetChild(6);
+        TMP_Text childFile_Name3 = File_Name3.GetComponent<TMP_Text>();
+        // childFile_Name3 값을 변경한다
+        childFile_Name3.text = Thirditem.icon_File_Name.ToString();
+        // 아이콘 파일 이름은 알겠는데 파일 위치를 몰라서 일단 파일 이름만 뜨게 해놨습니다.
+
+
+    }
+
 }
