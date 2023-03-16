@@ -1,6 +1,6 @@
 Toony Colors Pro, version 2.9
-2023/02/06
-© 2023 - Jean Moreno
+2022/12/14
+© 2022 - Jean Moreno
 =============================
 
 QUICK START
@@ -37,16 +37,6 @@ UPDATE NOTES
 ------------
 
 See full and formatted changelog here: https://jeanmoreno.com/unity/toonycolorspro/doc/changelog
-
-2.9.5
-#### Fixed
-- [Hybrid Shader 2][Shader Generator 2] Fixed shadows on mobile when only using one cascade (and possibly fixed other shadow-related issues)
-- [Shader Generator 2] Fixed "Sample Normal Map First" option for BIRP and added it for URP
-- [Shader Generator 2] Added epsilon to "Blinn-Phong Specular" calculation to prevent NaN results
-- [Shader Generator 2] Fixed "Albedo HSV: Saturation Only" option not working
-- [Shader Generator 2] Fixed template issue when enabling Forward+ support
-- [Shader Generator 2] (URP) Fixed "Parallax Mapping" causing a compile error
-- [Shader Generator 2] Fixed issue where enabled GPU instanced properties in a layered property wouldn't actually be included (and cause a compile error)
 
 2.9.4
 #### Added
