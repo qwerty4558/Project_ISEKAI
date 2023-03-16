@@ -27,11 +27,6 @@ public class GameManager : Managers
     [SerializeField] bool isChangeScene;
     [SerializeField] string nowScene;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         InitGameManager();
