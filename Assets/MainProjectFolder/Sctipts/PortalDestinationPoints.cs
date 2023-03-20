@@ -39,6 +39,7 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
         }
         else
         {
+            Debug.LogError("Destination ID " + point_ID + " was not on list.");
             return false;
         }
     }
