@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Monster : MonoBehaviour, IDamage
+public class Monster : MonoBehaviour, IPlayerAction.IDamage
 {
     public float max_HP = 5;
     private float testval = 5;

@@ -64,31 +64,22 @@ public class UI_VillageScene : MonoBehaviour
     public void ClickToPage(int to_page)
     {
         now_Page = (WATCH_PAGE)to_page;
-
+        watch_Main_Page.transform.DOLocalMoveX(-400, 1);
+        inventory_Page.transform.DOLocalMoveX(-400, 1);
+        map_Page.transform.DOLocalMoveX(-400, 1);
+        recipe_Page.transform.DOLocalMoveX(-400, 1);
         switch (now_Page)
         {
             case WATCH_PAGE.MAIN_PAGE:
                 watch_Main_Page.transform.DOLocalMoveX(388, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
                 break;
-            case WATCH_PAGE.INVENTORY_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
+            case WATCH_PAGE.INVENTORY_PAGE:                
                 inventory_Page.transform.DOLocalMoveX(388, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
                 break;
             case WATCH_PAGE.MAP_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
                 map_Page.transform.DOLocalMoveX(388, 1);
-                recipe_Page.transform.DOLocalMoveX(-400, 1);
                 break;
             case WATCH_PAGE.RECIPE_PAGE:
-                watch_Main_Page.transform.DOLocalMoveX(-400, 1);
-                inventory_Page.transform.DOLocalMoveX(-400, 1);
-                map_Page.transform.DOLocalMoveX(-400, 1);
                 recipe_Page.transform.DOLocalMoveX(388, 1);
                 break;
         }

@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
-    [SerializeField] float moveSpeed = 4f;
+    [SerializeField] float walkSpeed = 3.5f;
+    [SerializeField] float runSpeed = 7f;
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
     [SerializeField] string now_Scene;
+
+    [SerializeField] private float playerSpeed;
 
     public GameObject BoardText;
     Animator animator;
@@ -37,6 +40,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
         Dialog_Test.SetActive(false);
+        playerSpeed = walkSpeed;
     }
 
     private void Update()
@@ -65,7 +69,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
-            IDamage damage = hit.collider.GetComponent<IDamage>();
+            IPlayerAction.IDamage damage = hit.collider.GetComponent<IPlayerAction.IDamage>();
             if (damage != null)
             {
                 damage.Damage(playerAttackDamage);
@@ -91,12 +95,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (player_Move_Input != Vector3.zero)
         {
             isMove = true;
-
+            
             float angle = Mathf.Atan2(heading.z, heading.x) * Mathf.Rad2Deg * -2;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
-            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+            transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);
         }
         else
         {
@@ -108,12 +112,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         if (Input.GetKey(KeyCode.LeftShift) && isMove)
         {
-            moveSpeed = 5.5f;
+            playerSpeed = runSpeed;
             isRun = true;
         }
         else
         {
-            moveSpeed = 4f;
+            playerSpeed = walkSpeed;
             isRun = false;
         }
     }

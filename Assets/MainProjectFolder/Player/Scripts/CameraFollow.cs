@@ -30,6 +30,8 @@ public class CameraFollow : MonoBehaviour
 
         pivot = GameObject.FindGameObjectWithTag("CamPivot");
 
+        
+
         dirNomalized = cameraTransform.localPosition.normalized;
 
         finalDistance = cameraTransform.localPosition.magnitude;
