@@ -25,7 +25,6 @@ namespace RPG.Resources
         public bool IsDead()
         {
             return isDead;
-            
         }
 
         //데미지 계산

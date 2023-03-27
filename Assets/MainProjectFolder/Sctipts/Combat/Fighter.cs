@@ -7,13 +7,26 @@ using RPG.Core;
 using RPG.Movement;
 using RPG.Saving;
 using RPG.Resources;
+using RPG.Control;
 
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction /*, ISaveable */
     {
+        public float knockbackForce = 10f;  // 넉백 힘
+        public float knockbackDelay = 2f;   // 넉백 딜레이 시간
+        public float knockbackTime = 0.5f;  // 넉백 지속 시간
+        public bool isKnockbacked = false; // 현재 넉백 상태인지 여부
+
+        private float knockbackDelayTimer = 0f; // 넉백 딜레이 시간을 측정하는 타이머
+
+        public Rigidbody rb; 
+
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] float weaponRange = 1f;
+        [SerializeField] GameObject player;
+        /* [SerializeField] GameObject player; */
+
         /* [SerializeField] Transform rightHandTransform = null;
          [SerializeField] Transform leftHandTransform = null;
          [SerializeField] Weapon defaultWeapon = null;
@@ -21,6 +34,11 @@ namespace RPG.Combat
          [SerializeField] string defaultWeaponName = "Unarmed"; */
 
         Health target;
+
+        void start()
+        {
+           rb = transform.GetComponent<Rigidbody>(); // Rigidbody 컴포넌트 할당
+        }
 
         public float WeaponRange
         {
@@ -40,11 +58,12 @@ namespace RPG.Combat
             /* currentWeapon = defaultWeapon; */
             mover = GetComponent<Mover>();
 
-           /* if (currentWeapon == null)
-            {
-                EquipWeapon(defaultWeapon);
-            }
-           */
+            /* if (currentWeapon == null)
+             {
+                 EquipWeapon(defaultWeapon);
+             }
+            */
+            
         }
 
         private void Update()
@@ -73,14 +92,17 @@ namespace RPG.Combat
                 TriggerAttack();
                 timeSinceLastAttack = 0;
                 transform.LookAt(target.transform);
+                Knockback(player.transform);
             }
         }
 
         //공격 시작에 대한 애니메이션 트리거 처리
         private void TriggerAttack()
         {
+            /*
             GetComponent<Animator>().ResetTrigger("stopAttack");
             GetComponent<Animator>().SetTrigger("attack");
+            */
         }
 
         //타겟과 거리 계산
@@ -110,8 +132,10 @@ namespace RPG.Combat
         //공격 취소에 대한 애니메이션 트리거 처리
         private void TriggerStopAttack()
         {
+            /*
             GetComponent<Animator>().SetTrigger("stopAttack");
             GetComponent<Animator>().ResetTrigger("attack");
+            */
         }
 
         //타겟이 유효하며, 생존 상태인지 검사
@@ -129,6 +153,7 @@ namespace RPG.Combat
             {
                 return;
             }
+
             /*
             if (currentWeapon.HasProjectile())
             {
@@ -153,6 +178,37 @@ namespace RPG.Combat
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position, WeaponRange);
+            }
+        }
+
+
+        public void Knockback(Transform target)
+        {
+            // 넉백 상태가 아닌 경우에만 실행
+            if (!isKnockbacked)
+            {
+                rb.velocity = Vector3.zero;
+
+                // Enemy 오브젝트와 Player 오브젝트의 위치 차이를 구합니다.
+                Vector3 direction = (transform.position - target.position).normalized;
+
+                rb.AddForce(direction * knockbackForce, ForceMode.Impulse);
+                isKnockbacked = true;
+                knockbackDelayTimer = 0f;
+            }
+        }
+
+        void FixedUpdate()
+        {
+            // 넉백 딜레이 타이머를 측정하여 일정 시간이 지나면 Knockback 함수 실행
+            if (isKnockbacked)
+            {
+                knockbackDelayTimer += Time.fixedDeltaTime;
+                if (knockbackDelayTimer >= knockbackDelay)
+                {
+                    // 플레이어 오브젝트를 넉백합니다.
+                    Knockback(player.transform);
+                }
             }
         }
 

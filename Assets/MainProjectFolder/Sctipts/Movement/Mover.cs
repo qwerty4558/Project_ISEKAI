@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 using RPG.Core;
+using RPG.Combat;
 using RPG.Saving;
+using RPG.Resources;
 
 namespace RPG.Movement
 {
@@ -16,17 +18,22 @@ namespace RPG.Movement
         [SerializeField] float maxSpeed = 6f;
 
         NavMeshAgent nav;
+        Health health;
+
         float currentSpeed = 0f;
 
         void Start()
         {
             nav = GetComponent<NavMeshAgent>();
-
         }
 
         void Update()
         {
+            /*
+            nav.enabled = !health.IsDead();
+
             UpdateAnimator();
+            */
         }
 
         //플레이어 캐릭터의 이동속도 z값을 로컬좌표 기준으로 변환시킨 다음, 애니메이터에 수치 동기화
@@ -36,7 +43,7 @@ namespace RPG.Movement
             Vector3 velocity = nav.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             currentSpeed = localVelocity.z;
-           /* GetComponent<Animator>().SetFloat("forwardSpeed", (currentSpeed)); */
+            /* GetComponent<Animator>().SetFloat("forwardSpeed", (currentSpeed)); */
         }
 
         //네비게이션 매쉬를 통한 움직임을 위해 네비매쉬의 목적지 설정
