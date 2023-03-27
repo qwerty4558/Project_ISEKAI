@@ -16,10 +16,12 @@ namespace RPG.Stats
         [SerializeField] Progression progression = null;
         
 
+        
         //모든 스탯에 대해 값을 가져오게끔 함수 하나로 통일
         public float GetStat(Stat stat)
         {
             return progression.GetStat(stat , characterClass, startingLevel);
         }
+        
     }
 }
