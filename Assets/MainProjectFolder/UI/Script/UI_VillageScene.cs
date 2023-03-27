@@ -13,7 +13,7 @@ enum WATCH_PAGE
 
 public class UI_VillageScene : MonoBehaviour
 {
-    public Transform gameUI;
+    public Transform gameUI;    
     [Header("Children Page")]
     [SerializeField] GameObject watch_Main_Page;
     [SerializeField] GameObject map_Page;
@@ -27,7 +27,7 @@ public class UI_VillageScene : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         now_Page = WATCH_PAGE.MAIN_PAGE;
         watch_Main_Page.transform.DOLocalMoveX(388, 1);
         inventory_Page.transform.DOLocalMoveX(-400, 1);
@@ -50,12 +50,14 @@ public class UI_VillageScene : MonoBehaviour
             {
                 gameUI.DOLocalMoveX(120, 0.5f);
                 isUIActive = true;
-                Cursor.lockState = CursorLockMode.None ;
+                Cursor.lockState = CursorLockMode.None;
+                FindObjectOfType<CameraFollow>().enabled = false;
             }
             else
             {
                 gameUI.DOLocalMoveX(-840, 0.5f);
                 isUIActive = false;
+                FindObjectOfType<CameraFollow>().enabled = false;
             }
         }
         Cursor.visible = isUIActive;
