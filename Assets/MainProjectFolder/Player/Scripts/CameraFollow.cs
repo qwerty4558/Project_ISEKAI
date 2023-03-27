@@ -9,9 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     public float sensitivity = 100f;
 
-    public float maxClampAngle = 70f;
-
-    public float minClampAngle = -10f;
+    public float clampAngle = 40f;
 
     private float rotationX;
     private float rotationY;
@@ -32,15 +30,13 @@ public class CameraFollow : MonoBehaviour
 
         pivot = GameObject.FindGameObjectWithTag("CamPivot");
 
+        
+
         dirNomalized = cameraTransform.localPosition.normalized;
 
         finalDistance = cameraTransform.localPosition.magnitude;
 
         Cursor.lockState = CursorLockMode.Locked;
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = true;
-        }
         Cursor.visible = false;
     }
 
@@ -50,7 +46,7 @@ public class CameraFollow : MonoBehaviour
         rotationX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
         rotationY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, minClampAngle, maxClampAngle);
+        rotationX = Mathf.Clamp(rotationX, 0, clampAngle);
         //rotationY  = Mathf.Clamp(rotationY, - clampAngle, clampAngle);
 
         Quaternion rot = Quaternion.Euler(rotationX, rotationY, 0);

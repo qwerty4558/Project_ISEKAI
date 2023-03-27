@@ -7,11 +7,18 @@ public class BoardScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Board;//ui판넬
     public GameObject Boardpick;//퀘스트보드 접근 시
+    public GameObject ItemManager; // 아이템 매니저
+
     private bool state;//판넬상태
     private bool BoardPick;
 
     void Start()
     {
+        Combination_Item combinationItem = ItemManager.GetComponent<Combination_Item>();
+
+        combinationItem.PrintResultItemInfo();
+        /* combinationItem.PrintRandomResultItemInfo(); */
+
         Boardpick.SetActive(false);
         state = false;
         BoardPick = false;

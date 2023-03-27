@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Tree : MonoBehaviour, IDamage
+public class Tree : MonoBehaviour, IPlayerAction.IDamage
 {
     [SerializeField] float tree_HP;
 
