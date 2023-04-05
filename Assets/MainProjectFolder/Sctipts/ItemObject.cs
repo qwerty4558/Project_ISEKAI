@@ -32,8 +32,7 @@ public class ItemObject : MonoBehaviour
             {
                 GetItem();
                 Destroy(gameObject);
-            }
-            
+            }            
         }
     }
 

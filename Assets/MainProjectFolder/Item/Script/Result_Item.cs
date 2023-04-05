@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 [System.Serializable]
-public class Result_Item : ScriptableObject
+public class Result_Item : SerializedScriptableObject
 {
     public int grup_ID;
     public int main_Ingredient_TID;
@@ -15,7 +16,8 @@ public class Result_Item : ScriptableObject
     public string result_Item_Name;
     public int result_Item_Price;
     public string icon_File_Name;
-
+    
+    public PUZZLE_STATE[,] board;
 
     public Result_Item(
         string _grup_ID,
@@ -38,4 +40,10 @@ public class Result_Item : ScriptableObject
         result_Item_Price = Convert.ToInt32(_result_Item_Price);
         icon_File_Name = _icon_File_Name;
     }
+}
+public enum PUZZLE_STATE
+{
+    NoInsert = 0,
+    Insert = 1,
+    Finish = 2,
 }
