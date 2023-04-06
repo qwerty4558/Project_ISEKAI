@@ -44,6 +44,7 @@ public class Result_Item : SerializedScriptableObject
 public enum PUZZLE_STATE
 {
     NoInsert = 0,
-    Insert = 1,
-    Finish = 2,
+    Start = 1,
+    Insert = 2,
+    Finish = 3,
 }
