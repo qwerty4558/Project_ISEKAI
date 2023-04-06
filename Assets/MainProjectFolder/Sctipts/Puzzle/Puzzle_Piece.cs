@@ -13,7 +13,7 @@ public class Puzzle_Piece : MonoBehaviour
 
     private void Start()
     {
-        puzzle_Image.gameObject.SetActive(true);
+        
     }
 
     public Vector3 center

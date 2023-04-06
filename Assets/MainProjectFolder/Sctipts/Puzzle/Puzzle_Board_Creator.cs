@@ -9,6 +9,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
     [SerializeField] Puzzle_Piece empty_Piece;
     [SerializeField] Puzzle_Piece no_Empty_Piece;
     [SerializeField] Puzzle_Piece end_Piece;
+    
 
     [SerializeField] Point pos;
     [SerializeField] Result_Item resultBoard;
@@ -18,8 +19,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
     private void Start()
     {        
         pos.x = resultBoard.board.GetLength(0);
-        pos.y = resultBoard.board.GetLength(1);
-        
+        pos.y = resultBoard.board.GetLength(1);       
 
         CreateBoard();
     }
@@ -40,6 +40,9 @@ public class Puzzle_Board_Creator : MonoBehaviour
                 {
                     case PUZZLE_STATE.NoInsert:
                         PrintPiece(no_Empty_Piece, i, j);
+                        break;
+                    case PUZZLE_STATE.Start:
+                        PrintPiece(start_Piece, i, j);
                         break;
                     case PUZZLE_STATE.Insert:
                         PrintPiece(empty_Piece, i, j);
