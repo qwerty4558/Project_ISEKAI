@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Puzzle_Board_Creator : MonoBehaviour
 {
     [Header("Piece Prefabs")]
@@ -15,14 +16,23 @@ public class Puzzle_Board_Creator : MonoBehaviour
 
     [SerializeField]GameObject canvas;
 
+    public struct Data
+    {
+        public int row;
+        public int col;
+    }
+
+
+    private Queue<Data> RoadQueue = new Queue<Data>();
+
     private void Start()
-    {        
+    {
         pos.x = resultBoard.board.GetLength(0);
         pos.y = resultBoard.board.GetLength(1);
-        
 
         CreateBoard();
     }
+    
 
     public void CreateBoard()
     {      
@@ -32,9 +42,11 @@ public class Puzzle_Board_Creator : MonoBehaviour
         Debug.Log(resultBoard.board.GetLength(0));
         Debug.Log(resultBoard.board.GetLength(1));
 
-        for(int i = 0; i < row; ++i)
+        Data temp = new Data();
+
+        for(int i = 0; i < row; ++i) // 왼쪽에서 오른쪽
         {
-            for(int j = 0; j < col; ++j)
+            for(int j = 0; j < col; ++j) // 위에서 아래로
             {
                 switch (resultBoard.board[i, j])
                 {
@@ -43,6 +55,9 @@ public class Puzzle_Board_Creator : MonoBehaviour
                         break;
                     case PUZZLE_STATE.Insert:
                         PrintPiece(empty_Piece, i, j);
+                        temp.row = i;
+                        temp.col = j;
+                        RoadQueue.Enqueue(temp);
                         break;
                     case PUZZLE_STATE.Finish:
                         PrintPiece(end_Piece, i, j);
@@ -53,7 +68,9 @@ public class Puzzle_Board_Creator : MonoBehaviour
                 }
             }
         }
+
     }
+
     void PrintPiece(Puzzle_Piece piece, int _x, int _y)
     {
         GameObject pieces;
