@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -10,7 +11,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
     [SerializeField] Puzzle_Piece empty_Piece;
     [SerializeField] Puzzle_Piece no_Empty_Piece;
     [SerializeField] Puzzle_Piece end_Piece;
-    
+    [SerializeField] Ingredient_Item item_Piece;
 
     [SerializeField] Point pos;
     [SerializeField] Result_Item resultBoard;
@@ -29,15 +30,32 @@ public class Puzzle_Board_Creator : MonoBehaviour
     private void Start()
     {
         pos.x = resultBoard.board.GetLength(0);
-<<<<<<< HEAD
         pos.y = resultBoard.board.GetLength(1);
-=======
-        pos.y = resultBoard.board.GetLength(1);       
->>>>>>> main
-
+   
         CreateBoard();
+
+        InitRoadMap();
+
     }
-    
+
+
+
+    private void InitRoadMap()
+    {
+        Data temp = new Data();
+
+        for(int i = 0; i < resultBoard.road.GetLength(1); i++)
+        {
+            temp.row = resultBoard.road[0, i];
+            temp.col = resultBoard.road[1, i];
+            RoadQueue.Enqueue(temp);
+
+            
+            Debug.Log(temp.row + " " + temp.col);
+        }
+
+    }
+
 
     public void CreateBoard()
     {      
@@ -47,7 +65,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
         Debug.Log(resultBoard.board.GetLength(0));
         Debug.Log(resultBoard.board.GetLength(1));
 
-        Data temp = new Data();
+        
 
         for(int i = 0; i < row; ++i) // 왼쪽에서 오른쪽
         {
@@ -63,9 +81,6 @@ public class Puzzle_Board_Creator : MonoBehaviour
                         break;
                     case PUZZLE_STATE.Insert:
                         PrintPiece(empty_Piece, i, j);
-                        temp.row = i;
-                        temp.col = j;
-                        RoadQueue.Enqueue(temp);
                         break;
                     case PUZZLE_STATE.Finish:
                         PrintPiece(end_Piece, i, j);
@@ -74,9 +89,10 @@ public class Puzzle_Board_Creator : MonoBehaviour
                         PrintPiece(start_Piece, i, j);
                         break;
                 }
+                
             }
         }
-
+        
     }
 
     void PrintPiece(Puzzle_Piece piece, int _x, int _y)
