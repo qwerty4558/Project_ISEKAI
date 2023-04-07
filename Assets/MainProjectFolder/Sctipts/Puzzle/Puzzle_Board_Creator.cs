@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+
 
 public class Puzzle_Board_Creator : MonoBehaviour
 {
@@ -9,20 +11,54 @@ public class Puzzle_Board_Creator : MonoBehaviour
     [SerializeField] Puzzle_Piece empty_Piece;
     [SerializeField] Puzzle_Piece no_Empty_Piece;
     [SerializeField] Puzzle_Piece end_Piece;
-    
+    [SerializeField] Ingredient_Item item_Piece;
+
 
     [SerializeField] Point pos;
     [SerializeField] Result_Item resultBoard;
 
     [SerializeField]GameObject canvas;
 
+    public struct Data
+    {
+        public int row;
+        public int col;
+    }
+
+
+    private Queue<Data> RoadQueue = new Queue<Data>();
+
     private void Start()
-    {        
+    {
         pos.x = resultBoard.board.GetLength(0);
-        pos.y = resultBoard.board.GetLength(1);       
+
+        pos.y = resultBoard.board.GetLength(1);
+   
 
         CreateBoard();
+
+        InitRoadMap();
+
     }
+
+
+
+    private void InitRoadMap()
+    {
+        Data temp = new Data();
+
+        for(int i = 0; i < resultBoard.road.GetLength(1); i++)
+        {
+            temp.row = resultBoard.road[0, i];
+            temp.col = resultBoard.road[1, i];
+            RoadQueue.Enqueue(temp);
+
+            
+            Debug.Log(temp.row + " " + temp.col);
+        }
+
+    }
+
 
     public void CreateBoard()
     {      
@@ -32,9 +68,11 @@ public class Puzzle_Board_Creator : MonoBehaviour
         Debug.Log(resultBoard.board.GetLength(0));
         Debug.Log(resultBoard.board.GetLength(1));
 
-        for(int i = 0; i < row; ++i)
+        
+
+        for(int i = 0; i < row; ++i) // ���ʿ��� ������
         {
-            for(int j = 0; j < col; ++j)
+            for(int j = 0; j < col; ++j) // ������ �Ʒ���
             {
                 switch (resultBoard.board[i, j])
                 {
@@ -54,9 +92,12 @@ public class Puzzle_Board_Creator : MonoBehaviour
                         PrintPiece(start_Piece, i, j);
                         break;
                 }
+                
             }
         }
+        
     }
+
     void PrintPiece(Puzzle_Piece piece, int _x, int _y)
     {
         GameObject pieces;

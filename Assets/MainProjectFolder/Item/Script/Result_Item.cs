@@ -13,6 +13,8 @@ public class Result_Item : SerializedScriptableObject
     public int sub_Ingredient_TID;
     public int sub_Count;
     public int result_ID;
+    public int index;
+    public int[,] road = new int[7,7];
     public string result_Item_Name;
     public int result_Item_Price;
     public string icon_File_Name;
@@ -28,6 +30,7 @@ public class Result_Item : SerializedScriptableObject
         string _result_ID,
         string _result_Item_Name,
         string _result_Item_Price,
+
         string _icon_File_Name)
     {
         grup_ID = Convert.ToInt32(_grup_ID);
