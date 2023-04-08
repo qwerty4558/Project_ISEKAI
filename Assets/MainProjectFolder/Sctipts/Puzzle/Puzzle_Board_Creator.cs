@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
+using UnityEngine.UI;
 
 
 public class Puzzle_Board_Creator : MonoBehaviour
@@ -21,7 +23,11 @@ public class Puzzle_Board_Creator : MonoBehaviour
 
     [SerializeField]GameObject canvas;
 
+    [SerializeField] private DOTweenAnimation textEffect;
+    [SerializeField] private DOTweenAnimation clearEffect;
+    [SerializeField] private DOTweenAnimation clearChildrenEffect;
     [SerializeField] private bool isSame;
+    private bool isClear;
     private bool isCreate;
     private bool isRetry;
    
@@ -49,22 +55,46 @@ public class Puzzle_Board_Creator : MonoBehaviour
         }
     }
 
-    private void ClearCheck()
+    private IEnumerator ClearCheck()
     {
+        isClear = true;
+        
+        for(int i = 0; i < 7; i++)
+        {
+            for(int j = 0; j < 7; j++)
+            {
+                if (resultBoard.board[i,j] == PUZZLE_STATE.Insert)
+                {
+                    isClear = false;
+                    StopAllCoroutines();
+                }
+            }
+        }
+        
+        if(isClear)
+        {
+            clearEffect.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            clearChildrenEffect.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            clearChildrenEffect.transform.localScale = new Vector3(1, 1, 1);
 
+            clearEffect.DORestartById("scale");
+            clearChildrenEffect.DORestartById("scale");
+            yield return new WaitForSeconds(1f);
+            clearChildrenEffect.transform.localScale = new Vector3(300, 300, 300);
+            clearChildrenEffect.DORestartById("punch");
+            yield return new WaitForSeconds(3f);
+            clearEffect.DORestartById("fade");
+            clearChildrenEffect.DORestartById("fade");
+        }
     }
 
-    private IEnumerator NotPieceCor()
+    private void NotPiece()
     {
+        textEffect.GetComponent<TextMeshProUGUI>().color = new Color(0,0,0,255);
+        
+        textEffect.DORestart();
 
-        notPieceText.color = new Color(0, 0, 0, 255);
-        notPieceText.rectTransform.position = new Vector3(0, -130f,0);
-        yield return new WaitForSeconds(0.5f);
-        notPieceText.rectTransform.DOMoveY(-200f, 2f);
-        notPieceText.DOFade(0, 5f);
-
-
-        yield return null;
+        
     }
 
     public void CheckPuzzle(Ingredient_Item piece)
@@ -143,7 +173,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
 
                 if (checker[i,j] != checking[i,j])
                 {
-                    StartCoroutine(NotPieceCor());
+                    NotPiece();
                     return;
                 }
 
@@ -190,7 +220,7 @@ public class Puzzle_Board_Creator : MonoBehaviour
         CreateBoard();
         RoadQueue.Dequeue();
 
-
+        StartCoroutine(ClearCheck());
     }
 
     private void InitRoadMap()
