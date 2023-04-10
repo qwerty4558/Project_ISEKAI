@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     private bool isRePosition;
     private bool isMove;
     private bool isAttack;
+    private bool isAttackDelay;
+    private bool isDamage;
 
     private PlayerController player;
     private Animator anim;
@@ -45,8 +47,21 @@ public class Enemy : MonoBehaviour
 
     private void GetDamage(float damage)
     {
-        currentHp -= damage;
-        uiManager.UpdateUI(currentHp, maxHp, false);
+        if(!isDamage)
+        {
+            isDamage = true;
+            isMove = false;
+            anim.SetBool("isMove", false);
+            anim.SetTrigger("getDamage");
+            currentHp -= damage;
+            uiManager.UpdateUI(currentHp, maxHp, false);
+        }
+    }
+
+    public void AnimExit()
+    {
+        isDamage = false;
+        isMove = true;
     }
 
     private bool TargetDistance(Vector3 target, float distance)
@@ -63,10 +78,10 @@ public class Enemy : MonoBehaviour
 
     private void EnemyMove()
     {
-        if (TargetDistance(targetPos, 10) && !isRePosition && !isAttack && isMove)
+        if (TargetDistance(targetPos, 10) && !isRePosition && !isAttack && isMove && !isDamage)
         {
             isMove = true;
-            
+            anim.SetBool("isMove", true);
             Vector3 dir = targetPos - transform.position;
             transform.forward = dir;
             transform.position = transform.position + dir * Time.deltaTime * enemySpeed;
@@ -74,10 +89,11 @@ public class Enemy : MonoBehaviour
             if (TargetDistance(targetPos, 3)) isAttack = true;
         }
         else if (isRePosition) EnemyRePos();
-        else if (!isRePosition && isAttack)
+        else if (!isRePosition && isAttack && !isAttackDelay)
         {
             isMove = false;
             isAttack = false;
+            isAttackDelay = true;
             StartCoroutine(EnemyAttack());
         }
 
@@ -91,6 +107,8 @@ public class Enemy : MonoBehaviour
         player.GetDamage(damage);
         yield return new WaitForSeconds(1f);
         isMove = true;
+        yield return new WaitForSeconds(2f); //공격 애니메이션 생기면 그걸로 교체
+        isAttackDelay = false;
     }
 
     private void EnemyRePos()

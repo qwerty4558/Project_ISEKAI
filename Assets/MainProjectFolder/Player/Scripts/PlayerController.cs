@@ -9,7 +9,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
-    [SerializeField] float playerAttackDamage = 1f;
+    [SerializeField] float playerAttackDamage = 5f;
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
     [SerializeField] string now_Scene;
@@ -70,7 +70,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         normalAttackCol.SetActive(true); //꺼지는건 공격 콜라이더 스스로 꺼지게 할 예정
     }
 
-    private void AttackDelay() //애니메이션 추가 후 이벤트로 적용 예정
+    public void AttackAnimExit() //애니메이션 추가 후 이벤트로 적용 예정
     {
 
     }

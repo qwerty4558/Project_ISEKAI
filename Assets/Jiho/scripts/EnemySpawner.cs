@@ -60,10 +60,11 @@ public class EnemySpawner : MonoBehaviour
         {
             int a = Random.Range(0, 4);
             GameObject temp = enemyQueueList[list].Dequeue();
-            temp.GetComponentInChildren<Enemy>().cam = cam;
-            temp.GetComponentInChildren<Enemy>().canvas.worldCamera = cam;
-            temp.GetComponentInChildren<Enemy>().Player = player;
-            temp.GetComponentInChildren<Enemy>().StartPos = spawnPos[a].position;
+            Enemy enemy = temp.GetComponentInChildren<Enemy>();
+            enemy.cam = cam;
+            enemy.canvas.worldCamera = cam;
+            enemy.Player = player;
+            enemy.StartPos = spawnPos[a].position;
             temp.transform.position = spawnPos[a].position;
             temp.SetActive(true);
         }
