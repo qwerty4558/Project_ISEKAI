@@ -407,7 +407,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434549811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.49, y: 1, z: 18.16}
+  m_LocalPosition: {x: 17.55, y: 1, z: 35.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,7 +428,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &434549817
 MonoBehaviour:
@@ -625,8 +625,8 @@ GameObject:
   - component: {fileID: 899805249}
   - component: {fileID: 899805250}
   - component: {fileID: 899805251}
-  - component: {fileID: 899805252}
   - component: {fileID: 899805253}
+  - component: {fileID: 899805254}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcb8ed2a63f93345bbd3cb00c327953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 434549815}
+  target: {fileID: 0}
   maxSpeed: 5
 --- !u!114 &899805249
 MonoBehaviour:
@@ -778,9 +778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f740535fe37c43bce2582e3ce176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: 100
-  knockbackDelay: 4
-  knockbackTime: 0.5
   chaseDistance: 6
   suspicionTime: 3
   patrolPath: {fileID: 1115890961}
@@ -812,21 +809,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!114 &899805252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899805238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40af4cb1607011e4da2c874bfa7d9af1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  weaponRange: 2
-  player: {fileID: 434549811}
 --- !u!114 &899805253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +824,26 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 1
   progression: {fileID: 0}
+--- !u!114 &899805254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899805238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40af4cb1607011e4da2c874bfa7d9af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 10
+  knockbackDelay: 2
+  knockbackTime: 0.5
+  isKnockbacked: 0
+  rb: {fileID: 0}
+  timeBetweenAttacks: 1
+  weaponRange: 1
+  player: {fileID: 434549811}
 --- !u!1 &1115890960
 GameObject:
   m_ObjectHideFlags: 0

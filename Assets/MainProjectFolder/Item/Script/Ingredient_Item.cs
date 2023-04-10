@@ -2,16 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
+public enum PUZZLE_PIECE
+{
+    NO_PIECE = 0,
+    PIECE = 1,
+}
 
-public class Ingredient_Item : ScriptableObject 
+public class Ingredient_Item : SerializedScriptableObject
 { 
     public int id;
     public new string name;
     public string name_KR;
     public string icon_File_Name;
-    
 
+    public PUZZLE_PIECE[,] puzzle;
     
 
     public Ingredient_Item(string _id, string _name, string _name_KR, string _icon_File_Name)
