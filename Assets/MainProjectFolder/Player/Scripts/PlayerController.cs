@@ -10,9 +10,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] float rotateSpeed = 40f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 1f;
+    [SerializeField] private float currentHp;
+    [SerializeField] private float maxHp;
     [SerializeField] string now_Scene;
 
     [SerializeField] private float playerSpeed;
+    [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
+    [SerializeField] private UIDataManager uiManager;
 
     public GameObject BoardText;
     Animator animator;
@@ -37,15 +41,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void Start()
     {
+        currentHp = maxHp;
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
-        Dialog_Test.SetActive(false);
+        if(Dialog_Test != null)
+            Dialog_Test.SetActive(false);
         playerSpeed = walkSpeed;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) Interaction();
+        if (Input.GetMouseButtonDown(0)) Attack();
+            //Interaction();
         DialogTest();
         DialogTest2();
     }
@@ -57,6 +64,24 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         PlayerSetAnimations();
     }
 
+    private void Attack()
+    {
+        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // 데미지는 무기에 따라 다르게 하는게 나으니 나중에 교체 바람
+        normalAttackCol.SetActive(true); //꺼지는건 공격 콜라이더 스스로 꺼지게 할 예정
+    }
+
+    private void AttackDelay() //애니메이션 추가 후 이벤트로 적용 예정
+    {
+
+    }
+
+    public void GetDamage(float damage)
+    {
+        uiManager.UpdateUI(currentHp, maxHp, true);
+        currentHp -= damage;
+        Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
+    }
+
     private void Interaction()
     {
         Ray ray = new Ray
@@ -66,7 +91,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         };
 
         RaycastHit hit;
-
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
             IPlayerAction.IDamage damage = hit.collider.GetComponent<IPlayerAction.IDamage>();
