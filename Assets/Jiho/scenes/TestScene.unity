@@ -3126,9 +3126,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1014832576379424041}
     m_Modifications:
+    - target: {fileID: 2549814760742050444, guid: 4f2b748438091fb43bcdef5a806fb508, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549814760742050444, guid: 4f2b748438091fb43bcdef5a806fb508, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5708652368664213282, guid: 4f2b748438091fb43bcdef5a806fb508, type: 3}
       propertyPath: m_Name
       value: NormalAttackCol
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708652368664213282, guid: 4f2b748438091fb43bcdef5a806fb508, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5708652368664213282, guid: 4f2b748438091fb43bcdef5a806fb508, type: 3}
       propertyPath: m_TagString
@@ -4324,8 +4336,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3066117281353722739}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5923,13 +5935,14 @@ MonoBehaviour:
   runSpeed: 7
   rotateSpeed: 10
   interactionRange: 2
-  playerAttackDamage: 1
+  playerAttackDamage: 5
   currentHp: 0
   maxHp: 50
   now_Scene: 
   playerSpeed: 0
   normalAttackCol: {fileID: 669316020}
   uiManager: {fileID: 296860825}
+  isClicks: 000000
   BoardText: {fileID: 0}
   Dialog_Test: {fileID: 0}
   idleChangeTime: 5.5
