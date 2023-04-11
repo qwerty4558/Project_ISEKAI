@@ -212,10 +212,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if(other.CompareTag("FieldItem"))
         {
-            SlotItem temp = other.GetComponent<SlotItem>();
-            if(!temp.IsPop)
+            FieldItem temp = other.GetComponent<FieldItem>();
+            if (!temp.IsPop)
             {
-                inven.PlusItem(temp);
+                inven.PlusItem(temp.itemData);
                 Destroy(other.gameObject); //일단 삭제
             }
         }

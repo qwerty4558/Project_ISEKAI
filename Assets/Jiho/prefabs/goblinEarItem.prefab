@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 886233355723082865}
   - component: {fileID: 886233355723082866}
   - component: {fileID: 886233355723082867}
-  - component: {fileID: 886233355723082869}
   - component: {fileID: 886233355723082864}
+  - component: {fileID: -2304589554259847289}
   m_Layer: 0
   m_Name: goblinEarItem
   m_TagString: FieldItem
@@ -85,28 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &886233355723082869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886233355723082870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73c51e448b3fc2c479718bfa93e9b323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: "\uACE0\uBE14\uB9B0 \uADC0"
-  id: 2
-  count: 1
-  slotImage: {fileID: 0}
-  status: "\uC5F0\uAE08\uC220 \uC7AC\uB8CC\uB85C \uC870\uD569 \uAC00\uB2A5 \uC544\uC774\uD15C"
-  route: "\uBAAC\uC2A4\uD130\uC5D0\uAC8C\uC11C \uC5BB\uC744 \uC218 \uC788\uB2E4"
-  statusTexts: []
-  itemStatus: {fileID: 0}
-  itemImage: {fileID: 21300000, guid: c6a985ec35bfa2242bb940571419631b, type: 3}
-  playerPrefab: {fileID: 0}
 --- !u!65 &886233355723082864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,3 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.02, z: 1.5}
   m_Center: {x: -0.009953119, y: 0.28668997, z: 0.00889717}
+--- !u!114 &-2304589554259847289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886233355723082870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62298d425a773dd4fa75943c63824f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemImage: {fileID: 21300000, guid: c6a985ec35bfa2242bb940571419631b, type: 3}
+  itemName: "\uACE0\uBE14\uB9B0 \uADC0"
+  itemStatus: "\uC5F0\uAE08\uC220 \uC7AC\uB8CC\uB85C \uC870\uD569 \uAC00\uB2A5 \uC544\uC774\uD15C"
+  itemRoute: "\uBAAC\uC2A4\uD130\uC5D0\uAC8C\uC11C \uC5BB\uC744 \uC218 \uC788\uB2E4"
+  itemCount: 1
