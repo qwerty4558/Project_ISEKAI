@@ -19,6 +19,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private InventoryTitle inven;
+    [SerializeField] private CameraFollow cameraFollow;
 
     private bool isAttack;
 
@@ -57,23 +58,26 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Update()
     {
+        if(!cameraFollow.isInteraction)
+        {
+            if (Input.GetMouseButtonDown(0) && isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
+            {
+                isAttack = true;
+                animator.SetTrigger("Attack1");
+            }
+            if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && !isClicks[2])
+            {
+                isAttack = true;
+                animator.SetTrigger("Attack2");
+            }
+            if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && isClicks[2])
+            {
+                isAttack = true;
+                animator.SetTrigger("Attack3");
+            }
+        }
 
-
-        if (Input.GetMouseButtonDown(0) && isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
-        {
-            isAttack = true;
-            animator.SetTrigger("Attack1");
-        }
-        if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && !isClicks[2])
-        {
-            isAttack = true;
-            animator.SetTrigger("Attack2");
-        }
-        if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && isClicks[2])
-        {
-            isAttack = true;
-            animator.SetTrigger("Attack3");
-        }
+        
         //Interaction();
         DialogTest();
         DialogTest2();
@@ -94,9 +98,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void FixedUpdate()
     {
-        Move();
-        Player_Run();
-        PlayerSetAnimations();
+        if(!cameraFollow.isInteraction)
+        {
+            Move();
+            Player_Run();
+            PlayerSetAnimations();
+        }
     }
 
     public void Attack(float damage)
@@ -206,8 +213,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if(other.CompareTag("FieldItem"))
         {
             SlotItem temp = other.GetComponent<SlotItem>();
-            inven.PlusItem(temp);
-            Destroy(other.gameObject); //일단 삭제
+            if(!temp.IsPop)
+            {
+                inven.PlusItem(temp);
+                Destroy(other.gameObject); //일단 삭제
+            }
         }
     }
 
