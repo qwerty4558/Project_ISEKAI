@@ -64,10 +64,6 @@ public class Enemy : MonoBehaviour
         isMove = true;
     }
 
-    public void AttackAnimExit()
-    {
-        isAttackDelay = false;
-    }
 
     private bool TargetDistance(Vector3 target, float distance)
     {
@@ -91,7 +87,7 @@ public class Enemy : MonoBehaviour
             transform.forward = dir;
             transform.position = transform.position + dir * Time.deltaTime * enemySpeed;
 
-            if (TargetDistance(targetPos, 3)) isAttack = true;
+            if (TargetDistance(targetPos, 1)) isAttack = true;
         }
         else if (isRePosition) EnemyRePos();
         else if (!isRePosition && isAttack && !isAttackDelay)
@@ -99,19 +95,27 @@ public class Enemy : MonoBehaviour
             isMove = false;
             isAttack = false;
             isAttackDelay = true;
-            StartCoroutine(EnemyAttack());
+            StartCoroutine(EnemyAttackAnimation());
         }
 
         if(!TargetDistance(startPos, 12)) isRePosition = true;
         
     }
 
-    private IEnumerator EnemyAttack()
+    private IEnumerator EnemyAttackAnimation()
     {
         //공격 애니메이션
-        player.GetDamage(damage);
-        yield return new WaitForSeconds(1f);
+        anim.SetBool("isMove", false);
+        anim.SetTrigger("isAttack");
+        
+        yield return new WaitForSeconds(2f);
         isMove = true;
+        isAttackDelay = false;
+    }
+
+    public void Attack()
+    {
+        player.GetDamage(damage);
     }
 
     private void EnemyRePos()
