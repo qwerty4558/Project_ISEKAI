@@ -8,6 +8,8 @@ public class InventoryTitle : MonoBehaviour
 {
     [SerializeField] private SlotItem[] slotItems;
     [SerializeField] private GameObject inventoryObj;
+    [SerializeField] private CameraFollow cameraFollow;
+
     private List<SlotItem> itemList;
 
     private void Awake()
@@ -21,9 +23,19 @@ public class InventoryTitle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (inventoryObj.activeSelf)
+            {
                 inventoryObj.SetActive(false);
+                cameraFollow.isInteraction = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
             else
+            {
                 inventoryObj.SetActive(true);
+                cameraFollow.isInteraction = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
     }
 
