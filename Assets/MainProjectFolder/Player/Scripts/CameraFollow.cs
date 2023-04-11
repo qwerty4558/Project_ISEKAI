@@ -23,6 +23,8 @@ public class CameraFollow : MonoBehaviour
     public float maxDistance;
     public float finalDistance;
     public float smoothness = 10f;
+
+    public bool isInteraction;
     private void Start()
     {
         rotationX = transform.localRotation.eulerAngles.x;
@@ -43,15 +45,18 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        rotationX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
-        rotationY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        if(!isInteraction) //상호작용 하고 있지 않을 때
+        {
+            rotationX += -(Input.GetAxis("Mouse Y")) * sensitivity * Time.deltaTime;
+            rotationY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
-        rotationX = Mathf.Clamp(rotationX, 0, clampAngle);
-        //rotationY  = Mathf.Clamp(rotationY, - clampAngle, clampAngle);
+            rotationX = Mathf.Clamp(rotationX, 0, clampAngle);
+            //rotationY  = Mathf.Clamp(rotationY, - clampAngle, clampAngle);
 
-        Quaternion rot = Quaternion.Euler(rotationX, rotationY, 0);
+            Quaternion rot = Quaternion.Euler(rotationX, rotationY, 0);
 
-        transform.rotation = rot;
+            transform.rotation = rot;
+        }
     }
 
     private void LateUpdate()

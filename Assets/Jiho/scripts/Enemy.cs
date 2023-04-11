@@ -64,6 +64,11 @@ public class Enemy : MonoBehaviour
         isMove = true;
     }
 
+    public void AttackAnimExit()
+    {
+        isAttackDelay = false;
+    }
+
     private bool TargetDistance(Vector3 target, float distance)
     {
         if (Vector3.Distance(target, transform.position) < distance) return true;
@@ -107,8 +112,6 @@ public class Enemy : MonoBehaviour
         player.GetDamage(damage);
         yield return new WaitForSeconds(1f);
         isMove = true;
-        yield return new WaitForSeconds(2f); //공격 애니메이션 생기면 그걸로 교체
-        isAttackDelay = false;
     }
 
     private void EnemyRePos()
