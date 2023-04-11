@@ -3,51 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item
-{
-    public Image itemImage;
-    public int id;
-    public string itemName;
-    public int count;
-}
 
 public class InventoryTitle : MonoBehaviour
 {
     [SerializeField] private SlotItem[] slotItems;
-
-    private List<Item> itemList;
+    [SerializeField] private GameObject inventoryObj;
+    private List<SlotItem> itemList;
 
     private void Awake()
     {
-        itemList = new List<Item>(slotItems.Length);
+        itemList = new List<SlotItem>(slotItems.Length);
+        ResetInven();
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (inventoryObj.activeSelf)
+                inventoryObj.SetActive(false);
+            else
+                inventoryObj.SetActive(true);
+        }
     }
 
     private void ResetInven()
     {
         for(int i = 0; i < slotItems.Length; i++)
-        {
-            slotItems[i].ItemImage = null;
-            slotItems[i].ID = 0;
-            slotItems[i].Count = 0;
-            slotItems[i].ItemName = "";
-        }
+            itemList.Add(slotItems[i]);
     }
 
     private void LinkItems()
     {
         for(int i = 0; i < itemList.Count; i++)
         {
-            slotItems[i].ItemImage = itemList[i].itemImage;
-            slotItems[i].ItemName = itemList[i].itemName;
-            slotItems[i].Count = itemList[i].count;
-            slotItems[i].ID = itemList[i].id;
+            slotItems[i].itemImage = itemList[i].itemImage;
+            slotItems[i].ItemName = itemList[i].ItemName;
+            slotItems[i].Count = itemList[i].Count;
+            slotItems[i].ID = itemList[i].ID;
+            slotItems[i].IsCheck = false;
         }
     }
 
-    private void PlusItem(Item item)
+    public void PlusItem(SlotItem item)
     {
-        itemList.Add(item);
+        for(int i = 0; i < itemList.Count; i++)
+        {
+            if (itemList[i].ID == item.ID)
+            {
+                itemList[i].Count++;
+                LinkItems();
+                return;
+            }
+        }
 
+        for(int i = 0; i < itemList.Count; i++)
+        {
+            if (itemList[i].ID == 0)
+            {
+                itemList[i] = item;
+                LinkItems();
+                return;
+            }
+        }
     }
 }
