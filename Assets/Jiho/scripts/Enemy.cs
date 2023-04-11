@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float currentHp;
     [SerializeField] private float damage;
     [SerializeField] private UIDataManager uiManager;
+    [SerializeField] private GameObject[] items;
 
     private bool isRePosition;
     private bool isMove;
@@ -55,6 +56,17 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("getDamage");
             currentHp -= damage;
             uiManager.UpdateUI(currentHp, maxHp, false);
+
+            if(currentHp <= 0)
+            {
+                for(int i = 0; i < items.Length; i++)
+                {
+                    GameObject temp = Instantiate(items[i], transform.position, Quaternion.identity);
+                    temp.GetComponent<SlotItem>().playerPrefab = player.gameObject;
+                    temp.SetActive(true);
+                }
+                this.gameObject.SetActive(false);
+            }
         }
     }
 

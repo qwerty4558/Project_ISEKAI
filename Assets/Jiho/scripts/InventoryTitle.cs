@@ -9,19 +9,17 @@ using UnityEngine.UI;
 public class InventoryTitle : MonoBehaviour
 {
     [SerializeField] private SlotItem[] slotItems;
-    [SerializeField] private GameObject inventoryObj;
-    [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private GameObject itemStatus;
     [SerializeField] private TextMeshProUGUI[] statusTexts;
-
+    [SerializeField] private GameObject inventoryObj;
+    [SerializeField] private CameraFollow cameraFollow;
     private List<SlotItem> itemList;
-
-
 
     private void Awake()
     {
         itemList = new List<SlotItem>(slotItems.Length);
         ResetInven();
+        LinkItems();
     }
 
     private void Update()
@@ -31,6 +29,7 @@ public class InventoryTitle : MonoBehaviour
             if (inventoryObj.activeSelf)
             {
                 inventoryObj.SetActive(false);
+                itemStatus.SetActive(false);
                 cameraFollow.isInteraction = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -38,42 +37,11 @@ public class InventoryTitle : MonoBehaviour
             else
             {
                 inventoryObj.SetActive(true);
+                
                 cameraFollow.isInteraction = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
-        }
-
-        if(inventoryObj.activeSelf)
-        {
-
-
-
-
-
-
-
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit hit;
-            //if(Physics.Raycast(ray, out hit))
-            //{
-            //    if (hit.transform.gameObject.CompareTag("SlotItem"))
-            //    {
-            //        itemStatus.transform.position = hit.transform.gameObject.transform.position;
-            //        SlotItem temp = hit.transform.gameObject.GetComponent<SlotItem>();
-            //        statusTexts[0].text = temp.name;
-            //        statusTexts[1].text = temp.Status;
-            //        statusTexts[2].text = temp.Route;
-            //        itemStatus.SetActive(true);
-            //    }
-            //    else
-            //    {
-            //        itemStatus.SetActive(false);
-            //        statusTexts[0].text = null;
-            //        statusTexts[1].text = null;
-            //        statusTexts[2].text = null;
-            //    }
-            //}
         }
     }
 
@@ -95,6 +63,8 @@ public class InventoryTitle : MonoBehaviour
             slotItems[i].Status = itemList[i].Status;
             slotItems[i].Route = itemList[i].Route;
             slotItems[i].IsCheck = false;
+            slotItems[i].statusTexts = statusTexts;
+            slotItems[i].itemStatus = itemStatus;
         }
     }
 
