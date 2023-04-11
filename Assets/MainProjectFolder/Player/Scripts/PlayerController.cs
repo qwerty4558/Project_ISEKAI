@@ -18,6 +18,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float playerSpeed;
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
+    [SerializeField] private InventoryTitle inven;
 
     private bool isAttack;
 
@@ -201,7 +202,16 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             BoardText.SetActive(true);
         }
+
+        if(other.CompareTag("FieldItem"))
+        {
+            SlotItem temp = other.GetComponent<SlotItem>();
+            inven.PlusItem(temp);
+            Destroy(other.gameObject); //일단 삭제
+        }
     }
+
+
 
     private void DialogTest()
     {
