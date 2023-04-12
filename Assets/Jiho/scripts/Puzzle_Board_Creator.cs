@@ -39,7 +39,6 @@ public class Puzzle_Board_Creator : MonoBehaviour
         public int col;
     }
 
-
     private Queue<Data> RoadQueue = new Queue<Data>();
 
     private void Start()
