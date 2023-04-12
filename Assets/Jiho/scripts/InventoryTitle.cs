@@ -13,13 +13,23 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] statusTexts;
     [SerializeField] private GameObject inventoryObj;
     [SerializeField] private CameraFollow cameraFollow;
-    private List<SlotItem> itemList;
+    
+    private Dictionary<string, Item> itemMap;
+
 
     private void Awake()
     {
-        itemList = new List<SlotItem>(slotItems.Length);
-        ResetInven();
-        LinkItems();
+        itemMap = new Dictionary<string, Item>(slotItems.Length);
+        InitInventory();
+    }
+
+    private void InitInventory()
+    {
+        for(int i = 0; i < slotItems.Length; i++)
+        {
+            slotItems[i].itemStatus = itemStatus;
+            slotItems[i].statusTexts = statusTexts;
+        }
     }
 
     private void Update()
@@ -36,6 +46,7 @@ public class InventoryTitle : MonoBehaviour
             }
             else
             {
+                PrintInventory();
                 inventoryObj.SetActive(true);
                 
                 cameraFollow.isInteraction = true;
@@ -45,49 +56,27 @@ public class InventoryTitle : MonoBehaviour
         }
     }
 
-    private void ResetInven()
+    private void PrintInventory()
     {
-        for(int i = 0; i < slotItems.Length; i++)
-            itemList.Add(slotItems[i]);
-    }
-
-
-    private void LinkItems()
-    {
-        for(int i = 0; i < itemList.Count; i++)
+        int count = 0;
+        foreach(KeyValuePair<string, Item> pair in itemMap)
         {
-            slotItems[i].itemImage = itemList[i].itemImage;
-            slotItems[i].ItemName = itemList[i].ItemName;
-            slotItems[i].Count = itemList[i].Count;
-            slotItems[i].ID = itemList[i].ID;
-            slotItems[i].Status = itemList[i].Status;
-            slotItems[i].Route = itemList[i].Route;
-            slotItems[i].IsCheck = false;
-            slotItems[i].statusTexts = statusTexts;
-            slotItems[i].itemStatus = itemStatus;
+            Item temp = pair.Value;
+            slotItems[count].itemData = temp;
+            slotItems[count].updateData();
+            count++;
         }
     }
 
-    public void PlusItem(SlotItem item)
+    public void PlusItem(Item item)
     {
-        for(int i = 0; i < itemList.Count; i++)
+        if (itemMap.ContainsKey(item.itemName))
         {
-            if (itemList[i].ID == item.ID)
-            {
-                itemList[i].Count++;
-                LinkItems();
-                return;
-            }
+            itemMap[item.itemName].itemCount += item.itemCount;
         }
-
-        for(int i = 0; i < itemList.Count; i++)
+        else
         {
-            if (itemList[i].ID == 0)
-            {
-                itemList[i] = item;
-                LinkItems();
-                return;
-            }
+            itemMap.Add(item.itemName, item);
         }
     }
 
