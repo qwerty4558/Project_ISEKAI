@@ -76,7 +76,15 @@ public class FieldItem : MonoBehaviour
         isPop = false;
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            player.inven.PlusItem(this.itemData);
+            Destroy(this.gameObject);
+        }
+    }
 
     private void IdleItem()
     {
@@ -99,7 +107,7 @@ public class FieldItem : MonoBehaviour
         {
             isPickUp = true;
             vec = player_obj.transform.position - transform.position;
-            transform.position = transform.position + vec * Time.deltaTime * 3;
+            transform.position = transform.position + vec * Time.deltaTime * 5;
         }
     }
 }
