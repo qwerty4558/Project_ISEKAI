@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
 public class InventoryTitle : MonoBehaviour
 {
     [SerializeField] private SlotItem[] slotItems;
@@ -15,7 +14,6 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private CameraFollow cameraFollow;
     
     private Dictionary<string, Item> itemMap;
-
 
     private void Awake()
     {
@@ -79,6 +77,4 @@ public class InventoryTitle : MonoBehaviour
             itemMap.Add(item.itemName, item);
         }
     }
-
-    
 }

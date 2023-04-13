@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject[] items;
 
+    [SerializeField] private float time;
     private bool isRePosition;
     private bool isMove;
     private bool isAttack;
@@ -33,10 +34,11 @@ public class Enemy : MonoBehaviour
     public PlayerController Player { get => player; set => player = value; }
 
     private void Awake()
-    {
+    { 
         anim = GetComponent<Animator>();
         isMove = true;
         currentHp = maxHp;
+        time = 15f;
     }
 
     private void Update()
@@ -44,6 +46,14 @@ public class Enemy : MonoBehaviour
         targetPos = player.transform.position;
         EnemyMove();
         CanvasMove();
+
+        if(time > 0)
+            time -= Time.deltaTime;
+        else if(time <= 0 && !isMove)
+        {
+            anim.SetTrigger("isIdle");
+            time = 15f;
+        }
     }
 
     private void GetDamage(float damage)
@@ -139,6 +149,7 @@ public class Enemy : MonoBehaviour
         currentHp = maxHp;
         if (TargetDistance(startPos, 0.5f))
         {
+            anim.SetBool("isMove", false);
             isRePosition = false;
             isMove = true;
         }
