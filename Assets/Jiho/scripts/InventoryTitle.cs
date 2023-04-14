@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,12 +14,13 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private GameObject inventoryObj;
     [SerializeField] private CameraFollow cameraFollow;
     
-    private Dictionary<string, Item> itemMap;
+    public Dictionary<string, Item> itemMap;
 
     private void Awake()
     {
         itemMap = new Dictionary<string, Item>(slotItems.Length);
         InitInventory();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void InitInventory()

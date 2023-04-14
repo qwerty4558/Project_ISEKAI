@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class ItemData : MonoBehaviour
 {
-    [SerializeField] private Ingredient_Item itemData;
-    [SerializeField] private Result_Item mainItemData;
-    [SerializeField] private Sprite[] itemImages;
-    [SerializeField] private Sprite[] mainItemImages;
+    [SerializeField] private Ingredient_Item puzzleItem;
+    [SerializeField] private alchemyItem[] alchemyItems;
     [SerializeField] private Image myImage;
     [SerializeField] private Image roadImage;
+    [SerializeField] private bool isInit;
+
+    private InventoryTitle inven;
     private int index;
 
     private void Awake()
@@ -19,12 +20,32 @@ public class ItemData : MonoBehaviour
         InitItem();
     }
 
+    private void Update()
+    {
+        if(!isInit)
+        {
+            isInit = true;
+            inven = FindObjectOfType<InventoryTitle>();
+        }
+    }
+
+    public void ItemInput()
+    {
+        int count = 0;
+        foreach (KeyValuePair<string, Item> pair in inven.itemMap)
+        {
+            Item temp = pair.Value;
+            alchemyItems[count].itemData = temp;
+            alchemyItems[count].updateData();
+            count++;
+        }
+    }
+
     private void InitItem()
     {
-        if (itemData != null)
+        if (puzzleItem != null)
         {
-            index = itemData.id;
-            myImage.sprite = itemImages[index];
+            index = puzzleItem.id;
             myImage.enabled = true;
 
             if (index == 0)
@@ -44,17 +65,6 @@ public class ItemData : MonoBehaviour
             if (index == 7)
                 roadImage.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             roadImage.enabled = true;
-        }
-        else if(mainItemData != null)
-        {
-            index = mainItemData.index;
-            myImage.sprite = mainItemImages[index];
-            myImage.enabled = true;
-        }
-        else
-        {
-            myImage.enabled = false;
-            roadImage.enabled = false;
         }
     }
 

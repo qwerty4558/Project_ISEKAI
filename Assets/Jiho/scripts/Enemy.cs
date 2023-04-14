@@ -39,7 +39,32 @@ public class Enemy : MonoBehaviour
         isMove = true;
         currentHp = maxHp;
         time = 15f;
+        
     }
+
+    //private int[] solution(string[] id_list, string[] report, int k)
+    //{
+    //    int[] answer = new int[id_list.Length];
+    //    List<string> other;
+    //    Dictionary<string, int> reportCount = new Dictionary<string, int>(report.Length);
+    //    Dictionary<string, List<string>> who = new Dictionary<string, List<string>>(id_list.Length);
+    //    string[] temp = new string[2];
+    //    for(int i = 0; i < report.Length; i++)
+    //    {
+    //        Debug.Log(report.Length);
+    //        temp = report[i].Split(" ");
+    //        if (reportCount.ContainsKey(temp[1]))
+    //        {
+    //            reportCount[temp[1]]++;
+    //        }
+    //        else
+    //        {
+    //            reportCount.Add(temp[1], 1);
+    //        }
+    //        Debug.Log(temp[1] + " = " + reportCount[temp[1]]);
+    //    }
+    //    return answer;
+    //}
 
     private void Update()
     {
