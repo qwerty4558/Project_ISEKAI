@@ -1,5 +1,6 @@
 using Cinemachine;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -114,6 +115,21 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 }
             }
         }   
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if ((int)currentActionState > 0)
+            {
+                ChangeAction(currentActionState-1);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if ((int)currentActionState + 1 < Enum.GetNames(typeof(ActionState)).Length)
+            {
+                ChangeAction(currentActionState + 1);
+            }
+        }
         //Interaction();
         DialogTest();
         DialogTest2();
@@ -163,6 +179,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public void ChangeAction(ActionState state)
     {
         currentActionState = state;
+
+        if(FindObjectOfType(typeof(UI_Tools)))
+        {
+            UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+
+            tool.SwitchCurrentTool(state);
+        }
     }
 
     private void Interaction()
