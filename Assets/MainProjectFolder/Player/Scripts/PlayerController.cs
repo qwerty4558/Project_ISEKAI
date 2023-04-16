@@ -1,8 +1,18 @@
 using Cinemachine;
+using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+
+public enum ActionState
+{
+    None,
+    Sword,
+    Pickaxe,
+    Axe
+}
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
@@ -19,6 +29,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
+
+    [SerializeField] private ActionState currentActionState;
 
     private bool isAttack;
 
@@ -44,7 +56,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [SerializeField] float idleChangeTime = 5.5f;
 
-
     void Start()
     {
         isClicks[0] = true;
@@ -54,30 +65,71 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if(Dialog_Test != null)
             Dialog_Test.SetActive(false);
         playerSpeed = walkSpeed;
+
+        ChangeAction(currentActionState);
     }
 
     private void Update()
     {
         if(!cameraFollow.isInteraction)
         {
-            if (Input.GetMouseButtonDown(0) && isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
+            if (Input.GetMouseButtonDown(0))
             {
-                isAttack = true;
-                animator.SetTrigger("Attack1");
+                switch (currentActionState)
+                {
+                    case ActionState.None:
+                        animator.SetTrigger("Attack1");
+                        //나중에 맨손에 해당하는 행동 넣을 것
+                        break;
+
+                    case ActionState.Sword:
+                        if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
+                        {
+                            isAttack = true;
+                            animator.SetTrigger("Attack1");
+                        }
+                        if (isClicks[0] && isClicks[1] && !isClicks[2])
+                        {
+                            isAttack = true;
+                            animator.SetTrigger("Attack2");
+                        }
+                        if (isClicks[0] && isClicks[1] && isClicks[2])
+                        {
+                            isAttack = true;
+                            animator.SetTrigger("Attack3");
+                        }
+                        break;
+
+                    case ActionState.Pickaxe:
+                        animator.SetTrigger("Attack1");
+                        //나중에 pickaxe에 해당하는 행동 넣을 것
+                        break;
+
+                    case ActionState.Axe:
+                        animator.SetTrigger("Attack1");
+                        //나중에 Axe에 해당하는 행동 넣을 것
+                        break;
+
+                    default:
+                        break;                    
+                }
             }
-            if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && !isClicks[2])
+        }   
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if ((int)currentActionState > 0)
             {
-                isAttack = true;
-                animator.SetTrigger("Attack2");
-            }
-            if (Input.GetMouseButtonDown(0) && isClicks[0] && isClicks[1] && isClicks[2])
-            {
-                isAttack = true;
-                animator.SetTrigger("Attack3");
+                ChangeAction(currentActionState-1);
             }
         }
-
-        
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            if ((int)currentActionState + 1 < Enum.GetNames(typeof(ActionState)).Length)
+            {
+                ChangeAction(currentActionState + 1);
+            }
+        }
         //Interaction();
         DialogTest();
         DialogTest2();
@@ -122,6 +174,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         uiManager.UpdateUI(currentHp, maxHp, true);
         currentHp -= damage;
         Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
+    }
+
+    public void ChangeAction(ActionState state)
+    {
+        currentActionState = state;
+
+        if(FindObjectOfType(typeof(UI_Tools)))
+        {
+            UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+
+            tool.SwitchCurrentTool(state);
+        }
     }
 
     private void Interaction()
@@ -210,8 +274,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             BoardText.SetActive(true);
         }
     }
-
-
 
     private void DialogTest()
     {
