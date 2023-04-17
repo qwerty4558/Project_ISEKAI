@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,5 +42,6 @@ public class UI_Tools : MonoBehaviour
 
 
         image_C.sprite = toolImages[intState];
+        image_C.gameObject.GetComponent<DOTweenAnimation>().DORestart();
     }
 }
