@@ -161,6 +161,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public void Attack(float damage)
     {
         normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = damage; // 데미지는 무기에 따라 다르게 하는게 나으니 나중에 교체 바람
+        normalAttackCol.GetComponent<ActiveAttackCol>().PlayerActionState = currentActionState;
         normalAttackCol.SetActive(true); //꺼지는건 공격 콜라이더 스스로 꺼지게
     }
 
