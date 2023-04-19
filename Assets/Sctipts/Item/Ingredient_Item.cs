@@ -8,6 +8,7 @@ public enum PUZZLE_PIECE
 {
     NO_PIECE = 0,
     PIECE = 1,
+    END = 2
 }
 
 public class Ingredient_Item : SerializedScriptableObject
