@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ItemObject : MonoBehaviour
 {
@@ -17,9 +18,14 @@ public class ItemObject : MonoBehaviour
     private void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
-        isGet = true;
+        StartCoroutine(ItemDrop());
     }
 
+    private IEnumerator ItemDrop()
+    {
+        yield return new WaitForSeconds(1f);
+        isGet = true;
+    }
 
 
     private void FixedUpdate()

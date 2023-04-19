@@ -11,12 +11,15 @@ using UnityEngine.UI;
 public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private int id;
+
     [SerializeField] private int count;
     [SerializeField] private string itemName;
     [SerializeField] private string status;
     [SerializeField] private string route;
     [SerializeField] private Image slotImage;
     [SerializeField] private TextMeshProUGUI countText;
+
+    private Vector3 orgPos;
     private bool isAlchemy;
 
     public TextMeshProUGUI[] statusTexts;
@@ -33,6 +36,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
+        orgPos = transform.position;
         itemData = new Ingredient_Item(itemImage, itemName, status, route, isAlchemy, count);
         updateData();
     }
@@ -62,6 +66,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         statusTexts[0].text = itemName;
@@ -75,5 +80,22 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         itemStatus.SetActive(false);
+    }
+
+    public void OutItem()
+    {
+        if (InventoryTitle.instance.isAppraise)
+        {
+            if (this.itemData != null)
+            {
+                InventoryTitle.instance.MinusItem(this.itemData);
+                AppraiseTitle.instance.GetItem(this.itemData);
+                count -= 1;
+                itemName = null;
+                status = null;
+                route = null;
+                InventoryTitle.instance.PrintInventory();
+            }
+        }
     }
 }

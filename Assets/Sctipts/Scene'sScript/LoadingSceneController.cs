@@ -18,7 +18,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         if (loadingFlag) return;
 
         StopAllCoroutines();
-        StartCoroutine(Cor_LoadNewScene(sceneName));
+        StartCoroutine(Cor_LoadNewScene(sceneName));    
     }
 
     public IEnumerator YieldLoadScene(string sceneName)
