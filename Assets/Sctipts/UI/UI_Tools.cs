@@ -40,7 +40,6 @@ public class UI_Tools : MonoBehaviour
             image_R.enabled = false;
         }
 
-
         image_C.sprite = toolImages[intState];
         image_C.gameObject.GetComponent<DOTweenAnimation>().DORestart();
     }

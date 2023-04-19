@@ -81,7 +81,7 @@ public class DatabaseToScriptableObject : EditorWindow
         for (int i = 0; i < data.Count; ++i)
         {
             Ingredient_Item item = ScriptableObject.CreateInstance<Ingredient_Item>();
-            item = new Ingredient_Item(data[i][0], data[i][1], data[i][2], data[i][3]);
+            //item = new Ingredient_Item(data[i][0], data[i][1], data[i][2], data[i][3]); 아이템 데이터 바뀜
             AssetDatabase.CreateAsset(item, "Assets/MainProjectFolder/Item/ScriptableOBj/Ingredient/Ingredient_" + item.name + ".asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();

@@ -14,11 +14,11 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private GameObject inventoryObj;
     [SerializeField] private CameraFollow cameraFollow;
     
-    public Dictionary<string, Item> itemMap;
+    public Dictionary<string, Ingredient_Item> itemMap;
 
     private void Awake()
     {
-        itemMap = new Dictionary<string, Item>(slotItems.Length);
+        itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
         InitInventory();
         DontDestroyOnLoad(this.gameObject);
     }
@@ -59,24 +59,24 @@ public class InventoryTitle : MonoBehaviour
     private void PrintInventory()
     {
         int count = 0;
-        foreach(KeyValuePair<string, Item> pair in itemMap)
+        foreach(KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
-            Item temp = pair.Value;
+            Ingredient_Item temp = pair.Value;
             slotItems[count].itemData = temp;
             slotItems[count].updateData();
             count++;
         }
     }
 
-    public void PlusItem(Item item)
+    public void PlusItem(Ingredient_Item item)
     {
-        if (itemMap.ContainsKey(item.itemName))
+        if (itemMap.ContainsKey(item.name))
         {
-            itemMap[item.itemName].itemCount += item.itemCount;
+            itemMap[item.name].count += item.count;
         }
         else
         {
-            itemMap.Add(item.itemName, item);
+            itemMap.Add(item.name, item);
         }
     }
 }

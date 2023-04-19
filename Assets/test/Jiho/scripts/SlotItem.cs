@@ -17,13 +17,13 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private string route;
     [SerializeField] private Image slotImage;
     [SerializeField] private TextMeshProUGUI countText;
-
+    private bool isAlchemy;
 
     public TextMeshProUGUI[] statusTexts;
     public GameObject itemStatus;
     public Sprite itemImage;
 
-    public Item itemData;
+    public Ingredient_Item itemData;
 
     public string ItemName { get => itemName; set => itemName = value;  }
     public string Status { get => status; set => status = value; }
@@ -33,17 +33,17 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Awake()
     {
-        itemData = new Item(itemImage, itemName, status, route, count);
+        itemData = new Ingredient_Item(itemImage, itemName, status, route, isAlchemy, count);
         updateData();
     }
 
     public void updateData()
     {
         itemImage = itemData.itemImage;
-        count = itemData.itemCount;
-        status = itemData.itemStatus;
-        route = itemData.itemRoute;
-        itemName = itemData.itemName;
+        count = itemData.count;
+        status = itemData.status;
+        route = itemData.route;
+        itemName = itemData.name;
     }
     
     private void Update()

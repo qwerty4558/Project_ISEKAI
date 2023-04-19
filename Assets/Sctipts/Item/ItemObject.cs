@@ -38,11 +38,7 @@ public class ItemObject : MonoBehaviour
 
     public void GetItem()
     {
-        if(ItemInfoUI.Instance != null)
-        {
-            ItemInfoUI.Instance.InsertSlot(itemData);
-        }
+        InventoryTitle inven = FindObjectOfType<InventoryTitle>();
+        inven.PlusItem(itemData);
     }
-
-
 }

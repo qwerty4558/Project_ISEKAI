@@ -25,7 +25,7 @@ public class ItemManager : Managers
         {
             string[] row = line[i].Split('\t');
             row[3] = row[3].Replace("\r", "");
-            all_Items.Add(new Ingredient_Item(row[0], row[1], row[2], row[3]));
+            //all_Items.Add(new Ingredient_Item(row[0], row[1], row[2], row[3])); 아이템 데이터 바뀜
         }
     }
     void Save()

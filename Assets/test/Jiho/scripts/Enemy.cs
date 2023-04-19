@@ -97,7 +97,7 @@ public class Enemy : MonoBehaviour
                 for(int i = 0; i < items.Length; i++)
                 {
                     GameObject temp = Instantiate(items[i], transform.position, Quaternion.identity);
-                    temp.GetComponent<FieldItem>().Player_obj = player.gameObject;
+                    //temp.GetComponent<FieldItem>().Player_obj = player.gameObject;
                     temp.SetActive(true);
                 }
                 this.gameObject.SetActive(false);
