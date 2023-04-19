@@ -10,10 +10,10 @@ public class DialogueManager : MonoBehaviour
     //[SerializeField] GameObject go_Dialogue_Name_Bar;
 
     [SerializeField] TMP_Text text_Dialogue;
-    [SerializeField] TMP_Text text_Name;
+    //[SerializeField] TMP_Text text_Name;
 
-    [SerializeField] Image player_CG;
-    [SerializeField] Image NPC_CG;
+    [SerializeField] Image left_Char_Panel;
+    [SerializeField] Image roght_Char_Panel;
 
     Dialogue[] dialogues;
 
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     public void ShowDialogue(Dialogue[] _dialogues)
     {
         text_Dialogue.text = "";
-        text_Name.text = "";
+       // text_Name.text = "";
 
         //NPC_CG.sprite = FindObjectOfType<ObjectDataType>().NPC_Panel_Sprite;
 

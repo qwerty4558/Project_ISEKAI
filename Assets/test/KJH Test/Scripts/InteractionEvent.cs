@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class InteractionEvent : MonoBehaviour
 {
-    [SerializeField] DialogueEvent dialogue;
-
-    private void Start()
+    private void Update()
     {
-        GetDialogue();
+        
     }
 
-    public Dialogue[] GetDialogue()
+    void DebugDialogue(Dialogue[] talkDatas)
     {
-        dialogue.dialogues = DatabaseManager.instance.GetDialogues((int)dialogue.line.x, (int)dialogue.line.y);
-        return dialogue.dialogues;
+        for (int i = 0; i < talkDatas.Length; i++)
+        {
+            // 캐릭터 이름 출력
+            Debug.Log(talkDatas[i].name);
+            // 대사들 출력
+            foreach (string context in talkDatas[i].context)
+                Debug.Log(context);
+        }
     }
-
 }
