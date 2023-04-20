@@ -3,48 +3,62 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class DialogueParser
+public class DialogueParser : MonoBehaviour
 {
-    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
-    static char[] TRIM_CHARS = { '\"' };
+    [SerializeField] private TextAsset csvFile = null;
+    public static Dictionary<string, Dialogue[]> dialogueDic = new Dictionary<string, Dialogue[]>();
 
-    public static List<Dictionary<string, object>> Read(string file)
+
+    private void Awake()
     {
-        var list = new List<Dictionary<string, object>>();
-        TextAsset data = Resources.Load(file) as TextAsset;
+        SetTalkDictonary();
+        DebugDialogue();
+    }
 
-        var lines = Regex.Split(data.text, LINE_SPLIT_RE);
+    public void SetTalkDictonary()
+    {
+        string csv_Text = csvFile.text.Substring(0, csvFile.text.Length - 1);
+        string[] rows = csv_Text.Split(new char[] { '\n' });
+        int row_Lenth = rows.Length;
 
-        if (lines.Length <= 1) return list;
-
-        var header = Regex.Split(lines[0], SPLIT_RE);
-        for (var i = 1; i < lines.Length; i++)
+        for (int i = 1; i < row_Lenth; i++)
         {
+            string[] rowVal = rows[i].Split(new char[] { ',' });
 
-            var values = Regex.Split(lines[i], SPLIT_RE);
-            if (values.Length == 0 || values[0] == "") continue;
+            if (string.IsNullOrEmpty(rowVal[0]) || string.IsNullOrEmpty(rowVal[1]) || rowVal[1].Trim() == "end" || dialogueDic.ContainsKey(rowVal[0].Trim())) continue;
 
-            var entry = new Dictionary<string, object>();
-            for (var j = 0; j < header.Length && j < values.Length; j++)
+            List<Dialogue> dial_List = new List<Dialogue>();
+            string eventName = rowVal[0].Trim();
+
+            while (rowVal[0].Trim() != "end")
             {
-                string value = values[j];
-                value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
-                object finalvalue = value;
-                int n;
-                float f;
-                if (int.TryParse(value, out n))
+                List<string> contextList = new List<string>();
+                Dialogue dial;
+                dial.name = rowVal[1];
+                do
                 {
-                    finalvalue = n;
-                }
-                else if (float.TryParse(value, out f))
-                {
-                    finalvalue = f;
-                }
-                entry[header[j]] = finalvalue;
+                    contextList.Add(rowVal[2].ToString());
+
+                    if (++i < row_Lenth) rowVal = rows[i].Split(new char[] { ',' });
+                    else break;
+
+                } while (string.IsNullOrEmpty(rowVal[1]) && rowVal[0] != "end");
+
+                dial.context = contextList.ToArray();
+                dial_List.Add(dial);
             }
-            list.Add(entry);
+
+            dialogueDic.Add(eventName, dial_List.ToArray());
         }
-        return list;
+    }
+
+
+    public static Dialogue[] GetDialogues(string _eventName)
+    {
+        return dialogueDic[_eventName];
+    }
+    void DebugDialogue()
+    {
+
     }
 }

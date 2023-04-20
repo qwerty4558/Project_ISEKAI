@@ -20,8 +20,8 @@ public class DatabaseManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            dialogues = DialogueParser.Read(csv_FileName);
-            ParseData(); //         ¥ê 
+           
+            ParseData();  
         }
 
     }

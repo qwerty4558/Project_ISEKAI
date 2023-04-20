@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionEvent : MonoBehaviour
+public class DialogueEvent : MonoBehaviour
 {
-    private void Update()
+    [SerializeField] public string eventName;
+    [SerializeField] public Dialogue[] dialogues;
+
+    private void Start()
     {
-        
+        GetDialogues();
+        DebugDialogue(GetDialogues());
+    }
+
+    public Dialogue[] GetDialogues()
+    {
+        dialogues = DialogueParser.GetDialogues(eventName);
+        return dialogues;
     }
 
     void DebugDialogue(Dialogue[] talkDatas)
