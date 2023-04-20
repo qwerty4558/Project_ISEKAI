@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DialogueEvent : MonoBehaviour
 {
-    [SerializeField] string eventName;
-    [SerializeField] Dialogue[] dialogues;
+    [SerializeField] public string eventName;
+    [SerializeField] public Dialogue[] dialogues;
 
     private void Start()
     {
