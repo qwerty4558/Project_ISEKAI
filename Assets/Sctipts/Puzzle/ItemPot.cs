@@ -111,21 +111,22 @@ public class ItemPot : SerializedMonoBehaviour
         Vector2Int insertPieceSize = new Vector2Int(insertItem.puzzle.GetLength(0),insertItem.puzzle.GetLength(1));
         Vector2Int pivot = new Vector2Int(insertPieceSize.x/2, insertPieceSize.y/2);
 
-        for(int y = 0; y < insertPieceSize.y; y++)
+        for (int y = 0; y < insertPieceSize.y; y++)
         {
             for (int x = 0; x < insertPieceSize.x; x++)
             {
-                if (x == 0 && y == 0) continue;
+                if (x == pivot.x && y == pivot.y) continue;
 
-                if (insertItem.puzzle[x, y] == PUZZLE_PIECE.PIECE || insertItem.puzzle[x,y] == PUZZLE_PIECE.END)
+                Vector2Int currentPoint = new Vector2Int(activePoint.x + x - pivot.x, activePoint.y + y - pivot.y);
+
+                if (insertItem.puzzle[x, y] == PUZZLE_PIECE.PIECE || insertItem.puzzle[x, y] == PUZZLE_PIECE.END)
                 {
-                    if (IsSlotVacant(activePoint.x + x - pivot.x, activePoint.y + y - pivot.y) == false)
-                    {
-                        result = false;
-                    }
+                    if (!IsSlotVacant(currentPoint.x, currentPoint.y)) result = false;
                 }
             }
         }
+
+        Debug.Log("TRY PUZZLE PIECE : " + result);
 
         return result;
     }
@@ -145,13 +146,13 @@ public class ItemPot : SerializedMonoBehaviour
                 if (insertItem.puzzle[x, y] == PUZZLE_PIECE.PIECE)
                 {
                     slot_matrix[currentPoint.x,currentPoint.y] = PotSlot.Inserted;
-                    slotObjects[activePoint.x, activePoint.y].GetComponent<Image>().sprite = slot_Inserted;
+                    slotObjects[currentPoint.x, currentPoint.y].GetComponent<Image>().sprite = slot_Inserted;
                 }
 
                 if(insertItem.puzzle[x,y] == PUZZLE_PIECE.END)
                 {
                     slot_matrix[currentPoint.x, currentPoint.y] = PotSlot.Inserted;
-                    slotObjects[activePoint.x, activePoint.y].GetComponent<Image>().sprite = slot_Inserted;
+                    slotObjects[currentPoint.x, currentPoint.y].GetComponent<Image>().sprite = slot_Inserted;
                     EndPoint = new Vector2Int(currentPoint.x,currentPoint.y);
                 }
             }
@@ -164,8 +165,8 @@ public class ItemPot : SerializedMonoBehaviour
 
     private bool IsSlotVacant(int x, int y)
     {
-        if (slot_matrix.GetLength(0) > x || x < 0) return false;
-        else if (slot_matrix.GetLength(1) > y || y < 0 ) return false;
+        if (slot_matrix.GetLength(0) <= x || x < 0) return false;
+        else if (slot_matrix.GetLength(1) <= y || y < 0 ) return false;
 
         if (slot_matrix[x, y] == PotSlot.Vacant) return true;
         else return false;
