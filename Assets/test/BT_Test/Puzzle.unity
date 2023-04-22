@@ -866,7 +866,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f6b2c4162a042ca4aa0e1b993f3dcfe1, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &602784645
@@ -1601,6 +1601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1164047215}
   - component: {fileID: 1164047218}
+  - component: {fileID: 1164047219}
   - component: {fileID: 1164047217}
   - component: {fileID: 1164047216}
   m_Layer: 5
@@ -1685,7 +1686,19 @@ MonoBehaviour:
     m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1164047219}
+        m_TargetAssemblyTypeName: TargetItem, Assembly-CSharp
+        m_MethodName: OnDropdownSeleted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1164047217
 MonoBehaviour:
@@ -1725,6 +1738,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164047214}
   m_CullTransparentMesh: 1
+--- !u!114 &1164047219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164047214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41c4328e4e8c0748aa95b942d6ad202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test:
+  - {fileID: 11400000, guid: 5458fedb2d71efa4c9750bd7758feb23, type: 2}
+  - {fileID: 11400000, guid: 7cfbe72d0ab93fb42aaa4c1e2185f119, type: 2}
+  - {fileID: 11400000, guid: 049bf235d4bb07643bec24ac8fa53133, type: 2}
+  - {fileID: 11400000, guid: 159aa172f04c1904fa594408bf6612f1, type: 2}
+  dropdown: {fileID: 1164047216}
 --- !u!1 &1217595481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,8 +2389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f6b2c4162a042ca4aa0e1b993f3dcfe1, type: 2}
+  m_sharedMaterial: {fileID: -5891208149742790613, guid: f6b2c4162a042ca4aa0e1b993f3dcfe1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

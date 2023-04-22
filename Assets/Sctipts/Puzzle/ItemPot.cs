@@ -1,6 +1,5 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -125,8 +124,6 @@ public class ItemPot : SerializedMonoBehaviour
                 }
             }
         }
-
-        Debug.Log("TRY PUZZLE PIECE : " + result);
 
         return result;
     }
