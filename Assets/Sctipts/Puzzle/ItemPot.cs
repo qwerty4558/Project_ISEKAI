@@ -91,6 +91,11 @@ public class ItemPot : SerializedMonoBehaviour
         activePoint = new Vector2Int(startPoint.x,startPoint.y);
     }
 
+    public void PuzzlePieceVisualize(Ingredient_Item insertItem)
+    {
+
+    }
+
     public bool TryPuzzlePiece(Ingredient_Item insertItem)
     {
         if (insertItem.puzzle == null)
@@ -171,8 +176,5 @@ public class ItemPot : SerializedMonoBehaviour
         else return false;
     }
 
-    public void ResetPot()
-    {
 
-    }
 }
