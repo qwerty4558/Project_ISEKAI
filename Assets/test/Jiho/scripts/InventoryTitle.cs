@@ -22,6 +22,7 @@ public class InventoryTitle : MonoBehaviour
 
     private void Awake()
     {
+        
         instance = this;
         itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
         alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
@@ -54,6 +55,7 @@ public class InventoryTitle : MonoBehaviour
             }
             else
             {
+                cameraFollow = FindObjectOfType<CameraFollow>();
                 PrintInventory();
                 inventoryObj.SetActive(true);
                 if (cameraFollow != null)
@@ -125,16 +127,26 @@ public class InventoryTitle : MonoBehaviour
         }
     }
 
+    public void AlchemyItemMinus(Ingredient_Item item)
+    {
+        if (alchemyItemMap.ContainsKey(item.name))
+        {
+            alchemyItemMap[item.name].appraiseCount -= 1;
+            if (alchemyItemMap[item.name].appraiseCount == 0)
+                alchemyItemMap.Remove(item.name);
+        }
+    }
+
     public void AlchemyItemPlus(Ingredient_Item item)
     {
         if (alchemyItemMap.ContainsKey(item.name))
         {
-            alchemyItemMap[item.name].count += 1;
+            alchemyItemMap[item.name].appraiseCount += 1;
         }
         else
         {
             alchemyItemMap.Add(item.name, item);
-            alchemyItemMap[item.name].count += 1;
+            alchemyItemMap[item.name].appraiseCount += 1;
         }
     }
 }

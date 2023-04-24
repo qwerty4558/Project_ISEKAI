@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject[] items;
+    [SerializeField] private EnemyAttackCol enemyAttackCol;
 
     [SerializeField] private float time;
     private bool isRePosition;
@@ -34,7 +35,9 @@ public class Enemy : MonoBehaviour
     public PlayerController Player { get => player; set => player = value; }
 
     private void Awake()
-    { 
+    {
+        player = FindObjectOfType<PlayerController>();
+        cam = FindObjectOfType<Camera>();
         anim = GetComponent<Animator>();
         isMove = true;
         currentHp = maxHp;
@@ -160,9 +163,10 @@ public class Enemy : MonoBehaviour
         isAttackDelay = false;
     }
 
-    public void Attack()
+    public void AttackColActive()
     {
-        player.GetDamage(damage);
+        enemyAttackCol.Damage = damage;
+        enemyAttackCol.gameObject.SetActive(true);
     }
 
     private void EnemyRePos()

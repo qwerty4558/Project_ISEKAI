@@ -37,7 +37,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Awake()
     {
         orgPos = transform.position;
-        itemData = new Ingredient_Item(itemImage, itemName, status, route, count);
+        itemData = new Ingredient_Item(itemImage, itemName, status, route, count,count);
         updateData();
     }
 

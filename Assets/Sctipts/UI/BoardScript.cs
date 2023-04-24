@@ -16,7 +16,7 @@ public class BoardScript : MonoBehaviour
     {
         Combination_Item combinationItem = ItemManager.GetComponent<Combination_Item>();
 
-        combinationItem.PrintResultItemInfo();
+        //combinationItem.PrintResultItemInfo();
         /* combinationItem.PrintRandomResultItemInfo(); */
 
         Boardpick.SetActive(false);
