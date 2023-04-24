@@ -32,8 +32,8 @@ public class AppraiseTitle : MonoBehaviour
     public void SendItem()
     {
         itemImage.enabled = false;
-        itemImage = null;
-        InventoryTitle.instance.AlchemyItemPlus(itemData);
+        itemImage.sprite = null;
+        InventoryTitle.instance.AlchemyItemPlus(itemData.ingredient_Appraise_Item);
         itemData = null;
         appraiseText.color = new Color(0, 0, 0, 255);
         appraiseText.DOFade(0, 1);

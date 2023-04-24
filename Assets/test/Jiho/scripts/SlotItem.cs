@@ -37,7 +37,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Awake()
     {
         orgPos = transform.position;
-        itemData = new Ingredient_Item(itemImage, itemName, status, route, isAlchemy, count);
+        itemData = new Ingredient_Item(itemImage, itemName, status, route, count);
         updateData();
     }
 
@@ -52,17 +52,21 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     
     private void Update()
     {
-        if (count != 0)
+        if(itemData != null)
         {
-            slotImage.enabled = true;
-            slotImage.sprite = itemImage;
-            countText.enabled = true;
-            countText.text = count.ToString();
-        }
-        else
-        {
-            slotImage.enabled = false;
-            countText.enabled = false;
+            if (itemData.count != 0)
+            {
+                slotImage.enabled = true;
+                slotImage.sprite = itemImage;
+                countText.enabled = true;
+                countText.text = count.ToString();
+            }
+            else
+            {
+                itemData = null;
+                slotImage.enabled = false;
+                countText.enabled = false;
+            }
         }
     }
 
@@ -90,7 +94,6 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 InventoryTitle.instance.MinusItem(this.itemData);
                 AppraiseTitle.instance.GetItem(this.itemData);
-                count -= 1;
                 itemName = null;
                 status = null;
                 route = null;
