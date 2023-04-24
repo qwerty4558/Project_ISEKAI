@@ -16,7 +16,6 @@ public class Result_Item : SerializedScriptableObject
     public int index;
     public int[,] road = new int[7,7];
     public string result_Item_Name;
-    public int result_Item_Price;
     public string icon_File_Name;
     
     public PUZZLE_STATE[,] board;
@@ -41,7 +40,6 @@ public class Result_Item : SerializedScriptableObject
         sub_Count = Convert.ToInt32(_sub_Count);
         result_ID = Convert.ToInt32(_result_ID);
         result_Item_Name = _result_Item_Name;
-        result_Item_Price = Convert.ToInt32(_result_Item_Price);
         icon_File_Name = _icon_File_Name;
     }
 }
