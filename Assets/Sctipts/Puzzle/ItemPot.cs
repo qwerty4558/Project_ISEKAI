@@ -89,11 +89,14 @@ public class ItemPot : SerializedMonoBehaviour
         }
 
         activePoint = new Vector2Int(startPoint.x,startPoint.y);
+<<<<<<< HEAD
+=======
     }
 
     public void PuzzlePieceVisualize(Ingredient_Item insertItem)
     {
 
+>>>>>>> parent of c16f176c (Craftpuzzle Work 5)
     }
 
     public bool TryPuzzlePiece(Ingredient_Item insertItem)
@@ -175,8 +178,13 @@ public class ItemPot : SerializedMonoBehaviour
         if (slot_matrix[x, y] == PotSlot.Vacant) return true;
         else return false;
     }
+
+<<<<<<< HEAD
     public void ResetPot()
     {
 
     }
+=======
+
+>>>>>>> parent of c16f176c (Craftpuzzle Work 5)
 }
