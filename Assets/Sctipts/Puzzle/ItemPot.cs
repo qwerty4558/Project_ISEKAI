@@ -90,18 +90,12 @@ public class ItemPot : SerializedMonoBehaviour
 
         activePoint = new Vector2Int(startPoint.x,startPoint.y);
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
     }
 
     public void PuzzlePieceVisualize(Ingredient_Item insertItem)
     {
 
-<<<<<<< HEAD
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
-=======
 >>>>>>> parent of c16f176c (Craftpuzzle Work 5)
     }
 
@@ -186,14 +180,10 @@ public class ItemPot : SerializedMonoBehaviour
     }
 
 <<<<<<< HEAD
-<<<<<<< HEAD
     public void ResetPot()
     {
 
     }
-=======
-
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
 =======
 
 >>>>>>> parent of c16f176c (Craftpuzzle Work 5)

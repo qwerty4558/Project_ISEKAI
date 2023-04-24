@@ -8,9 +8,6 @@ public class ItemviewSlot : MonoBehaviour
 <<<<<<< HEAD
 =======
     [SerializeField] private Image patternImage;
-<<<<<<< HEAD
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
-=======
 >>>>>>> parent of c16f176c (Craftpuzzle Work 5)
 
 
@@ -21,9 +18,6 @@ public class ItemviewSlot : MonoBehaviour
 <<<<<<< HEAD
 =======
         patternImage.sprite = item.itemPatternImage;
-<<<<<<< HEAD
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
-=======
 >>>>>>> parent of c16f176c (Craftpuzzle Work 5)
     }
 
