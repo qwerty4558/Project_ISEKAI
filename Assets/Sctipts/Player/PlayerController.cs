@@ -275,7 +275,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if(other.CompareTag("EnemyAttackCol"))
         {
-
+            GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
         }
     }
 

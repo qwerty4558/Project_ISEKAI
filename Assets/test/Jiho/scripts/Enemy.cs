@@ -35,7 +35,9 @@ public class Enemy : MonoBehaviour
     public PlayerController Player { get => player; set => player = value; }
 
     private void Awake()
-    { 
+    {
+        player = FindObjectOfType<PlayerController>();
+        cam = FindObjectOfType<Camera>();
         anim = GetComponent<Animator>();
         isMove = true;
         currentHp = maxHp;
@@ -165,11 +167,6 @@ public class Enemy : MonoBehaviour
     {
         enemyAttackCol.Damage = damage;
         enemyAttackCol.gameObject.SetActive(true);
-    }
-
-    public void Attack()
-    {
-        player.GetDamage(damage);
     }
 
     private void EnemyRePos()
