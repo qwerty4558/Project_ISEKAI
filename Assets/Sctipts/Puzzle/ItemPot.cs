@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,10 @@ public class ItemPot : SerializedMonoBehaviour
     [SerializeField] private Sprite slot_finish;
     [SerializeField] private Sprite slot_active;
 
+    [Title("References")]
+    [SerializeField] private PotVisualizer potVisulaizer;
+    [SerializeField] private Transform slotMatrixTF;
+
     private PotSlot[,] slot_matrix;
     private List<Ingredient_Item> writedItems;
 
@@ -41,11 +46,21 @@ public class ItemPot : SerializedMonoBehaviour
         writedItems = new List<Ingredient_Item>();
     }
 
+    private void OnEnable()
+    {
+        CraftPuzzleCore.Instance.OnPuzzleComplete.AddListener(OnPuzzleEnd);
+    }
+
+    private void OnDisable()
+    {
+        CraftPuzzleCore.Instance.OnPuzzleComplete.RemoveListener(OnPuzzleEnd);
+    }
+
     public void SetItemPot(Result_Item targetItem)
     {
         Vector2Int slotLength = new Vector2Int(targetItem.board.GetLength(0), targetItem.board.GetLength(1));
 
-        this.GetComponent<RectTransform>().sizeDelta = new Vector2( slotLength.x * slotSize, slotLength.y * slotSize);
+        this.GetComponent<RectTransform>().sizeDelta = new Vector2(slotLength.x * slotSize, slotLength.y * slotSize);
 
         slotObjects = new GameObject[slotLength.x, slotLength.y];
         slot_matrix = new PotSlot[slotLength.x, slotLength.y];
@@ -54,9 +69,9 @@ public class ItemPot : SerializedMonoBehaviour
         {
             for (int x = 0; x < slotLength.x; x++)
             {
-                slotObjects[x, y] = Instantiate(slotPrefab, transform);
+                slotObjects[x, y] = Instantiate(slotPrefab, slotMatrixTF);
                 slotObjects[x, y].GetComponent<RectTransform>().anchoredPosition = new Vector3(slotSize * x, slotSize * -y);
-                Image slotImage = slotObjects[x,y].GetComponent<Image>();
+                Image slotImage = slotObjects[x, y].GetComponent<Image>();
 
                 if (targetItem.board[x, y] == PUZZLE_STATE.NoInsert)
                 {
@@ -88,12 +103,21 @@ public class ItemPot : SerializedMonoBehaviour
             }
         }
 
-        activePoint = new Vector2Int(startPoint.x,startPoint.y);
+        activePoint = new Vector2Int(startPoint.x, startPoint.y);
+
+        if (writedItems != null)
+            writedItems.Clear();
     }
 
     public void PuzzlePieceVisualize(Ingredient_Item insertItem)
     {
-
+        potVisulaizer.gameObject.SetActive(true);
+        bool positive = TryPuzzlePiece(insertItem);
+        potVisulaizer.Visualize(new Vector2((activePoint.x - slot_matrix.GetLength(0)/2)*slotSize,-(activePoint.y - slot_matrix.GetLength(1) / 2) *slotSize),insertItem,positive);
+    }
+    public void DisablePuzzlePieceVisualizer()
+    {
+        potVisulaizer.gameObject.SetActive(false);
     }
 
     public bool TryPuzzlePiece(Ingredient_Item insertItem)
@@ -176,5 +200,9 @@ public class ItemPot : SerializedMonoBehaviour
         else return false;
     }
 
-
+    public void OnPuzzleEnd()
+    {
+        GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
+        
+    }
 }
