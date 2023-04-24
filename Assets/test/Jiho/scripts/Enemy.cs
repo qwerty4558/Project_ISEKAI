@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject[] items;
+    [SerializeField] private EnemyAttackCol enemyAttackCol;
 
     [SerializeField] private float time;
     private bool isRePosition;
@@ -158,6 +159,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2f);
         isMove = true;
         isAttackDelay = false;
+    }
+
+    public void AttackColActive()
+    {
+        enemyAttackCol.Damage = damage;
+        enemyAttackCol.gameObject.SetActive(true);
     }
 
     public void Attack()

@@ -132,8 +132,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
         }
         //Interaction();
-        DialogTest();
-        DialogTest2();
     }
 
     public void SetAnimCheck(int count)
@@ -275,20 +273,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             BoardText.SetActive(true);
         }
-    }
 
-    private void DialogTest()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
+        if(other.CompareTag("EnemyAttackCol"))
         {
-            Dialog_Test.SetActive(true);
-        }
-    }
-    private void DialogTest2()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Dialog_Test.SetActive(false);
+
         }
     }
 

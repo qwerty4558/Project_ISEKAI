@@ -33,7 +33,7 @@ public class AppraiseTitle : MonoBehaviour
     {
         itemImage.enabled = false;
         itemImage.sprite = null;
-        InventoryTitle.instance.AlchemyItemPlus(itemData.ingredient_Appraise_Item);
+        InventoryTitle.instance.AlchemyItemPlus(itemData);
         itemData = null;
         appraiseText.color = new Color(0, 0, 0, 255);
         appraiseText.DOFade(0, 1);
