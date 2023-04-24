@@ -12,17 +12,49 @@ public class UIManager : Managers
     [SerializeField] bool isTitle;
     [SerializeField] bool isPlayInVillage;
     [SerializeField] bool isShop;
+    [SerializeField] private bool isSetting;
+    [SerializeField] private GameObject settingBoard_obj;
+    [SerializeField] private GameObject option_obj;
+    [SerializeField] private CameraFollow cameraFollow;
 
 
     private void Start()
     {
+        isSetting = false;
         
     }
 
     private void Update()
     {
-        SetActivedUI();
-        CheckScene(SceneManager.GetActiveScene());
+        //SetActivedUI();
+        //CheckScene(SceneManager.GetActiveScene());
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (settingBoard_obj.activeSelf)
+            {
+                option_obj.SetActive(false);
+                settingBoard_obj.SetActive(false);
+                if (cameraFollow != null)
+                    cameraFollow.isInteraction = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                cameraFollow = FindObjectOfType<CameraFollow>();
+                settingBoard_obj.SetActive(true);
+                if (cameraFollow != null)
+                    cameraFollow.isInteraction = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+    }
+
+    public void OptionActive()
+    {
+        option_obj.SetActive(true);
     }
 
     public void CheckScene(Scene s)
