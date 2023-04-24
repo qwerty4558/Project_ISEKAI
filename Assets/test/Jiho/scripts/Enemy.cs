@@ -184,6 +184,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("AttackCol"))
         {
+            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Sword) return;
+
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             GetDamage(tempDamage);
         }

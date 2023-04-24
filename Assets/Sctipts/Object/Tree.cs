@@ -64,7 +64,6 @@ public class Tree : MonoBehaviour, IPlayerAction.IDamage
 
     public void Damage(float damage)
     {
-        Debug.Log("Player Hit Tree");
         Hit(damage);
     }
 
@@ -73,5 +72,16 @@ public class Tree : MonoBehaviour, IPlayerAction.IDamage
         yield return new WaitForSeconds(time);
 
         go_Tree_Hp.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("AttackCol"))
+        {
+            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Axe) return;
+
+            float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
+            Damage(tempDamage);
+        }
     }
 }

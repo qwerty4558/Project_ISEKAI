@@ -20,6 +20,7 @@ public class Result_Item : SerializedScriptableObject
     public string icon_File_Name;
     
     public PUZZLE_STATE[,] board;
+    public int puzzle_usage;
 
     public Result_Item(
         string _grup_ID,

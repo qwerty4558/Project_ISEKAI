@@ -6,8 +6,10 @@ public class ActiveAttackCol : MonoBehaviour
 {
     [SerializeField] private float activeTime;
     private float linkDamage;
+    private ActionState playerActionState;
 
     public float LinkDamage { get => linkDamage; set => linkDamage = value; }
+    public ActionState PlayerActionState { get => playerActionState; set => playerActionState = value;}
 
     private void OnEnable()
     {
