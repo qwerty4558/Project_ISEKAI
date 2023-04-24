@@ -5,20 +5,12 @@ public class ItemviewSlot : MonoBehaviour
 {
     [SerializeField] private Ingredient_Item ItemData;
     [SerializeField] private Image image;
-<<<<<<< HEAD
-=======
-    [SerializeField] private Image patternImage;
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
 
 
     public void SetItemData(Ingredient_Item item)
     {
         ItemData = item;
         image.sprite = Resources.Load<Sprite>(item.icon_File_Name);
-<<<<<<< HEAD
-=======
-        patternImage.sprite = item.itemPatternImage;
->>>>>>> parent of c16f176c (Craftpuzzle Work 5)
     }
 
     public void WriteOnPot()
