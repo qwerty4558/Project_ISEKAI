@@ -123,7 +123,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 ChangeAction(currentActionState - 1);
             }
         }
-
         else if (Input.GetKeyDown(KeyCode.E))
         {
             if ((int)currentActionState + 1 < Enum.GetNames(typeof(ActionState)).Length)
