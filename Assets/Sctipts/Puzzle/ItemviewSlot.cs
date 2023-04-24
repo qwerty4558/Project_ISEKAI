@@ -15,8 +15,9 @@ public class ItemviewSlot : MonoBehaviour
 
     public void WriteOnPot()
     {
-        if (!CraftPuzzleCore.Instance.itemPot.TryPuzzlePiece(ItemData)) return;
+        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(ItemData)) return;
 
-        CraftPuzzleCore.Instance.itemPot.WritePuzzlePiece(ItemData);
+
+        CraftPuzzleCore.Instance.WritePuzzlePiece(ItemData);
     }
 }

@@ -40,6 +40,6 @@ public class TargetItem : MonoBehaviour
 
     public void OnDropdownSeleted(Int32 i)
     {
-        CraftPuzzleCore.Instance.itemPot.SetItemPot(itemIndex[i]);
+        CraftPuzzleCore.Instance.SetResultItem(itemIndex[i]);
     }
 }

@@ -24,8 +24,6 @@ public class ItemPot : SerializedMonoBehaviour
     [SerializeField] private Sprite slot_start;
     [SerializeField] private Sprite slot_finish;
     [SerializeField] private Sprite slot_active;
-    [Title("Debugs")]
-    [SerializeField] private Result_Item TestItem;
 
     private PotSlot[,] slot_matrix;
     private List<Ingredient_Item> writedItems;
@@ -41,10 +39,6 @@ public class ItemPot : SerializedMonoBehaviour
     private void Start()
     {
         writedItems = new List<Ingredient_Item>();
-
-#if UNITY_EDITOR
-        SetItemPot(TestItem);
-#endif
     }
 
     public void SetItemPot(Result_Item targetItem)
@@ -158,6 +152,14 @@ public class ItemPot : SerializedMonoBehaviour
         activePoint = EndPoint;
         slotObjects[activePoint.x, activePoint.y].GetComponent<Image>().sprite = slot_active;
         writedItems.Add(insertItem);
+
+        if(slot_matrix[activePoint.x,activePoint.y] == PotSlot.Finish)
+        {
+            if (CraftPuzzleCore.Instance.OnPuzzleComplete != null)
+            {
+                CraftPuzzleCore.Instance.OnPuzzleComplete.Invoke();
+            }
+        }
     }
 
     private bool IsSlotVacant(int x, int y)
@@ -167,5 +169,10 @@ public class ItemPot : SerializedMonoBehaviour
 
         if (slot_matrix[x, y] == PotSlot.Vacant) return true;
         else return false;
+    }
+
+    public void ResetPot()
+    {
+
     }
 }
