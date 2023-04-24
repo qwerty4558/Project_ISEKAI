@@ -21,7 +21,8 @@ public class Ingredient_Item : SerializedScriptableObject
     public new string name;
     public string name_KR;
     public string icon_File_Name;
-    
+    public Sprite itemPatternImage;
+
     public PUZZLE_PIECE[,] puzzle;
     public Ingredient_Item ingredient_Appraise_Item;
 
