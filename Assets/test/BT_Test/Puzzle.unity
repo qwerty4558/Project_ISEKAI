@@ -834,6 +834,8 @@ GameObject:
   - component: {fileID: 517869400}
   - component: {fileID: 517869399}
   - component: {fileID: 517869402}
+  - component: {fileID: 517869404}
+  - component: {fileID: 517869403}
   m_Layer: 5
   m_Name: ItemView
   m_TagString: Untagged
@@ -947,16 +949,145 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: deacbe6aa008ecf44a0a790ced05f580, type: 2}
   - {fileID: 11400000, guid: 148de2ac0d430b940b23092f8f471131, type: 2}
   - {fileID: 11400000, guid: a95ce48555edaf443a6691d3ed68891f, type: 2}
   - {fileID: 11400000, guid: 073e49065ce2e404ea75f87c7a865fa0, type: 2}
-  - {fileID: 11400000, guid: 1cc27513f2df25548b48739b483c27e3, type: 2}
   - {fileID: 11400000, guid: 0cc291076b4520d4fad31c1422f92508, type: 2}
+  - {fileID: 11400000, guid: deacbe6aa008ecf44a0a790ced05f580, type: 2}
+  - {fileID: 11400000, guid: 7d9399e7523627f4b8cffbdab0ca7363, type: 2}
+  - {fileID: 11400000, guid: 1cc27513f2df25548b48739b483c27e3, type: 2}
+  - {fileID: 11400000, guid: 96242b2e9b7b0f046964cbe0335eb4e4, type: 2}
+  - {fileID: 11400000, guid: 74f9d2fa8ed47dd458b17568eeabb1d8, type: 2}
+  - {fileID: 11400000, guid: de802812161bba842a46e1c55dde5c82, type: 2}
+  - {fileID: 11400000, guid: 5991cd12eeaba4f43a5f7fdd9c32a8c4, type: 2}
+  - {fileID: 11400000, guid: 0a6d6401e05743e4ebea5fa7ba9278a4, type: 2}
   Viewport: {fileID: 129653086}
   ItemSlotPrefab: {fileID: 7718994392159690776, guid: 42ce70fb0db3a1543abd66c19c02d6a0, type: 3}
   ItemsRow: 3
   SlotSize: {x: 175, y: 175}
+--- !u!114 &517869403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517869397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateType: 0
+  isSpeedBased: 0
+  hasOnStart: 0
+  hasOnPlay: 0
+  hasOnUpdate: 0
+  hasOnStepComplete: 0
+  hasOnComplete: 0
+  hasOnTweenCreated: 0
+  hasOnRewind: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onStepComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onTweenCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewind:
+    m_PersistentCalls:
+      m_Calls: []
+  targetIsSelf: 1
+  targetGO: {fileID: 0}
+  tweenTargetIsTargetGO: 1
+  delay: 0
+  duration: 0.4
+  easeType: 37
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.4916691
+      outSlope: -0.4916691
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.30085632
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.43916702
+      outSlope: -0.43916702
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24166667
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loopType: 0
+  loops: 1
+  id: 
+  isRelative: 0
+  isFrom: 1
+  isIndependentUpdate: 0
+  autoKill: 0
+  autoGenerate: 1
+  isActive: 1
+  isValid: 1
+  target: {fileID: 517869398}
+  animationType: 1
+  targetType: 5
+  forcedTargetType: 0
+  autoPlay: 1
+  useTargetAsV3: 0
+  endValueFloat: 0
+  endValueV3: {x: -1300, y: -19, z: 0}
+  endValueV2: {x: 0, y: 0}
+  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueString: 
+  endValueRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  endValueTransform: {fileID: 0}
+  optionalBool0: 0
+  optionalBool1: 0
+  optionalFloat0: 0
+  optionalInt0: 0
+  optionalRotationMode: 0
+  optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
+  optionalString: 
+--- !u!114 &517869404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517869397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 2
+  onDisableBehaviour: 0
 --- !u!1 &529142048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPot: {fileID: 1217595484}
   usageSlot: {fileID: 817301940}
-  test_item: {fileID: 11400000, guid: 5458fedb2d71efa4c9750bd7758feb23, type: 2}
+  itemView: {fileID: 0}
+  test_item: {fileID: 11400000, guid: 9e30b4e068cfa4f418e51f6696d818cf, type: 2}
   OnPuzzleComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -1570,6 +1702,8 @@ GameObject:
   - component: {fileID: 817301939}
   - component: {fileID: 817301938}
   - component: {fileID: 817301940}
+  - component: {fileID: 817301942}
+  - component: {fileID: 817301941}
   m_Layer: 5
   m_Name: UsageSlot
   m_TagString: Untagged
@@ -1602,7 +1736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 335, y: 123.9}
+  m_AnchoredPosition: {x: 335, y: 123.900024}
   m_SizeDelta: {x: 1200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817301938
@@ -1690,6 +1824,129 @@ MonoBehaviour:
     slot_back: {fileID: 1254188377}
     SlotOpened: 0
     Filled: 0
+--- !u!114 &817301941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817301936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateType: 0
+  isSpeedBased: 0
+  hasOnStart: 0
+  hasOnPlay: 0
+  hasOnUpdate: 0
+  hasOnStepComplete: 0
+  hasOnComplete: 0
+  hasOnTweenCreated: 0
+  hasOnRewind: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onStepComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onTweenCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewind:
+    m_PersistentCalls:
+      m_Calls: []
+  targetIsSelf: 1
+  targetGO: {fileID: 0}
+  tweenTargetIsTargetGO: 1
+  delay: 0
+  duration: 0.3
+  easeType: 37
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.75592244
+      outSlope: -0.75592244
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3591393
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -1.1056156
+      outSlope: -1.1056156
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16711503
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loopType: 0
+  loops: 1
+  id: 
+  isRelative: 1
+  isFrom: 1
+  isIndependentUpdate: 0
+  autoKill: 0
+  autoGenerate: 1
+  isActive: 1
+  isValid: 1
+  target: {fileID: 817301937}
+  animationType: 1
+  targetType: 5
+  forcedTargetType: 0
+  autoPlay: 1
+  useTargetAsV3: 0
+  endValueFloat: 0
+  endValueV3: {x: 0, y: -300, z: 0}
+  endValueV2: {x: 0, y: 0}
+  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueString: 
+  endValueRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  endValueTransform: {fileID: 0}
+  optionalBool0: 0
+  optionalBool1: 0
+  optionalFloat0: 0
+  optionalInt0: 0
+  optionalRotationMode: 0
+  optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
+  optionalString: 
+--- !u!114 &817301942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817301936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 2
+  onDisableBehaviour: 0
 --- !u!1 &940146658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,7 +1984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141, y: -236}
+  m_AnchoredPosition: {x: -141, y: -272}
   m_SizeDelta: {x: 160, y: 77.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940146660
@@ -2583,10 +2840,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test:
-  - {fileID: 11400000, guid: 5458fedb2d71efa4c9750bd7758feb23, type: 2}
+  - {fileID: 11400000, guid: 9e30b4e068cfa4f418e51f6696d818cf, type: 2}
+  - {fileID: 11400000, guid: 6d63244eb226e1a45afc1b86b7f60ef7, type: 2}
+  - {fileID: 11400000, guid: b8902ca2cc81c6340b3564c5ce35d603, type: 2}
   - {fileID: 11400000, guid: 7cfbe72d0ab93fb42aaa4c1e2185f119, type: 2}
-  - {fileID: 11400000, guid: 049bf235d4bb07643bec24ac8fa53133, type: 2}
-  - {fileID: 11400000, guid: 159aa172f04c1904fa594408bf6612f1, type: 2}
+  - {fileID: 11400000, guid: 5381a7473894cc843b0e28648e806c50, type: 2}
+  - {fileID: 11400000, guid: 93d455999f2edf1488fccd3ebb3e129f, type: 2}
+  - {fileID: 11400000, guid: 1a4c4850b4fc96d498b131de87184aeb, type: 2}
+  - {fileID: 11400000, guid: cb7f99839c11b1846bc6399753e363ef, type: 2}
+  - {fileID: 11400000, guid: 15d61e241b7b7cb47beee65bdec05593, type: 2}
+  - {fileID: 11400000, guid: d4ec701adb7b8a649bd8c781cddd5ed8, type: 2}
+  - {fileID: 11400000, guid: 7757fd19020941549880cc5a4a20e7dc, type: 2}
   dropdown: {fileID: 1164047216}
 --- !u!1 &1217595481
 GameObject:
@@ -3239,7 +3503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141, y: -121}
+  m_AnchoredPosition: {x: -141, y: -189}
   m_SizeDelta: {x: 160, y: 77.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281216839
