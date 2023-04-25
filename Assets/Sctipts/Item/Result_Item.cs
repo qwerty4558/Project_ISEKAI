@@ -17,6 +17,7 @@ public class Result_Item : SerializedScriptableObject
     public int[,] road = new int[7,7];
     public string result_Item_Name;
     public string icon_File_Name;
+    public Ingredient_Item outputItem;
     
     public PUZZLE_STATE[,] board;
     public int puzzle_usage;
