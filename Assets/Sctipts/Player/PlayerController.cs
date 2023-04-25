@@ -170,7 +170,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public void GetDamage(float damage)
     {
-        uiManager.UpdateUI(currentHp, maxHp, true);
+        uiManager.UpdateUI(currentHp, maxHp);
         currentHp -= damage;
         Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
     }
@@ -275,6 +275,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if(other.CompareTag("EnemyAttackCol"))
         {
+            Debug.Log("공격 받음 : " + other.GetComponent<EnemyAttackCol>().Damage);
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
         }
     }

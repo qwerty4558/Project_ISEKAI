@@ -28,26 +28,29 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public Ingredient_Item itemData;
 
-    public string ItemName { get => itemName; set => itemName = value;  }
+    public string ItemName { get => itemName; set => itemName = value; }
     public string Status { get => status; set => status = value; }
     public string Route { get => route; set => route = value; }
     public int ID { get => id; set => id = value; }
-    public int Count { get => count; set => count = value;  }
+    public int Count { get => count; set => count = value; }
 
     private void Awake()
     {
         orgPos = transform.position;
-        itemData = new Ingredient_Item(itemImage, itemName, status, route, count,count);
         updateData();
     }
 
     public void updateData()
     {
-        itemImage = itemData.itemImage;
-        count = itemData.count;
-        status = itemData.status;
-        route = itemData.route;
-        itemName = itemData.name;
+        if(itemData != null)
+        {
+            itemImage = itemData.itemImage;
+            count = itemData.count;
+            status = itemData.status;
+            route = itemData.route;
+            itemName = itemData.name_KR;
+        }
+        
     }
     
     private void Update()
@@ -67,6 +70,11 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 slotImage.enabled = false;
                 countText.enabled = false;
             }
+        }
+        else
+        {
+            slotImage.enabled = false;
+            countText.enabled = false;
         }
     }
 
@@ -90,14 +98,24 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (InventoryTitle.instance.isAppraise)
         {
-            if (this.itemData != null)
+            if (itemData != null)
             {
-                InventoryTitle.instance.MinusItem(this.itemData);
-                AppraiseTitle.instance.GetItem(this.itemData);
-                itemName = null;
-                status = null;
-                route = null;
-                InventoryTitle.instance.PrintInventory();
+                if(itemData.isAppraise)
+                {
+                    if(!AppraiseTitle.instance.isGet)
+                    {
+                        InventoryTitle.instance.MinusItem(itemData);
+                        AppraiseTitle.instance.GetItem(itemData);
+                        itemName = null;
+                        status = null;
+                        route = null;
+                        InventoryTitle.instance.PrintInventory();
+                    }
+                }
+                else if(!AppraiseTitle.instance.isGet)
+                {
+                    AppraiseTitle.instance.NotAppraise();
+                }
             }
         }
     }

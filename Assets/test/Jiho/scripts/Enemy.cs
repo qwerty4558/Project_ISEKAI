@@ -2,142 +2,71 @@ using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected float enemySpeed;
+    [SerializeField] protected float reposSpeed;
+    [SerializeField] protected float maxHp;
+    [SerializeField] protected float currentHp;
+    [SerializeField] protected float damage;
+    protected bool isMove;
+    protected bool isRePosition;
+    protected bool isAttack;
+    protected bool isAttackDelay;
 
-    [SerializeField] private float enemySpeed;
-    [SerializeField] private float reposSpeed;
-    [SerializeField] private float maxHp;
-    [SerializeField] private float currentHp;
-    [SerializeField] private float damage;
-    [SerializeField] private UIDataManager uiManager;
-    [SerializeField] private GameObject[] items;
-    [SerializeField] private EnemyAttackCol enemyAttackCol;
+    [SerializeField] protected Vector3 spawnPos;
+    [SerializeField] protected Transform targetPos;
+    [SerializeField] protected GameObject[] items;
+    [SerializeField] protected Animator anim;
+    [SerializeField] protected Camera cam;
+    [SerializeField] protected Canvas canvas;
 
-    [SerializeField] private float time;
-    private bool isRePosition;
-    private bool isMove;
-    private bool isAttack;
-    private bool isAttackDelay;
-    private bool isDamage;
+    [SerializeField] protected UIDataManager uiManager;
+    [SerializeField] protected EnemyAttackCol enemyAttackCol;
+    [SerializeField] protected PlayerController player;
 
-    private PlayerController player;
-    private Animator anim;
-    private Vector3 startPos;
-    private Vector3 targetPos;
-    
-    public Camera cam;
-    public Canvas canvas;
 
-    public Vector3 StartPos { get => startPos; set => startPos = value; }
-    public PlayerController Player { get => player; set => player = value; }
-
-    private void Awake()
+    protected virtual void OnEnable()
     {
-        player = FindObjectOfType<PlayerController>();
-        cam = FindObjectOfType<Camera>();
-        anim = GetComponent<Animator>();
-        isMove = true;
+
+    }
+
+    protected virtual void Awake()
+    {
         currentHp = maxHp;
-        time = 15f;
+        isMove = true;
+        player = FindObjectOfType<PlayerController>();
+        spawnPos = transform.position;
+        cam = FindObjectOfType<Camera>();
+        canvas.worldCamera = cam;
+    }
+
+    protected virtual void Update()
+    {
+        
+        CanvasMove();
+    }
+
+    protected virtual void Respawn()
+    {
         
     }
 
-    //private int[] solution(string[] id_list, string[] report, int k)
-    //{
-    //    int[] answer = new int[id_list.Length];
-    //    List<string> other;
-    //    Dictionary<string, int> reportCount = new Dictionary<string, int>(report.Length);
-    //    Dictionary<string, List<string>> who = new Dictionary<string, List<string>>(id_list.Length);
-    //    string[] temp = new string[2];
-    //    for(int i = 0; i < report.Length; i++)
-    //    {
-    //        Debug.Log(report.Length);
-    //        temp = report[i].Split(" ");
-    //        if (reportCount.ContainsKey(temp[1]))
-    //        {
-    //            reportCount[temp[1]]++;
-    //        }
-    //        else
-    //        {
-    //            reportCount.Add(temp[1], 1);
-    //        }
-    //        Debug.Log(temp[1] + " = " + reportCount[temp[1]]);
-    //    }
-    //    return answer;
-    //}
-
-    private void Update()
+    protected virtual void EnemyMove()
     {
-        targetPos = player.transform.position;
-        EnemyMove();
-        CanvasMove();
-
-        if(time > 0)
-            time -= Time.deltaTime;
-        else if(time <= 0 && !isMove)
-        {
-            anim.SetTrigger("isIdle");
-            time = 15f;
-        }
-    }
-
-    private void GetDamage(float damage)
-    {
-        if(!isDamage)
-        {
-            isDamage = true;
-            isMove = false;
-            anim.SetBool("isMove", false);
-            anim.SetTrigger("getDamage");
-            currentHp -= damage;
-            uiManager.UpdateUI(currentHp, maxHp, false);
-
-            if(currentHp <= 0)
-            {
-                for(int i = 0; i < items.Length; i++)
-                {
-                    GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, 1.5f, this.transform.position.z), Quaternion.identity);
-                    //temp.GetComponent<FieldItem>().Player_obj = player.gameObject;
-                    temp.SetActive(true);
-                }
-                this.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void AnimExit()
-    {
-        isDamage = false;
-        isMove = true;
-    }
-
-
-    private bool TargetDistance(Vector3 target, float distance)
-    {
-        if (Vector3.Distance(target, transform.position) < distance) return true;
-        else return false;
-    }
-
-    private void CanvasMove()
-    {
-        canvas.transform.LookAt(canvas.transform.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
-       
-    }
-
-    private void EnemyMove()
-    {
-        if (TargetDistance(targetPos, 10) && !isRePosition && !isAttack && isMove && !isDamage)
+        targetPos = player.transform;
+        if (TargetDistance(targetPos.position, 7) && !isRePosition && !isAttack && isMove)
         {
             isMove = true;
             anim.SetBool("isMove", true);
-            Vector3 dir = targetPos - transform.position;
+            Vector3 dir = targetPos.position - transform.position;
             transform.forward = dir;
-            transform.position = transform.position + dir * Time.deltaTime * enemySpeed;
+            transform.position = transform.position + dir.normalized * Time.deltaTime * enemySpeed;
 
-            if (TargetDistance(targetPos, 1)) isAttack = true;
+            if (TargetDistance(targetPos.position, 2)) isAttack = true;
         }
         else if (isRePosition) EnemyRePos();
         else if (!isRePosition && isAttack && !isAttackDelay)
@@ -148,35 +77,69 @@ public class Enemy : MonoBehaviour
             StartCoroutine(EnemyAttackAnimation());
         }
 
-        if(!TargetDistance(startPos, 12)) isRePosition = true;
-        
+        if (!TargetDistance(spawnPos, 5)) isRePosition = true;
     }
 
-    private IEnumerator EnemyAttackAnimation()
+    protected virtual void CanvasMove()
+    {
+        canvas.transform.LookAt(canvas.transform.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
+
+    }
+
+    protected virtual void GetDamage(float damage)
+    {
+        currentHp -= damage;
+        uiManager.UpdateUI(currentHp, maxHp);
+
+        if (currentHp <= 0)
+        {
+
+            EnemyDead();
+        }
+    }
+
+    protected IEnumerator EnemyAttackAnimation()
     {
         //공격 애니메이션
         anim.SetBool("isMove", false);
         anim.SetTrigger("isAttack");
-        
+
         yield return new WaitForSeconds(2f);
         isMove = true;
         isAttackDelay = false;
     }
 
-    public void AttackColActive()
+    protected void AttackColActive()
     {
         enemyAttackCol.Damage = damage;
         enemyAttackCol.gameObject.SetActive(true);
     }
 
-    private void EnemyRePos()
+    protected bool TargetDistance(Vector3 target, float distance)
     {
-        targetPos = startPos;
-        Vector3 dir = targetPos - transform.position;
+        if (Vector3.Distance(target, transform.position) < distance) return true;
+        else return false;
+    }
+
+    protected virtual void EnemyDead()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, 1.5f, this.transform.position.z), Quaternion.identity);
+
+            temp.SetActive(true);
+        }
+        this.gameObject.SetActive(false);
+    }
+
+    protected virtual void EnemyRePos()
+    {
+        Vector3 dir = spawnPos - transform.position;
         transform.forward = dir;
         transform.position = transform.position + dir * Time.deltaTime * reposSpeed;
         currentHp = maxHp;
-        if (TargetDistance(startPos, 0.5f))
+        uiManager.UpdateUI(currentHp, maxHp);
+        if (TargetDistance(spawnPos, 0.5f))
         {
             anim.SetBool("isMove", false);
             isRePosition = false;
@@ -184,14 +147,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("AttackCol"))
-        {
-            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Sword) return;
-
-            float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
-            GetDamage(tempDamage);
-        }
+        
     }
+
 }

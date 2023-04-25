@@ -95,6 +95,9 @@ public class InventoryTitle : MonoBehaviour
     public void PrintInventory()
     {
         int count = 0;
+        for(int i = 0; i < slotItems.Length; i++)
+            slotItems[i].itemData = null;
+
         foreach(KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
             Ingredient_Item temp = pair.Value;

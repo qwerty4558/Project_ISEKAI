@@ -12,6 +12,9 @@ public class AppraiseTitle : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] private Ingredient_Item itemData;
     [SerializeField] private TextMeshProUGUI appraiseText;
+    [SerializeField] private TextMeshProUGUI notAppraiseText;
+
+    public bool isGet;
 
     private void Awake()
     {
@@ -20,14 +23,12 @@ public class AppraiseTitle : MonoBehaviour
 
     public void GetItem(Ingredient_Item item)
     {
+        isGet = true;
         itemData = item;
         itemImage.sprite = itemData.itemImage;
         itemImage.enabled = true;
     }
 
-    private void Update()
-    {
-    }
 
     public void SendItem()
     {
@@ -38,6 +39,13 @@ public class AppraiseTitle : MonoBehaviour
         appraiseText.color = new Color(0, 0, 0, 255);
         appraiseText.DOFade(0, 1);
         InventoryTitle.instance.PrintInventory();
+        isGet = false;
+    }
+
+    public void NotAppraise()
+    {
+        notAppraiseText.color = new Color(0, 0, 0, 255);
+        notAppraiseText.DOFade(0, 1);
     }
 
     public void CancelItem()
@@ -47,5 +55,6 @@ public class AppraiseTitle : MonoBehaviour
         InventoryTitle.instance.PlusItem(itemData);
         itemData = null;
         InventoryTitle.instance.PrintInventory();
+        isGet = false;
     }
 }
