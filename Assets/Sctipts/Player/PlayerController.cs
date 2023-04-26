@@ -24,8 +24,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
     [SerializeField] string now_Scene;
-
     [SerializeField] private float playerSpeed;
+    [SerializeField] private GameObject sword_obj;
+    [SerializeField] private GameObject pickaxe_obj;
+    [SerializeField] private GameObject axe_obj;
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
@@ -101,12 +103,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                         break;
 
                     case ActionState.Pickaxe:
-                        animator.SetTrigger("Attack1");
+                        animator.SetTrigger("pickaxe");
                         //나중에 pickaxe에 해당하는 행동 넣을 것
                         break;
 
                     case ActionState.Axe:
-                        animator.SetTrigger("Attack1");
+                        animator.SetTrigger("axe");
                         //나중에 Axe에 해당하는 행동 넣을 것
                         break;
 
@@ -184,6 +186,25 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
 
             tool.SwitchCurrentTool(state);
+        }
+
+        if(state == ActionState.Sword)
+        {
+            pickaxe_obj.SetActive(false);
+            axe_obj.SetActive(false);
+            sword_obj.SetActive(true);
+        }
+        else if(state == ActionState.Pickaxe)
+        {
+            pickaxe_obj.SetActive(true);
+            axe_obj.SetActive(false);
+            sword_obj.SetActive(false);
+        }
+        else if (state == ActionState.Axe)
+        {
+            pickaxe_obj.SetActive(false);
+            axe_obj.SetActive(true);
+            sword_obj.SetActive(false);
         }
     }
 

@@ -45,7 +45,7 @@ public class Goblin : Enemy
 
         if (currentHp <= 0)
         {
-            EnemyDead();
+            anim.SetTrigger("isDead");
         }
         else if(!isHit && !isAttack)
         {
