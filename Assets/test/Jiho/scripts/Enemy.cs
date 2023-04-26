@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     protected bool isRePosition;
     protected bool isAttack;
     protected bool isAttackDelay;
+    protected bool isHit;
 
     [SerializeField] protected Vector3 spawnPos;
     [SerializeField] protected Transform targetPos;
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour
     protected virtual void EnemyMove()
     {
         targetPos = player.transform;
-        if (TargetDistance(targetPos.position, playerCheckRange) && !isRePosition && !isAttack && isMove)
+        if (TargetDistance(targetPos.position, playerCheckRange) && !isRePosition && !isAttack && isMove && !isHit)
         {
             isMove = true;
             anim.SetBool("isMove", true);

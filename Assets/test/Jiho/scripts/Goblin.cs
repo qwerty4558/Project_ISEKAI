@@ -40,7 +40,24 @@ public class Goblin : Enemy
 
     protected override void GetDamage(float damage)
     {
-        base.GetDamage(damage);
+        currentHp -= damage;
+        uiManager.UpdateUI(currentHp, maxHp);
+
+        if (currentHp <= 0)
+        {
+            EnemyDead();
+        }
+        else if(!isHit && !isAttack)
+        {
+            isHit = true;
+            anim.SetBool("isMove", false);
+            anim.SetTrigger("getDamage");
+        }
+    }
+
+    public void GoblinHitAnimExit()
+    {
+        isHit = false;
     }
 
     protected override void EnemyRePos()
