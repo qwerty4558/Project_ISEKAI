@@ -74,7 +74,7 @@ public class Goblin : Enemy
     {
         if (other.CompareTag("AttackCol"))
         {
-            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Sword) return;
+            if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Sword))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             GetDamage(tempDamage);

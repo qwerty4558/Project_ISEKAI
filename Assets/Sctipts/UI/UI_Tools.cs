@@ -10,37 +10,33 @@ public class UI_Tools : MonoBehaviour
     [SerializeField] private Image image_C;
     [SerializeField] private Image image_R;
 
-    [SerializeField] private Sprite[] toolImages;   //NOT SAFE, TEMPOARY DATA
-
-    private int toolIndex = 0;
-
-    public void SwitchCurrentTool(ActionState state)
+    public void SwitchCurrentTool(PlayerAction[] actions,int index)
     {
-        if (toolImages == null) return;
+        if (actions[index].itemSprite == null) return;
 
-        int intState = (int)state;
-
-        if (intState - 1 >= 0 && toolImages.Length > 1)
+        if (index - 1 >= 0 && actions.Length > 1)
         {
             image_L.enabled = true;
-            image_L.sprite = toolImages[intState - 1];
+            if (actions[index-1].itemSprite != null)
+                image_L.sprite = actions[index- 1].itemSprite;
         }
         else
         {
             image_L.enabled = false;
         }
 
-        if (intState + 1 < toolImages.Length)
+        if (index + 1 < actions.Length)
         {
             image_R.enabled = true;
-            image_R.sprite = toolImages[intState + 1];
+            if (actions[index + 1].itemSprite != null)
+                image_L.sprite = actions[index + 1].itemSprite;
         }
         else
         {
             image_R.enabled = false;
         }
 
-        image_C.sprite = toolImages[intState];
+        image_C.sprite = actions[index].itemSprite;
         image_C.gameObject.GetComponent<DOTweenAnimation>().DORestart();
     }
 }

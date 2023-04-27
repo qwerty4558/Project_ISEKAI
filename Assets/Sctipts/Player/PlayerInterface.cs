@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace PlayerInterface
 { 
-    public interface IAttack
-    {
-        void Attack();
-    }
-    public interface IChackObj
-    {
-        void Attack();
-    }
+    //public interface IAttack
+    //{
+    //    void Attack();
+    //}
+    //public interface IChackObj
+    //{
+    //    void Attack();
+    //}
 }
