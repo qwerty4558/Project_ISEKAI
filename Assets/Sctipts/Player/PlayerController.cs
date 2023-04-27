@@ -114,9 +114,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
     }
 
-    public void Attack(float damage)
+    public void Attack()
     {
-        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = damage; // 데미지는 무기에 따라 다르게 하는게 나으니 나중에 교체 바람
+        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // 데미지는 무기에 따라 다르게 하는게 나으니 나중에 교체 바람
         normalAttackCol.SetActive(true); //꺼지는건 공격 콜라이더 스스로 꺼지게
         normalAttackCol.GetComponent<ActiveAttackCol>().currentPlayerAction = playerActions[currentActionIndex];
     }
@@ -198,7 +198,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         heading = heading - player_Move_Input;
 
-        if (player_Move_Input != Vector3.zero)
+        if (player_Move_Input != Vector3.zero && !isAttack)
         {
             isMove = true;
 

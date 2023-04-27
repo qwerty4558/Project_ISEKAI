@@ -50,7 +50,7 @@ public class Mineral : Enemy
     {
         if (other.CompareTag("AttackCol"))
         {
-            if (other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Pickaxe))) return;
+            if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Pickaxe))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             GetDamage(tempDamage);
