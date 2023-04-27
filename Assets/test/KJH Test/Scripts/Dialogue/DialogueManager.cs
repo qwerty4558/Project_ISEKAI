@@ -118,14 +118,6 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void ShowDialogue(Dialogue[] _dialogues)
-    {
-        text_Dialogue.text = "";
-       // text_Name.text = "";
-
-        
-    }
-
     private void SettingUI(bool _flag)
     {
         go_Dialogue_Bar.SetActive(_flag);
