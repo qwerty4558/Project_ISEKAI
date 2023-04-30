@@ -105,6 +105,16 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
         SetResultItem(currentItem);
     }
 
+    public void UndoPiece()
+    {
+        if (PuzzleEnabled == false) return;
+
+        itemPot.DisablePuzzlePieceVisualizer();
+        itemPot.UndoSetItemPot(currentItem);
+        itemPot.UndoPiece();
+        usageSlot.UndoSlot();
+    }
+
     public void VisualizeTile(Ingredient_Item item)
     {
         if (PuzzleEnabled == false) return;
