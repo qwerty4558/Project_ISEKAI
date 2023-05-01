@@ -17,6 +17,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private DialogueManager dialogue;
 
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
@@ -34,7 +35,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Animator animator;
     public Animator anim { get { return animator; }}
 
-    public GameObject Dialog_Test;
+    
 
 
     BoxCollider hitCollider;
@@ -55,9 +56,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         isClicks[0] = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
-        hitCollider = GetComponent<BoxCollider>();
-        if (Dialog_Test != null)
-            Dialog_Test.SetActive(false);
+        hitCollider = GetComponent<BoxCollider>();        
         playerSpeed = walkSpeed;
     }
 
@@ -88,6 +87,20 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 ChangeAction(playerActions[currentActionIndex]);
             }
         }
+
+        if (dialogue.isDialogue == true)
+        {
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {          
+                dialogue.SettingUI(true);
+                cameraFollow.isInteraction = true;
+                dialogue.Go_Next_Text();
+            } 
+            
+        }
+        else cameraFollow.isInteraction = false;
+
         //Interaction();
     }
 
@@ -255,6 +268,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             Debug.Log("공격 받음 : " + other.GetComponent<EnemyAttackCol>().Damage);
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
         }
+
+        if (other.CompareTag("NPC"))
+        {
+            dialogue.right_Char_Panel.sprite = other.GetComponent<ObjectDataType>().NPC_Panel_Sprite;
+            dialogue.event_Text = other.GetComponent<DialogueEvent>().eventName;
+            dialogue.dialogues = DialogueParser.GetDialogues(dialogue.event_Text);
+            dialogue.isDialogue = true;            
+            //dialogue.Go_Next_Text();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -262,6 +284,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (other.CompareTag("QuestBoard"))
         {
             BoardText.SetActive(false);
+        }
+        if (other.CompareTag("NPC"))
+        {
+
         }
     }
 }
