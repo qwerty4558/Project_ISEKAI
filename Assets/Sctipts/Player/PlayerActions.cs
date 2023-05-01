@@ -27,7 +27,7 @@ public class Action_Hand : PlayerAction
     public override void Action(PlayerController player)
     {
         player.IsAttack = true;
-        player.anim.SetTrigger("Attack1");
+        player.anim.SetTrigger("hand");
     }
 
     public override void OnEnterAction(PlayerController player)
@@ -71,7 +71,7 @@ public class Action_Pickaxe : PlayerAction
     public override void Action(PlayerController player)
     {
         player.IsAttack = true;
-        player.anim.SetTrigger("Attack1");
+        player.anim.SetTrigger("pickaxe");
     }
 
     public override void OnEnterAction(PlayerController player)
@@ -94,7 +94,7 @@ public class Action_Axe : PlayerAction
     public override void Action(PlayerController player)
     {
         player.IsAttack = true;
-        player.anim.SetTrigger("Attack1");
+        player.anim.SetTrigger("axe");
     }
 
     public override void OnEnterAction(PlayerController player)
