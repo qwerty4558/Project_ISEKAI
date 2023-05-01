@@ -24,5 +24,6 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+
     }
 }

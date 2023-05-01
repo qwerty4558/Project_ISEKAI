@@ -130,18 +130,19 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
         }
 
-        
-        if(Input.GetKeyDown(KeyCode.F))
+        if (dialogue.isDialogue == true)
         {
-            if (dialogue.isDialogue == true)
-            {
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {          
                 dialogue.SettingUI(true);
                 cameraFollow.isInteraction = true;
                 dialogue.Go_Next_Text();
             } 
-            else cameraFollow.isInteraction = false;
+            
         }
-        
+        else cameraFollow.isInteraction = false;
+
         //Interaction();
     }
 
