@@ -40,7 +40,24 @@ public class Goblin : Enemy
 
     protected override void GetDamage(float damage)
     {
-        base.GetDamage(damage);
+        currentHp -= damage;
+        uiManager.UpdateUI(currentHp, maxHp);
+
+        if (currentHp <= 0)
+        {
+            anim.SetTrigger("isDead");
+        }
+        else if(!isHit && !isAttack)
+        {
+            isHit = true;
+            anim.SetBool("isMove", false);
+            anim.SetTrigger("getDamage");
+        }
+    }
+
+    public void GoblinHitAnimExit()
+    {
+        isHit = false;
     }
 
     protected override void EnemyRePos()
@@ -57,7 +74,7 @@ public class Goblin : Enemy
     {
         if (other.CompareTag("AttackCol"))
         {
-            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Sword) return;
+            if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Sword))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             GetDamage(tempDamage);

@@ -12,10 +12,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float maxHp;
     [SerializeField] protected float currentHp;
     [SerializeField] protected float damage;
+    [SerializeField] protected float playerCheckRange;
+    [SerializeField] protected float attackRange;
+    [SerializeField] protected float respawnRange;
     protected bool isMove;
     protected bool isRePosition;
     protected bool isAttack;
     protected bool isAttackDelay;
+    protected bool isHit;
 
     [SerializeField] protected Vector3 spawnPos;
     [SerializeField] protected Transform targetPos;
@@ -36,6 +40,9 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Awake()
     {
+        playerCheckRange = 7;
+        attackRange = 2;
+        respawnRange = 5;
         currentHp = maxHp;
         isMove = true;
         player = FindObjectOfType<PlayerController>();
@@ -58,7 +65,7 @@ public class Enemy : MonoBehaviour
     protected virtual void EnemyMove()
     {
         targetPos = player.transform;
-        if (TargetDistance(targetPos.position, 7) && !isRePosition && !isAttack && isMove)
+        if (TargetDistance(targetPos.position, playerCheckRange) && !isRePosition && !isAttack && isMove && !isHit)
         {
             isMove = true;
             anim.SetBool("isMove", true);
@@ -66,7 +73,7 @@ public class Enemy : MonoBehaviour
             transform.forward = dir;
             transform.position = transform.position + dir.normalized * Time.deltaTime * enemySpeed;
 
-            if (TargetDistance(targetPos.position, 2)) isAttack = true;
+            if (TargetDistance(targetPos.position, attackRange)) isAttack = true;
         }
         else if (isRePosition) EnemyRePos();
         else if (!isRePosition && isAttack && !isAttackDelay)
@@ -77,7 +84,7 @@ public class Enemy : MonoBehaviour
             StartCoroutine(EnemyAttackAnimation());
         }
 
-        if (!TargetDistance(spawnPos, 5)) isRePosition = true;
+        if (!TargetDistance(spawnPos, respawnRange)) isRePosition = true;
     }
 
     protected virtual void CanvasMove()

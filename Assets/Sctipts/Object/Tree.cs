@@ -78,7 +78,7 @@ public class Tree : MonoBehaviour, IPlayerAction.IDamage
     {
         if (other.CompareTag("AttackCol"))
         {
-            if (other.GetComponent<ActiveAttackCol>().PlayerActionState != ActionState.Axe) return;
+            if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Axe))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             Damage(tempDamage);

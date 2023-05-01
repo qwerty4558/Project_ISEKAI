@@ -1,7 +1,8 @@
-﻿using Unity.VisualScripting;
+﻿using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+public class SingletonMonoBehaviour<T> : SerializedMonoBehaviour where T : SerializedMonoBehaviour
 {
     private static T instance;
 

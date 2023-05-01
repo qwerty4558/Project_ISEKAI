@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,15 @@ public class ActiveAttackCol : MonoBehaviour
 {
     [SerializeField] private float activeTime;
     private float linkDamage;
-    private ActionState playerActionState;
 
     public float LinkDamage { get => linkDamage; set => linkDamage = value; }
-    public ActionState PlayerActionState { get => playerActionState; set => playerActionState = value;}
+
+    public PlayerAction currentPlayerAction;
+
+    public bool CompareActionType(Type type)
+    {
+        return currentPlayerAction.GetType() == type;
+    }
 
     private void OnEnable()
     {

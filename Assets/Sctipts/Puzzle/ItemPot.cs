@@ -55,6 +55,7 @@ public class ItemPot : SerializedMonoBehaviour
     private void OnDisable()
     {
         CraftPuzzleCore.Instance.OnPuzzleComplete.RemoveListener(OnPuzzleEnd);
+        Clear();
         potVisulaizer.gameObject.SetActive(false);
     }
 
@@ -63,9 +64,13 @@ public class ItemPot : SerializedMonoBehaviour
         Vector2Int slotLength = new Vector2Int(targetItem.board.GetLength(0), targetItem.board.GetLength(1));
 
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(slotLength.x * slotSize, slotLength.y * slotSize);
+        this.GetComponent<RectTransform>().localScale = new Vector3(700f / (slotLength.x * slotSize), 700f / (slotLength.y * slotSize));
+
+        Clear();
 
         slotObjects = new GameObject[slotLength.x, slotLength.y];
         slot_matrix = new PotSlot[slotLength.x, slotLength.y];
+        finishPoint = new Vector2Int(-1, -1);
 
         for (int y = 0; y < slotLength.y; y++)
         {
@@ -184,7 +189,7 @@ public class ItemPot : SerializedMonoBehaviour
         slotObjects[activePoint.x, activePoint.y].GetComponent<Image>().sprite = slot_active;
         writedItems.Add(insertItem);
 
-        if (slot_matrix[activePoint.x, activePoint.y] == PotSlot.Finish)
+        if (activePoint == finishPoint)
         {
             if (CraftPuzzleCore.Instance.OnPuzzleComplete != null)
             {
@@ -198,7 +203,7 @@ public class ItemPot : SerializedMonoBehaviour
         if (slot_matrix.GetLength(0) <= x || x < 0) return false;
         else if (slot_matrix.GetLength(1) <= y || y < 0) return false;
 
-        if (slot_matrix[x, y] == PotSlot.Vacant) return true;
+        if (slot_matrix[x, y] == PotSlot.Vacant || slot_matrix[x,y] == PotSlot.Finish) return true;
         else return false;
     }
 
@@ -208,4 +213,13 @@ public class ItemPot : SerializedMonoBehaviour
 
     }
 
+    private void Clear()
+    {
+        if (slotObjects == null) return;
+
+        foreach(var obj in slotObjects)
+        {
+            Destroy(obj.gameObject);
+        }
+    }
 }
