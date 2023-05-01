@@ -18,6 +18,7 @@ public class UsageSlot : MonoBehaviour
     [SerializeField] private Sprite spr_Closed;
     
     [SerializeField] private UsageSlotSingle[] SlotObjects;
+    private int slotIndex = 0;
 
     public void SetUsageSlot(Result_Item item)
     {
@@ -50,6 +51,7 @@ public class UsageSlot : MonoBehaviour
                     SlotObjects[i].slot_itemImage.enabled = true;
                     SlotObjects[i].slot_itemImage.sprite = Resources.Load<Sprite>(item.icon_File_Name);
                     SlotObjects[i].Filled = true;
+                    slotIndex++;
                     return;
                 }
             }
@@ -73,5 +75,12 @@ public class UsageSlot : MonoBehaviour
         return true;
     }
 
+    public void UndoSlot()
+    {
+        if (slotIndex == 0) return;
 
+        SlotObjects[slotIndex-1].slot_itemImage.enabled = false;
+        SlotObjects[slotIndex - 1].Filled = false;
+        slotIndex--;
+    }
 }
