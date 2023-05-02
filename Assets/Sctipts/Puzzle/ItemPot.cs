@@ -64,7 +64,7 @@ public class ItemPot : SerializedMonoBehaviour
         Vector2Int slotLength = new Vector2Int(targetItem.board.GetLength(0), targetItem.board.GetLength(1));
 
         this.GetComponent<RectTransform>().sizeDelta = new Vector2(slotLength.x * slotSize, slotLength.y * slotSize);
-        this.GetComponent<RectTransform>().localScale = new Vector3(700f / (slotLength.x * slotSize), 700f / (slotLength.y * slotSize));
+        this.GetComponent<RectTransform>().localScale = new Vector3(560f / (slotLength.x * slotSize), 560f / (slotLength.y * slotSize));
 
         Clear();
 
