@@ -21,7 +21,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public static UIManager UI { get => Instance.uiManager; }
     public static ItemManager Item { get => Instance.itemManager; }
     public static EventManager Event { get => Instance.eventManager; }
-    public static DialogueManager Dialogues { get => Instance.dialogueManager; }
+    public static DialogueManager dialogues { get => Instance.dialogueManager; }
     public static SoundManager Sound { get => Instance.soundManager; }
     public static QuestManager quest { get => Instance.questManager; }
 
