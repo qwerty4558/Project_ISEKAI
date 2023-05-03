@@ -25,7 +25,8 @@ public class DialogueParser : MonoBehaviour
         {
             string[] rowVal = rows[i].Split(new char[] { ',' });
 
-            if (string.IsNullOrEmpty(rowVal[0]) || string.IsNullOrEmpty(rowVal[1]) || rowVal[1].Trim() == "end" || dialogueDic.ContainsKey(rowVal[0].Trim())) continue;
+            if (string.IsNullOrEmpty(rowVal[0]) || string.IsNullOrEmpty(rowVal[1]) || rowVal[1].Trim() == "end" || 
+                dialogueDic.ContainsKey(rowVal[0].Trim())) continue;
 
             List<Dialogue> dial_List = new List<Dialogue>();
             string eventName = rowVal[0].Trim();
@@ -33,7 +34,7 @@ public class DialogueParser : MonoBehaviour
             while (rowVal[0].Trim() != "end")
             {
                 List<string> contextList = new List<string>();
-                Dialogue dial;
+                Dialogue dial = new Dialogue();
                 dial.name = rowVal[1];
                 do
                 {
