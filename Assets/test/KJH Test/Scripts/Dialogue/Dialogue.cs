@@ -6,6 +6,8 @@ using UnityEngine;
 public struct Dialogue
 {
     public string name;
+    //[TextArea(3,10)]
     public string[] context;
+    public Quest quest;
 }
 

@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : GameManager
+public class EventTest : MonoBehaviour
 {
-    public AudioSource MusicSource;
-
-    public void SetMusicVolume(float volume)
-    {
-        MusicSource.volume = volume;
-    }
+    [SerializeField] GameObject eventCollider;
+    [SerializeField] BoxCollider[] boxColliders;
     // Start is called before the first frame update
     void Start()
     {
