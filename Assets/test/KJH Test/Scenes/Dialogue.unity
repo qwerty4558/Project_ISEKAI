@@ -147,7 +147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32297478}
-  m_LocalRotation: {x: -0.036998864, y: 0.94319427, z: -0.31045172, w: -0.112407535}
+  m_LocalRotation: {x: -0.03699886, y: 0.94319427, z: -0.31045172, w: -0.11240751}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -226,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69147336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3185079, y: 6, z: -7.927166}
+  m_LocalPosition: {x: -0.31850815, y: 6, z: -7.927166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -959,7 +959,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952939001}
-  m_LocalRotation: {x: -0.04105763, y: 0.9312946, z: -0.34450832, w: -0.11098935}
+  m_LocalRotation: {x: -0.04105763, y: 0.9312946, z: -0.34450832, w: -0.11098933}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1789,7 +1789,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605242565}
-  m_LocalRotation: {x: -0.039032005, y: 0.937407, z: -0.32751152, w: -0.11171782}
+  m_LocalRotation: {x: -0.039032005, y: 0.937407, z: -0.32751152, w: -0.11171783}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2529,7 +2529,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: Meeting Druid
-  dialogues: []
+  dialogues:
+  - name: 
+    context: []
 --- !u!135 &2146021113
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3115,6 +3117,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6660e4a2c8d40e34daaa1416bef9c92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: playerActions
+      Entry: 6
+      Data: 
   walkSpeed: 3.5
   runSpeed: 7
   rotateSpeed: 10
@@ -3128,7 +3142,9 @@ MonoBehaviour:
   uiManager: {fileID: 0}
   cameraFollow: {fileID: 193330413}
   dialogue: {fileID: 1825591925}
-  currentActionState: 1
+  sword_obj: {fileID: 0}
+  pickaxe_obj: {fileID: 0}
+  axe_obj: {fileID: 0}
   inven: {fileID: 0}
   isClicks: 000000
   BoardText: {fileID: 0}
@@ -4614,8 +4630,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6988884565297114161}
-  m_LocalRotation: {x: -0.039031994, y: 0.937407, z: -0.32751158, w: -0.11171779}
-  m_LocalPosition: {x: -0.3185079, y: 6, z: -7.927166}
+  m_LocalRotation: {x: -0.039032012, y: 0.937407, z: -0.32751155, w: -0.11171785}
+  m_LocalPosition: {x: -0.31850815, y: 6, z: -7.927166}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
