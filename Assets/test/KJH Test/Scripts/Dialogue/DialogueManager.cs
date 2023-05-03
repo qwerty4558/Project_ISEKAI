@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : GameManager
 {
     [SerializeField] public GameObject go_Dialogue_Bar;
     //[SerializeField] GameObject go_Dialogue_Name_Bar;
@@ -78,36 +78,14 @@ public class DialogueManager : MonoBehaviour
                     SettingUI(false);
                 }
             }
+
+            if (dialogues[dialogueCount].quest != null)
+            {
+                
+            }
         }
     }
 
-
-/*    private void OnTriggerStay(Collider other)
-    {
-      
-        if (other.CompareTag("NPC"))
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                roght_Char_Panel.sprite = other.GetComponent<ObjectDataType>().NPC_Panel_Sprite;
-                event_Text = other.GetComponent<DialogueEvent>().eventName;            
-                dialogues = DialogueParser.GetDialogues(event_Text);           
-                isDialogue = true;
-                SettingUI(true);
-                Go_Next_Text();
-            }       
-        }
-    }*/
-
-/*    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("NPC"))
-        {
-            isDialogue = false;
-            dialogueCount = 0;
-            dialogueSubCount = 0;
-        }        
-    }*/
 
     public void SettingUI(bool _flag)
     {
