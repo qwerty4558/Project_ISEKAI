@@ -6,25 +6,27 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] GameObject go_Dialogue_Bar;
+    [SerializeField] public GameObject go_Dialogue_Bar;
     //[SerializeField] GameObject go_Dialogue_Name_Bar;
 
-    [SerializeField] TextMeshProUGUI text_Dialogue;
-    [SerializeField] TextMeshProUGUI text_Name;
+    [SerializeField] public TextMeshProUGUI text_Dialogue;
+    [SerializeField] public TextMeshProUGUI text_Name;
 
-    [SerializeField] string event_Text;
-    [SerializeField] string nowDial;
+    [SerializeField] public string event_Text;
+    [SerializeField] public string nowDial;
     //[SerializeField] TMP_Text text_Name;
 
-    [SerializeField] Image left_Char_Panel;
-    [SerializeField] Image roght_Char_Panel;
+    [SerializeField] public Image left_Char_Panel;
+    [SerializeField] public Image right_Char_Panel;
 
-    [SerializeField] Dialogue[] dialogues;
+    [SerializeField] public Dialogue[] dialogues;
+
+    [SerializeField] public ObjectDataType dataType;
 
     int dialogueCount;
     int dialogueSubCount;
 
-    bool isDialogue = false;
+    public bool isDialogue = false;
 
     private void Start()
     {
@@ -41,21 +43,10 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {       
         
-        if (isDialogue == true)
-        {                         
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                Go_Next_Text();
-            }                            
-        }
-        else
-        {
-            isDialogue = false;
-            SettingUI(false);
-        }
+        
     }
 
-    void Go_Next_Text()
+    public void Go_Next_Text()
     {
         // 대화 카운트와 대화 서브카운트가 다이얼로그 배열의 인덱스 범위를 벗어나지 않았는지 체크
         if (dialogueCount < dialogues.Length && dialogueSubCount < dialogues[dialogueCount].context.Length)
@@ -91,7 +82,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    private void OnTriggerStay(Collider other)
+/*    private void OnTriggerStay(Collider other)
     {
       
         if (other.CompareTag("NPC"))
@@ -102,23 +93,23 @@ public class DialogueManager : MonoBehaviour
                 event_Text = other.GetComponent<DialogueEvent>().eventName;            
                 dialogues = DialogueParser.GetDialogues(event_Text);           
                 isDialogue = true;
-                SettingUI(true);                
+                SettingUI(true);
+                Go_Next_Text();
             }       
         }
-    }
+    }*/
 
-    private void OnTriggerExit(Collider other)
+/*    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("NPC"))
         {
             isDialogue = false;
             dialogueCount = 0;
             dialogueSubCount = 0;
-        }
-        
-    }
+        }        
+    }*/
 
-    private void SettingUI(bool _flag)
+    public void SettingUI(bool _flag)
     {
         go_Dialogue_Bar.SetActive(_flag);
     }
