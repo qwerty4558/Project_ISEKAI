@@ -33,7 +33,7 @@ public class DialogueParser : MonoBehaviour
             while (rowVal[0].Trim() != "end")
             {
                 List<string> contextList = new List<string>();
-                Dialogue dial;
+                Dialogue dial = new Dialogue();
                 dial.name = rowVal[1];
                 do
                 {
