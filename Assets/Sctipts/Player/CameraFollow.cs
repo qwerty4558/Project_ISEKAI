@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+        if (camFollow == null) return;
         if(!isInteraction)
         {
             camFollow.enabled = true ;
