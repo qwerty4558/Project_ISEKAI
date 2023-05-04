@@ -16,19 +16,20 @@ public class UsageSlot : MonoBehaviour
 {
     [SerializeField] private Sprite spr_Opened;
     [SerializeField] private Sprite spr_Closed;
-    
+
     [SerializeField] private UsageSlotSingle[] SlotObjects;
+    private int slotIndex = 0;
 
     public void SetUsageSlot(Result_Item item)
     {
-        for(int i = 0; i < item.puzzle_usage; i++)
+        for (int i = 0; i < item.puzzle_usage; i++)
         {
             SlotObjects[i].slot_back.sprite = spr_Opened;
             SlotObjects[i].SlotOpened = true;
             SlotObjects[i].Filled = false;
             SlotObjects[i].slot_itemImage.enabled = false;
         }
-        for(int i = item.puzzle_usage; i < SlotObjects.Length; i++)
+        for (int i = item.puzzle_usage; i < SlotObjects.Length; i++)
         {
             SlotObjects[i].slot_back.sprite = spr_Closed;
             SlotObjects[i].SlotOpened = false;
@@ -41,15 +42,16 @@ public class UsageSlot : MonoBehaviour
     {
         if (SlotsFull()) return;
 
-        for(int i = 0; i < SlotObjects.Length; i++)
+        for (int i = 0; i < SlotObjects.Length; i++)
         {
-            if(SlotObjects[i].SlotOpened)
+            if (SlotObjects[i].SlotOpened)
             {
                 if (!SlotObjects[i].Filled)
                 {
                     SlotObjects[i].slot_itemImage.enabled = true;
                     SlotObjects[i].slot_itemImage.sprite = Resources.Load<Sprite>(item.icon_File_Name);
                     SlotObjects[i].Filled = true;
+                    slotIndex++;
                     return;
                 }
             }
@@ -62,7 +64,7 @@ public class UsageSlot : MonoBehaviour
 
     public bool SlotsFull()
     {
-        for(int i = 0; i < SlotObjects.Length; i++)
+        for (int i = 0; i < SlotObjects.Length; i++)
         {
             if (!SlotObjects[i].SlotOpened) continue;
 
@@ -73,5 +75,12 @@ public class UsageSlot : MonoBehaviour
         return true;
     }
 
+    public void UndoSlot()
+    {
+        if (slotIndex == 0) return;
 
+        SlotObjects[slotIndex - 1].slot_itemImage.enabled = false;
+        SlotObjects[slotIndex - 1].Filled = false;
+        slotIndex--;
+    }
 }

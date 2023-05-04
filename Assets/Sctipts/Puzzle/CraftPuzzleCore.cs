@@ -36,9 +36,9 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
         {
             List<Ingredient_Item> filtered = new List<Ingredient_Item>();
 
-            foreach(Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
+            foreach (Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
             {
-                if(item.itemType == ItemType.Ingredient)
+                if (item.itemType == ItemType.Ingredient)
                 {
                     filtered.Add(item);
                 }
@@ -56,7 +56,7 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 
         if (currentItem.outputItem == null)
         {
-            Debug.LogError(currentItem.result_Item_Name + " : 해당 아이템과 연결된 Outputitem이 없습니다.");
+            Debug.LogError(currentItem.result_Item_Name + " : ??? ??????? ????? Outputitem?? ???????.");
             return;
         }
         else
@@ -103,6 +103,16 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 
         itemPot.DisablePuzzlePieceVisualizer();
         SetResultItem(currentItem);
+    }
+
+    public void UndoPiece()
+    {
+        if (PuzzleEnabled == false) return;
+
+        itemPot.DisablePuzzlePieceVisualizer();
+        itemPot.UndoSetItemPot(currentItem);
+        itemPot.UndoPiece();
+        usageSlot.UndoSlot();
     }
 
     public void VisualizeTile(Ingredient_Item item)
