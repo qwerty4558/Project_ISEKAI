@@ -35,9 +35,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Animator animator;
     public Animator anim { get { return animator; }}
 
-    
-
-
+   
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
 

@@ -26,6 +26,7 @@ public class DialogueSequence
 
 public class UI_Dialogue : MonoBehaviour
 {
+    [SerializeField] private GameObject dialogueGroup;
     [SerializeField] private TextMeshProUGUI speecherText;
     [SerializeField] private TextMeshProUGUI contextText;
     [SerializeField] private Image portrait_L;
@@ -34,10 +35,11 @@ public class UI_Dialogue : MonoBehaviour
     [SerializeField] private Image portrait_R_Face;
     [SerializeField] private GameObject triangle;
 
-    private float textInterval = .05f;
+    private float textInterval = .02f;
 
     public void PlayDialogue(DialogueSequence[] dialogues)
     {
+        dialogueGroup.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(Cor_PlayDialogue(dialogues));
     }
@@ -74,7 +76,6 @@ public class UI_Dialogue : MonoBehaviour
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        contextText.text = dialogues[i].context;
                         skipFlag = true;
                     }
                     else
@@ -86,6 +87,7 @@ public class UI_Dialogue : MonoBehaviour
                 if (skipFlag) break;
 
             }
+            contextText.text = dialogues[i].context;
 
             yield return new WaitForSeconds(0.5f);
             triangle.SetActive(true);
@@ -94,5 +96,7 @@ public class UI_Dialogue : MonoBehaviour
 
             yield return null;
         }
+
+        dialogueGroup.SetActive(false);
     }
 }
