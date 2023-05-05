@@ -118,6 +118,8 @@ public class InventoryTitle : MonoBehaviour
             itemMap.Add(item.name, item);
             itemMap[item.name].count += 1;
         }
+
+        QuestTitle.instance.QuestCheck();
     }
 
     public void MinusItem(Ingredient_Item item)
