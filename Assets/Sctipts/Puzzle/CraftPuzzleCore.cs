@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using UnityEngine.Events;
 public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 {
     [SerializeField] private ItemPot itemPot;
+    [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
     [SerializeField] private PuzzleIngredientItems itemView;
 
@@ -56,17 +58,17 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 
         if (currentItem.outputItem == null)
         {
-            Debug.LogError(currentItem.result_Item_Name + " : ??? ??????? ????? Outputitem?? ???????.");
+            Debug.LogError(currentItem.result_Item_Name + " :  Outputitem이 없습니다! 인벤토리에 아이템이 추가되려면 해당 값이 필요합니다!");
             return;
         }
         else
         {
             InventoryTitle.instance.AlchemyItemPlus(currentItem.outputItem);
-        }
 
-        foreach (var item in itemsUse)
-        {
-            InventoryTitle.instance.AlchemyItemMinus(item);
+            foreach (var item in itemsUse)
+            {
+                InventoryTitle.instance.AlchemyItemMinus(item);
+            }
         }
     }
 
@@ -125,6 +127,7 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
     public void PuzzleComplete()
     {
         PuzzleEnabled = false;
+        potFrame.GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
     }
 
     public void Debug_ForceComplete()

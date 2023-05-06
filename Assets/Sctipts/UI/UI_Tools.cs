@@ -29,7 +29,7 @@ public class UI_Tools : MonoBehaviour
         {
             image_R.enabled = true;
             if (actions[index + 1].itemSprite != null)
-                image_L.sprite = actions[index + 1].itemSprite;
+                image_R.sprite = actions[index + 1].itemSprite;
         }
         else
         {

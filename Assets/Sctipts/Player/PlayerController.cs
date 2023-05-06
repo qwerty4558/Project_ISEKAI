@@ -56,6 +56,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();        
         playerSpeed = walkSpeed;
+        UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+        tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
     }
 
     private void Update()

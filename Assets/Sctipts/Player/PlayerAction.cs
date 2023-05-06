@@ -1,10 +1,12 @@
 using PlayerInterface;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAction
 {
+    [PreviewField]
     public Sprite itemSprite;
 
     virtual public void Action(PlayerController player) { }

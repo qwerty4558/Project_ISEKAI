@@ -320,9 +320,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 357300789963061901, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 7124287855957137549, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9195400468394628699, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
       propertyPath: m_Pivot.x
@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 9195400468394628703, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
 --- !u!1001 &482499106
@@ -488,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 600075281}
-  - component: {fileID: 600075280}
+  - component: {fileID: 600075282}
   m_Layer: 0
   m_Name: DialogueConatiner
   m_TagString: Untagged
@@ -496,7 +500,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &600075280
+--- !u!4 &600075281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600075279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600075282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,7 +530,13 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 5585994601008127892}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -536,22 +561,116 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: TriggerTest
+      Data: Test
     - Name: $v
       Entry: 7
       Data: 2|DialogueSequence[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 5
     - Name: 
       Entry: 7
       Data: 3|DialogueSequence, Assembly-CSharp
     - Name: speecher
-      Entry: 1
-      Data: "\uD14C\uC2A4\uD2B8"
+      Entry: 6
+      Data: 
     - Name: context
+      Entry: 6
+      Data: 
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 6
+      Data: 
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 4|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 5|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
       Entry: 1
-      Data: "\uD2B8\uB9AC\uAC70 \uB300\uC0AC \uD14C\uC2A4\uD2B8"
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 8|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 1
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: sfewea
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 6
+      Data: 
+    - Name: context
+      Entry: 6
+      Data: 
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -572,13 +691,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|DialogueSequence, Assembly-CSharp
+      Data: 10|DialogueSequence, Assembly-CSharp
     - Name: speecher
-      Entry: 1
-      Data: "\uD14C\uC2A4\uD2B8"
+      Entry: 6
+      Data: 
     - Name: context
-      Entry: 1
-      Data: "\uD2B8\uB9AC\uAC70 \uB300\uC0AC \uD14C\uC2A4\uD2B82"
+      Entry: 6
+      Data: 
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -593,6 +712,194 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 6
+      Data: 
+    - Name: context
+      Entry: 6
+      Data: 
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 6
+      Data: 
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 12|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 13|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.ParticleSystem, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: Emit
+    - Name: m_Mode
+      Entry: 3
+      Data: 3
+    - Name: m_Arguments
+      Entry: 7
+      Data: 16|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 3
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 1
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 6
+      Data: 
+    - Name: context
+      Entry: 6
+      Data: 
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 6
+      Data: 
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 18|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 19|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 21|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 4
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: 
+    - Name: m_MethodName
+      Entry: 1
+      Data: 
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 22|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 5
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: 
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -614,7 +921,7 @@ MonoBehaviour:
       Data: 
     - Name: cutscene_dialogues
       Entry: 7
-      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LargeDialogueData[],
+      Data: 23|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LargeDialogueData[],
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
@@ -628,21 +935,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!4 &600075281
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600075279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656287457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,6 +2389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8ac4416265e28a448a755ae2670a2a0, type: 3}
+--- !u!95 &5585994601008127892 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1544792341095385280, guid: b8ac4416265e28a448a755ae2670a2a0, type: 3}
+  m_PrefabInstance: {fileID: 5585994601008127891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6136741738329702638
 PrefabInstance:
   m_ObjectHideFlags: 0
