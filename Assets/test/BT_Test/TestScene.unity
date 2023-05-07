@@ -320,10 +320,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7124287855957137549, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
-      propertyPath: m_Alpha
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9195400468394628699, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -412,12 +408,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 9195400468394628703, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3319734563541672834, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
+    - {fileID: 4780992968862673836, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e3d265399516fc84b8536f8ccf396353, type: 3}
+--- !u!1 &327156606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327156608}
+  - component: {fileID: 327156607}
+  m_Layer: 0
+  m_Name: Debug_Autoplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &327156607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327156606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96713fd9571a814f93f078dc6757aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 600075282}
+        m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Test
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &327156608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327156606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &482499106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -531,9 +584,12 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 310b2010a7f0b2245ad2c2da1e0b3e83, type: 3}
+    - {fileID: 21300000, guid: 89481308bc94f4d43941a43e34b115f8, type: 3}
     - {fileID: 5585994601008127892}
     - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 21300000, guid: 13132c436859c7c4999920fb4b2d9f28, type: 3}
+    - {fileID: 21300000, guid: 1035ca7bfaa64a14f9e84e32e2510c47, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     SerializedBytesString: 
@@ -574,14 +630,14 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: context
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: a
     - Name: portrait_L
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: portrait_R
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -606,7 +662,7 @@ MonoBehaviour:
       Data: 7|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 0
+      Data: 2
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -621,7 +677,7 @@ MonoBehaviour:
       Data: 8|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -668,8 +724,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: context
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: b
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -677,8 +733,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 4
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -695,8 +751,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: context
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: c
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -722,8 +778,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: context
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: d
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -734,8 +790,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 5
     - Name: action
       Entry: 7
       Data: 12|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
@@ -754,7 +810,7 @@ MonoBehaviour:
       Data: 15|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 2
+      Data: 6
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.ParticleSystem, UnityEngine
@@ -769,7 +825,7 @@ MonoBehaviour:
       Data: 16|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 3
+      Data: 7
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -816,8 +872,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: context
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: r
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -842,52 +898,7 @@ MonoBehaviour:
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 21|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
       Data: 0
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Animator, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetTrigger
-    - Name: m_Mode
-      Entry: 3
-      Data: 5
-    - Name: m_Arguments
-      Entry: 7
-      Data: 22|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 4
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: Attack1
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -920,7 +931,7 @@ MonoBehaviour:
       Data: 
     - Name: cutscene_dialogues
       Entry: 7
-      Data: 23|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LargeDialogueData[],
+      Data: 21|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LargeDialogueData[],
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 9
@@ -2309,7 +2320,7 @@ PrefabInstance:
     - target: {fileID: 1544792341095385280, guid: b8ac4416265e28a448a755ae2670a2a0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e7911d141735b2347902bd7ba6b310da, type: 2}
+      objectReference: {fileID: 9100000, guid: 76fe55592d25b1646a20aa0993dde568, type: 2}
     - target: {fileID: 2524204801927811427, guid: b8ac4416265e28a448a755ae2670a2a0, type: 3}
       propertyPath: inven
       value: 

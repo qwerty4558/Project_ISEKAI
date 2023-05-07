@@ -41,30 +41,43 @@ public class UI_Dialogue : MonoBehaviour
     {
         dialogueGroup.SetActive(true);
         StopAllCoroutines();
-        portrait_L.sprite = null;
-        portrait_R.sprite = null;
-        portrait_L_Face.sprite = null;
-        portrait_R_Face.sprite = null;
         StartCoroutine(Cor_PlayDialogue(dialogues));
     }
 
     public IEnumerator Cor_PlayDialogue(DialogueSequence[] dialogues)
     {
+        portrait_L.gameObject.SetActive(false);
+        portrait_R.gameObject.SetActive(false);
+        portrait_L_Face.gameObject.SetActive(false);
+        portrait_R_Face.gameObject.SetActive(false);
+
         for (int i = 0; i < dialogues.Length; i++)
         {
             speecherText.text = dialogues[i].speecher;
 
             if (dialogues[i].portrait_L != null)
+            {
+                portrait_L.gameObject.SetActive(true);
                 portrait_L.sprite = dialogues[i].portrait_L;
+            }
 
             if (dialogues[i].portrait_R != null)
+            {
+                portrait_R.gameObject.SetActive(true);
                 portrait_R.sprite = dialogues[i].portrait_R;
+            }
 
             if (dialogues[i].portrait_LFace != null)
+            {
+                portrait_L_Face.gameObject.SetActive(true);
                 portrait_L_Face.sprite = dialogues[i].portrait_LFace;
+            }
 
             if (dialogues[i].portrait_RFace != null)
-                portrait_R_Face.sprite = dialogues[i].portrait_LFace;
+            {
+                portrait_R_Face.gameObject.SetActive(true);
+                portrait_R_Face.sprite = dialogues[i].portrait_RFace;
+            }
 
             if (dialogues[i].action != null)
                 dialogues[i].action.Invoke();
