@@ -21,9 +21,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public static UIManager UI { get => Instance.uiManager; }
     public static ItemManager Item { get => Instance.itemManager; }
     public static EventManager Event { get => Instance.eventManager; }
-    public static DialogueManager dialogues { get => Instance.dialogueManager; }
+    
     public static SoundManager Sound { get => Instance.soundManager; }
-    public static QuestManager quest { get => Instance.questManager; }
+   
 
     protected override void Awake()
     {
@@ -31,8 +31,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         uiManager = new UIManager();
         itemManager = new ItemManager();
         eventManager = new EventManager();
-        dialogueManager = new DialogueManager();
+        
         soundManager = new SoundManager();
-        questManager = new QuestManager();
+      
     }
 }

@@ -10,4 +10,5 @@ public class ObjectDataType : MonoBehaviour
     public bool isNPC;
     public Sprite NPC_Panel_Sprite;
     public Sprite NPC_Panel_Emotion;
+    public Dialogue[] defaultDialogue;
 }
