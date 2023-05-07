@@ -58,12 +58,14 @@ public class UI_Dialogue : MonoBehaviour
             if (dialogues[i].portrait_L != null)
             {
                 portrait_L.gameObject.SetActive(true);
+                portrait_L_Face.gameObject.SetActive(false);
                 portrait_L.sprite = dialogues[i].portrait_L;
             }
 
             if (dialogues[i].portrait_R != null)
             {
                 portrait_R.gameObject.SetActive(true);
+                portrait_R_Face.gameObject.SetActive(false);
                 portrait_R.sprite = dialogues[i].portrait_R;
             }
 

@@ -43,6 +43,7 @@ public class Action_Hand : PlayerAction
     public override void OnEnterAction(PlayerController player)
     {
         player.anim.SetInteger("CurrentAction", (int)PlayerAnimParameter.None);
+        player.anim.SetTrigger("ChangeAction");
         player.pickaxe_obj.SetActive(false);
         player.axe_obj.SetActive(false);
         player.sword_obj.SetActive(false);
