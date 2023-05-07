@@ -79,9 +79,6 @@ public class UI_Dialogue : MonoBehaviour
                 portrait_R_Face.sprite = dialogues[i].portrait_RFace;
             }
 
-            if (dialogues[i].action != null)
-                dialogues[i].action.Invoke();
-
             yield return null;
 
             for (int j = 0; j < dialogues[i].context.Length; j++)
@@ -110,6 +107,9 @@ public class UI_Dialogue : MonoBehaviour
             triangle.SetActive(true);
             yield return new WaitUntil(() => Input.GetMouseButton(0));
             triangle.SetActive(false);
+
+            if (dialogues[i].action != null)
+                dialogues[i].action.Invoke();
 
             yield return null;
         }

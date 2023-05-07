@@ -9,6 +9,7 @@ public class Debug_Autoplay : MonoBehaviour
 
     private void Start()
     {
+        if(action != null)
         action.Invoke();
     }
 }
