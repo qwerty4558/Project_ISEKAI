@@ -7,6 +7,6 @@ public struct Dialogue
 {
     public string name;
     public string[] context;
-    public Quest quest;
+    
 }
 

@@ -17,7 +17,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
-    [SerializeField] private DialogueManager dialogue;
+    //[SerializeField] private DialogueManager dialogue;
 
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
@@ -87,15 +87,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 ChangeAction(playerActions[currentActionIndex]);
             }
         }
-
-        if (dialogue.isDialogue == true)
+        
+        if (DialogueManager.Instance.isDialogue == true)
         {
 
             if (Input.GetKeyDown(KeyCode.F))
-            {          
-                dialogue.SettingUI(true);
+            {       
+                DialogueManager.Instance.SettingUI(true);
                 cameraFollow.isInteraction = true;
-                dialogue.Go_Next_Text();
+                DialogueManager.Instance.Go_Next_Text();
             } 
             
         }
@@ -271,10 +271,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if (other.CompareTag("NPC"))
         {
-            dialogue.right_Char_Panel.sprite = other.GetComponent<ObjectDataType>().NPC_Panel_Sprite;
-            dialogue.event_Text = other.GetComponent<DialogueEvent>().eventName;
-            dialogue.dialogues = DialogueParser.GetDialogues(dialogue.event_Text);
-            dialogue.isDialogue = true;            
+            DialogueManager.Instance.right_Char_Panel.sprite = other.GetComponent<ObjectDataType>().NPC_Panel_Sprite;
+            DialogueManager.Instance.event_Text = other.GetComponent<DialogueEvent>().eventName;
+            DialogueManager.Instance.dialogues = DialogueParser.GetDialogues(DialogueManager.Instance.event_Text);
+            DialogueManager.Instance.isDialogue = true;            
             //dialogue.Go_Next_Text();
         }
     }

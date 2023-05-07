@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class QuestData
 {
+    public int npcID;
     public string questName;
-    public int[] npcID;
+    public string questType;
+    public string questInfomation;
+    public bool isClear;
+    
 
     public QuestData() { }
-    public QuestData(string questName, int[] npcID)
+    public QuestData(string questName, int npcID, string questInfomation)
     {
         this.questName = questName;
         this.npcID = npcID;
+        this.questInfomation = questInfomation;
     }
 }
 
-public class Quest
-{
-    public string questTitle;
-    [TextArea(3, 10)]
-    public string descriptrion;
-}

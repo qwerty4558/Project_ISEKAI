@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : GameManager
+public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
 {
     [SerializeField] public GameObject go_Dialogue_Bar;
     //[SerializeField] GameObject go_Dialogue_Name_Bar;
@@ -77,11 +77,6 @@ public class DialogueManager : GameManager
                     dialogues = null;
                     SettingUI(false);
                 }
-            }
-
-            if (dialogues[dialogueCount].quest != null)
-            {
-                
             }
         }
     }
