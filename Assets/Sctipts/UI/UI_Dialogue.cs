@@ -41,6 +41,10 @@ public class UI_Dialogue : MonoBehaviour
     {
         dialogueGroup.SetActive(true);
         StopAllCoroutines();
+        portrait_L.sprite = null;
+        portrait_R.sprite = null;
+        portrait_L_Face.sprite = null;
+        portrait_R_Face.sprite = null;
         StartCoroutine(Cor_PlayDialogue(dialogues));
     }
 

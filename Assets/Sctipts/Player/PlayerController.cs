@@ -149,17 +149,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
         {
             isAttack = true;
-            animator.SetTrigger("Attack1");
+            animator.SetTrigger("Action");
         }
         if (isClicks[0] && isClicks[1] && !isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack2");
+            animator.SetTrigger("Attack1");
         }
         if (isClicks[0] && isClicks[1] && isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack3");
+            animator.SetTrigger("Attack2");
         }
     }
 
@@ -255,7 +255,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 idleB = !idleB;
                 idleChangeTime = 5.5f;
             }
-            animator.SetBool("IdleB", idleB);
+            //animator.SetBool("IdleB", idleB);
+            animator.SetTrigger("IdleAlt");
         }
 
         animator.SetBool("isWalk", isMove);
