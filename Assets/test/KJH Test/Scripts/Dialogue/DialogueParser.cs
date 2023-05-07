@@ -36,6 +36,7 @@ public class DialogueParser : MonoBehaviour
                 List<string> contextList = new List<string>();
                 Dialogue dial = new Dialogue();
                 dial.name = rowVal[1];
+                dial.expression = rowVal[5];
                 do
                 {
                     contextList.Add(rowVal[2].ToString());
@@ -46,6 +47,7 @@ public class DialogueParser : MonoBehaviour
                 } while (string.IsNullOrEmpty(rowVal[1]) && rowVal[0] != "end");
 
                 dial.context = contextList.ToArray();
+                
                 dial_List.Add(dial);
             }
 

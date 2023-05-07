@@ -17,6 +17,8 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
     //[SerializeField] TMP_Text text_Name;
 
     [SerializeField] public Image left_Char_Panel;
+    [SerializeField] public Image left_Char_Expression_Image;
+    [SerializeField] Sprite[] left_Char_Expression;
     [SerializeField] public Image right_Char_Panel;
 
     [SerializeField] public Dialogue[] dialogues;
@@ -42,7 +44,6 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
 
     private void Update()
     {       
-        
         
     }
 
