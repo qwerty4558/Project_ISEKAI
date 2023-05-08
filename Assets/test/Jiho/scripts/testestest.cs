@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class testestest : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            QuestTitle.instance.InputQuest(GetComponent<QuestInfo>());
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //        QuestTitle.instance.InputQuest(GetComponent<QuestInfo>());
+    //}
 }

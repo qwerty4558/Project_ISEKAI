@@ -283,6 +283,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             dialogue.isDialogue = true;            
             //dialogue.Go_Next_Text();
         }
+
+        if(other.CompareTag("QuestPos"))
+        {
+            QuestTitle.instance.QuestPositionCheck(other.name);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)

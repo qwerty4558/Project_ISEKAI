@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3773232610717145355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3773232610717145461}
+  - component: {fileID: 3773232610717145354}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3773232610717145461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773232610717145355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3773232610717145354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773232610717145355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4107da48c8296fe41b6a3531327037e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questUI: {fileID: 0}
+  questBox:
+  - questInfoDatas:
+    - questType: 1
+      title: "\uC774\uB3D9"
+      description: "\uC815\uD574\uC9C4 \uC704\uCE58\uAE4C\uC9C0 \uC774\uB3D9\uD558\uC790"
+      isClear: 0
+      position: Quest_firstPos
+      item: {fileID: 0}
+      itemCompleteCount: 0
+      itemCurrentCount: 0
+      chatKey: 
+    - questType: 2
+      title: "\uC218\uC9D1"
+      description: "\uACE0\uBE14\uB9B0\uC758 \uADC0\uB97C \uAD6C\uD558\uC790"
+      isClear: 0
+      position: 
+      item: {fileID: 11400000, guid: 7d9399e7523627f4b8cffbdab0ca7363, type: 2}
+      itemCompleteCount: 5
+      itemCurrentCount: 0
+      chatKey: 
+  currentQuest:
+    questInfoDatas:
+    - questType: 0
+      title: 
+      description: 
+      isClear: 0
+      position: 
+      item: {fileID: 0}
+      itemCompleteCount: 0
+      itemCurrentCount: 0
+      chatKey: 
+  player: {fileID: 0}
