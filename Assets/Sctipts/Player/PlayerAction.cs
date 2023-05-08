@@ -16,6 +16,7 @@ public class PlayerAction
 {
     [PreviewField]
     public Sprite itemSprite;
+    public AnimatorOverrideController animOverride;
 
     virtual public void Action(PlayerController player) { }
     virtual public void OnEnterAction(PlayerController player) { }
@@ -42,8 +43,10 @@ public class Action_Hand : PlayerAction
 
     public override void OnEnterAction(PlayerController player)
     {
+        if (animOverride != null)
+            player.anim.runtimeAnimatorController = animOverride;
+
         player.anim.SetInteger("CurrentAction", (int)PlayerAnimParameter.None);
-        player.anim.SetTrigger("ChangeAction");
         player.pickaxe_obj.SetActive(false);
         player.axe_obj.SetActive(false);
         player.sword_obj.SetActive(false);
@@ -66,6 +69,9 @@ public class Action_Sword : PlayerAction
 
     public override void OnEnterAction(PlayerController player)
     {
+        if (animOverride != null)
+            player.anim.runtimeAnimatorController = animOverride;
+
         player.anim.SetInteger("CurrentAction", (int)PlayerAnimParameter.Sword);
         player.pickaxe_obj.SetActive(false);
         player.axe_obj.SetActive(false);
@@ -89,6 +95,9 @@ public class Action_Pickaxe : PlayerAction
 
     public override void OnEnterAction(PlayerController player)
     {
+        if (animOverride != null)
+            player.anim.runtimeAnimatorController = animOverride;
+
         player.anim.SetInteger("CurrentAction", (int)PlayerAnimParameter.Pickaxe);
         player.pickaxe_obj.SetActive(true);
         player.axe_obj.SetActive(false);
@@ -113,6 +122,9 @@ public class Action_Axe : PlayerAction
 
     public override void OnEnterAction(PlayerController player)
     {
+        if (animOverride != null)
+            player.anim.runtimeAnimatorController = animOverride;
+
         player.anim.SetInteger("CurrentAction", (int)PlayerAnimParameter.Axe);
         player.pickaxe_obj.SetActive(false);
         player.axe_obj.SetActive(true);
