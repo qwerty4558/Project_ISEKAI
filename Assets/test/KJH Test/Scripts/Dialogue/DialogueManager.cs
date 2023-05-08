@@ -57,7 +57,7 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
             nowDial = dialogues[dialogueCount].context[dialogueSubCount];
             text_Dialogue.text = nowDial;
             FacialExpression facial = new FacialExpression();
-            facial = (FacialExpression)System.Enum.Parse(typeof(FacialExpression), dialogues[dialogueCount].expression, true);
+            facial = (FacialExpression)System.Enum.Parse(typeof(FacialExpression),dialogues[dialogueCount].expression);
             SetFacialExpression(facial, left_Char_Expression_Image);
 
 

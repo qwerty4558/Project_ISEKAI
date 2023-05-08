@@ -60,8 +60,7 @@ public class QuestTitle : MonoBehaviour
     private void ClearCheck(string _key)
     {
         questDictionary[_key].isProgress = false;
-        questDictionary[_key].isClear = true;
-        
+        questDictionary[_key].isClear = true;        
     }
 
 
@@ -108,14 +107,6 @@ public class QuestTitle : MonoBehaviour
                 Debug.Log("¾ÆÀÌÅÛ È¹µæ Äù½ºÆ® Å¬¸®¾î");
                 ClearCheck(temp.title);
             }
-
-            
-        }
-
-
-
-
-            
-
+        }           
     }
 }
