@@ -20,6 +20,8 @@ public class DialogueSequence
     public Sprite portrait_LFace;
     [FoldoutGroup("Images"), PreviewField]
     public Sprite portrait_RFace;
+    [FoldoutGroup("Images"), PreviewField]
+    public Sprite popup_Image;
     [FoldoutGroup("Actions",false)]
     public UnityEvent action;
 }
@@ -33,6 +35,7 @@ public class UI_Dialogue : MonoBehaviour
     [SerializeField] private Image portrait_L_Face;
     [SerializeField] private Image portrait_R;
     [SerializeField] private Image portrait_R_Face;
+    [SerializeField] private Image popup_Image_UI;
     [SerializeField] private GameObject triangle;
 
     private float textInterval = .02f;
@@ -50,6 +53,7 @@ public class UI_Dialogue : MonoBehaviour
         portrait_R.gameObject.SetActive(false);
         portrait_L_Face.gameObject.SetActive(false);
         portrait_R_Face.gameObject.SetActive(false);
+        popup_Image_UI.gameObject.SetActive(false);
 
         for (int i = 0; i < dialogues.Length; i++)
         {
@@ -79,6 +83,12 @@ public class UI_Dialogue : MonoBehaviour
             {
                 portrait_R_Face.gameObject.SetActive(true);
                 portrait_R_Face.sprite = dialogues[i].portrait_RFace;
+            }
+
+            if (dialogues[i].popup_Image != null)
+            {
+                popup_Image_UI.gameObject.SetActive(true);
+                popup_Image_UI.sprite = dialogues[i].popup_Image;
             }
 
             yield return null;

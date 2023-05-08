@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Newtonsoft.Json.Bson;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class LargeDialogueData
@@ -14,6 +14,9 @@ public class LargeDialogueData
     public string speecher;
     public Color SpeecherColor;
     [TextArea] public string context;
+    [FoldoutGroup("Extras")]
+    public Sprite fullImage;
+    [FoldoutGroup("Extras")]
     public UnityEvent actions;
 }
 
@@ -21,6 +24,7 @@ public class UI_LargeDialogue : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI speecherText;
     [SerializeField] private TextMeshProUGUI contextText;
+    [SerializeField] private Image fullImageUI;
     [SerializeField] private GameObject triangle;
 
     [SerializeField] private LargeDialogueData[] test_dialogues;
@@ -45,6 +49,15 @@ public class UI_LargeDialogue : MonoBehaviour
         {
             speecherText.color = dialogues[i].SpeecherColor;
             speecherText.text = dialogues[i].speecher;
+            if (dialogues[i].fullImage != null)
+            {
+                fullImageUI.gameObject.SetActive(true);
+                fullImageUI.sprite = dialogues[i].fullImage;
+            }
+            else
+            {
+                fullImageUI.gameObject.SetActive(false);
+            }
             dialogues[i].actions.Invoke();
 
             yield return null;
