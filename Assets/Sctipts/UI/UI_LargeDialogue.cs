@@ -14,7 +14,7 @@ public class LargeDialogueData
     public string speecher;
     public Color SpeecherColor;
     [TextArea] public string context;
-    [FoldoutGroup("Extras")]
+    [FoldoutGroup("Extras"),PreviewField]
     public Sprite fullImage;
     [FoldoutGroup("Extras")]
     public UnityEvent actions;
