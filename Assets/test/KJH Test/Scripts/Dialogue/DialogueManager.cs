@@ -17,6 +17,8 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
     //[SerializeField] TMP_Text text_Name;
 
     [SerializeField] public Image left_Char_Panel;
+    [SerializeField] public Image left_Char_Expression_Image;
+    [SerializeField] Sprite[] left_Char_Expression;
     [SerializeField] public Image right_Char_Panel;
 
     [SerializeField] public Dialogue[] dialogues;
@@ -43,7 +45,6 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
     private void Update()
     {       
         
-        
     }
 
     public void Go_Next_Text()
@@ -55,6 +56,11 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
             text_Name.text = dialogues[dialogueCount].name;
             nowDial = dialogues[dialogueCount].context[dialogueSubCount];
             text_Dialogue.text = nowDial;
+            FacialExpression facial = new FacialExpression();
+            facial = (FacialExpression)System.Enum.Parse(typeof(FacialExpression),dialogues[dialogueCount].expression);
+            SetFacialExpression(facial, left_Char_Expression_Image);
+
+
             TMPpoUGUIDoText.DoText(text_Dialogue, 0.5f);
             // 대화 서브카운트 증가
             dialogueSubCount++;
@@ -81,6 +87,18 @@ public class DialogueManager : SingletonMonoBehaviour<DialogueManager>
         }
     }
 
+    private void SetFacialExpression(FacialExpression _expression, Image _image)
+    {
+        if(_expression == FacialExpression.nomal)
+        {
+            left_Char_Expression_Image.gameObject.SetActive(false);            
+        }
+        else
+        {
+            left_Char_Expression_Image.gameObject.SetActive(true);
+            left_Char_Expression_Image.sprite = left_Char_Expression[((int)_expression) - 1];
+        }
+    }
 
     public void SettingUI(bool _flag)
     {
