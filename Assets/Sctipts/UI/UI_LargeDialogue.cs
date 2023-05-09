@@ -25,6 +25,7 @@ public class UI_LargeDialogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speecherText;
     [SerializeField] private TextMeshProUGUI contextText;
     [SerializeField] private Image fullImageUI;
+    [SerializeField] private GameObject DialogueGroup;
     [SerializeField] private GameObject triangle;
 
     [SerializeField] private LargeDialogueData[] test_dialogues;
@@ -40,6 +41,7 @@ public class UI_LargeDialogue : MonoBehaviour
     public void PlayDialogue(LargeDialogueData[] dialogues)
     {
         StopAllCoroutines();
+        DialogueGroup.SetActive(true);
         StartCoroutine(Cor_PlayDialogue(dialogues));
     }
 
@@ -89,6 +91,8 @@ public class UI_LargeDialogue : MonoBehaviour
             yield return new WaitUntil(() => Input.GetMouseButton(0));
             triangle.SetActive(false);
         }
+
+        DialogueGroup.SetActive(false);
 
     }
 }
