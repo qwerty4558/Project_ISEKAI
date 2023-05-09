@@ -1298,7 +1298,7 @@ Animator:
   m_GameObject: {fileID: 5250009740359075840}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0f212d45cf1fec94cb570b486121b9fd, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3ffbf186a19e40742b3ee517dab8e4c7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 76fe55592d25b1646a20aa0993dde568, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1325,9 +1325,13 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: 3675950436817d64289f5e2b631b1006, type: 3}
+    - {fileID: 22100000, guid: e6224d06352871e4299dad2254634634, type: 2}
     - {fileID: 21300000, guid: 0d4ce1f1d57a54349a07db5a1ce858eb, type: 3}
+    - {fileID: 22100000, guid: 555c43153bcfd364694e54e066f7975a, type: 2}
     - {fileID: 21300000, guid: c2d09ca892d3ea445a76e562627bf129, type: 3}
+    - {fileID: 22100000, guid: a6ba565682ff02f428c4279c2acdc5dd, type: 2}
     - {fileID: 21300000, guid: 7ffffef564296ee4cb3a29d962e584e6, type: 3}
+    - {fileID: 22100000, guid: 3968395c08a95b645ace216765f53525, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -1346,6 +1350,9 @@ MonoBehaviour:
     - Name: itemSprite
       Entry: 10
       Data: 0
+    - Name: animOverride
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -1354,7 +1361,10 @@ MonoBehaviour:
       Data: 2|Action_Sword, Assembly-CSharp
     - Name: itemSprite
       Entry: 10
-      Data: 1
+      Data: 2
+    - Name: animOverride
+      Entry: 10
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -1363,7 +1373,10 @@ MonoBehaviour:
       Data: 3|Action_Pickaxe, Assembly-CSharp
     - Name: itemSprite
       Entry: 10
-      Data: 2
+      Data: 4
+    - Name: animOverride
+      Entry: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -1372,7 +1385,10 @@ MonoBehaviour:
       Data: 4|Action_Axe, Assembly-CSharp
     - Name: itemSprite
       Entry: 10
-      Data: 3
+      Data: 6
+    - Name: animOverride
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -1394,13 +1410,13 @@ MonoBehaviour:
   normalAttackCol: {fileID: 197108811589550846}
   uiManager: {fileID: 0}
   cameraFollow: {fileID: 0}
+  dialogue: {fileID: 0}
   sword_obj: {fileID: 5585994599530829158}
   pickaxe_obj: {fileID: 7335520661784316270}
   axe_obj: {fileID: 3404725678491826218}
   inven: {fileID: 0}
   isClicks: 000000
   BoardText: {fileID: 0}
-  Dialog_Test: {fileID: 0}
   idleChangeTime: 5.5
 --- !u!54 &7403480899947957321
 Rigidbody:
@@ -2058,7 +2074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6798954091664690908}
   m_LocalRotation: {x: -0.015584061, y: 0.008031932, z: 0.88750607, w: 0.46046257}
-  m_LocalPosition: {x: -0.0000076293945, y: -0.000012427568, z: 0.34174633}
+  m_LocalPosition: {x: -0.00000739377, y: -0.0000121593475, z: 0.34174633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

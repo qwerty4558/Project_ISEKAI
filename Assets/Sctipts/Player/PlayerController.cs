@@ -35,9 +35,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Animator animator;
     public Animator anim { get { return animator; }}
 
-    
-
-
+   
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
 
@@ -58,6 +56,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();        
         playerSpeed = walkSpeed;
+        UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+        tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
     }
 
     private void Update()
@@ -88,18 +88,23 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
         }
 
-        if (dialogue.isDialogue == true)
+        if(dialogue != null)
         {
+            if (dialogue.isDialogue == true)
+            {
 
-            if (Input.GetKeyDown(KeyCode.F))
-            {          
-                dialogue.SettingUI(true);
-                cameraFollow.isInteraction = true;
-                dialogue.Go_Next_Text();
-            } 
-            
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    dialogue.SettingUI(true);
+                    cameraFollow.isInteraction = true;
+                    dialogue.Go_Next_Text();
+                }
+
+            }
+            else cameraFollow.isInteraction = false;
         }
-        else cameraFollow.isInteraction = false;
+
+        
 
         //Interaction();
     }
@@ -144,17 +149,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
         {
             isAttack = true;
-            animator.SetTrigger("Attack1");
+            animator.SetTrigger("Action");
         }
         if (isClicks[0] && isClicks[1] && !isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack2");
+            animator.SetTrigger("Attack1");
         }
         if (isClicks[0] && isClicks[1] && isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack3");
+            animator.SetTrigger("Attack2");
         }
     }
 
@@ -250,7 +255,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 idleB = !idleB;
                 idleChangeTime = 5.5f;
             }
-            animator.SetBool("IdleB", idleB);
+            //animator.SetBool("IdleB", idleB);
+            animator.SetTrigger("IdleAlt");
         }
 
         animator.SetBool("isWalk", isMove);
@@ -277,6 +283,12 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             dialogue.isDialogue = true;            
             //dialogue.Go_Next_Text();
         }
+
+        if(other.CompareTag("QuestPos"))
+        {
+            QuestTitle.instance.QuestPositionCheck(other.name);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)

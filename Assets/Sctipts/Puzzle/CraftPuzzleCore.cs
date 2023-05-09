@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using UnityEngine.Events;
 public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 {
     [SerializeField] private ItemPot itemPot;
+    [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
     [SerializeField] private PuzzleIngredientItems itemView;
 
@@ -36,9 +38,9 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
         {
             List<Ingredient_Item> filtered = new List<Ingredient_Item>();
 
-            foreach(Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
+            foreach (Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
             {
-                if(item.itemType == ItemType.Ingredient)
+                if (item.itemType == ItemType.Ingredient)
                 {
                     filtered.Add(item);
                 }
@@ -56,17 +58,17 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 
         if (currentItem.outputItem == null)
         {
-            Debug.LogError(currentItem.result_Item_Name + " : 해당 아이템과 연결된 Outputitem이 없습니다.");
+            Debug.LogError(currentItem.result_Item_Name + " :  Outputitem이 없습니다! 인벤토리에 아이템이 추가되려면 해당 값이 필요합니다!");
             return;
         }
         else
         {
             InventoryTitle.instance.AlchemyItemPlus(currentItem.outputItem);
-        }
 
-        foreach (var item in itemsUse)
-        {
-            InventoryTitle.instance.AlchemyItemMinus(item);
+            foreach (var item in itemsUse)
+            {
+                InventoryTitle.instance.AlchemyItemMinus(item);
+            }
         }
     }
 
@@ -105,6 +107,16 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
         SetResultItem(currentItem);
     }
 
+    public void UndoPiece()
+    {
+        if (PuzzleEnabled == false) return;
+
+        itemPot.DisablePuzzlePieceVisualizer();
+        itemPot.UndoSetItemPot(currentItem);
+        itemPot.UndoPiece();
+        usageSlot.UndoSlot();
+    }
+
     public void VisualizeTile(Ingredient_Item item)
     {
         if (PuzzleEnabled == false) return;
@@ -115,6 +127,7 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
     public void PuzzleComplete()
     {
         PuzzleEnabled = false;
+        potFrame.GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
     }
 
     public void Debug_ForceComplete()
