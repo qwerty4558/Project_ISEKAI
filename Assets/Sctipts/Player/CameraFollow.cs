@@ -16,11 +16,19 @@ public class CameraFollow : MonoBehaviour
     private void Update()
     {
         if (camFollow == null) return;
-        if(!isInteraction)
+        if (!isInteraction)
         {
-            camFollow.enabled = true ;
+            camFollow.enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
-        else camFollow.enabled = false;
+        else
+        {
+            camFollow.enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        
     }
 
     private void LateUpdate()

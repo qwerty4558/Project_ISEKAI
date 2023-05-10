@@ -36,18 +36,13 @@ public class UIManager : GameManager
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                    cameraFollow.isInteraction = false;                 
             }
             else
             {
-                cameraFollow = FindObjectOfType<CameraFollow>();
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
         }
     }
