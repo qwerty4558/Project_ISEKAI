@@ -1,27 +1,27 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class QuestTitle : MonoBehaviour
+public class QuestTitle : SerializedMonoBehaviour
 {
     public static QuestTitle instance;
 
-    private Queue<QuestInfo> questRoute;
+    [SerializeField] private Dictionary<string, QuestInfo> questMap = new Dictionary<string, QuestInfo>();
 
     [SerializeField] private QuestUI questUI;
-    
-    [SerializeField] private QuestInfo[] questBox;
+
+    [HideInInspector]
     public QuestInfo currentQuest;
-    public PlayerController player;
 
 
     private void Awake()
     {
-        instance = this; 
-        questRoute = new Queue<QuestInfo>();
-        QuestInit();
+        instance = this;
+        currentQuest = null;
+        QuestInput("고블린귀");
     }
 
     private void QuestClearCheck()
@@ -31,45 +31,131 @@ public class QuestTitle : MonoBehaviour
         for(int i = 0; i < currentQuest.questInfoDatas.Length; i++)
             if (!currentQuest.questInfoDatas[i].isClear) return;
 
-        if(questRoute.Count > 0)
-            currentQuest = questRoute.Dequeue();
+        if(currentQuest.action != null)
+            currentQuest.action.Invoke();
 
-        questUI.ReRoadUI();
+        currentQuest = null;
+        questUI.SetActiveQuest(6, false);
+        Debug.Log("퀘스트 완료");
     }
 
-    private void QuestInit()
+    public void QuestInput(string id)
     {
-        for (int i = 0; i < questBox.Length; i++) questRoute.Enqueue(questBox[i]);
+        if (currentQuest != null) return;
 
-        currentQuest = questRoute.Dequeue();
+        currentQuest = questMap[id];
+        questUI.ReRoadUI(currentQuest);
     }
 
     public void QuestItemCheck()
     {
-        for(int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+        if (currentQuest == null) return;
+
+        int i = 0;
+        while (currentQuest != null && i < currentQuest.questInfoDatas.Length)
+        {
+            
             if (currentQuest.questInfoDatas[i].questType == QuestType.item)
                 if (currentQuest.questInfoDatas[i].item.count >= currentQuest.questInfoDatas[i].itemCompleteCount)
+                {
+                    if (currentQuest.questInfoDatas[i].isClear)
+                    {
+                        i++;
+                        continue;
+                    }
                     currentQuest.questInfoDatas[i].isClear = true;
+                    Debug.Log("아이템 퀘스트 확인");
+                    if (currentQuest.questInfoDatas[i].action != null)
+                        currentQuest.questInfoDatas[i].action.Invoke();
+                }
+            i++;
+        }
+
+            //for (int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+            //if (currentQuest.questInfoDatas[i].questType == QuestType.item)
+            //    if (currentQuest.questInfoDatas[i].item.count >= currentQuest.questInfoDatas[i].itemCompleteCount)
+            //    {
+            //        if (currentQuest.questInfoDatas[i].isClear) continue;
+            //        currentQuest.questInfoDatas[i].isClear = true;
+            //        Debug.Log("아이템 퀘스트 확인");
+            //        if (currentQuest.questInfoDatas[i].action != null)
+            //            currentQuest.questInfoDatas[i].action.Invoke();
+            //    }
+        
         QuestClearCheck();
     }
 
     public void QuestPositionCheck(string name)
     {
-        for(int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+        if (currentQuest == null) return;
+
+        int i = 0;
+        while(currentQuest != null && i < currentQuest.questInfoDatas.Length)
+        {
             if (currentQuest.questInfoDatas[i].questType == QuestType.Position)
                 if (currentQuest.questInfoDatas[i].position == name)
+                {
+                    if (currentQuest.questInfoDatas[i].isClear)
+                    { 
+                        i++;
+                        continue; 
+                    }
                     currentQuest.questInfoDatas[i].isClear = true;
+                    Debug.Log("포지션 퀘스트 확인");
+                    if (currentQuest.questInfoDatas[i].action != null)
+                        currentQuest.questInfoDatas[i].action.Invoke();
+                }
+            i++;
+        }
+
+        //for (int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+        //    if (currentQuest.questInfoDatas[i].questType == QuestType.Position)
+        //        if (currentQuest.questInfoDatas[i].position == name)
+        //        {
+        //            if (currentQuest.questInfoDatas[i].isClear) continue;
+        //            currentQuest.questInfoDatas[i].isClear = true;
+        //            Debug.Log("포지션 퀘스트 확인");
+        //            if (currentQuest.questInfoDatas[i].action != null)
+        //                currentQuest.questInfoDatas[i].action.Invoke();
+        //        }
+        
         QuestClearCheck();
     }
 
     public void QuestChatCheck(string key)
     {
-        for (int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+        if (currentQuest == null) return;
+
+        int i = 0;
+        while(currentQuest != null && i < currentQuest.questInfoDatas.Length)
+        {
             if (currentQuest.questInfoDatas[i].chatKey == key)
             {
+                if (currentQuest.questInfoDatas[i].isClear)
+                {
+                    i++;
+                    continue;
+                }
                 currentQuest.questInfoDatas[i].isClear = true;
+                Debug.Log("대화 퀘스트 확인");
+                if (currentQuest.questInfoDatas[i].action != null)
+                    currentQuest.questInfoDatas[i].action.Invoke();
                 QuestClearCheck();
             }
+            i++;
+        }
+
+
+        //for (int i = 0; i < currentQuest.questInfoDatas.Length; i++)
+        //    if (currentQuest.questInfoDatas[i].chatKey == key)
+        //    {
+        //        if (currentQuest.questInfoDatas[i].isClear) continue;
+        //        currentQuest.questInfoDatas[i].isClear = true;
+        //        Debug.Log("대화 퀘스트 확인");
+        //        if (currentQuest.questInfoDatas[i].action != null)
+        //            currentQuest.questInfoDatas[i].action.Invoke();
+        //        QuestClearCheck();
+        //    }
     }
 
 

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum QuestType
 {
@@ -33,7 +35,10 @@ public class QuestInfo
 
         [Header("대화퀘스트 전용[Chat] (대화 키값)")]
         public string chatKey;
+
+        public UnityEvent action;
     }
     [Header("------------------------퀘스트 단위------------------------")]
     public QuestInfoData[] questInfoDatas = new QuestInfoData[1];
+    public UnityEvent action;
 }
