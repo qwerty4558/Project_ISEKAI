@@ -14,19 +14,18 @@ public class QuestUI : MonoBehaviour
 
     private void Awake()
     {
-        currentQuest = QuestTitle.instance.currentQuest;
-        ReRoadUI();
+        //currentQuest = QuestTitle.instance.currentQuest;
     }
 
-    private void SetActiveQuest(int index, bool _bool)
+    public void SetActiveQuest(int index, bool _bool)
     {
         for (int i = 0; i < index; i++)
             quest_Texts[i].gameObject.SetActive(_bool);
     }
 
-    public void ReRoadUI()
+    public void ReRoadUI(QuestInfo quest)
     {
-        currentQuest = QuestTitle.instance.currentQuest;
+        currentQuest = quest;
         SetActiveQuest(quest_Texts.Length, false);
         SetActiveQuest(currentQuest.questInfoDatas.Length, true);
         UpdateUI();
