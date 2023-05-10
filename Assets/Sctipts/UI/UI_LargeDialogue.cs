@@ -60,6 +60,7 @@ public class UI_LargeDialogue : MonoBehaviour
             {
                 fullImageUI.gameObject.SetActive(false);
             }
+            if(dialogues[i].actions != null)
             dialogues[i].actions.Invoke();
 
             yield return null;
