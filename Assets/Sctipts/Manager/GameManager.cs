@@ -3,33 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
-using UnityEngine.UI;
-using UnityEditor.UIElements;
 using UnityEngine.SceneManagement;
 using Cinemachine.Editor;
 using Cinemachine;
 using Modules.EventSystem;
 
-public class GameManager : SingletonMonoBehaviour<GameManager>
+public class GameManager
 {    
-    private UIManager uiManager;
-    private ItemManager itemManager;
-    private EventManager eventManager;
-    private DialogueManager dialogueManager;
-    private SoundManager soundManager;
-    private QuestManager questManager;
-    public static UIManager UI { get => Instance.uiManager; }
-    public static ItemManager Item { get => Instance.itemManager; }
-    public static EventManager Event { get => Instance.eventManager; }
-    public static SoundManager Sound { get => Instance.soundManager; }
-   
-
-    protected override void Awake()
+    private readonly UIManager uiManager;
+    private readonly ItemManager itemManager;
+    private readonly EventManager eventManager;
+    private readonly SoundManager soundManager;
+    
+    public GameManager(UIManager _uiManager, ItemManager _itemManager, EventManager _evenetManager, SoundManager _soundManager)
     {
-        base.Awake();        
-        uiManager = new UIManager();
-        itemManager = new ItemManager();
-        eventManager = new EventManager();
-        soundManager = new SoundManager();      
+        this.uiManager = _uiManager;
+        this.itemManager = _itemManager;
+        this.eventManager = _evenetManager;
+        this.soundManager = _soundManager;
     }
+
+    public void Start()
+    {
+        
+    }
+
+    public void Update()
+    {
+        
+    }
+
+    public void SaveGame()
+    {
+
+    }
+
+    public void LoadGame()
+    {
+
+    }
+
 }

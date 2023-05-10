@@ -1,30 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
-public class SoundManager : GameManager
+public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
     [Header("Scene 관련 오디오")]
-    public AudioSource titleAudio;
-    public AudioSource mainSceneSound;
-    public AudioSource shopSceneSound;
-    public AudioSource forest_1_SceneSound;    
-    public AudioSource forest_2_SceneSound;
-    public AudioSource mineSceneSound;
-    public AudioSource bossSceneSound;
-    public AudioSource cutScenesound;
+    /*public AudioClip titleAudio;
+    public AudioClip mainSceneSound;
+    public AudioClip shopSceneSound;
+    public AudioClip forest_1_SceneSound;    
+    public AudioClip forest_2_SceneSound;
+    public AudioClip forest_EmbientSound;
+    public AudioClip mineSceneSound;
+    public AudioClip bossSceneSound;*/
+    //public AudioClip cutScenesound;
+    public AudioSource nowScene;
+
 
     [Space]
     [Header("SFX 오디오 클립")]
     [Header("플레이어")]
-    public AudioClip walk_General_SFX;
-    public AudioClip walk_On_Grass_SFX;
-    public AudioClip walk_On_Wood_SFX;
-    public AudioClip pick_Axe_SFX;
-    public AudioClip glove_SFX;
+    public AudioClip[] move_General_SFX;
+    public AudioClip[] move_On_Grass_SFX;
+    public AudioClip[] move_On_Wood_SFX;
+    public AudioClip[] pick_Axe_SFX;
     public AudioClip[] sord_Swing_SFX;
+    public AudioClip glove_SFX;
+    public AudioClip axe_SFX;
     public AudioClip pickup_Item_SFX;
-
+    public AudioClip player_Attack_SFX;
     public AudioClip hit_by_Monster_SFX;
     public AudioClip player_Dead_SFX;
     [Space]
@@ -57,6 +63,7 @@ public class SoundManager : GameManager
     [Header("------------------------")]
 
     [Header("몬스터")]
+    public AudioClip[] monster_Attack_SFX;
 
     [Space]
     [Header("슬라임")]
@@ -64,16 +71,66 @@ public class SoundManager : GameManager
 
     [Space]
     [Header("고블린")]
-    public AudioClip gobline_Attack_SFX;
+    
     public AudioClip gobline_Dead_SFX;
     
     [Space]
     [Header("코볼트")]
     public AudioClip cobolt_Attack_SFX;
     public AudioClip cobolt_Floor_Attack_SFX;
-    public AudioClip cobolt_Dead_SFX;   
+    public AudioClip cobolt_Dead_SFX;
 
+    [Space]
+    [Header("------------------------")]
+    [Space]
 
+    [Header("볼륨 조절")]
+    public AudioMixer masterMixer;
 
+    public Slider masterSlider;
+    public Slider BGMSlider;
+    public Slider SFXSlider;
+
+    public void Start()
+    {
+        masterSlider.value = 1f;
+        BGMSlider.value = -10f;
+        SFXSlider.value = -10f;
+    }
+
+    public void AudioMasterControll()
+    {
+        float soundVolume = masterSlider.value;
+        if (soundVolume == -40f)
+        {
+            masterMixer.SetFloat("Master", -80f);
+        }
+        else masterMixer.SetFloat("Master", soundVolume);
+    }
+
+    public void AudioSFXControll()
+    {
+        float soundVolume = SFXSlider.value;
+        if(soundVolume == -40f)
+        {
+            masterMixer.SetFloat("SFX", -80f);
+        }
+        else masterMixer.SetFloat("SFX", soundVolume);
+    }
+
+    public void AudioBGMControll()
+    {
+        float soundVolume = BGMSlider.value;
+        if (soundVolume == -40f)
+        {
+            masterMixer.SetFloat("BGM", -80f);
+        }
+        else masterMixer.SetFloat("BGM", soundVolume);
+    }
+
+    public void ToggleAudioVolume()
+    {
+        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
+    }
 
 }

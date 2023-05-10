@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UIManager : GameManager
+public class UIManager : SingletonMonoBehaviour<UIManager> 
 {
     [SerializeField] GameObject mainScene_UI;
     [SerializeField] GameObject gamePlayInVillageScene;

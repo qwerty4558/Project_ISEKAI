@@ -17,7 +17,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
-    [SerializeField] private DialogueManager dialogue;
+    
 
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
@@ -49,6 +49,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [SerializeField] float idleChangeTime = 5.5f;
 
+    [SerializeField] AudioSource abs;
+    [SerializeField] AudioClip player_Interction_SFX;
+
     void Start()
     {
         isClicks[0] = true;
@@ -58,7 +61,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         playerSpeed = walkSpeed;
         UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
         tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
-
+        abs = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -66,12 +69,13 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (!cameraFollow.isInteraction)
         {
             if (Input.GetMouseButtonDown(0))
-            {
+            {                
                 if (playerActions != null)
                     playerActions[currentActionIndex].Action(this);
+                SFXPlaying(currentActionIndex);
             }
         }
-    
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (currentActionIndex > 0)
@@ -88,26 +92,31 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 ChangeAction(playerActions[currentActionIndex]);
             }
         }
-
-        if(dialogue != null)
-        {
-            if (dialogue.isDialogue == true)
-            {
-
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    dialogue.SettingUI(true);
-                    cameraFollow.isInteraction = true;
-                    dialogue.Go_Next_Text();
-                }
-
-            }
-            else cameraFollow.isInteraction = false;
-        }
-
         
-
         //Interaction();
+    }
+
+    public void SFXPlaying(int currentIndex)
+    {
+        if(!abs.isPlaying)
+        {
+            switch (currentIndex)
+            {
+                case 0:
+                    player_Interction_SFX = SoundManager.Instance.glove_SFX;
+                    break;
+                case 1:
+                    player_Interction_SFX = SoundManager.Instance.sord_Swing_SFX[0];
+                    break;
+                case 2:
+                    player_Interction_SFX = SoundManager.Instance.pick_Axe_SFX[0];
+                    break;
+                case 3:
+                    player_Interction_SFX = SoundManager.Instance.axe_SFX;
+                    break;
+            }
+            abs.PlayOneShot(player_Interction_SFX);
+        }
     }
 
     public void SetAnimCheck(int count)
@@ -274,15 +283,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             Debug.Log("공격 받음 : " + other.GetComponent<EnemyAttackCol>().Damage);
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
-        }
-
-        if (other.CompareTag("NPC"))
-        {
-            dialogue.right_Char_Panel.sprite = other.GetComponent<ObjectDataType>().NPC_Panel_Sprite;
-            dialogue.event_Text = other.GetComponent<DialogueEvent>().eventName;
-            dialogue.dialogues = DialogueParser.GetDialogues(dialogue.event_Text);
-            dialogue.isDialogue = true;            
-            //dialogue.Go_Next_Text();
         }
 
         if(other.CompareTag("QuestPos"))
