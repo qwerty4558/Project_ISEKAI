@@ -38,6 +38,8 @@ public class UI_Dialogue : MonoBehaviour
     [SerializeField] private Image popup_Image_UI;
     [SerializeField] private GameObject triangle;
 
+
+
     private float textInterval = .02f;
 
     public void PlayDialogue(DialogueSequence[] dialogues)
