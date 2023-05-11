@@ -145,7 +145,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 {
                     interactionUI.SetInteractionUI(targetInteraction);
 
-                    if (Input.GetMouseButton(0)) targetInteraction.OnInteract();
+                    if (Input.GetKeyDown(KeyCode.F)) targetInteraction.OnInteract();
                 }
             }
             else
