@@ -39,6 +39,7 @@ public class Action_Hand : PlayerAction
     {
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
+        
     }
 
     public override void OnEnterAction(PlayerController player)

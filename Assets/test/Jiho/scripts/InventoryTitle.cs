@@ -50,8 +50,6 @@ public class InventoryTitle : MonoBehaviour
                 itemStatus.SetActive(false);
                 if(cameraFollow != null)
                     cameraFollow.isInteraction = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
             }
             else
             {
@@ -60,8 +58,6 @@ public class InventoryTitle : MonoBehaviour
                 inventoryObj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
         }
 
@@ -75,8 +71,6 @@ public class InventoryTitle : MonoBehaviour
                 itemStatus.SetActive(false);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
             }
             else
             {
@@ -86,8 +80,6 @@ public class InventoryTitle : MonoBehaviour
                 inventoryObj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
         }
     }
