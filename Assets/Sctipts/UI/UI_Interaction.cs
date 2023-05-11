@@ -20,7 +20,7 @@ public class UI_Interaction : MonoBehaviour
     {
         interactionObject.SetActive(true);
         targetObject = interactable.NamePosition;
-        textmesh.text = interactable.name;
+        textmesh.text = interactable.InteractorName;
     }
 
     public void Disable()
@@ -32,7 +32,7 @@ public class UI_Interaction : MonoBehaviour
     {
         if (interactionObject.activeInHierarchy)
         {
-            interactionObject.GetComponent<RectTransform>().localPosition = Camera.main.WorldToScreenPoint(targetObject.transform.position);
+            interactionObject.transform.position = Camera.main.WorldToScreenPoint(targetObject.transform.position);
         }
     }
 }
