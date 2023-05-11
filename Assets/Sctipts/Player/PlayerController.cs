@@ -53,12 +53,16 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] AudioSource abs;
     [SerializeField] AudioClip player_Interction_SFX;
 
+    SoundModule soundModule;
+    public SoundModule SoundModule { get { return soundModule; }}
+
     void Start()
     {
         isClicks[0] = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
-        hitCollider = GetComponent<BoxCollider>();        
+        hitCollider = GetComponent<BoxCollider>();  
+        soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
         UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
         tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
@@ -70,10 +74,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (!cameraFollow.isInteraction)
         {
             if (Input.GetMouseButtonDown(0))
-            {                
+            {
                 if (playerActions != null)
+                {
                     playerActions[currentActionIndex].Action(this);
-                SFXPlaying(currentActionIndex);
+                }
             }
         }
 
@@ -97,29 +102,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         //Interaction();
     }
 
-    public void SFXPlaying(int currentIndex)
-    {
-        if(!abs.isPlaying)
-        {
-            switch (currentIndex)
-            {
-                case 0:
-                    player_Interction_SFX = SoundManager.Instance.glove_SFX;
-                    break;
-                case 1:
-                    player_Interction_SFX = SoundManager.Instance.sord_Swing_SFX[0];
-                    break;
-                case 2:
-                    player_Interction_SFX = SoundManager.Instance.pick_Axe_SFX[0];
-                    break;
-                case 3:
-                    player_Interction_SFX = SoundManager.Instance.axe_SFX;
-                    break;
-            }
-            abs.PlayOneShot(player_Interction_SFX);
-        }
-    }
-
     public void SetAnimCheck(int count)
     {
         isClicks[count] = true;
@@ -135,6 +117,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void FixedUpdate()
     {
+
         if (!cameraFollow.isInteraction)
         {
             Move();
@@ -160,17 +143,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
         {
             isAttack = true;
-            animator.SetTrigger("Action");
+            animator.SetTrigger("Attack1");
         }
         if (isClicks[0] && isClicks[1] && !isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack1");
+            animator.SetTrigger("Attack2");
         }
         if (isClicks[0] && isClicks[1] && isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack2");
+            animator.SetTrigger("Attack3");
         }
     }
 
@@ -207,7 +190,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             IPlayerAction.IDamage damage = hit.collider.GetComponent<IPlayerAction.IDamage>();
             if (damage != null)
             {
-                //damage.Damage(playerAttackDamage);
                 Debug.Log("Attack");
             }
         }
