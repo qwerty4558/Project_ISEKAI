@@ -36,6 +36,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Animator animator;
     public Animator anim { get { return animator; }}
 
+    [HideInInspector] public bool ControlEnabled = true;
+
    
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -71,33 +73,37 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Update()
     {
-        if (!cameraFollow.isInteraction)
+        if (ControlEnabled)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (!cameraFollow.isInteraction)
             {
-                if (playerActions != null)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    playerActions[currentActionIndex].Action(this);
+                    if (playerActions != null)
+                    {
+                        playerActions[currentActionIndex].Action(this);
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (currentActionIndex > 0)
+                {
+                    currentActionIndex--;
+                    ChangeAction(playerActions[currentActionIndex]);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentActionIndex + 1 < playerActions.Count)
+                {
+                    currentActionIndex++;
+                    ChangeAction(playerActions[currentActionIndex]);
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (currentActionIndex > 0)
-            {
-                currentActionIndex--;
-                ChangeAction(playerActions[currentActionIndex]);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (currentActionIndex + 1 < playerActions.Count)
-            {
-                currentActionIndex++;
-                ChangeAction(playerActions[currentActionIndex]);
-            }
-        }
         
         //Interaction();
     }
@@ -118,7 +124,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     void FixedUpdate()
     {
 
-        if (!cameraFollow.isInteraction)
+        if (!cameraFollow.isInteraction && ControlEnabled)
         {
             Move();
             Player_Run();
