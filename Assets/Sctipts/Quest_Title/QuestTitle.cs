@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public class QuestTitle : SerializedMonoBehaviour
 {
     public static QuestTitle instance;
@@ -16,12 +15,19 @@ public class QuestTitle : SerializedMonoBehaviour
     [HideInInspector]
     public QuestInfo currentQuest;
 
-
     private void Awake()
     {
-        instance = this;
+        
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         currentQuest = null;
-        QuestInput("°íºí¸°±Í");
     }
 
     private void QuestClearCheck()
