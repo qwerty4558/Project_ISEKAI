@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+[RequireComponent(typeof(Collider))]
+public class InteractableObject : MonoBehaviour
+{
+    [SerializeField] private string interactorName;
+    [SerializeField] private UnityEvent actionOnInteract;
+    [SerializeField] private Transform namePosition;
+    public Transform NamePosition { get { return namePosition; } }
+
+    public void OnInteract()
+    {
+        actionOnInteract.Invoke();
+    }
+}

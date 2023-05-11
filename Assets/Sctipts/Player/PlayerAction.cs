@@ -37,8 +37,11 @@ public class Action_Hand : PlayerAction
 
     public override void Action(PlayerController player)
     {
+        if (player.IsAttack) return;
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
+        player.SoundModule.Play("Action_Hand");
+
     }
 
     public override void OnEnterAction(PlayerController player)
@@ -63,8 +66,10 @@ public class Action_Sword : PlayerAction
 
     public override void Action(PlayerController player)
     {
-        player.IsAttack = true;
-        player.anim.SetTrigger("Action");
+        player.AttackAction();
+        //player.IsAttack = true;
+        //player.anim.SetTrigger("Action");
+        //player.SoundModule.Play("Action_Sword");
     }
 
     public override void OnEnterAction(PlayerController player)
@@ -89,8 +94,10 @@ public class Action_Pickaxe : PlayerAction
 
     public override void Action(PlayerController player)
     {
+        if (player.IsAttack) return;
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
+        player.SoundModule.Play("Action_Pickaxe");
     }
 
     public override void OnEnterAction(PlayerController player)
@@ -116,8 +123,10 @@ public class Action_Axe : PlayerAction
 
     public override void Action(PlayerController player)
     {
+        if (player.IsAttack) return;
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
+        player.SoundModule.Play("Action_Axe");
     }
 
     public override void OnEnterAction(PlayerController player)
