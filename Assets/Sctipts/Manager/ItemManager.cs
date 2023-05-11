@@ -5,7 +5,7 @@ using System.IO;
 using UnityEditor;
 using System;
 
-public class ItemManager : GameManager
+public class ItemManager : SingletonMonoBehaviour<ItemManager> 
 {
     public TextAsset itemDatabase; // 재료 아이템
 

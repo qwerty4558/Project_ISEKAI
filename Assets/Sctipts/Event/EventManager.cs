@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Modules.EventSystem
 {    
-    public class EventManager : GameManager, IEventListener 
+    public class EventManager : SingletonMonoBehaviour<EventManager>, IEventListener 
     { 
         private Dictionary<EVENT_TYPE, List<IEventListener>> listeners = new Dictionary<EVENT_TYPE, List<IEventListener>>();
 
