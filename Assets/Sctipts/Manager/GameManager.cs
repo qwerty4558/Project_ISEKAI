@@ -8,13 +8,16 @@ using Cinemachine.Editor;
 using Cinemachine;
 using Modules.EventSystem;
 
+[System.Serializable]
 public class GameManager
 {    
     private readonly UIManager uiManager;
     private readonly ItemManager itemManager;
     private readonly EventManager eventManager;
     private readonly SoundManager soundManager;
-    
+
+    public static GameManager instance;
+
     public GameManager(UIManager _uiManager, ItemManager _itemManager, EventManager _evenetManager, SoundManager _soundManager)
     {
         this.uiManager = _uiManager;
@@ -22,6 +25,8 @@ public class GameManager
         this.eventManager = _evenetManager;
         this.soundManager = _soundManager;
     }
+
+    
 
     public void Start()
     {

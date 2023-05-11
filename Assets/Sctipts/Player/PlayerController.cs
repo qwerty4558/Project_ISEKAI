@@ -17,6 +17,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
+    private GameManager gameManager;
     
 
     public GameObject sword_obj;
