@@ -92,6 +92,10 @@ public class UI_Dialogue : MonoBehaviour
                 popup_Image_UI.gameObject.SetActive(true);
                 popup_Image_UI.sprite = dialogues[i].popup_Image;
             }
+            if (dialogues[i].popup_Image == null)
+            {
+                popup_Image_UI.gameObject.SetActive(false);
+            }
 
             yield return null;
 
