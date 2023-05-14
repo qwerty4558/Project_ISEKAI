@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SettingBoardScript : MonoBehaviour
 {
@@ -22,14 +23,19 @@ public class SettingBoardScript : MonoBehaviour
             SettingBoard.SetActive(true);
         }
     }
-    void Replay()
+    public void Replay()
     {
         SettingBoard.SetActive(false);
     }
 
-    void Option()
+    public void Option()
     {
         SettingBoard.SetActive(false);
-        SettingBoard.SetActive(true);
+        SettingBoard2.SetActive(true);
+    }
+
+    public void GotoTitle()
+    {
+        SceneManager.LoadScene("Title");
     }
 }
