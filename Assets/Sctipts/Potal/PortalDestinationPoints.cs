@@ -23,8 +23,6 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
 
     private void Start()
     {
-        if (destinationPoints == null) destinationPoints = new Dictionary<string, Transform>();
-
         SetPlayerDestPosition(MultisceneDatapass.Instance.PortalDestinationID);
     }
 
