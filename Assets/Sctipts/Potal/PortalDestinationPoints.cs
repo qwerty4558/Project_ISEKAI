@@ -11,16 +11,20 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
         get { return instance; }
     }
 
+    [SerializeField] private Dictionary<string, Transform> destinationPoints;
+
     private void Awake()
     {
         if (instance == null) instance = this;
         else { Destroy(this); }
     }
 
-    [SerializeField] private Dictionary<string, Transform> destinationPoints;
+
 
     private void Start()
     {
+        if (destinationPoints == null) destinationPoints = new Dictionary<string, Transform>();
+
         SetPlayerDestPosition(MultisceneDatapass.Instance.PortalDestinationID);
     }
 

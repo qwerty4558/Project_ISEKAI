@@ -68,6 +68,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
         UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+        if(tool != null)
         tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
         abs = GetComponent<AudioSource>();
     }
@@ -151,6 +152,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             else
             {
                 UI_Interaction interactionUI = FindObjectOfType<UI_Interaction>();
+                if(interactionUI != null)
                 interactionUI.Disable();
             }
         }
