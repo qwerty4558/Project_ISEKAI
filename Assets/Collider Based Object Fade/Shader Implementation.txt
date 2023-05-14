@@ -1,0 +1,23 @@
+
+
+    
+    Shader Implementation:
+    
+        1. Object fading is supported with any shader that uses Dither Fade. The only requirement is to create a float property called "Fade" with a min and max value of 0 and 1.
+    
+        2. A PBR shader sample called "AS Object Fade" is provided for the Built-In Render Pipeline. Samples for HDRP and URP can be found by importing their corresponding packages.
+        
+        
+        
+    ** When using Amplify Shader, make sure to set the property name to "Fade" instead of "_Fade". This is done to be consistent with Shader Graph's naming conventions.
+    
+    ** (HDRP) If materials are not fading, make sure to enable "Alpha Clipping" from the "Surface Options" category in the material inspector.
+
+
+
+
+
+
+
+
+
