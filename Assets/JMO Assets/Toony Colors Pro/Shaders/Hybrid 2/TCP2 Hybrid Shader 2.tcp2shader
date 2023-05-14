@@ -220,6 +220,14 @@ Shader "Toony Colors Pro 2/Hybrid Shader 2"
 	//# Options
 		[ToggleOff(_RECEIVE_SHADOWS_OFF)] _ReceiveShadowsOff ("Receive Shadows", Float) = 1
 
+	//# ========================================================
+	//# Stencil
+		[IntRange] _StencilReference("Reference",Range(0,255)) = 0
+		[Enum(UnityEngine.Rendering.CompareFunction)] _Comp("Comp",Float) = 0
+		[Enum(UnityEngine.Rendering.CullMode)] _Cull("Cull",Float) = 0
+
+	//# ========================================================
+
 		[HideInInspector] _RenderingMode ("rendering mode", Float) = 0.0
 		[HideInInspector] _SrcBlend ("blending source", Float) = 1.0
 		[HideInInspector] _DstBlend ("blending destination", Float) = 0.0
