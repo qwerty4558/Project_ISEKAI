@@ -28,6 +28,9 @@ public class QuestTitle : SerializedMonoBehaviour
             Destroy(gameObject);
         }
         currentQuest = null;
+
+        //QuestInput("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+
     }
 
     private void QuestClearCheck()
@@ -42,7 +45,7 @@ public class QuestTitle : SerializedMonoBehaviour
 
         currentQuest = null;
         questUI.SetActiveQuest(6, false);
-        Debug.Log("Äù½ºÆ® ¿Ï·á");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½");
     }
 
     public void QuestInput(string id)
@@ -70,7 +73,7 @@ public class QuestTitle : SerializedMonoBehaviour
                         continue;
                     }
                     currentQuest.questInfoDatas[i].isClear = true;
-                    Debug.Log("¾ÆÀÌÅÛ Äù½ºÆ® È®ÀÎ");
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
                     if (currentQuest.questInfoDatas[i].action != null)
                         currentQuest.questInfoDatas[i].action.Invoke();
                 }
@@ -83,7 +86,7 @@ public class QuestTitle : SerializedMonoBehaviour
             //    {
             //        if (currentQuest.questInfoDatas[i].isClear) continue;
             //        currentQuest.questInfoDatas[i].isClear = true;
-            //        Debug.Log("¾ÆÀÌÅÛ Äù½ºÆ® È®ÀÎ");
+            //        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
             //        if (currentQuest.questInfoDatas[i].action != null)
             //            currentQuest.questInfoDatas[i].action.Invoke();
             //    }
@@ -107,7 +110,7 @@ public class QuestTitle : SerializedMonoBehaviour
                         continue; 
                     }
                     currentQuest.questInfoDatas[i].isClear = true;
-                    Debug.Log("Æ÷Áö¼Ç Äù½ºÆ® È®ÀÎ");
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
                     if (currentQuest.questInfoDatas[i].action != null)
                         currentQuest.questInfoDatas[i].action.Invoke();
                 }
@@ -120,7 +123,7 @@ public class QuestTitle : SerializedMonoBehaviour
         //        {
         //            if (currentQuest.questInfoDatas[i].isClear) continue;
         //            currentQuest.questInfoDatas[i].isClear = true;
-        //            Debug.Log("Æ÷Áö¼Ç Äù½ºÆ® È®ÀÎ");
+        //            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
         //            if (currentQuest.questInfoDatas[i].action != null)
         //                currentQuest.questInfoDatas[i].action.Invoke();
         //        }
@@ -143,7 +146,7 @@ public class QuestTitle : SerializedMonoBehaviour
                     continue;
                 }
                 currentQuest.questInfoDatas[i].isClear = true;
-                Debug.Log("´ëÈ­ Äù½ºÆ® È®ÀÎ");
+                Debug.Log("ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
                 if (currentQuest.questInfoDatas[i].action != null)
                     currentQuest.questInfoDatas[i].action.Invoke();
                 QuestClearCheck();
@@ -157,7 +160,7 @@ public class QuestTitle : SerializedMonoBehaviour
         //    {
         //        if (currentQuest.questInfoDatas[i].isClear) continue;
         //        currentQuest.questInfoDatas[i].isClear = true;
-        //        Debug.Log("´ëÈ­ Äù½ºÆ® È®ÀÎ");
+        //        Debug.Log("ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½");
         //        if (currentQuest.questInfoDatas[i].action != null)
         //            currentQuest.questInfoDatas[i].action.Invoke();
         //        QuestClearCheck();
@@ -228,7 +231,7 @@ public class QuestTitle : SerializedMonoBehaviour
         //        if (Vector3.Distance(player.transform.position, temp.position.position) < 10f)
         //        {
         //            ClearCheck(temp.title);
-        //            Debug.Log("Æ÷Áö¼Ç Äù½ºÆ® Å¬¸®¾î");
+        //            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¬ï¿½ï¿½ï¿½ï¿½");
         //            break;
         //        }
         //    }
@@ -247,26 +250,26 @@ public class QuestTitle : SerializedMonoBehaviour
 
         //        if (temp.questType == QuestType.Chat)
         //        {
-        //            Debug.Log("´ëÈ­ Äù½ºÆ® Ã¼Å©");
+        //            Debug.Log("ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©");
         //            if (temp.isChat)
         //            {
         //                ClearCheck(temp.title);
-        //                Debug.Log("»óÈ£ÀÛ¿ë Äù½ºÆ® Å¬¸®¾î");
+        //                Debug.Log("ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¬ï¿½ï¿½ï¿½ï¿½");
         //            }
         //        }
         //        else if (temp.questType == QuestType.Position)
         //        {
-        //            Debug.Log("Æ÷Áö¼Ç Äù½ºÆ® Ã¼Å©");
+        //            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©");
         //            StartCoroutine(CheckPosition(temp));
         //        }
         //        else if (temp.questType == QuestType.item)
         //        {
-        //            Debug.Log("¾ÆÀÌÅÛ Äù½ºÆ® Ã¼Å©");
+        //            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã¼Å©");
         //            if (!InventoryTitle.instance.itemMap.ContainsKey(temp.item.name)) return;
         //            temp.itemCurrentCount = InventoryTitle.instance.itemMap[temp.item.name].count;
         //            if (temp.itemCurrentCount < temp.itemCompleteCount) return;
 
-        //            Debug.Log("¾ÆÀÌÅÛ È¹µæ Äù½ºÆ® Å¬¸®¾î");
+        //            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¬ï¿½ï¿½ï¿½ï¿½");
         //            ClearCheck(temp.title);
         //        }
         //    }

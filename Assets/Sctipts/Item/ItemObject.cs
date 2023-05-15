@@ -47,7 +47,13 @@ public class ItemObject : MonoBehaviour
 
     public void GetItem()
     {
+        ItemInfoUI itemInfoUI = FindObjectOfType<ItemInfoUI>();
+        if (itemInfoUI != null)
+            itemInfoUI.InsertSlot(itemData);
+
+
         InventoryTitle inven = FindObjectOfType<InventoryTitle>();
-        inven.PlusItem(itemData);
+        if (inven != null)
+            inven.PlusItem(itemData);
     }
 }

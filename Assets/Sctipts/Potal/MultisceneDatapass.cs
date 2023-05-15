@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MultisceneDatapass : SingletonMonoBehaviour<MultisceneDatapass>
 {
-    [HideInInspector] public string PortalDestinationID;
+    [HideInInspector] public string PortalDestinationID = string.Empty;
 }
