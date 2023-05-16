@@ -318,4 +318,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         }
     }
+
+    public static void DeActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(false);
+    }
+
+    public static void SetActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(true);
+    }
 }

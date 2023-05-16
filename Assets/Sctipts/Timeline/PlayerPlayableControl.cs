@@ -21,6 +21,7 @@ public class PlayerPlayableControl : MonoBehaviour
     public void Disableplayer(PlayableDirector obj)
     {
         if (DisablePlayerOnStart != true) return;
+        if (obj.time != 0) return;
 
         var player = FindObjectOfType<PlayerController>();
         if(player != null)
