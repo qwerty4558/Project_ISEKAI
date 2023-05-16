@@ -170,7 +170,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318084674773234746}
-  m_LocalRotation: {x: 0.33094022, y: 0.01894566, z: -0.0066457796, w: 0.9434381}
+  m_LocalRotation: {x: 0.2911257, y: 0.44904444, z: -0.15751626, w: 0.8299359}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -295,7 +295,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318084675194771397}
-  m_LocalRotation: {x: 0.29645148, y: 0.019174581, z: -0.0059531988, w: 0.95483685}
+  m_LocalRotation: {x: 0.2607862, y: 0.45446986, z: -0.14110078, w: 0.83996326}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318084675246038795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20073414, y: 4, z: -4.995969}
+  m_LocalPosition: {x: -4.1853523, y: 4, z: -2.7354774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -766,7 +766,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318084676499016454}
-  m_LocalRotation: {x: 0.31372482, y: 0.019063411, z: -0.0063000685, w: 0.94930166}
+  m_LocalRotation: {x: 0.27598146, y: 0.4518353, z: -0.1493223, w: 0.835094}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1723,6 +1723,7 @@ GameObject:
   - component: {fileID: 2479112656929488203}
   - component: {fileID: 8396890067561948977}
   - component: {fileID: 4823440484847009426}
+  - component: {fileID: 793946333454500310}
   - component: {fileID: 525225517263922104}
   - component: {fileID: 525225517263922109}
   - component: {fileID: 122799352}
@@ -1866,7 +1867,7 @@ MonoBehaviour:
   walkSpeed: 3.5
   runSpeed: 7
   rotateSpeed: 10
-  interactionRange: 2
+  interactionRange: 4
   playerAttackDamage: 5
   currentHp: 0
   maxHp: 50
@@ -1881,9 +1882,71 @@ MonoBehaviour:
   inven: {fileID: 0}
   isClicks: 000000
   BoardText: {fileID: 0}
+  ControlEnabled: 1
+  interactableLayermask:
+    serializedVersion: 2
+    m_Bits: 8192
   idleChangeTime: 5.5
   abs: {fileID: 0}
   player_Interction_SFX: {fileID: 0}
+--- !u!114 &793946333454500310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966820467283109873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72230ecd87c387a489cc8e05caff9008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  soundItems:
+  - name: Action_Hand
+    audioClips:
+    - {fileID: 8300000, guid: 717c4573ea7e0ba449bbbed382a2fa43, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
+  - name: Action_Sword
+    audioClips:
+    - {fileID: 8300000, guid: 2926ed753b2cfdd408f94282a8ee3b71, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
+  - name: Action_Pickaxe
+    audioClips:
+    - {fileID: 8300000, guid: 2926ed753b2cfdd408f94282a8ee3b71, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
+  - name: Action_Axe
+    audioClips:
+    - {fileID: 8300000, guid: 2926ed753b2cfdd408f94282a8ee3b71, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
 --- !u!54 &525225517263922104
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1925,7 +1988,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5214985480666431420, guid: 8ad2bf0ee6844c64c8bd70dd8084e949, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2575,7 +2638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588384950518669613}
   m_LocalRotation: {x: -0.015584061, y: 0.008031932, z: 0.88750607, w: 0.46046257}
-  m_LocalPosition: {x: -0.00000739377, y: -0.0000121593475, z: 0.34174633}
+  m_LocalPosition: {x: -0.0000076293945, y: -0.000011473894, z: 0.34174636}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

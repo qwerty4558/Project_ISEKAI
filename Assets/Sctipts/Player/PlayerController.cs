@@ -17,6 +17,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
+    private GameManager gameManager;
     
 
     public GameObject sword_obj;
@@ -35,6 +36,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private Animator animator;
     public Animator anim { get { return animator; }}
 
+    public bool ControlEnabled = true;
+    [SerializeField] private LayerMask interactableLayermask;
+
    
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -52,71 +56,56 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] AudioSource abs;
     [SerializeField] AudioClip player_Interction_SFX;
 
+    SoundModule soundModule;
+    public SoundModule SoundModule { get { return soundModule; }}
+
     void Start()
     {
         isClicks[0] = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
-        hitCollider = GetComponent<BoxCollider>();        
+        hitCollider = GetComponent<BoxCollider>();  
+        soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
         UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+        if(tool != null)
         tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
         abs = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (!cameraFollow.isInteraction)
+        if (ControlEnabled)
         {
-            if (Input.GetMouseButtonDown(0))
-            {                
-                if (playerActions != null)
-                    playerActions[currentActionIndex].Action(this);
-                SFXPlaying(currentActionIndex);
+            if (!cameraFollow.isInteraction)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (playerActions != null)
+                    {
+                        playerActions[currentActionIndex].Action(this);
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (currentActionIndex > 0)
+                {
+                    currentActionIndex--;
+                    ChangeAction(playerActions[currentActionIndex]);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentActionIndex + 1 < playerActions.Count)
+                {
+                    currentActionIndex++;
+                    ChangeAction(playerActions[currentActionIndex]);
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (currentActionIndex > 0)
-            {
-                currentActionIndex--;
-                ChangeAction(playerActions[currentActionIndex]);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (currentActionIndex + 1 < playerActions.Count)
-            {
-                currentActionIndex++;
-                ChangeAction(playerActions[currentActionIndex]);
-            }
-        }
-        
-        //Interaction();
-    }
-
-    public void SFXPlaying(int currentIndex)
-    {
-        if(!abs.isPlaying)
-        {
-            switch (currentIndex)
-            {
-                case 0:
-                    player_Interction_SFX = SoundManager.Instance.glove_SFX;
-                    break;
-                case 1:
-                    player_Interction_SFX = SoundManager.Instance.sord_Swing_SFX[0];
-                    break;
-                case 2:
-                    player_Interction_SFX = SoundManager.Instance.pick_Axe_SFX[0];
-                    break;
-                case 3:
-                    player_Interction_SFX = SoundManager.Instance.axe_SFX;
-                    break;
-            }
-            abs.PlayOneShot(player_Interction_SFX);
-        }
     }
 
     public void SetAnimCheck(int count)
@@ -134,11 +123,38 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void FixedUpdate()
     {
-        if (!cameraFollow.isInteraction)
+        if (!cameraFollow.isInteraction && ControlEnabled)
         {
             Move();
             Player_Run();
             PlayerSetAnimations();
+        }
+
+        if(ControlEnabled)
+        {
+            Vector3 counterCamera = Vector3.ProjectOnPlane(transform.position - Camera.main.transform.position,Vector3.up).normalized;
+            Ray interactionRay = new Ray(transform.position + Vector3.up, counterCamera);
+            Debug.DrawRay(interactionRay.origin, interactionRay.origin + counterCamera*interactionRange);
+            var rHits = Physics.RaycastAll(interactionRay, interactionRange,interactableLayermask);
+
+            if (rHits.Length != 0)
+            {
+                UI_Interaction interactionUI = FindObjectOfType<UI_Interaction>();
+                var targetInteraction = rHits[0].collider.GetComponent<InteractableObject>();
+
+                if (interactionUI != null && targetInteraction != null)
+                {
+                    interactionUI.SetInteractionUI(targetInteraction);
+
+                    if (Input.GetKeyDown(KeyCode.F)) targetInteraction.OnInteract();
+                }
+            }
+            else
+            {
+                UI_Interaction interactionUI = FindObjectOfType<UI_Interaction>();
+                if(interactionUI != null)
+                interactionUI.Disable();
+            }
         }
     }
 
@@ -159,17 +175,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
         {
             isAttack = true;
-            animator.SetTrigger("Action");
+            animator.SetTrigger("Attack1");
         }
         if (isClicks[0] && isClicks[1] && !isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack1");
+            animator.SetTrigger("Attack2");
         }
         if (isClicks[0] && isClicks[1] && isClicks[2])
         {
             isAttack = true;
-            animator.SetTrigger("Attack2");
+            animator.SetTrigger("Attack3");
         }
     }
 
@@ -206,7 +222,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             IPlayerAction.IDamage damage = hit.collider.GetComponent<IPlayerAction.IDamage>();
             if (damage != null)
             {
-                //damage.Damage(playerAttackDamage);
                 Debug.Log("Attack");
             }
         }

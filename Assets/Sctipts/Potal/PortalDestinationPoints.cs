@@ -11,13 +11,15 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
         get { return instance; }
     }
 
+    [SerializeField] private Dictionary<string, Transform> destinationPoints;
+
     private void Awake()
     {
         if (instance == null) instance = this;
         else { Destroy(this); }
     }
 
-    [SerializeField] private Dictionary<string, Transform> destinationPoints;
+
 
     private void Start()
     {
@@ -39,7 +41,6 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
         }
         else
         {
-            Debug.LogError("Destination ID " + point_ID + " was not on list.");
             return false;
         }
     }

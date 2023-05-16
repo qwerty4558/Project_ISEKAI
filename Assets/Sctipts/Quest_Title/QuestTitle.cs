@@ -21,7 +21,7 @@ public class QuestTitle : SerializedMonoBehaviour
     {
         instance = this;
         currentQuest = null;
-        QuestInput("°íºí¸°±Í");
+        //QuestInput("°íºí¸°±Í");
     }
 
     private void QuestClearCheck()
