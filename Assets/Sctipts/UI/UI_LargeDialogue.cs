@@ -61,7 +61,6 @@ public class UI_LargeDialogue : MonoBehaviour
                 fullImageUI.gameObject.SetActive(false);
             }
             if(dialogues[i].actions != null)
-            dialogues[i].actions.Invoke();
 
             yield return null;
 
@@ -86,11 +85,12 @@ public class UI_LargeDialogue : MonoBehaviour
                 if (skipFlag) break;
 
             }
-
             yield return new WaitForSeconds(0.5f);
             triangle.SetActive(true);
             yield return new WaitUntil(() => Input.GetMouseButton(0));
             triangle.SetActive(false);
+
+            dialogues[i].actions.Invoke();
         }
 
         DialogueGroup.SetActive(false);
