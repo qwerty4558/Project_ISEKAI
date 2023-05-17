@@ -15,7 +15,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
 
     private void Start()
     {
-        gameObject.SetActive(true);
+        GetComponent<CanvasGroup>().alpha = 1.0f;
     }
 
     public void LoadScene(string sceneName)
