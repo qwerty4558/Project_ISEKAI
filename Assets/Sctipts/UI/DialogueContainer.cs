@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DialogueContainer : SerializedMonoBehaviour
 {
-
     [SerializeField] private Dictionary<string, DialogueSequence[]> dialogues;
     [SerializeField] private Dictionary<string, LargeDialogueData[]> cutscene_dialogues;
 
