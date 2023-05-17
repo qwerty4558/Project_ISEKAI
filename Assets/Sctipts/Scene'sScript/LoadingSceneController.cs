@@ -13,6 +13,11 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     [SerializeField] private Slider progressBar;
     [SerializeField] private DOTweenAnimation coverAnimation;
 
+    private void Start()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void LoadScene(string sceneName)
     {
         if (loadingFlag) return;
