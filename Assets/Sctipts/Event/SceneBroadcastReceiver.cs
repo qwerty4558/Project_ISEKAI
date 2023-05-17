@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+
 public class SceneBroadcastReceiver : SerializedMonoBehaviour
 {
     public Dictionary<string, UnityEvent> Broadcasts;
