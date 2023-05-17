@@ -21,8 +21,7 @@ public class Setting : MonoBehaviour
     public Slider SFXSlider;
 
     public Toggle masterSoundToggle;
-    public Toggle BGMSoundToggle;
-    public Toggle SFXSoundToggle;
+
 
     [Header("±×·¡ÇÈ")]
     public List<Resolution> resolutions = new List<Resolution>();
@@ -73,6 +72,7 @@ public class Setting : MonoBehaviour
             optionNum++;
         }
         resolutionDropdown.RefreshShownValue();
+        fullScreenMode = FullScreenMode.FullScreenWindow;
     }
 
     public void InitCameraRotateSetting()
@@ -153,9 +153,9 @@ public class Setting : MonoBehaviour
         else masterMixer.SetFloat("BGM", soundVolume);
     }
 
-    public void ToggleAudioVolume()
+    public void ToggleAudioVolume(bool _isPlaySound)
     {
-        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
+        AudioListener.volume = _isPlaySound ? 1 : 0; 
     }
     #endregion
 
