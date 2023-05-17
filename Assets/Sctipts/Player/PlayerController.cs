@@ -32,7 +32,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public InventoryTitle inven;
     public bool[] isClicks;
-    public GameObject BoardText;
     private Animator animator;
     public Animator anim { get { return animator; }}
 
@@ -289,10 +288,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("QuestBoard"))
-        {
-            BoardText.SetActive(true);
-        }
 
         if(other.CompareTag("EnemyAttackCol"))
         {
@@ -309,10 +304,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("QuestBoard"))
-        {
-            BoardText.SetActive(false);
-        }
+
         if (other.CompareTag("NPC"))
         {
 
