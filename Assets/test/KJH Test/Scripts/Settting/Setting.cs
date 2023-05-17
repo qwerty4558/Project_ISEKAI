@@ -20,7 +20,6 @@ public class Setting : MonoBehaviour
 
     public void Start()
     {
-        freelook = FindObjectOfType<CinemachineFreeLook>();
         masterSlider.value = 1f;
         BGMSlider.value = -10f;
         SFXSlider.value = -10f;
@@ -71,6 +70,10 @@ public class Setting : MonoBehaviour
         freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
         freelook.m_YAxis.m_MaxSpeed = cameraSetRotateSlider.value/100;
     }
+
+    #endregion
+
+    #region FixelSizeSetting
 
     #endregion
 }
