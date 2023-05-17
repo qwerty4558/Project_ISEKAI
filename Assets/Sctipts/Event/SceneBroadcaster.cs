@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor.TypeSearch;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +16,12 @@ public class SceneBroadcaster : SingletonMonoBehaviour<SceneBroadcaster>
         BroadcastLists = new Dictionary<string, List<string>>();
     }
 
-    public static void AddBroadcast(string targetScene ,string broadcastID)
+    public static void AddBroadcast(string pair)
     {
-        if(SceneManager.GetSceneByName(targetScene).IsValid()==false)
+        string targetScene = pair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[0];
+        string broadcastID = pair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[1];
+
+        if (SceneManager.GetSceneByName(targetScene).IsValid()==false)
         {
             Debug.LogError(targetScene + "씬이 확인되지 않았습니다. 씬 이름이 제데로 되어있는지, Scene In Build에 포함되어있는지 확인해주세요.");
             return;
