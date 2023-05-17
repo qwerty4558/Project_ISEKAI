@@ -39,30 +39,12 @@ public class Setting : MonoBehaviour
     public void Start()
     {
         AllBoardClosed();
-
-        masterSlider.value = 1f;
-        BGMSlider.value = -10f;
-        SFXSlider.value = -10f;
-
-        cameraSetRotateSlider.value = 5.5f;
-
-        int optionNum = 0;
-        resolutions.AddRange(Screen.resolutions);
-        resolutionDropdown.options.Clear();
-        foreach(Resolution item in resolutions)
-        {
-            Dropdown.OptionData op = new Dropdown.OptionData();
-            op.text = item.width + " x " + item.height + " " + item.refreshRate + " hz ";
-            resolutionDropdown.options.Add(op);
-
-            if(item.width == Screen.width && item.height == Screen.height)
-            {
-                resolutionDropdown.value = optionNum;
-            }
-            optionNum++;
-        }
-        resolutionDropdown.RefreshShownValue();
+        InitSoundSetting();
+        InitCameraRotateSetting();
+        InitGraphicSetting();
     }
+
+    
 
     private void Update()
     {
@@ -72,6 +54,41 @@ public class Setting : MonoBehaviour
         }
     }
 
+    #region InitSetting
+    public void InitGraphicSetting()
+    {
+        int optionNum = 0;
+        resolutions.AddRange(Screen.resolutions);
+        resolutionDropdown.options.Clear();
+        foreach (Resolution item in resolutions)
+        {
+            Dropdown.OptionData op = new Dropdown.OptionData();
+            op.text = item.width + " x " + item.height + " " + item.refreshRate + " hz ";
+            resolutionDropdown.options.Add(op);
+
+            if (item.width == Screen.width && item.height == Screen.height)
+            {
+                resolutionDropdown.value = optionNum;
+            }
+            optionNum++;
+        }
+        resolutionDropdown.RefreshShownValue();
+    }
+
+    public void InitCameraRotateSetting()
+    {
+        cameraSetRotateSlider.value = 5.5f;
+    }
+
+    public void InitSoundSetting()
+    {
+        masterSlider.value = 1f;
+        BGMSlider.value = -10f;
+        SFXSlider.value = -10f;
+    }
+    #endregion
+
+    #region SettingBoardChange
     private void AllBoardClosed()
     {
         mainOpion.SetActive(false);
@@ -79,8 +96,6 @@ public class Setting : MonoBehaviour
         soundSetting.SetActive(false);
         gamePlaySetting.SetActive(false);
     }
-
-    #region SettingBoardChange
     public void SettingBoardChange(string _page)
     {
         AllBoardClosed();
@@ -106,7 +121,6 @@ public class Setting : MonoBehaviour
         mainOpion.SetActive(false);        
     }
     #endregion
-
 
     #region SoundSetting
     public void AudioMasterControll()
@@ -168,10 +182,6 @@ public class Setting : MonoBehaviour
     {
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
-
-    #endregion
-
-    #region FixelSizeSetting
 
     #endregion
 }
