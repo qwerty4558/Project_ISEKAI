@@ -16,6 +16,8 @@ public class Setting : MonoBehaviour
 
     [Header("카메라 조절")]
     public CinemachineFreeLook freelook;
+    public Slider cameraSetRotateSlider;
+    public Slider cameraSetPOVSlider;
 
     public void Start()
     {
@@ -23,8 +25,11 @@ public class Setting : MonoBehaviour
         masterSlider.value = 1f;
         BGMSlider.value = -10f;
         SFXSlider.value = -10f;
-    }
 
+        cameraSetRotateSlider.value = 50f;
+        cameraSetPOVSlider.value = 50f;
+    }
+    #region SoundSetting
     public void AudioMasterControll()
     {
         float soundVolume = masterSlider.value;
@@ -59,4 +64,19 @@ public class Setting : MonoBehaviour
     {
         AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
     }
+    #endregion
+
+    #region CameraSetting
+
+    public void SettingCameraRotate()
+    {
+        freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
+        freelook.m_YAxis.m_MaxSpeed = cameraSetRotateSlider.value/100;
+    }
+    public void SettingCameraPOV()
+    {
+
+    }
+
+    #endregion
 }
