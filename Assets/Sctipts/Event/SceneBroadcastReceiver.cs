@@ -19,6 +19,9 @@ public class SceneBroadcastReceiver : SerializedMonoBehaviour
         }
 
        string currentScene = SceneManager.GetActiveScene().name;
+
+       if (!SceneBroadcaster.Instance.BroadcastLists.ContainsKey(currentScene)) return;
+
        var retrivedBroadcasts = SceneBroadcaster.Instance.BroadcastLists[currentScene];
 
         foreach (var retrived in retrivedBroadcasts)
