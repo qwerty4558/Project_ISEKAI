@@ -3,11 +3,15 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
+public class CraftPuzzleCore : MonoBehaviour
 {
+    private static CraftPuzzleCore instance;
+    public static CraftPuzzleCore Instance { get { return instance; } }
+
     [SerializeField] private ItemPot itemPot;
     [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
@@ -15,21 +19,35 @@ public class CraftPuzzleCore : SingletonMonoBehaviour<CraftPuzzleCore>
 
     [Title("Debug")]
     [SerializeField] private Result_Item test_item;
+    public bool DebugMode = false;
 
     public UnityEvent OnPuzzleComplete;
 
     private Result_Item currentItem;
     private bool PuzzleEnabled = false;
 
+
+    private void Awake()
+    {
+        if (instance == null) 
+            instance = this;
+
+        Debug.Log("A");
+    }
+
     private void OnEnable()
     {
         PuzzleEnabled = true;
         SetResultItem(test_item);
+
+        if(!DebugMode)
+            LoadItemFromInventory();
     }
 
     private void Start()
     {
         OnPuzzleComplete.AddListener(PuzzleComplete);
+        OnPuzzleComplete.AddListener(ProcessToInventory);
     }
 
     public void LoadItemFromInventory()
