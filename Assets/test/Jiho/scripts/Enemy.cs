@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float playerCheckRange;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float respawnRange;
+    [SerializeField] protected string enemyName;
     protected bool isMove;
     protected bool isRePosition;
     protected bool isAttack;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected EnemyAttackCol enemyAttackCol;
     [SerializeField] protected PlayerController player;
 
+
+    public string EnemyName { get => enemyName; }
 
     protected virtual void OnEnable()
     {
@@ -53,7 +56,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        
         CanvasMove();
     }
 
@@ -136,6 +138,7 @@ public class Enemy : MonoBehaviour
 
             temp.SetActive(true);
         }
+        EnemySpawner.instance.GetEnemyData(enemyName, false);
         this.gameObject.SetActive(false);
     }
 
