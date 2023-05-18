@@ -170,7 +170,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318084674773234746}
-  m_LocalRotation: {x: 0.25100565, y: 0.000000023554453, z: -0.000000006107839, w: 0.96798563}
+  m_LocalRotation: {x: 0.25100568, y: -0.000000023554477, z: 0.0000000061078462, w: 0.96798563}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -199,11 +199,10 @@ MonoBehaviour:
   - m_Transitions
   - m_Follow
   - m_StandbyUpdate
-  - m_Lens
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -269,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camFollow: {fileID: 318084675246038793}
+  nowSceneName: 
   isInteraction: 0
 --- !u!1 &318084675194771397
 GameObject:
@@ -323,11 +323,10 @@ MonoBehaviour:
   - m_Transitions
   - m_Follow
   - m_StandbyUpdate
-  - m_Lens
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -400,10 +399,10 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 2479112656929488203}
   m_Follow: {fileID: 2479112656929488203}
-  m_CommonLens: 1
+  m_CommonLens: 0
   m_Lens:
     FieldOfView: 50
     OrthographicSize: 10
@@ -448,7 +447,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 1
-    m_MaxSpeed: 5
+    m_MaxSpeed: 0
     m_AccelTime: 0
     m_DecelTime: 0.5
     m_InputAxisName: Mouse X
@@ -456,7 +455,7 @@ MonoBehaviour:
     m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
-    m_Wrap: 1
+    m_Wrap: 0
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -464,8 +463,8 @@ MonoBehaviour:
       m_LegacyHeadingDefinition: -1
       m_LegacyVelocityFilterStrength: -1
   m_Heading:
-    m_Definition: 0
-    m_VelocityFilterStrength: 4
+    m_Definition: 2
+    m_VelocityFilterStrength: 5
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -473,7 +472,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
-  m_BindingMode: 0
+  m_BindingMode: 3
   m_SplineCurvature: 1
   m_Orbits:
   - m_Height: 15
@@ -545,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 0
+  m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 5.56, z: -10}
   m_XDamping: 1
   m_YDamping: 1
@@ -556,8 +555,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 0
-    m_VelocityFilterStrength: 4
+    m_Definition: 2
+    m_VelocityFilterStrength: 5
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -672,7 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 0
+  m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 5.56, z: -10}
   m_XDamping: 1
   m_YDamping: 1
@@ -683,8 +682,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 0
-    m_VelocityFilterStrength: 4
+    m_Definition: 2
+    m_VelocityFilterStrength: 5
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -794,11 +793,10 @@ MonoBehaviour:
   - m_Transitions
   - m_Follow
   - m_StandbyUpdate
-  - m_Lens
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 0
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 2479112656929488203}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -877,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 0
+  m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 5.56, z: -10}
   m_XDamping: 1
   m_YDamping: 1
@@ -888,8 +886,8 @@ MonoBehaviour:
   m_RollDamping: 0
   m_AngularDamping: 0
   m_Heading:
-    m_Definition: 0
-    m_VelocityFilterStrength: 4
+    m_Definition: 2
+    m_VelocityFilterStrength: 5
     m_Bias: 0
   m_RecenterToTargetHeading:
     m_enabled: 0
@@ -1834,12 +1832,11 @@ MonoBehaviour:
       Data: 
   walkSpeed: 3.5
   runSpeed: 7
-  rotateSpeed: 10
+  rotateSpeed: 4
   interactionRange: 4
   playerAttackDamage: 5
   currentHp: 0
   maxHp: 50
-  now_Scene: 
   playerSpeed: 1
   normalAttackCol: {fileID: 7155039067448552719}
   uiManager: {fileID: 0}
@@ -1849,7 +1846,6 @@ MonoBehaviour:
   axe_obj: {fileID: 5672152352884447195}
   inven: {fileID: 0}
   isClicks: 000000
-  BoardText: {fileID: 0}
   ControlEnabled: 1
   interactableLayermask:
     serializedVersion: 2

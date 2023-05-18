@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -35,6 +36,7 @@ public class Setting : MonoBehaviour
     [Header("게임 플레이")]
     public CinemachineFreeLook freelook;
     public Slider cameraSetRotateSlider;
+    public float _cameraRotateSpeed;
 
     [Header("세팅 저장")]
     public GameObject isSavePoup;
@@ -53,10 +55,14 @@ public class Setting : MonoBehaviour
 
     private void Update()
     {
-        if(!UIManager.Instance.cameraFollow.isInteraction)
+        if (SceneManager.GetSceneByName("Title") != SceneManager.GetActiveScene())
         {
-            AllBoardClosed();
+            if (!UIManager.Instance.cameraFollow.isInteraction)
+            {
+                AllBoardClosed();
+            }
         }
+        
     }
 
     #region InitSetting
@@ -223,7 +229,8 @@ public class Setting : MonoBehaviour
     public void SettingCameraRotate()
     {
         //freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
-        freelook.m_YAxis.m_MaxSpeed = cameraSetRotateSlider.value / 100;
+        _cameraRotateSpeed = cameraSetRotateSlider.value / 100;
+
     }
     #endregion
 
@@ -243,5 +250,9 @@ public class Setting : MonoBehaviour
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
 
+    #endregion
+
+    #region InTitle
+    
     #endregion
 }

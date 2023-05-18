@@ -43,6 +43,7 @@ public class UI_LargeDialogue : MonoBehaviour
         StopAllCoroutines();
         DialogueGroup.SetActive(true);
         StartCoroutine(Cor_PlayDialogue(dialogues));
+        PlayerController.Instance.ControlEnabled = false;
     }
 
     private IEnumerator Cor_PlayDialogue(LargeDialogueData[] dialogues)
@@ -95,6 +96,6 @@ public class UI_LargeDialogue : MonoBehaviour
         }
 
         DialogueGroup.SetActive(false);
-
+        PlayerController.Instance.ControlEnabled = true;
     }
 }
