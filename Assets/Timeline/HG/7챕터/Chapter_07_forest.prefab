@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1428663216107544224
+--- !u!1 &616106003518530825
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,82 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3557984244304913317}
-  - component: {fileID: 3033655868642346486}
+  - component: {fileID: 616106003518530823}
+  - component: {fileID: 616106003518530822}
+  m_Layer: 0
+  m_Name: Chapter_07_Signal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &616106003518530823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616106003518530825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 849364590844261646}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &616106003518530822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616106003518530825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: f0694e7869ad6be43aa33ee017da7379, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3933773801640720071}
+          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+          m_MethodName: StartDialogue
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CH070101
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5680577914214055165}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &1107188686790684049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3309679872666210452}
+  - component: {fileID: 3933773801640720071}
   m_Layer: 0
   m_Name: Chapter_07_forest_Container
   m_TagString: Untagged
@@ -17,28 +91,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3557984244304913317
+--- !u!4 &3309679872666210452
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428663216107544224}
+  m_GameObject: {fileID: 1107188686790684049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1677497432212866623}
+  m_Father: {fileID: 849364590844261646}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3033655868642346486
+--- !u!114 &3933773801640720071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428663216107544224}
+  m_GameObject: {fileID: 1107188686790684049}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a47be357e522cf4ebfb095021dfaf5c, type: 3}
@@ -50,12 +124,12 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: 37dec1f56990a80489be4b72a1fc4546, type: 3}
     - {fileID: 21300000, guid: d088cb6dff2d96947b75cfe4595836a4, type: 3}
-    - {fileID: 21300000, guid: ac6b4b4e35073bf41b5800152e26ed9a, type: 3}
-    - {fileID: 21300000, guid: 89481308bc94f4d43941a43e34b115f8, type: 3}
-    - {fileID: 21300000, guid: 94c3f85525ae3344c999bc9e4af07110, type: 3}
     - {fileID: 21300000, guid: ea495d7c994291d41a5e96ad4ab04063, type: 3}
+    - {fileID: 21300000, guid: 89481308bc94f4d43941a43e34b115f8, type: 3}
+    - {fileID: 21300000, guid: ac6b4b4e35073bf41b5800152e26ed9a, type: 3}
+    - {fileID: 21300000, guid: 94c3f85525ae3344c999bc9e4af07110, type: 3}
     - {fileID: 21300000, guid: ee70db05520f7104c890cef925712ee3, type: 3}
-    - {fileID: 5934425009460400076}
+    - {fileID: 5680577914214055165}
     - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -190,10 +264,10 @@ MonoBehaviour:
       Data: "\uD06C\uD79B..!\r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -219,8 +293,8 @@ MonoBehaviour:
       Entry: 1
       Data: "\uAD1C\uCC2E\uC544? \uB2E4\uCE5C\uB370 \uC5C6\uC9C0? \r\n"
     - Name: portrait_L
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: portrait_R
       Entry: 10
       Data: 3
@@ -253,7 +327,7 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 4
+      Data: 5
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -282,7 +356,7 @@ MonoBehaviour:
         \uC788\uC9C0? \r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 5
+      Data: 2
     - Name: portrait_R
       Entry: 10
       Data: 3
@@ -317,7 +391,7 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 4
+      Data: 5
     - Name: portrait_LFace
       Entry: 10
       Data: 6
@@ -346,7 +420,7 @@ MonoBehaviour:
         \n"
     - Name: portrait_L
       Entry: 10
-      Data: 5
+      Data: 2
     - Name: portrait_R
       Entry: 10
       Data: 3
@@ -450,7 +524,7 @@ MonoBehaviour:
     - Name: cutscene_dialogues
       Entry: 6
       Data: 
---- !u!1 &1441994913700484664
+--- !u!1 &7319149107806587149
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,81 +532,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1441994913700484662}
-  - component: {fileID: 1441994913700484663}
-  m_Layer: 0
-  m_Name: Chapter_07_Signal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1441994913700484662
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441994913700484664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1677497432212866623}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1441994913700484663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441994913700484664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: f0694e7869ad6be43aa33ee017da7379, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3033655868642346486}
-          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
-          m_MethodName: StartDialogue
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: CH070101
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5934425009460400076}
-          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-          m_MethodName: Pause
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!1 &7311302276549609631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3934281419529866591}
+  - component: {fileID: 849364590844261646}
+  - component: {fileID: 5680577914214055165}
   m_Layer: 0
   m_Name: Chapter_07_forest
   m_TagString: Untagged
@@ -540,63 +541,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3934281419529866591
+--- !u!4 &849364590844261646
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7311302276549609631}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1677497432212866623}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8727114934624811580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1677497432212866623}
-  - component: {fileID: 5934425009460400076}
-  m_Layer: 0
-  m_Name: Chapter_07_forest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1677497432212866623
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8727114934624811580}
+  m_GameObject: {fileID: 7319149107806587149}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1441994913700484662}
-  - {fileID: 3557984244304913317}
-  m_Father: {fileID: 3934281419529866591}
+  - {fileID: 616106003518530823}
+  - {fileID: 3309679872666210452}
+  m_Father: {fileID: 3032971512857755246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &5934425009460400076
+--- !u!320 &5680577914214055165
 PlayableDirector:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8727114934624811580}
+  m_GameObject: {fileID: 7319149107806587149}
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: d174a796cdc8e6749990d8b50b91110f, type: 2}
@@ -606,6 +574,38 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -782827735698861653, guid: d174a796cdc8e6749990d8b50b91110f, type: 2}
-    value: {fileID: 1441994913700484663}
+    value: {fileID: 616106003518530822}
   m_ExposedReferences:
     m_References: []
+--- !u!1 &8789004678034766766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3032971512857755246}
+  m_Layer: 0
+  m_Name: Chapter_07_forest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3032971512857755246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789004678034766766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 849364590844261646}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
