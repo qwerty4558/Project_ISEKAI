@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -34,6 +35,9 @@ public class Setting : MonoBehaviour
     public CinemachineFreeLook freelook;
     public Slider cameraSetRotateSlider;
 
+    [Header("세팅 저장")]
+    public GameObject isSavePoup;
+
 
     public void Start()
     {
@@ -41,6 +45,7 @@ public class Setting : MonoBehaviour
         InitSoundSetting();
         InitCameraRotateSetting();
         InitGraphicSetting();
+        LoadSettings();
     }
 
     
@@ -88,6 +93,44 @@ public class Setting : MonoBehaviour
     }
     #endregion
 
+    #region SaveAndLoad
+
+    public void SaveSettings()
+    {
+        GameSetting settings = new GameSetting();
+        settings.isFullScreen = fullScreen_Toggle.isOn;
+        settings.isSoundOn = masterSoundToggle.isOn;
+        settings.resolutionIndex = resolutionDropdown.value;
+        settings.masterVolume = masterSlider.value;
+        settings.bgmVolume = BGMSlider.value;
+        settings.sfxVolume = SFXSlider.value;
+        settings.cameraRotateSpeed = cameraSetRotateSlider.value;
+
+        Serializer.Save<GameSetting>("settings.json", settings);
+    }
+
+    public void LoadSettings()
+    {
+        GameSetting settings = Serializer.Load<GameSetting>("settings.json");
+
+        if (settings != null)
+        {
+            fullScreen_Toggle.isOn = settings.isFullScreen;
+            masterSoundToggle.isOn = settings.isSoundOn;
+            resolutionDropdown.value = settings.resolutionIndex;
+            SetResolution(settings.resolutionIndex);
+            masterSlider.value = settings.masterVolume;
+            BGMSlider.value = settings.bgmVolume;
+            SFXSlider.value = settings.sfxVolume;
+            cameraSetRotateSlider.value = settings.cameraRotateSpeed;
+
+            SettingFullScreenMode(settings.isFullScreen);
+            SettingCameraRotate();
+        }
+    }
+
+    #endregion
+
     #region SettingBoardChange
     private void AllBoardClosed()
     {
@@ -95,6 +138,7 @@ public class Setting : MonoBehaviour
         graphicSetting.SetActive(false);
         soundSetting.SetActive(false);
         gamePlaySetting.SetActive(false);
+        isSavePoup.SetActive(false);
     }
     public void SettingBoardChange(string _page)
     {
@@ -115,7 +159,14 @@ public class Setting : MonoBehaviour
                 break;
         }
     }
-
+    public void PopupBoard()
+    {
+        isSavePoup.SetActive(true);
+    }
+    public void ClosePopup()
+    {
+        isSavePoup.SetActive(false);
+    }
     public void CloseSettingBoard()
     {
         mainOpion.SetActive(false);        
