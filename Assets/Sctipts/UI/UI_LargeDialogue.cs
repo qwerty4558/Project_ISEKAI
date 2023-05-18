@@ -60,17 +60,16 @@ public class UI_LargeDialogue : MonoBehaviour
             {
                 fullImageUI.gameObject.SetActive(false);
             }
-            if(dialogues[i].actions != null)
-            dialogues[i].actions.Invoke();
+
 
             yield return null;
 
-            for(int j = 0; j < dialogues[i].context.Length; j++)
+            for (int j = 0; j < dialogues[i].context.Length; j++)
             {
                 contextText.text = dialogues[i].context.Substring(0, j);
                 bool skipFlag = false;
 
-                for(float t = dialogueTextInterval; t > 0; t -= Time.deltaTime)
+                for (float t = dialogueTextInterval; t > 0; t -= Time.deltaTime)
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
@@ -86,11 +85,13 @@ public class UI_LargeDialogue : MonoBehaviour
                 if (skipFlag) break;
 
             }
-
             yield return new WaitForSeconds(0.5f);
             triangle.SetActive(true);
             yield return new WaitUntil(() => Input.GetMouseButton(0));
             triangle.SetActive(false);
+
+            if (dialogues[i].actions != null)
+                dialogues[i].actions.Invoke();
         }
 
         DialogueGroup.SetActive(false);

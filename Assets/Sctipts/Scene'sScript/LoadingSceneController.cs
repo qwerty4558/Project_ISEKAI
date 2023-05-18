@@ -13,6 +13,11 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     [SerializeField] private Slider progressBar;
     [SerializeField] private DOTweenAnimation coverAnimation;
 
+    private void Start()
+    {
+        GetComponent<CanvasGroup>().alpha = 1.0f;
+    }
+
     public void LoadScene(string sceneName)
     {
         if (loadingFlag) return;
