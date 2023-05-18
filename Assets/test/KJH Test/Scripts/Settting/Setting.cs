@@ -64,7 +64,7 @@ public class Setting : MonoBehaviour
     {
         for(int i = 0; i < Screen.resolutions.Length; i++)
         {
-            if (Screen.resolutions[i].refreshRate == 60)
+            if (Screen.resolutions[i].refreshRate == 144)
             {
                 resolutions.Add(Screen.resolutions[i]);
             }
@@ -86,7 +86,7 @@ public class Setting : MonoBehaviour
             optionNum++;
         }
         resolutionDropdown.RefreshShownValue();
-        fullScreenMode = FullScreenMode.FullScreenWindow;
+        fullScreen_Toggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
     }
 
     public void InitCameraRotateSetting()
