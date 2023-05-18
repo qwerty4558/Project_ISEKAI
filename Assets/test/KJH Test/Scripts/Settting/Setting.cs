@@ -213,7 +213,7 @@ public class Setting : MonoBehaviour
     #region GamePlay
     public void SettingCameraRotate()
     {
-        freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
+        //freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
         freelook.m_YAxis.m_MaxSpeed = cameraSetRotateSlider.value / 100;
     }
     #endregion

@@ -7,17 +7,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [SerializeField] float walkSpeed = 3.5f;
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] float rotateSpeed = 40f;
+    [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 5f;
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
-    [SerializeField] string now_Scene;
     [SerializeField] private float playerSpeed;
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
-    private GameManager gameManager;
     
 
     public GameObject sword_obj;
@@ -309,5 +307,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
 
         }
+    }
+
+    public void SavePlayerStates()
+    {
+
+    }
+    public void LoadPlayerStates()
+    {
+
     }
 }
