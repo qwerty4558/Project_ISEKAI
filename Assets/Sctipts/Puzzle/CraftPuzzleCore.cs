@@ -31,8 +31,6 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (instance == null) 
             instance = this;
-
-        Debug.Log("A");
     }
 
     private void OnEnable()
