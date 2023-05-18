@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+
 public class Setting : MonoBehaviour
 {
     [Header("Setting Board Game OBJ")]
@@ -61,9 +62,17 @@ public class Setting : MonoBehaviour
     #region InitSetting
     public void InitGraphicSetting()
     {
-        int optionNum = 0;
-        resolutions.AddRange(Screen.resolutions);
+        for(int i = 0; i < Screen.resolutions.Length; i++)
+        {
+            if (Screen.resolutions[i].refreshRate == 60)
+            {
+                resolutions.Add(Screen.resolutions[i]);
+            }
+        }
         resolutionDropdown.options.Clear();
+
+        int optionNum = 0;      
+        
         foreach (Resolution item in resolutions)
         {
             Dropdown.OptionData op = new Dropdown.OptionData();
