@@ -344,7 +344,17 @@ public class PlayerController : SerializedMonoBehaviour
         }
     }
 
-    public void SavePlayerStates()
+    public static void DeActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(false);
+    }
+
+    public static void SetActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(true);
+    }
+
+        public void SavePlayerStates()
     {
 
     }
