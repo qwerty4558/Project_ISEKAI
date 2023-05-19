@@ -12,8 +12,8 @@ public class QuestTitle : SerializedMonoBehaviour
 
     [SerializeField] private QuestUI questUI;
 
-    [HideInInspector]
-    public QuestInfo currentQuest = null;
+    
+    public QuestInfo currentQuest;
 
     private void Awake()
     {
@@ -21,12 +21,14 @@ public class QuestTitle : SerializedMonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            currentQuest = null;
         }
         else
         {
             Destroy(gameObject);
         }
         //QuestInput("��������");
+        
     }
 
     private void QuestClearCheck()
