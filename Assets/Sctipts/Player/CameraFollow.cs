@@ -31,6 +31,11 @@ public class CameraFollow : MonoBehaviour
         
     }
 
+    public void SettingCameraEnable(bool _check)
+    {
+        isInteraction = _check;
+    }
+
     private void LateUpdate()
     {
 

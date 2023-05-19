@@ -55,12 +55,16 @@ public class Setting : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetSceneByName("Title") != SceneManager.GetActiveScene())
+        if (SceneManager.GetSceneByName("Title") != SceneManager.GetActiveScene() || SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
         {
-            if (!UIManager.Instance.cameraFollow.isInteraction)
+            if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
             {
-                AllBoardClosed();
+                if (!UIManager.Instance.cameraFollow.isInteraction)
+                {
+                    AllBoardClosed();
+                }
             }
+            else AllBoardClosed();
         }
         
     }

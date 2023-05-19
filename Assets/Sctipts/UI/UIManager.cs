@@ -21,7 +21,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     private void Start()
     {
         isSetting = false;
-        
+        cameraFollow = FindObjectOfType<CameraFollow>();
+
+
     }
 
     private void Update()
