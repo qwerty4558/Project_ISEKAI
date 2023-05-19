@@ -15,13 +15,15 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private bool isSetting;
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
-    [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] public CameraFollow cameraFollow;
 
 
     private void Start()
     {
         isSetting = false;
-        
+        cameraFollow = FindObjectOfType<CameraFollow>();
+
+
     }
 
     private void Update()
