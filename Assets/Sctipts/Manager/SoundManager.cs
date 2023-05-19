@@ -79,4 +79,58 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     public AudioClip cobolt_Attack_SFX;
     public AudioClip cobolt_Floor_Attack_SFX;
     public AudioClip cobolt_Dead_SFX;
+
+    [Space]
+    [Header("------------------------")]
+    [Space]
+
+    [Header("º¼·ý Á¶Àý")]
+    public AudioMixer masterMixer;
+
+    public Slider masterSlider;
+    public Slider BGMSlider;
+    public Slider SFXSlider;
+
+    public void Start()
+    {
+        masterSlider.value = 1f;
+        BGMSlider.value = -10f;
+        SFXSlider.value = -10f;
+    }
+
+    public void AudioMasterControll()
+    {
+        float soundVolume = masterSlider.value;
+        if (soundVolume == -40f)
+        {
+            masterMixer.SetFloat("Master", -80f);
+        }
+        else masterMixer.SetFloat("Master", soundVolume);
+    }
+
+    public void AudioSFXControll()
+    {
+        float soundVolume = SFXSlider.value;
+        if(soundVolume == -40f)
+        {
+            masterMixer.SetFloat("SFX", -80f);
+        }
+        else masterMixer.SetFloat("SFX", soundVolume);
+    }
+
+    public void AudioBGMControll()
+    {
+        float soundVolume = BGMSlider.value;
+        if (soundVolume == -40f)
+        {
+            masterMixer.SetFloat("BGM", -80f);
+        }
+        else masterMixer.SetFloat("BGM", soundVolume);
+    }
+
+    public void ToggleAudioVolume()
+    {
+        AudioListener.volume = AudioListener.volume == 0 ? 1 : 0;
+    }
+
 }

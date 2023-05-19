@@ -64,8 +64,8 @@ namespace Ifooboo
 
             m_collider.isTrigger = true;
 
-            /*m_collider.center = Vector3.zero;
-            m_collider.radius = 0.5f;*/
+            m_collider.center = Vector3.zero;
+            m_collider.radius = 0.5f;
         }
 
         private void ClearObjectList()

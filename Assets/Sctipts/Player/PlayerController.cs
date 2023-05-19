@@ -2,9 +2,32 @@ using System;
 using UnityEngine;
 using PlayerInterface;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
-public class PlayerController : SingletonMonoBehaviour<PlayerController>
+public class PlayerController : SerializedMonoBehaviour
 {
+
+    public static PlayerController instance;
+
+    public static PlayerController Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = new PlayerController();
+                if(instance == null)
+                {
+                    GameObject gobj = new GameObject();
+                    gobj.name = typeof(PlayerController).Name;
+                    instance = gobj.AddComponent<PlayerController>();
+                }                
+            }
+            return instance;
+        }
+        
+    }
+
     [SerializeField] float walkSpeed = 3.5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float rotateSpeed = 10f;
@@ -55,6 +78,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     SoundModule soundModule;
     public SoundModule SoundModule { get { return soundModule; }}
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this as PlayerController;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -309,7 +344,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
     }
 
-    public void SavePlayerStates()
+    public static void DeActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(false);
+    }
+
+    public static void SetActivePlayer()
+    {
+        PlayerController.Instance.gameObject.SetActive(true);
+    }
+
+        public void SavePlayerStates()
     {
 
     }

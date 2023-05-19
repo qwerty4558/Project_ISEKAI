@@ -4,11 +4,12 @@ using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 using UnityEngine.SceneManagement;
+using Cinemachine.Editor;
 using Cinemachine;
 using Modules.EventSystem;
 
 [System.Serializable]
-public class GameManager : MonoBehaviour
+public class GameManager
 {    
     private readonly UIManager uiManager;
     private readonly ItemManager itemManager;
