@@ -20,7 +20,8 @@ public class PuzzleIngredientItems : MonoBehaviour
 
     public void Start()
     {
-        SetItemWindow(items);
+        if (CraftPuzzleCore.Instance.DebugMode)
+            SetItemWindow(items);
     }
 
     public void SetItemWindow(Ingredient_Item[] _items)
