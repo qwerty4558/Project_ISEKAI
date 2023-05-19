@@ -2,22 +2,43 @@ using System;
 using UnityEngine;
 using PlayerInterface;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
-public class PlayerController : SingletonMonoBehaviour<PlayerController>
+public class PlayerController : SerializedMonoBehaviour
 {
+
+    public static PlayerController instance;
+
+    public static PlayerController Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = new PlayerController();
+                if(instance == null)
+                {
+                    GameObject gobj = new GameObject();
+                    gobj.name = typeof(PlayerController).Name;
+                    instance = gobj.AddComponent<PlayerController>();
+                }                
+            }
+            return instance;
+        }
+        
+    }
+
     [SerializeField] float walkSpeed = 3.5f;
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] float rotateSpeed = 40f;
+    [SerializeField] float rotateSpeed = 10f;
     [SerializeField] float interactionRange = 2f;
     [SerializeField] float playerAttackDamage = 5f;
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
-    [SerializeField] string now_Scene;
     [SerializeField] private float playerSpeed;
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
-    private GameManager gameManager;
     
 
     public GameObject sword_obj;
@@ -32,7 +53,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public InventoryTitle inven;
     public bool[] isClicks;
-    public GameObject BoardText;
     private Animator animator;
     public Animator anim { get { return animator; }}
 
@@ -58,6 +78,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     SoundModule soundModule;
     public SoundModule SoundModule { get { return soundModule; }}
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this as PlayerController;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -289,10 +321,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("QuestBoard"))
-        {
-            BoardText.SetActive(true);
-        }
 
         if(other.CompareTag("EnemyAttackCol"))
         {
@@ -309,23 +337,19 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("QuestBoard"))
-        {
-            BoardText.SetActive(false);
-        }
+
         if (other.CompareTag("NPC"))
         {
 
         }
     }
 
-    public static void DeActivePlayer()
+    public void SavePlayerStates()
     {
-        PlayerController.Instance.gameObject.SetActive(false);
-    }
 
-    public static void SetActivePlayer()
+    }
+    public void LoadPlayerStates()
     {
-        PlayerController.Instance.gameObject.SetActive(true);
+
     }
 }
