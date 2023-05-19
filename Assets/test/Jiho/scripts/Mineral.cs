@@ -8,6 +8,7 @@ public class Mineral : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "¹Ì³×¶ö";
     }
 
     protected override void Update()

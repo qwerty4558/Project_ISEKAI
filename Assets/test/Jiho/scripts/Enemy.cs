@@ -22,18 +22,22 @@ public class Enemy : MonoBehaviour
     protected bool isAttackDelay;
     protected bool isHit;
 
+    [HideInInspector]
+    public string outputName;
+
     [SerializeField] protected Vector3 spawnPos;
     [SerializeField] protected Transform targetPos;
     [SerializeField] protected GameObject[] items;
     [SerializeField] protected Animator anim;
 
-    [SerializeField] protected UIDataManager uiManager;
     [SerializeField] protected EnemyAttackCol enemyAttackCol;
     [SerializeField] protected PlayerController player;
     [SerializeField] protected Outline outline;
 
 
     public string EnemyName { get => enemyName; }
+    public float CurrentHp { get => currentHp; }
+    public float MaxHp { get => maxHp; }
 
     protected virtual void OnEnable()
     {
@@ -61,7 +65,7 @@ public class Enemy : MonoBehaviour
     {
         if(!player.IsTarget)
         {
-            if(Vector3.Distance(player.transform.position, this.transform.position) <= 2f)
+            if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
             {
                 player.IsTarget = true;
                 player.TargetOutline(outline);
@@ -70,7 +74,7 @@ public class Enemy : MonoBehaviour
 
         if(outline.enabled == true)
         {
-            if (Vector3.Distance(player.transform.position, this.transform.position) > 2f)
+            if (Vector3.Distance(player.transform.position, this.transform.position) > 3f)
             {
                 player.IsTarget = false;
                 outline.enabled = false;
@@ -111,7 +115,8 @@ public class Enemy : MonoBehaviour
     protected virtual void GetDamage(float damage)
     {
         currentHp -= damage;
-        uiManager.UpdateUI(currentHp, maxHp);
+        player.OtherCheck(this);
+        player.TargetOutline(this.GetComponent<Outline>());
 
         if (currentHp <= 0)
         {

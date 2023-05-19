@@ -4,6 +4,10 @@ using PlayerInterface;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using System.Reflection;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
+using System.Runtime.InteropServices;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -40,6 +44,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private GameObject otherHp_obj;
+    [SerializeField] private Image playerHp_Bar;
     
 
     public GameObject sword_obj;
@@ -60,9 +66,13 @@ public class PlayerController : SerializedMonoBehaviour
     public bool[] isClicks;
     private Animator animator;
     public Animator anim { get { return animator; }}
+    public TextMeshProUGUI otherName;
+    public Image otherHp;
 
     public bool ControlEnabled = true;
     [SerializeField] private LayerMask interactableLayermask;
+
+    private float hpTime;
 
    
     BoxCollider hitCollider;
@@ -142,7 +152,28 @@ public class PlayerController : SerializedMonoBehaviour
                 }
             }
         }
+        OtherHpSetActive();
+    }
 
+    private void OtherHpSetActive()
+    {
+        if(hpTime > 0)
+        {
+            otherHp_obj.SetActive(true);
+            hpTime -= Time.deltaTime;
+        }
+        else
+        {
+            if(otherHp_obj.activeSelf)
+                otherHp_obj.SetActive(false);
+        }
+    }
+
+    public void OtherCheck(Enemy enemy)
+    {
+        otherName.text = enemy.outputName;
+        otherHp.fillAmount = enemy.CurrentHp / enemy.MaxHp;
+        hpTime = 2f;
     }
 
     public void TargetOutline(Outline outline)
@@ -244,6 +275,7 @@ public class PlayerController : SerializedMonoBehaviour
     public void GetDamage(float damage)
     {
         currentHp -= damage;
+        playerHp_Bar.fillAmount = currentHp / maxHp;
         Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
     }
 

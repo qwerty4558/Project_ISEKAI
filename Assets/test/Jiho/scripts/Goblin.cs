@@ -8,6 +8,7 @@ public class Goblin : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "°íºí¸°";
     }
 
     protected override void Update()
@@ -40,6 +41,8 @@ public class Goblin : Enemy
     protected override void GetDamage(float damage)
     {
         currentHp -= damage;
+        player.OtherCheck(this);
+        player.TargetOutline(this.GetComponent<Outline>());
 
         if (currentHp <= 0)
         {

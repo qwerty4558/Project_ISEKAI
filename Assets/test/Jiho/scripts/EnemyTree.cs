@@ -7,6 +7,7 @@ public class EnemyTree : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "³ª¹«";
     }
 
     protected override void Update()
