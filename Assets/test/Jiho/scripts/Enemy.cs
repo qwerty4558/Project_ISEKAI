@@ -26,12 +26,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform targetPos;
     [SerializeField] protected GameObject[] items;
     [SerializeField] protected Animator anim;
-    [SerializeField] protected Camera cam;
-    [SerializeField] protected Canvas canvas;
 
     [SerializeField] protected UIDataManager uiManager;
     [SerializeField] protected EnemyAttackCol enemyAttackCol;
     [SerializeField] protected PlayerController player;
+    [SerializeField] protected Outline outline;
 
 
     public string EnemyName { get => enemyName; }
@@ -48,15 +47,35 @@ public class Enemy : MonoBehaviour
         respawnRange = 5;
         currentHp = maxHp;
         isMove = true;
+        outline = GetComponent<Outline>();
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
-        cam = FindObjectOfType<Camera>();
-        canvas.worldCamera = cam;
     }
 
     protected virtual void Update()
     {
-        CanvasMove();
+        TargetCheck();
+    }
+
+    protected virtual void TargetCheck()
+    {
+        if(!player.IsTarget)
+        {
+            if(Vector3.Distance(player.transform.position, this.transform.position) <= 2f)
+            {
+                player.IsTarget = true;
+                player.TargetOutline(outline);
+            }
+        }
+
+        if(outline.enabled == true)
+        {
+            if (Vector3.Distance(player.transform.position, this.transform.position) > 2f)
+            {
+                player.IsTarget = false;
+                outline.enabled = false;
+            }
+        }
     }
 
     protected virtual void Respawn()
@@ -87,12 +106,6 @@ public class Enemy : MonoBehaviour
         }
 
         if (!TargetDistance(spawnPos, respawnRange)) isRePosition = true;
-    }
-
-    protected virtual void CanvasMove()
-    {
-        canvas.transform.LookAt(canvas.transform.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
-
     }
 
     protected virtual void GetDamage(float damage)
@@ -148,7 +161,6 @@ public class Enemy : MonoBehaviour
         transform.forward = dir;
         transform.position = transform.position + dir * Time.deltaTime * reposSpeed;
         currentHp = maxHp;
-        uiManager.UpdateUI(currentHp, maxHp);
         if (TargetDistance(spawnPos, 0.5f))
         {
             anim.SetBool("isMove", false);

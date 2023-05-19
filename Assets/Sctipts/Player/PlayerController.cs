@@ -3,6 +3,7 @@ using UnityEngine;
 using PlayerInterface;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using System.Reflection;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -44,13 +45,17 @@ public class PlayerController : SerializedMonoBehaviour
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
     public GameObject axe_obj;
+    public Outline targetOutline;
+
 
     [SerializeField] private List<PlayerAction> playerActions;
     private int currentActionIndex = 0;
 
+    private bool isTarget;
+    
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
-
+    public bool IsTarget { get => isTarget; set => isTarget = value; }
     public InventoryTitle inven;
     public bool[] isClicks;
     private Animator animator;
@@ -140,6 +145,21 @@ public class PlayerController : SerializedMonoBehaviour
 
     }
 
+    public void TargetOutline(Outline outline)
+    {
+        if (targetOutline != null)
+        {
+            targetOutline.enabled = false;
+            targetOutline = outline;
+            targetOutline.enabled = true;
+        }
+        else if(targetOutline == null)
+        {
+            targetOutline = outline;
+            targetOutline.enabled = true;
+        }
+    }
+
     public void SetAnimCheck(int count)
     {
         isClicks[count] = true;
@@ -223,7 +243,6 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void GetDamage(float damage)
     {
-        uiManager.UpdateUI(currentHp, maxHp);
         currentHp -= damage;
         Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
     }

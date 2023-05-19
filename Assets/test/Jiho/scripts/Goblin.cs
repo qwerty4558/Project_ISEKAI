@@ -30,7 +30,6 @@ public class Goblin : Enemy
         isRePosition = false;
         isMove = true;
         anim.SetBool("isMove", false);
-        uiManager.UpdateUI(currentHp, maxHp);
     }
 
     protected override void EnemyMove()
@@ -41,7 +40,6 @@ public class Goblin : Enemy
     protected override void GetDamage(float damage)
     {
         currentHp -= damage;
-        uiManager.UpdateUI(currentHp, maxHp);
 
         if (currentHp <= 0)
         {

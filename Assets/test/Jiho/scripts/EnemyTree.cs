@@ -23,7 +23,6 @@ public class EnemyTree : Enemy
     {
         transform.position = spawnPos;
         currentHp = maxHp;
-        uiManager.UpdateUI(currentHp, maxHp);
     }
 
     protected override void GetDamage(float damage)
@@ -41,7 +40,6 @@ public class EnemyTree : Enemy
         if (currentHp < maxHp && !TargetDistance(targetPos.position, 10f))
         {
             currentHp = maxHp;
-            uiManager.UpdateUI(currentHp, maxHp);
         }
     }
 
