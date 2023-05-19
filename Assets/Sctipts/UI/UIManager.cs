@@ -15,7 +15,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private bool isSetting;
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
-    [SerializeField] public CameraFollow cameraFollow;
+    [SerializeField] private CameraFollow cameraFollow;
 
 
     private void Start()
@@ -36,15 +36,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;
-                Time.timeScale = 1f;
+                    cameraFollow.isInteraction = false;                 
             }
             else
             {
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Time.timeScale = 0f;
             }
         }
     }
@@ -53,10 +51,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         option_obj.SetActive(true);
     }
-    public void ReturnSetting()
-    {
-        settingBoard_obj.SetActive(true);
-    }
+
     public void CheckScene(Scene s)
     {
         isTitle = false; 

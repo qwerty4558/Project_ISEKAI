@@ -47,7 +47,6 @@ public class UI_Dialogue : MonoBehaviour
         dialogueGroup.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(Cor_PlayDialogue(dialogues));
-        PlayerController.Instance.ControlEnabled = false;
     }
 
     public IEnumerator Cor_PlayDialogue(DialogueSequence[] dialogues)
@@ -132,7 +131,7 @@ public class UI_Dialogue : MonoBehaviour
 
             yield return null;
         }
-        PlayerController.Instance.ControlEnabled = true;
+
         dialogueGroup.SetActive(false);
     }
 }
