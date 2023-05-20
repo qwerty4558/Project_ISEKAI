@@ -14,6 +14,7 @@ public class InteractableObject : MonoBehaviour
 
     public void OnInteract()
     {
-        actionOnInteract.Invoke();
+        if (actionOnInteract != null)
+            actionOnInteract.Invoke();
     }
 }

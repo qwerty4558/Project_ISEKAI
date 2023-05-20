@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PuzzleIngredientItems : MonoBehaviour
 {
-    [SerializeField] private Ingredient_Item[] testItems;
     [SerializeField] private RectTransform Viewport;
     [SerializeField] private GameObject ItemSlotPrefab;
 
@@ -16,36 +15,31 @@ public class PuzzleIngredientItems : MonoBehaviour
 
     private void Awake()
     {
-        if (ItemButtonObjects == null) ItemButtonObjects = new List<ItemviewSlot>();
+        ItemButtonObjects = new List<ItemviewSlot>();
         UndoStack = new Stack<ItemviewSlot>();
-    }
-
-    public void Start()
-    {
-        if (CraftPuzzleCore.Instance.DebugMode)
-            SetItemWindow(testItems);
     }
 
     public void SetItemWindow(Ingredient_Item[] _items)
     {
-        foreach (var i in ItemButtonObjects)
+        if (ItemButtonObjects != null)
         {
-            var current = i;
-            ItemButtonObjects.Remove(i);
-            Destroy(current);
+            foreach (var i in ItemButtonObjects)
+                Destroy(i.gameObject);
         }
 
-        UndoStack.Clear();
+        ItemButtonObjects = new List<ItemviewSlot>();
 
-        Viewport.sizeDelta = new Vector2( Viewport.sizeDelta.x , SlotSize.y * (_items.Length + 1) / 3);
+        if (UndoStack != null)
+            UndoStack.Clear();
+
+        Viewport.sizeDelta = new Vector2(Viewport.sizeDelta.x, SlotSize.y * (_items.Length + 1) / 3);
 
         for (int i = 0; i < _items.Length; i++)
         {
             GameObject newSlot = Instantiate(ItemSlotPrefab, Viewport, false);
-            newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2((i % 3) * SlotSize.x, i/3 * -SlotSize.y);
+            newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2((i % 3) * SlotSize.x, i / 3 * -SlotSize.y);
             newSlot.GetComponent<ItemviewSlot>().SetItemData(_items[i]);
             ItemButtonObjects.Add(newSlot.GetComponent<ItemviewSlot>());
-            
         }
     }
 

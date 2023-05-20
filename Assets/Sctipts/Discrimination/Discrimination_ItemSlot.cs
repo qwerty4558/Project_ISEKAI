@@ -1,9 +1,12 @@
 using Sirenix.OdinInspector;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemviewSlot : MonoBehaviour
+
+public class Discrimination_ItemSlot : SerializedMonoBehaviour
 {
     [SerializeField] private Ingredient_Item itemData;
     public Ingredient_Item ItemData { get { return itemData; } }
@@ -27,15 +30,13 @@ public class ItemviewSlot : MonoBehaviour
         quantatyText.text = (itemData.appraiseCount - itemUsed).ToString();
     }
 
-    public void WriteOnPot()
+    public void DoDiscrimination()
     {
-        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData) || (itemData.appraiseCount - itemUsed) <= 0) return;
-
-        CraftPuzzleCore.Instance.WritePuzzlePiece(itemData);
+        Discrimination.Instance.DoDiscrimination();
     }
 
     public void OnItemButtonEnter()
     {
-        CraftPuzzleCore.Instance.VisualizeTile(itemData);
+        Discrimination.Instance.TryDiscrimination(ItemData);
     }
 }
