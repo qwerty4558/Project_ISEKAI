@@ -6,13 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : SingletonMonoBehaviour<UIManager> 
 {
-    [SerializeField] GameObject mainScene_UI;
-    [SerializeField] GameObject gamePlayInVillageScene;
-    [SerializeField] GameObject shopScene;
-    [SerializeField] bool isTitle;
-    [SerializeField] bool isPlayInVillage;
-    [SerializeField] bool isShop;
-    [SerializeField] private bool isSetting;
+
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
@@ -20,10 +14,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     private void Start()
     {
-        isSetting = false;
         cameraFollow = FindObjectOfType<CameraFollow>();
-
-
     }
 
     private void Update()
@@ -54,37 +45,5 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(true);
     }
 
-    public void CheckScene(Scene s)
-    {
-        isTitle = false; 
-        isShop = false;
-        isPlayInVillage= false;
 
-        switch (s.name)
-        {
-            case "Title":
-                isTitle = true;
-                break;
-            case "L_Main":
-                isPlayInVillage= true;
-                break;
-            case "L_forest":
-                isPlayInVillage = true;
-                break;
-            case "L_mine":
-                isPlayInVillage = true;
-                break;
-            case "Shop":
-                isShop= true;
-                break;
-        }
-        
-    }
-
-    private void SetActivedUI()
-    {
-        mainScene_UI.SetActive(isTitle);
-        gamePlayInVillageScene.SetActive(isPlayInVillage);
-        shopScene.SetActive(isShop);
-    }
 }
