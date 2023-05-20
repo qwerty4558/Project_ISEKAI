@@ -7,6 +7,7 @@ public class EnemyTree : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "³ª¹«";
     }
 
     protected override void Update()
@@ -23,7 +24,6 @@ public class EnemyTree : Enemy
     {
         transform.position = spawnPos;
         currentHp = maxHp;
-        uiManager.UpdateUI(currentHp, maxHp);
     }
 
     protected override void GetDamage(float damage)
@@ -41,7 +41,6 @@ public class EnemyTree : Enemy
         if (currentHp < maxHp && !TargetDistance(targetPos.position, 10f))
         {
             currentHp = maxHp;
-            uiManager.UpdateUI(currentHp, maxHp);
         }
     }
 
