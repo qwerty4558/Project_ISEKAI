@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class ItemviewSlot : MonoBehaviour
     [SerializeField] private Image patternImage;
     [SerializeField] private TextMeshProUGUI quantatyText;
 
-    [HideInInspector] public int itemUsed = 0;
+    [ReadOnly] public int itemUsed = 0;
 
 
     public void SetItemData(Ingredient_Item item)
@@ -28,7 +29,7 @@ public class ItemviewSlot : MonoBehaviour
 
     public void WriteOnPot()
     {
-        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData)) return;
+        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData) || (itemData.appraiseCount - itemUsed) <= 0) return;
 
         CraftPuzzleCore.Instance.WritePuzzlePiece(itemData);
     }
