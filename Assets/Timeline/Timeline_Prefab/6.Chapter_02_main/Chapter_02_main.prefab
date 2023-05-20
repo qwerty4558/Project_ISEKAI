@@ -368,6 +368,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8eada4bcbb09a27488c2f2197bb941f8, type: 2}
     - {fileID: 11400000, guid: 1a8ec2d9d0f05514cbac1f467e3cca7e, type: 2}
     - {fileID: 11400000, guid: a98210e86a099ca4699c63b48043e8ae, type: 2}
+    - {fileID: 11400000, guid: 28e92711206178841ac57c87463deafd, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -602,18 +603,6 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SceneBroadcaster, Assembly-CSharp
-          m_MethodName: AddBroadcast
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: L_forest,ToCH301
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: SetActivePlayer
           m_Mode: 1
@@ -626,6 +615,30 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: SceneBroadcaster, Assembly-CSharp
+          m_MethodName: AddBroadcast
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: L_forest,ToCH301
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: QuestTitle, Assembly-CSharp
+          m_MethodName: QuestInput
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CH20101
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -660,18 +673,6 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 18057149627093698}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
@@ -851,6 +852,20 @@ MonoBehaviour:
             m_StringArgument: CH20201
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 18057149627093698}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &18057148945114173
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &18057148945114175
 Transform:
   m_ObjectHideFlags: 0
@@ -4951,14 +4966,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'SK_MAIN_AttackA_Finger_R_Ring_Proximal'\n\tTransform
-    'SK_MAIN_AttackA_Lower_Leg_R'\n\tTransform 'SK_MAIN_AttackA_Foot_L'\n\tTransform
-    'SK_MAIN_AttackA_Finger_L_Thumb_Proximal'\n\tTransform 'SK_MAIN_AttackA_Neck'\n\tTransform
-    'SK_MAIN_AttackA_Finger_R_Middle_Intermediate'\n\tTransform 'SK_MAIN_AttackA_Finger_R_Thumb_Proximal'\n\tTransform
-    'SK_MAIN_AttackA_Clavicle_L'\n\tTransform 'SK_MAIN_AttackA_Eye_L'\n\tTransform
-    'SK_MAIN_AttackA_Spine'\n\tand more ..."
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
