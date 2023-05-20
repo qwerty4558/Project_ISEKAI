@@ -8,6 +8,7 @@ public class Mineral : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "¹Ì³×¶ö";
     }
 
     protected override void Update()
@@ -24,7 +25,6 @@ public class Mineral : Enemy
     {
         transform.position = spawnPos;
         currentHp = maxHp;
-        uiManager.UpdateUI(currentHp, maxHp);
     }
 
     protected override void GetDamage(float damage)
@@ -42,7 +42,6 @@ public class Mineral : Enemy
         if(currentHp < maxHp && !TargetDistance(targetPos.position, 10f))
         {
             currentHp = maxHp;
-            uiManager.UpdateUI(currentHp, maxHp);
         }
     }
 
