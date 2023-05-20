@@ -56,7 +56,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
             foreach (Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
             {
-                if (item.itemType == ItemType.Ingredient)
+                if (item.itemType == ItemType.Ingredient && item.appraiseCount != 0)
                 {
                     filtered.Add(item);
                 }
@@ -96,13 +96,16 @@ public class CraftPuzzleCore : MonoBehaviour
 
         itemPot.SetItemPot(item);
         usageSlot.SetUsageSlot(item);
+        LoadItemFromInventory();
     }
 
     public bool TryPuzzlePiece(Ingredient_Item item)
     {
         if (PuzzleEnabled == false) return false;
 
-        return itemPot.TryPuzzlePiece(item);
+        bool tryOnItemview = DebugMode || itemView.TryOneItem(item);
+
+        return itemPot.TryPuzzlePiece(item) && tryOnItemview;
     }
 
     public void WritePuzzlePiece(Ingredient_Item item)
@@ -113,6 +116,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
         itemPot.WritePuzzlePiece(item);
         usageSlot.InsertIngredient(item);
+        itemView.UseOneItem(item);
     }
 
     public void ResetPot()
@@ -131,6 +135,7 @@ public class CraftPuzzleCore : MonoBehaviour
         itemPot.UndoSetItemPot(currentItem);
         itemPot.UndoPiece();
         usageSlot.UndoSlot();
+        itemView.UndoUsedItem();
     }
 
     public void VisualizeTile(Ingredient_Item item)
