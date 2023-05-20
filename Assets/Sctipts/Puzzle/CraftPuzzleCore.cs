@@ -19,6 +19,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
     [Title("Debug")]
     [SerializeField] private Result_Item test_item;
+     public Ingredient_Item[] testIngredientInventory;
     public bool DebugMode = false;
 
     public UnityEvent OnPuzzleComplete;
@@ -31,15 +32,34 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (instance == null) 
             instance = this;
+
+        if (OnPuzzleComplete == null)
+            OnPuzzleComplete = new UnityEvent();
     }
 
     private void OnEnable()
     {
         PuzzleEnabled = true;
-        SetResultItem(test_item);
 
-        if(!DebugMode)
+        PlayerController player = PlayerController.instance;
+        if (player != null)
+        {
+            player.ControlEnabled = false;
+        }
+
+        if (DebugMode)
+            SetResultItem(test_item);
+        else
             LoadItemFromInventory();
+    }
+
+    private void OnDisable()
+    {
+        PlayerController player = PlayerController.instance;
+        if (player != null)
+        {
+            player.ControlEnabled = true;
+        }
     }
 
     private void Start()
@@ -96,7 +116,12 @@ public class CraftPuzzleCore : MonoBehaviour
 
         itemPot.SetItemPot(item);
         usageSlot.SetUsageSlot(item);
-        LoadItemFromInventory();
+        if (DebugMode)
+            itemView.SetItemWindow(testIngredientInventory);
+        else
+        {
+            LoadItemFromInventory();
+        }
     }
 
     public bool TryPuzzlePiece(Ingredient_Item item)
