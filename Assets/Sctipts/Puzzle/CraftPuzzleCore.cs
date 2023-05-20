@@ -43,9 +43,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
         PlayerController player = PlayerController.instance;
         if (player != null)
-        {
             player.ControlEnabled = false;
-        }
 
         if (DebugMode)
             SetResultItem(test_item);
@@ -57,9 +55,7 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         PlayerController player = PlayerController.instance;
         if (player != null)
-        {
             player.ControlEnabled = true;
-        }
     }
 
     private void Start()
