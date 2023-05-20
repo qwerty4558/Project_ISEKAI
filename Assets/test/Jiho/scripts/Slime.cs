@@ -7,6 +7,7 @@ public class Slime : Enemy
     protected override void Awake()
     {
         base.Awake();
+        outputName = "ΩΩ∂Û¿”";
     }
 
     protected override void Update()
@@ -29,7 +30,6 @@ public class Slime : Enemy
         isRePosition = false;
         isMove = true;
         anim.SetBool("isMove", false);
-        uiManager.UpdateUI(currentHp, maxHp);
     }
 
     protected override void EnemyMove()
@@ -40,7 +40,8 @@ public class Slime : Enemy
     protected override void GetDamage(float damage)
     {
         currentHp -= damage;
-        uiManager.UpdateUI(currentHp, maxHp);
+        player.OtherCheck(this);
+        player.TargetOutline(this.GetComponent<Outline>());
 
         if (currentHp <= 0)
         {

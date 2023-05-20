@@ -173,7 +173,8 @@ public class ItemPot : SerializedMonoBehaviour
     public void PuzzlePieceVisualize(Ingredient_Item insertItem)
     {
         potVisulaizer.gameObject.SetActive(true);
-        bool positive = TryPuzzlePiece(insertItem);
+        bool positive = CraftPuzzleCore.Instance.TryPuzzlePiece(insertItem);
+
         potVisulaizer.Visualize(new Vector2((activePoint.x - slot_matrix.GetLength(0) / 2) * slotSize, -(activePoint.y - slot_matrix.GetLength(1) / 2) * slotSize), insertItem, positive);
     }
     public void DisablePuzzlePieceVisualizer()
