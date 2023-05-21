@@ -63,7 +63,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public void OptionActive()
     {
         option_obj.SetActive(true);
-        
     }
 
     public void ContinueGame()
@@ -73,5 +72,4 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             cameraFollow.isInteraction = false;
         Time.timeScale = 1f;
     }
-
 }
