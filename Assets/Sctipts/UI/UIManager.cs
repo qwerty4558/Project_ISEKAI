@@ -4,13 +4,19 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UIManager : SingletonMonoBehaviour<UIManager> 
+public class UIManager : MonoBehaviour
 {
-
+    public static UIManager instance;
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
 
+
+    private void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {

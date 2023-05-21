@@ -59,7 +59,7 @@ public class Setting : MonoBehaviour
         {
             if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
             {
-                if (!UIManager.Instance.cameraFollow.isInteraction)
+                if (!UIManager.instance.cameraFollow.isInteraction)
                 {
                     AllBoardClosed();
                 }
