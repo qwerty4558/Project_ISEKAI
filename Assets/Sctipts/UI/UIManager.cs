@@ -4,17 +4,35 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UIManager : SingletonMonoBehaviour<UIManager> 
+public class UIManager : SingletonMonoBehaviour<UIManager>
 {
-
+    
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
 
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoeaded;  
+    }
+
     private void Start()
     {
-        cameraFollow = FindObjectOfType<CameraFollow>();
+        
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoeaded;
+    }
+
+    private void OnSceneLoeaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (cameraFollow == null)
+        {
+            cameraFollow = FindObjectOfType<CameraFollow>();
+        }
     }
 
     private void Update()
