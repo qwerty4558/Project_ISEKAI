@@ -42,6 +42,9 @@ public class Setting : MonoBehaviour
     public GameObject isSavePoup;
 
 
+    [Header("UIManager")]
+    [SerializeField] UIManager uiManager;
+
     public void Start()
     {
         AllBoardClosed();
@@ -59,7 +62,7 @@ public class Setting : MonoBehaviour
         {
             if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
             {
-                if (!UIManager.instance.cameraFollow.isInteraction)
+                if (!uiManager.cameraFollow.isInteraction)
                 {
                     AllBoardClosed();
                 }

@@ -16,11 +16,15 @@ public class UIManager : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
+             
     }
 
     private void Start()
     {
-        cameraFollow = FindObjectOfType<CameraFollow>();
+        if (cameraFollow == null)
+        {
+            cameraFollow = FindObjectOfType<CameraFollow>();
+        }
     }
 
     private void Update()
