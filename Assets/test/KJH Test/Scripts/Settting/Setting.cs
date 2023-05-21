@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Setting : SingletonMonoBehaviour<Setting>
-{
+public class Setting : MonoBehaviour 
+{ 
+
     [Header("Setting Board Game OBJ")]
     public GameObject mainOpion;
     public GameObject graphicSetting;
