@@ -22,7 +22,6 @@ public class InventoryTitle : MonoBehaviour
 
     private void Awake()
     {
-        
         instance = this;
         itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
         alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
@@ -61,7 +60,7 @@ public class InventoryTitle : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.T)) //발표용 임시
+        if(Input.GetKeyDown(KeyCode.U)) //발표용 임시
         {
             if (inventoryObj.activeSelf)
             {
@@ -145,5 +144,31 @@ public class InventoryTitle : MonoBehaviour
             alchemyItemMap.Add(item.name, item);
             alchemyItemMap[item.name].appraiseCount += 1;
         }
+    }
+
+    public Ingredient_Item[] InvenItemMapReturn()
+    {
+        Ingredient_Item[] _itemMap = null;
+        int index = 0;
+        foreach (KeyValuePair<string, Ingredient_Item> pair in itemMap)
+        {
+            Ingredient_Item temp = pair.Value;
+            _itemMap[index++] = temp;
+        }
+
+        return _itemMap;
+    }
+
+    public Ingredient_Item[] AlchemyItemMapReturn()
+    {
+        Ingredient_Item[] _itemMap = null;
+        int index = 0;
+        foreach (KeyValuePair<string, Ingredient_Item> pair in alchemyItemMap)
+        {
+            Ingredient_Item temp = pair.Value;
+            _itemMap[index++] = temp;
+        }
+
+        return _itemMap;
     }
 }
