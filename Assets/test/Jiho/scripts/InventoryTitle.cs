@@ -22,7 +22,6 @@ public class InventoryTitle : MonoBehaviour
 
     private void Awake()
     {
-        
         instance = this;
         itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
         alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);

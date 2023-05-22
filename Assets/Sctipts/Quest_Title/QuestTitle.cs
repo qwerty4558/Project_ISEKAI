@@ -20,16 +20,17 @@ public class QuestTitle : SerializedMonoBehaviour
     private bool isQuestActive = false;
     
     public QuestInfo currentQuest;
+    public QuestInfo tempQuest;
 
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             currentQuest = null;
+            tempQuest = null; 
+            DontDestroyOnLoad(gameObject);
             titleDotweenAni = GetComponentInChildren<DOTweenAnimation>();
-            QuestInput("ork");
         }
         else
         {
@@ -42,6 +43,12 @@ public class QuestTitle : SerializedMonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T)) QuestActive();
+
+        if(currentQuest == null && tempQuest != null)
+        {
+            QuestInput(tempQuest.questInfoDatas[0].title);
+            tempQuest = null;
+        }
     }
 
     private void QuestActive()
@@ -85,7 +92,12 @@ public class QuestTitle : SerializedMonoBehaviour
 
     public void QuestInput(string id)
     {
-        if (currentQuest != null) return;
+        if (currentQuest != null)
+        {
+            tempQuest = questMap[id];
+            tempQuest.questInfoDatas[0].title = id;
+            return;
+        }
 
         currentQuest = questMap[id];
         questUI.ReRoadUI(currentQuest);
