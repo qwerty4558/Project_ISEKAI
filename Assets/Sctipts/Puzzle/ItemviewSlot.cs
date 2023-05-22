@@ -5,36 +5,37 @@ using UnityEngine.UI;
 
 public class ItemviewSlot : MonoBehaviour
 {
-    [SerializeField] private Ingredient_Item itemData;
+    [SerializeField] protected Ingredient_Item itemData;
     public Ingredient_Item ItemData { get { return itemData; } }
-    [SerializeField] private Image image;
-    [SerializeField] private Image patternImage;
-    [SerializeField] private TextMeshProUGUI quantatyText;
+    [SerializeField] protected Image image;
+    [SerializeField] protected Image patternImage;
+    [SerializeField] protected TextMeshProUGUI quantatyText;
 
     [ReadOnly] public int itemUsed = 0;
 
 
-    public void SetItemData(Ingredient_Item item)
+    public virtual void SetItemData(Ingredient_Item item)
     {
+        itemUsed = 0;
         itemData = item;
         image.sprite = Resources.Load<Sprite>(item.icon_File_Name);
         patternImage.sprite = item.itemPatternImage;
         quantatyText.text = (item.appraiseCount - itemUsed).ToString();
     }
 
-    public void ResetText()
+    public virtual void ResetText()
     {
         quantatyText.text = (itemData.appraiseCount - itemUsed).ToString();
     }
 
-    public void WriteOnPot()
+    public virtual void WriteOnPot()
     {
         if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData) || (itemData.appraiseCount - itemUsed) <= 0) return;
 
         CraftPuzzleCore.Instance.WritePuzzlePiece(itemData);
     }
 
-    public void OnItemButtonEnter()
+    public virtual void OnItemButtonEnter()
     {
         CraftPuzzleCore.Instance.VisualizeTile(itemData);
     }

@@ -15,7 +15,6 @@ public class PuzzleIngredientItems : MonoBehaviour
 
     private void Awake()
     {
-        ItemButtonObjects = new List<ItemviewSlot>();
         UndoStack = new Stack<ItemviewSlot>();
     }
 
@@ -25,9 +24,13 @@ public class PuzzleIngredientItems : MonoBehaviour
         {
             foreach (var i in ItemButtonObjects)
                 Destroy(i.gameObject);
-        }
 
-        ItemButtonObjects = new List<ItemviewSlot>();
+            ItemButtonObjects.Clear();
+        }
+        else
+        {
+            ItemButtonObjects = new List<ItemviewSlot>();
+        }
 
         if (UndoStack != null)
             UndoStack.Clear();
@@ -45,6 +48,8 @@ public class PuzzleIngredientItems : MonoBehaviour
 
     public bool UseOneItem(Ingredient_Item _item)
     {
+        if (ItemButtonObjects == null) return false;
+
         ItemviewSlot item = ItemButtonObjects.Find(slot=> slot.ItemData == _item);
 
         if (_item.appraiseCount - item.itemUsed <= 0) return false;
@@ -60,6 +65,8 @@ public class PuzzleIngredientItems : MonoBehaviour
 
     public bool TryOneItem(Ingredient_Item _item)
     {
+        if (ItemButtonObjects == null) return false;
+
         ItemviewSlot item = ItemButtonObjects.Find(slot => slot.ItemData == _item);
 
         if (_item.appraiseCount - item.itemUsed <= 0) return false;

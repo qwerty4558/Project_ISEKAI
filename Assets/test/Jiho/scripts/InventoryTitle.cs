@@ -1,12 +1,15 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryTitle : MonoBehaviour
+public class InventoryTitle : SerializedMonoBehaviour
 {
     public static InventoryTitle instance;
 
@@ -17,18 +20,44 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private GameObject appraiseObj;
     [SerializeField] private CameraFollow cameraFollow;
     public bool isAppraise;
+
+    [ReadOnly]
     public Dictionary<string, Ingredient_Item> itemMap;
+    [ReadOnly]
     public Dictionary<string, Ingredient_Item> alchemyItemMap;
 
     private void Awake()
-    {
-        
+    {       
         instance = this;
         itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
         alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
 
+        InitializeMaps();
         InitInventory();
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void InitializeMaps(bool resetLists = true)
+    {
+        if(resetLists)
+        {
+            itemMap = new Dictionary<string, Ingredient_Item>();
+            alchemyItemMap = new Dictionary<string, Ingredient_Item>();
+        }
+
+        string[] ingredient_item_guids = AssetDatabase.FindAssets("t:" + typeof(Ingredient_Item));
+
+        foreach (string guid in ingredient_item_guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            Ingredient_Item item = AssetDatabase.LoadAssetAtPath<Ingredient_Item>(path);
+
+            if (item.count != 0)
+                itemMap.Add(item.name, item);
+
+            if (item.appraiseCount != 0)
+                alchemyItemMap.Add(item.name, item);
+        }
     }
 
     private void InitInventory()
@@ -149,27 +178,24 @@ public class InventoryTitle : MonoBehaviour
 
     public Ingredient_Item[] InvenItemMapReturn()
     {
-        Ingredient_Item[] _itemMap = null;
-        int index = 0;
+        List<Ingredient_Item> _itemMap = new List<Ingredient_Item>();
+
         foreach (KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
-            Ingredient_Item temp = pair.Value;
-            _itemMap[index++] = temp;
+            _itemMap.Add(pair.Value);
         }
 
-        return _itemMap;
+        return _itemMap.ToArray();
     }
 
     public Ingredient_Item[] AlchemyItemMapReturn()
     {
-        Ingredient_Item[] _itemMap = null;
-        int index = 0;
+        List<Ingredient_Item> _itemMap = new List<Ingredient_Item>();
         foreach (KeyValuePair<string, Ingredient_Item> pair in alchemyItemMap)
         {
-            Ingredient_Item temp = pair.Value;
-            _itemMap[index++] = temp;
+            _itemMap.Add(pair.Value);
         }
 
-        return _itemMap;
+        return _itemMap.ToArray();
     }
 }

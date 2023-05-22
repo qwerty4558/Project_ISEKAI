@@ -68,17 +68,7 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (InventoryTitle.instance != null)
         {
-            List<Ingredient_Item> filtered = new List<Ingredient_Item>();
-
-            foreach (Ingredient_Item item in InventoryTitle.instance.alchemyItemMap.Values.ToArray())
-            {
-                if (item.itemType == ItemType.Ingredient && item.appraiseCount != 0)
-                {
-                    filtered.Add(item);
-                }
-            }
-
-            itemView.SetItemWindow(filtered.ToArray());
+            itemView.SetItemWindow(InventoryTitle.instance.AlchemyItemMapReturn());
         }
     }
 
