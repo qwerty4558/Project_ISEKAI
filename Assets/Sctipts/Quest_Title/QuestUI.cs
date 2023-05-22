@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 public class QuestUI : MonoBehaviour
 {
-    [SerializeField] private GameObject title_obj;
     [SerializeField] private TextMeshProUGUI[] quest_Texts;
     private QuestInfo currentQuest;
 
+    public GameObject title_obj;
+    
     private void Awake()
     {
         //currentQuest = QuestTitle.instance.currentQuest;
