@@ -4,17 +4,35 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UIManager : SingletonMonoBehaviour<UIManager> 
+public class UIManager : SingletonMonoBehaviour<UIManager>
 {
-
+    
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
 
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoeaded;  
+    }
+
     private void Start()
     {
-        cameraFollow = FindObjectOfType<CameraFollow>();
+        
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoeaded;
+    }
+
+    private void OnSceneLoeaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (cameraFollow == null)
+        {
+            cameraFollow = FindObjectOfType<CameraFollow>();
+        }
     }
 
     private void Update()
@@ -29,13 +47,15 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;                 
+                    cameraFollow.isInteraction = false;
+                Time.timeScale = 1f;
             }
             else
             {
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
+                Time.timeScale = 0f;
             }
         }
     }
@@ -45,5 +65,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(true);
     }
 
-
+    public void ContinueGame()
+    {
+        settingBoard_obj.SetActive(false);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = false;
+        Time.timeScale = 1f;
+    }
 }

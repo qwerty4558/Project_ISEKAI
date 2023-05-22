@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Setting : MonoBehaviour
+public class Setting : SingletonMonoBehaviour<Setting>
 {
     [Header("Setting Board Game OBJ")]
     public GameObject mainOpion;
@@ -42,6 +42,9 @@ public class Setting : MonoBehaviour
     public GameObject isSavePoup;
 
 
+    [Header("UIManager")]
+    [SerializeField] UIManager uiManager;
+
     public void Start()
     {
         AllBoardClosed();
@@ -59,7 +62,7 @@ public class Setting : MonoBehaviour
         {
             if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
             {
-                if (!UIManager.Instance.cameraFollow.isInteraction)
+                if (!uiManager.cameraFollow.isInteraction)
                 {
                     AllBoardClosed();
                 }
