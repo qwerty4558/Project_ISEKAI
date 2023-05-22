@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Setting : SingletonMonoBehaviour<Setting>
+public class Setting : MonoBehaviour
 {
     [Header("Setting Board Game OBJ")]
     public GameObject mainOpion;
@@ -53,8 +53,6 @@ public class Setting : SingletonMonoBehaviour<Setting>
         InitGraphicSetting();
         LoadSettings();
     }
-
-    
 
     private void Update()
     {
@@ -160,7 +158,7 @@ public class Setting : SingletonMonoBehaviour<Setting>
         graphicSetting.SetActive(false);
         soundSetting.SetActive(false);
         gamePlaySetting.SetActive(false);
-        isSavePoup.SetActive(false);
+        //isSavePoup.SetActive(false);
     }
     public void SettingBoardChange(string _page)
     {
@@ -260,6 +258,9 @@ public class Setting : SingletonMonoBehaviour<Setting>
     #endregion
 
     #region InTitle
-    
+    public void GoToTitle(string sceneName)
+    {
+        LoadingSceneController.Instance.LoadScene(sceneName);
+    }
     #endregion
 }
