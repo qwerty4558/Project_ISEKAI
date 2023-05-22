@@ -140,7 +140,8 @@ public class InventoryTitle : SerializedMonoBehaviour
             itemMap[item.name].count += 1;
         }
 
-        QuestTitle.instance.QuestItemCheck();
+        if(QuestTitle.instance != null)
+            QuestTitle.instance.QuestItemCheck();
     }
 
     public void MinusItem(Ingredient_Item item)

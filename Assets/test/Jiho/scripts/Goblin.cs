@@ -42,13 +42,14 @@ public class Goblin : Enemy
     {
         currentHp -= damage;
         player.OtherCheck(this);
-        player.TargetOutline(this.GetComponent<Outline>());
+        player.TargetOutline(this.outline);
 
         if (currentHp <= 0)
         {
+            player.IsTarget = false;
             anim.SetTrigger("isDead");
         }
-        else if(!isHit && !isAttack)
+        else if(!isAttack)
         {
             isHit = true;
             anim.SetBool("isMove", false);
