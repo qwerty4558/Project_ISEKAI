@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[System.Serializable]
 public class QuestTitle : SerializedMonoBehaviour
 {
     public static QuestTitle instance;
@@ -13,7 +14,7 @@ public class QuestTitle : SerializedMonoBehaviour
     [SerializeField] private QuestUI questUI;
 
     
-    public QuestInfo currentQuest;
+    [SerializeField] public QuestInfo currentQuest;
 
     private void Awake()
     {
