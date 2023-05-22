@@ -8,17 +8,6 @@ public class GetCurrentQuest : MonoBehaviour
 {
     [SerializeField] private GameObject questTitle;
     [SerializeField] private QuestTitle questStorage;
-    [SerializeField] private QuestTitle questStorageInScene;
-    // Start is called before the first frame update
-
-
-    private void Start()
-    {
-        if (questTitle == null)
-        {
-            questTitle = GameObject.FindWithTag("Quest");
-        }
-    }
 
     private void OnEnable()
     {
@@ -35,6 +24,7 @@ public class GetCurrentQuest : MonoBehaviour
         if (questTitle == null)
         {
             questTitle = GameObject.FindWithTag("Quest");
+            questStorage = questTitle.GetComponent<QuestTitle>();
         }
     }
 
