@@ -11,6 +11,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
 
+    private void Start()
+    {
+        if (cameraFollow == null)
+        {
+            cameraFollow = FindObjectOfType<CameraFollow>();
+        }
+    }
 
     private void OnEnable()
     {
