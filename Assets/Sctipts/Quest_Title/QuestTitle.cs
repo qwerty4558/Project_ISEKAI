@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class QuestTitle : SerializedMonoBehaviour
 {
@@ -11,7 +13,11 @@ public class QuestTitle : SerializedMonoBehaviour
     [SerializeField] private Dictionary<string, QuestInfo> questMap = new Dictionary<string, QuestInfo>();
 
     [SerializeField] private QuestUI questUI;
+    [SerializeField] private DOTweenAnimation titleDotweenAni;
+    [SerializeField] private DOTweenAnimation clearDotweenAni;
+    [SerializeField] private UnityEngine.UI.Outline questOutline;
 
+    private bool isQuestActive = false;
     
     public QuestInfo currentQuest;
 
@@ -22,6 +28,8 @@ public class QuestTitle : SerializedMonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             currentQuest = null;
+            titleDotweenAni = GetComponentInChildren<DOTweenAnimation>();
+            QuestInput("ork");
         }
         else
         {
@@ -29,6 +37,27 @@ public class QuestTitle : SerializedMonoBehaviour
         }
         //QuestInput("��������");
         
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T)) QuestActive();
+    }
+
+    private void QuestActive()
+    {
+        if(isQuestActive)
+        {
+            titleDotweenAni.DOPauseAllById("false");
+            titleDotweenAni.DORestartById("true");
+            isQuestActive = !isQuestActive;
+        }
+        else if(!isQuestActive)
+        {
+            titleDotweenAni.DOPauseAllById("true");
+            titleDotweenAni.DORestartById("false");
+            isQuestActive = !isQuestActive;
+        }
     }
 
     private void QuestClearCheck()
@@ -43,7 +72,15 @@ public class QuestTitle : SerializedMonoBehaviour
 
         currentQuest = null;
         questUI.SetActiveQuest(6, false);
+        StartCoroutine(QuestClearAni());
         Debug.Log("����Ʈ �Ϸ�");
+    }
+
+    private IEnumerator QuestClearAni()
+    {
+        clearDotweenAni.DORestartById("in");
+        yield return new WaitForSeconds(1f);
+        clearDotweenAni.DORestartById("out");
     }
 
     public void QuestInput(string id)
@@ -52,6 +89,21 @@ public class QuestTitle : SerializedMonoBehaviour
 
         currentQuest = questMap[id];
         questUI.ReRoadUI(currentQuest);
+        isQuestActive = false;
+        QuestActive();
+        StartCoroutine(QuestInptAnim());
+    }
+
+    private IEnumerator QuestInptAnim()
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            questOutline.enabled = true;
+            yield return new WaitForSeconds(0.3f);
+            questOutline.enabled = false;
+            yield return new WaitForSeconds(0.3f);
+        }
+        if (isQuestActive) QuestActive();
     }
 
     public void QuestItemCheck()
