@@ -22,6 +22,8 @@ public class UsageSlot : MonoBehaviour
 
     public void SetUsageSlot(Result_Item item)
     {
+        slotIndex = 0;
+
         for (int i = 0; i < item.puzzle_usage; i++)
         {
             SlotObjects[i].slot_back.sprite = spr_Opened;

@@ -6,28 +6,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Discrimination_ItemSlot : SerializedMonoBehaviour
+public class Discrimination_ItemSlot : ItemviewSlot
 {
-    [SerializeField] private Ingredient_Item itemData;
-    public Ingredient_Item ItemData { get { return itemData; } }
-    [SerializeField] private Image image;
-    [SerializeField] private Image patternImage;
-    [SerializeField] private TextMeshProUGUI quantatyText;
-
-    [ReadOnly] public int itemUsed = 0;
-
-
-    public void SetItemData(Ingredient_Item item)
+    public override void SetItemData(Ingredient_Item item)
     {
         itemData = item;
         image.sprite = Resources.Load<Sprite>(item.icon_File_Name);
         patternImage.sprite = item.itemPatternImage;
-        quantatyText.text = (item.appraiseCount - itemUsed).ToString();
+        quantatyText.text = item.count.ToString();
     }
 
-    public void ResetText()
+    public override void ResetText()
     {
-        quantatyText.text = (itemData.appraiseCount - itemUsed).ToString();
+        quantatyText.text = itemData.count.ToString();
     }
 
     public void DoDiscrimination()
@@ -35,7 +26,7 @@ public class Discrimination_ItemSlot : SerializedMonoBehaviour
         Discrimination.Instance.DoDiscrimination();
     }
 
-    public void OnItemButtonEnter()
+    public override void OnItemButtonEnter()
     {
         Discrimination.Instance.TryDiscrimination(ItemData);
     }

@@ -11,6 +11,7 @@ public class Discrimination : MonoBehaviour
 
     [SerializeField] private Image TargetItemUI;
     [SerializeField] private Image TargetPatternUI;
+    [SerializeField] private PuzzleIngredientItems itemView;
 
     private Ingredient_Item activeIngredient;
 
@@ -29,6 +30,9 @@ public class Discrimination : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
             player.ControlEnabled = false;
+
+        if(InventoryTitle.instance != null)
+        itemView.SetItemWindow(InventoryTitle.instance.InvenItemMapReturn());
     }
 
     private void OnDisable()
@@ -38,46 +42,20 @@ public class Discrimination : MonoBehaviour
             player.ControlEnabled = true;
     }
 
-
-
     public void TryDiscrimination(Ingredient_Item ingredient_Item)
     {
         TargetItemUI.sprite = ingredient_Item.itemImage;
         TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
         activeIngredient = ingredient_Item;
-
-        TargetItemUI.gameObject.SetActive(true);
-        TargetPatternUI.gameObject.SetActive(true);
-
-        if (activeIngredient.count != 0)
-        {
-            TargetItemUI.color = new Color(1, 1, 1, 1);
-        }
-        else
-        {
-            TargetItemUI.color = new Color(1, 1, 1, 0.5f);
-        }
     }
 
     public void DoDiscrimination()
     {
         if (activeIngredient == null) return;
 
-        if (activeIngredient.count != 0)
-        {
-            InventoryTitle.instance.MinusItem(activeIngredient);
-            InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
-
-            if (activeIngredient.count != 0)
-            {
-                TargetItemUI.color = new Color(1, 1, 1, 1);
-            }
-            else
-            {
-                TargetItemUI.color = new Color(1, 1, 1, 0.5f);
-            }
-        }
-
+        InventoryTitle.instance.MinusItem(activeIngredient);
+        InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
+        itemView.SetItemWindow(InventoryTitle.instance.InvenItemMapReturn());
 
     }
 }
