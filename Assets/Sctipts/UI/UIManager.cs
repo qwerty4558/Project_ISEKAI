@@ -17,11 +17,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         SceneManager.sceneLoaded += OnSceneLoeaded;  
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoeaded;
@@ -37,8 +32,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     private void Update()
     {
-        //SetActivedUI();
-        //CheckScene(SceneManager.GetActiveScene());
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {

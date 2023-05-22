@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3140725886713829349}
   - component: {fileID: 3140725886713829348}
   - component: {fileID: 3140725886713829351}
-  - component: {fileID: 3140725886713829354}
   - component: {fileID: 7777485057500419037}
   m_Layer: 0
   m_Name: OptionCanvas
@@ -103,26 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 16383
---- !u!114 &3140725886713829354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3140725886713829345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ebc41a57a824e4ea8c1f1aa483fa7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headerSettings:
-    headerText: Option
-    headerColor: {r: 0, g: 0.3254902, b: 0.5, a: 1}
-    textAlignmentOptions: 0
-    fontStyleOptions: 0
-    fontSize: 12
-    fontColor: {r: 1, g: 1, b: 1, a: 1}
-    dropShadow: 0
 --- !u!114 &7777485057500419037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d737a4ea8568d438d2d54d4e54a0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   mainOpion: {fileID: 1710342587788663794}
   graphicSetting: {fileID: 2296565547603778763}
   soundSetting: {fileID: 2602107599608564862}
@@ -228,11 +216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1119868667182178688, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119868667182178688, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119868667267558278, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_fontAsset
@@ -276,15 +264,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1119868668126535850, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119868668126535850, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119868668126535850, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1119868668455603672, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_fontAsset
@@ -344,11 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1632063730130763165, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1632063730130763165, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1635943519502088610, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -376,15 +364,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316000294564614001, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2316000294564614001, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2316000294564614001, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2322974895507076870, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_Name
@@ -392,15 +380,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2530083922758319529, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2530083922758319529, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2530083922758319529, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2616330200176899641, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -414,6 +402,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SettingBoardChange
       objectReference: {fileID: 0}
+    - target: {fileID: 2924150263053048505, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2924150263053048505, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3181419209564886934, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3181419209564886934, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3189063803349437272, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -532,12 +536,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3897014222353398851, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3897014222353398851, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4196619618215131595, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4196619618215131595, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4335350195273839986, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -598,26 +610,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SettingBoardChange
       objectReference: {fileID: 0}
+    - target: {fileID: 7292168031693156353, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7292168031693156353, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7428971645114721135, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7428971645114721135, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7628949544973376024, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7628949544973376024, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7628949544973376024, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.9756098
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7810600009288581786, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7810600009288581786, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8521041056899021715, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -626,6 +654,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: InitCameraRotateSetting
       objectReference: {fileID: 0}
+    - target: {fileID: 8905193021538688585, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8905193021538688585, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents:
     - {fileID: 6161847054133299254, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ddde5b548a0713242ba1a664f91c0517, type: 3}
