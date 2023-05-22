@@ -51,14 +51,14 @@ public class Enemy : MonoBehaviour
         respawnRange = 5;
         currentHp = maxHp;
         isMove = true;
-        outline = GetComponent<Outline>();
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
     }
 
     protected virtual void Update()
     {
-        TargetCheck();
+        if(currentHp > 0)
+            TargetCheck();
     }
 
     protected virtual void TargetCheck()
@@ -116,11 +116,11 @@ public class Enemy : MonoBehaviour
     {
         currentHp -= damage;
         player.OtherCheck(this);
-        player.TargetOutline(this.GetComponent<Outline>());
+        player.TargetOutline(this.outline);
 
         if (currentHp <= 0)
         {
-
+            player.IsTarget = false;
             EnemyDead();
         }
     }
@@ -152,7 +152,7 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
-            GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, 1.5f, this.transform.position.z), Quaternion.identity);
+            GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, this.transform.position.y + 2f, this.transform.position.z), Quaternion.identity);
 
             temp.SetActive(true);
         }

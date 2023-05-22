@@ -57,7 +57,7 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private List<PlayerAction> playerActions;
     private int currentActionIndex = 0;
 
-    private bool isTarget;
+    [SerializeField] private bool isTarget;
     
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
@@ -173,7 +173,7 @@ public class PlayerController : SerializedMonoBehaviour
     {
         otherName.text = enemy.outputName;
         otherHp.fillAmount = enemy.CurrentHp / enemy.MaxHp;
-        hpTime = 2f;
+        hpTime = 1.5f;
     }
 
     public void TargetOutline(Outline outline)

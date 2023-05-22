@@ -13,7 +13,6 @@ public class Slime : Enemy
     protected override void Update()
     {
         base.Update();
-        EnemyMove();
     }
 
     protected override void OnEnable()
@@ -41,11 +40,12 @@ public class Slime : Enemy
     {
         currentHp -= damage;
         player.OtherCheck(this);
-        player.TargetOutline(this.GetComponent<Outline>());
+        player.TargetOutline(this.outline);
 
         if (currentHp <= 0)
         {
-            anim.SetTrigger("isDead");
+            player.IsTarget = false;
+            anim.SetTrigger("Dead");
         }
         else if (!isHit && !isAttack)
         {
