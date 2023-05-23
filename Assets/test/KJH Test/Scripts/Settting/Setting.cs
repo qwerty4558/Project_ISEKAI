@@ -45,6 +45,33 @@ public class Setting : MonoBehaviour
     [Header("UIManager")]
     [SerializeField] UIManager uiManager;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+
+        if (IsActivedScene())
+        {
+            freelook = null;
+            uiManager = null;
+        }
+        else
+        {
+            uiManager = FindObjectOfType<UIManager>();
+            freelook = FindObjectOfType<CinemachineFreeLook>();
+            freelook.m_XAxis.Value = _cameraRotateSpeed;
+        }
+    }
+
     public void Start()
     {
         AllBoardClosed();
@@ -52,20 +79,32 @@ public class Setting : MonoBehaviour
         InitCameraRotateSetting();
         InitGraphicSetting();
         LoadSettings();
+        if (IsActivedScene())
+        {
+            uiManager = null;
+        }
+        else uiManager = FindObjectOfType<UIManager>();
+    }
+
+    bool IsActivedScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        return scene.name == "Title";
     }
 
     private void Update()
     {
-        if (SceneManager.GetSceneByName("Title") != SceneManager.GetActiveScene() || SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
+        if(uiManager != null)
         {
-            if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
+            if (!uiManager.cameraFollow.isInteraction)
             {
-                if (!uiManager.cameraFollow.isInteraction)
-                {
-                    AllBoardClosed();
-                }
+                AllBoardClosed();
             }
-            else AllBoardClosed();
+        }
+        if(freelook != null)
+        {
+            freelook.m_XAxis.m_MaxSpeed = _cameraRotateSpeed;
+            freelook.m_YAxis.m_MaxSpeed = _cameraRotateSpeed/100;
         }
         
     }
@@ -75,7 +114,9 @@ public class Setting : MonoBehaviour
     {
         for(int i = 0; i < Screen.resolutions.Length; i++)
         {
-            if (Screen.resolutions[i].refreshRate == 144)
+            Resolution _resolution = Screen.resolutions[i];
+            float aspectRatio = (float)_resolution.width / (float)_resolution.height;
+            if (Mathf.Approximately(aspectRatio, 16f/9))
             {
                 resolutions.Add(Screen.resolutions[i]);
             }
@@ -234,7 +275,7 @@ public class Setting : MonoBehaviour
     public void SettingCameraRotate()
     {
         //freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
-        _cameraRotateSpeed = cameraSetRotateSlider.value / 100;
+        _cameraRotateSpeed = cameraSetRotateSlider.value;
 
     }
     #endregion
@@ -250,6 +291,14 @@ public class Setting : MonoBehaviour
     {
         Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullScreenMode, resolutions[resolutionNum].refreshRate);
     }
+
+    public void RevertResolution()
+    {
+        resolutionNum = 2;
+        fullScreen_Toggle.isOn = true;
+        SettingFullScreenMode(fullScreen_Toggle.isOn);
+        ApplyResolution();
+    }
     public void SettingFullScreenMode(bool isfull)
     {
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
@@ -260,7 +309,9 @@ public class Setting : MonoBehaviour
     #region InTitle
     public void GoToTitle(string sceneName)
     {
+        
         LoadingSceneController.Instance.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
     #endregion
 }

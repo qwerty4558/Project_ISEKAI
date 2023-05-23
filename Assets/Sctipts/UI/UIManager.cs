@@ -17,6 +17,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             cameraFollow = FindObjectOfType<CameraFollow>();
         }
+        settingBoard_obj.SetActive(false);
+        option_obj.SetActive(false);
     }
 
     private void OnEnable()
@@ -35,6 +37,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             cameraFollow = FindObjectOfType<CameraFollow>();
         }
+        settingBoard_obj.SetActive(false);
+        option_obj.SetActive(false);
     }
 
     private void Update()

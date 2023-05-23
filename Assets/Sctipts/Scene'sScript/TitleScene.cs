@@ -1,13 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject option_Window;
     void Start()
     {
-        
+       option_Window.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        //GameObject uiManager_Canvas;
     }
 
     // Update is called once per frame
@@ -18,14 +32,19 @@ public class TitleScene : MonoBehaviour
 
     public void ClickButton(int btnNum)
     {
-        if(btnNum == 0)
+        switch (btnNum)
         {
-            //GameManager.Instance.colected_Time = 30f; 
-            LoadingSceneController.Instance.LoadScene("L_Main");
-        }
-        else
-        {
-            
+            case 0:
+                QuestTitle.instance.QuestInput("CH_01");
+                LoadingSceneController.Instance.LoadScene("L_Midas");
+                //SceneBroadcaster.Instance.AddBroadcast("L_Midas,ToIntro");
+                break;
+            case 1:
+                option_Window.SetActive(true);
+                break;
+            case 2:
+                Application.Quit();
+                break;
         }
     }
 }
