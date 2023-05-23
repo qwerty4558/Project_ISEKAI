@@ -28,6 +28,19 @@ public class SceneBroadcaster : SerializedMonoBehaviour
         string targetScene = pair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[0];
         string broadcastID = pair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[1];
 
+        if(targetScene == SceneManager.GetActiveScene().name)
+        {
+            SceneBroadcastReceiver[] receivers = FindObjectsOfType<SceneBroadcastReceiver>();
+
+            foreach(SceneBroadcastReceiver receiver in receivers)
+            {
+                if(receiver.Broadcasts.ContainsKey(broadcastID))
+                {
+                    receiver.Broadcasts[broadcastID].Invoke();
+                }
+            }
+        }
+
         if (SceneManager.GetSceneByName(targetScene) == null)
         {
             Debug.LogError(targetScene + "씬이 확인되지 않았습니다. 씬 이름이 제데로 되어있는지, Scene In Build에 포함되어있는지 확인해주세요.");
