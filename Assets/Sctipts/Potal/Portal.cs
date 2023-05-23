@@ -21,7 +21,7 @@ public class Portal : MonoBehaviour
 
     public void Move_Scene()
     {
-        LoadingSceneController.LoadScene(to_Scene_Name);
+        LoadingSceneController.Instance.LoadScene(to_Scene_Name);
         MultisceneDatapass.Instance.PortalDestinationID = Destination_Point_ID;
     }
 

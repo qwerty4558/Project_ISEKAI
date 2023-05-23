@@ -18,12 +18,12 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         GetComponent<CanvasGroup>().alpha = 1.0f;
     }
 
-    public static void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        if (Instance.loadingFlag) return;
+        if (loadingFlag) return;
 
-        Instance.StopAllCoroutines();
-        Instance.StartCoroutine(Instance.Cor_LoadNewScene(sceneName));    
+        StopAllCoroutines();
+        StartCoroutine(Cor_LoadNewScene(sceneName));    
     }
 
     public IEnumerator YieldLoadScene(string sceneName)
