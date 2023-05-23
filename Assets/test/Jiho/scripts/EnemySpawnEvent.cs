@@ -20,6 +20,10 @@ public class EnemySpawnEvent : MonoBehaviour
 
     private void SpawnCheck()
     {
-        if (!enemy_obj.activeSelf) enemy_obj.SetActive(EnemySpawner.instance.enemyDatas[enemyName].active);
+        enemy_obj.SetActive(EnemySpawner.instance.enemyDatas[enemyName].active);
+        //if (!enemy_obj.activeSelf)
+        //    if (EnemySpawner.instance.enemyDatas[enemyName].active) enemy_obj.SetActive(true);
+        //else
+        //    if (!EnemySpawner.instance.enemyDatas[enemyName].active) enemy_obj.SetActive(false);
     }
 }
