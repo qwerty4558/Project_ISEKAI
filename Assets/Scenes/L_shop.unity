@@ -1120,17 +1120,30 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 207528722}
-        m_TargetAssemblyTypeName: QuestTitle, Assembly-CSharp
-        m_MethodName: QuestInput
-        m_Mode: 5
+      - m_Target: {fileID: 1930591001}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CH602
+          m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1930591003}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a33727000c7ef6d49b7f064831f7799c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Playables.PlayableAsset,
+            UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 194125765}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -1250,7 +1263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 316174417}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &226305738
 Rigidbody:
@@ -1356,7 +1369,6 @@ Transform:
   - {fileID: 1736769449}
   - {fileID: 497122557}
   - {fileID: 194125769}
-  - {fileID: 1622223778}
   - {fileID: 1314527417}
   - {fileID: 1572260119}
   - {fileID: 226305737}
@@ -1981,7 +1993,7 @@ GameObject:
   - component: {fileID: 497122554}
   m_Layer: 0
   m_Name: CH_503_Trigger
-  m_TagString: Untagged
+  m_TagString: QuestPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,12 +2798,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8280584761890103445, guid: ebddced3d3ef09742a32d2c5f126d946, type: 3}
   m_PrefabInstance: {fileID: 838198059}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 838198061}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cdc94c37375e654793ca5c3a4d2e2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &838198061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5067146261717482719, guid: ebddced3d3ef09742a32d2c5f126d946, type: 3}
+  m_PrefabInstance: {fileID: 838198059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &841496798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7924565929303839537, guid: e38b3f59f209b42478fc72b216914646, type: 3}
@@ -3238,6 +3255,8 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 101442057}
     - {fileID: 11400000, guid: 19f16386a8778704987ea35331a988af, type: 2}
+    - {fileID: 1314527416}
+    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -3256,7 +3275,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -3357,6 +3376,85 @@ MonoBehaviour:
     - Name: m_BoolArgument
       Entry: 5
       Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ToCH501
+    - Name: $v
+      Entry: 7
+      Data: 9|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 10|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 4
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.GameObject, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetActive
+    - Name: m_Mode
+      Entry: 3
+      Data: 6
+    - Name: m_Arguments
+      Entry: 7
+      Data: 13|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 5
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -3532,7 +3630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 316174417}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1314527418
 MonoBehaviour:
@@ -3560,6 +3658,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1303080005}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1314527416}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -3989,7 +4099,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 316174417}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1572260120
 SphereCollider:
@@ -4304,91 +4414,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1319877947355958349, guid: 90936694e8208c84ca4b9b0335343b5d, type: 3}
   m_PrefabInstance: {fileID: 6353163866763977402}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1622223777
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1622223778}
-  - component: {fileID: 1622223780}
-  - component: {fileID: 1622223779}
-  m_Layer: 0
-  m_Name: 'CH_501_Before_Trigger '
-  m_TagString: QuestPos
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1622223778
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622223777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.75, y: -9.857, z: 5.2}
-  m_LocalScale: {x: 9.310338, y: 3.0179117, z: 2.4363}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 316174417}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1622223779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622223777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d957618709e1b040ae4c2387b4aaf03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 207528722}
-        m_TargetAssemblyTypeName: QuestTitle, Assembly-CSharp
-        m_MethodName: QuestInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CH501_01
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1622223777}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!65 &1622223780
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622223777}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1629331950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,18 +4739,6 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 207528722}
-        m_TargetAssemblyTypeName: QuestTitle, Assembly-CSharp
-        m_MethodName: QuestInput
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CH601
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 838198060}
         m_TargetAssemblyTypeName: SceneBroadcaster, Assembly-CSharp
         m_MethodName: AddBroadcast
@@ -4736,18 +4749,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: L_Main,ToCH601
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1736769445}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!65 &1736769447
@@ -4847,11 +4848,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.54644257
+      value: -0.5464426
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17044228
+      value: 0.17044227
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110122446389, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_Lens.FieldOfView
@@ -4887,7 +4888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110821915193, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.17997243
+      value: 0.17997244
       objectReference: {fileID: 0}
     - target: {fileID: 5295361495118303466, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: serializationData.Prefab
@@ -5541,6 +5542,1213 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.size
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 151
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"questMap","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":4,"$rcontent":[{"$id":1,"$type":"System.String,
+        mscorlib","CH502"},{"$id":2,"$type":"System.String, mscorlib","CH503"},$iref:1,$iref:2]},"remove_keys":{"$id":3,"$type":"System.Object[],
+        mscorlib","$rlength":2,"$rcontent":[{"$id":4,"$type":"System.String, mscorlib","CH601"},{"$id":5,"$type":"System.String,
+        mscorlib","CH601"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"questMap.{\"CH_01\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"questMap.{\"CH_01\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"questMap.{\"CH_01\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[4]
+      value: '"path":"questMap.{\"CH_01\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"questMap.{\"CH_01\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:4'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[6]
+      value: '"path":"questMap.{\"CH_01\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[7]
+      value: '"path":"questMap.{\"CH_02\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:6'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"questMap.{\"CH_02\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      value: '"path":"questMap.{\"CH_02\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:7'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.ReferencedUnityObjects.Array.size
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      value: '"path":"questMap.{\"CH_02\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[11]
+      value: '"path":"questMap.{\"CH_02\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:8'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[12]
+      value: '"path":"questMap.{\"CH_02\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[13]
+      value: '"path":"questMap.{\"CH_03\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:9'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[14]
+      value: '"path":"questMap.{\"CH_03\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[15]
+      value: '"path":"questMap.{\"CH_03\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:10'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[16]
+      value: '"path":"questMap.{\"CH_03\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:3'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[17]
+      value: '"path":"questMap.{\"CH_03\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:11'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[18]
+      value: '"path":"questMap.{\"CH_03\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[19]
+      value: '"path":"questMap.{\"CH102\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:12'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[20]
+      value: '"path":"questMap.{\"CH102\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[21]
+      value: '"path":"questMap.{\"CH201\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:13'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[22]
+      value: '"path":"questMap.{\"CH201\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[23]
+      value: '"path":"questMap.{\"CH201\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:14'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[24]
+      value: '"path":"questMap.{\"CH201\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[25]
+      value: '"path":"questMap.{\"CH20101\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:15'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[26]
+      value: '"path":"questMap.{\"CH20101\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[27]
+      value: '"path":"questMap.{\"CH20101\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:16'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[28]
+      value: '"path":"questMap.{\"CH20101\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:17'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[29]
+      value: '"path":"questMap.{\"CH302\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:18'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[30]
+      value: '"path":"questMap.{\"CH302\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:17'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[31]
+      value: '"path":"questMap.{\"CH302\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:19'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[32]
+      value: '"path":"questMap.{\"CH302\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[33]
+      value: '"path":"questMap.{\"CH30201\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:20'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[34]
+      value: '"path":"questMap.{\"CH30201\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[35]
+      value: '"path":"questMap.{\"CH30201\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:21'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[36]
+      value: '"path":"questMap.{\"CH30201\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:5'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[37]
+      value: '"path":"questMap.{\"CH401\"}.action.m_PersistentCalls.m_Calls.[1].m_Arguments.m_ObjectArgument","value":$eref:22'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[38]
+      value: '"path":"questMap.{\"CH401\"}.action.m_PersistentCalls.m_Calls.[1].m_Target","value":$eref:23'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[39]
+      value: '"path":"questMap.{\"CH501\"}.action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":4,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:24,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH502","m_BoolArgument":false},"m_CallState":2}]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[40]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:24'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[41]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgumentAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.Object, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[42]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_StringArgument","value":{"$id":0,"$type":"System.String,
+        mscorlib","CH502"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[43]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_MethodName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestInput"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[44]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_Mode","value":{"$id":0,"$type":"UnityEngine.Events.PersistentListenerMode,
+        UnityEngine.CoreModule",5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[45]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[46]
+      value: '"path":"questMap.{\"CH501\"}.action.m_PersistentCalls.m_Calls.[0].m_TargetAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestTitle, Assembly-CSharp"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[47]
+      value: '"path":"questMap.{\"CH501\"}.questInfoDatas.[0].action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":0,"$rcontent":[]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[48]
+      value: '"path":"questMap.{\"CH501\"}.questInfoDatas.[0].action.m_PersistentCalls","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":1,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":0,"$rcontent":[]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[49]
+      value: '"path":"questMap.{\"CH501\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":0,"$rcontent":[]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[50]
+      value: '"path":"questMap.{\"CH501\"}.questInfoDatas.[0].chatKey","value":{"$id":0,"$type":"System.String,
+        mscorlib","CH50001"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[51]
+      value: '"path":"questMap.{\"CH502\"}","value":{"$id":0,"$type":"QuestInfo,
+        Assembly-CSharp","questInfoDatas":{"$id":1,"$type":"QuestInfo+QuestInfoData[],
+        Assembly-CSharp","$rlength":1,"$rcontent":[{"$id":2,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":"\uac00\ub9c8\uc1a5 \uccad\uc18c","description":"\uac00\ub9c8\uc1a5\uc744
+        \uccad\uc18c\ud558\uc790","isClear":false,"position":"","item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":"CH50101","action":{"$id":3,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":4,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":5,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":6,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":7,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}}]},"action":{"$id":8,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":9,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":10,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":11,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":12,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:27,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH503","m_BoolArgument":false},"m_CallState":2}]}}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[52]
+      value: '"path":"questMap.{\"CH502\"}.action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":4,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:27,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH503","m_BoolArgument":false},"m_CallState":2}]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[53]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":1,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":2,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":3,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:27,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH503","m_BoolArgument":false},"m_CallState":2}]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[54]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":2,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:27,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH503","m_BoolArgument":false},"m_CallState":2}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[55]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0]","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:28,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"","m_Mode":1,"m_Arguments":{"$id":1,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:29,"m_ObjectArgumentAssemblyTypeName":"","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":false},"m_CallState":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[56]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments","value":{"$id":0,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:29,"m_ObjectArgumentAssemblyTypeName":"","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[57]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_BoolArgument","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[58]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_FloatArgument","value":{"$id":0,"$type":"System.Single,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[59]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_IntArgument","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[60]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:27'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[61]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgumentAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.Object, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[62]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_StringArgument","value":{"$id":0,"$type":"System.String,
+        mscorlib","CH503"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[63]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_CallState","value":{"$id":0,"$type":"UnityEngine.Events.UnityEventCallState,
+        UnityEngine.CoreModule",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[64]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_MethodName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestInput"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[65]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Mode","value":{"$id":0,"$type":"UnityEngine.Events.PersistentListenerMode,
+        UnityEngine.CoreModule",5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[66]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[67]
+      value: '"path":"questMap.{\"CH502\"}.action.m_PersistentCalls.m_Calls.[0].m_TargetAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestTitle, Assembly-CSharp"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[68]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas","value":{"$id":0,"$type":"QuestInfo+QuestInfoData[],
+        Assembly-CSharp","$rlength":1,"$rcontent":[{"$id":1,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":"\uac00\ub9c8\uc1a5 \uccad\uc18c","description":"\uac00\ub9c8\uc1a5\uc744
+        \uccad\uc18c\ud558\uc790","isClear":false,"position":"","item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":"CH50101","action":{"$id":2,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":3,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":4,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":5,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":6,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[69]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0]","value":{"$id":0,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":"\uac00\ub9c8\uc1a5 \uccad\uc18c","description":"\uac00\ub9c8\uc1a5\uc744
+        \uccad\uc18c\ud558\uc790","isClear":false,"position":"","item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":"CH50101","action":{"$id":1,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":2,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":3,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":4,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":5,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[70]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":4,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[71]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":1,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":2,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":3,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[72]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":2,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[73]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0]","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:25,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":1,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[74]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments","value":{"$id":0,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:26,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[75]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_BoolArgument","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[76]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_FloatArgument","value":{"$id":0,"$type":"System.Single,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[77]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_IntArgument","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[78]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:26'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[79]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgumentAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.Object, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[80]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_StringArgument","value":{"$id":0,"$type":"System.String,
+        mscorlib",""}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[81]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_CallState","value":{"$id":0,"$type":"UnityEngine.Events.UnityEventCallState,
+        UnityEngine.CoreModule",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[82]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_MethodName","value":{"$id":0,"$type":"System.String,
+        mscorlib","SetActive"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[83]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Mode","value":{"$id":0,"$type":"UnityEngine.Events.PersistentListenerMode,
+        UnityEngine.CoreModule",6}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[84]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:25'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[85]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].action.m_PersistentCalls.m_Calls.[0].m_TargetAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.GameObject, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[86]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].chatKey","value":{"$id":0,"$type":"System.String,
+        mscorlib","CH50101"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[87]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].description","value":{"$id":0,"$type":"System.String,
+        mscorlib","\uac00\ub9c8\uc1a5\uc744 \uccad\uc18c\ud558\uc790"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[88]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].isClear","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[89]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].item","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[90]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].itemCompleteCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[91]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].itemCurrentCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[92]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].position","value":{"$id":0,"$type":"System.String,
+        mscorlib",""}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[93]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].questType","value":{"$id":0,"$type":"QuestType,
+        Assembly-CSharp",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[94]
+      value: '"path":"questMap.{\"CH502\"}.questInfoDatas.[0].title","value":{"$id":0,"$type":"System.String,
+        mscorlib","\uac00\ub9c8\uc1a5 \uccad\uc18c"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[95]
+      value: '"path":"questMap.{\"CH503\"}","value":{"$id":0,"$type":"QuestInfo,
+        Assembly-CSharp","questInfoDatas":{"$id":1,"$type":"QuestInfo+QuestInfoData[],
+        Assembly-CSharp","$rlength":3,"$rcontent":[null,{"$id":2,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":2,"title":null,"description":"\ub3c4\ub07c\ub97c
+        \uc81c\uc791\ud558\uc790","isClear":false,"position":null,"item":$eref:30,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":{"$id":3,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":4,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":5,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":6,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":7,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}},{"$id":8,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":null,"description":null,"isClear":false,"position":null,"item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":null}]},"action":{"$id":9,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":10,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":11,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":12,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":13,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false},"m_CallState":2}]}}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[96]
+      value: '"path":"questMap.{\"CH503\"}.action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":4,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false},"m_CallState":2}]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[97]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":1,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":2,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":3,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false},"m_CallState":2}]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[98]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":2,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false},"m_CallState":2}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[99]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0]","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:1,"m_TargetAssemblyTypeName":"QuestTitle,
+        Assembly-CSharp","m_MethodName":"QuestInput","m_Mode":5,"m_Arguments":{"$id":1,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false},"m_CallState":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[100]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments","value":{"$id":0,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:33,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"CH601","m_BoolArgument":false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[101]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_BoolArgument","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[102]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_FloatArgument","value":{"$id":0,"$type":"System.Single,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[103]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_IntArgument","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[104]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:33'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[105]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgumentAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.Object, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[106]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_StringArgument","value":{"$id":0,"$type":"System.String,
+        mscorlib","CH601"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[107]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_CallState","value":{"$id":0,"$type":"UnityEngine.Events.UnityEventCallState,
+        UnityEngine.CoreModule",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[108]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_MethodName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestInput"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[109]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Mode","value":{"$id":0,"$type":"UnityEngine.Events.PersistentListenerMode,
+        UnityEngine.CoreModule",5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[110]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[111]
+      value: '"path":"questMap.{\"CH503\"}.action.m_PersistentCalls.m_Calls.[0].m_TargetAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","QuestTitle, Assembly-CSharp"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[112]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas","value":{"$id":0,"$type":"QuestInfo+QuestInfoData[],
+        Assembly-CSharp","$rlength":3,"$rcontent":[null,{"$id":1,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":2,"title":null,"description":"\ub3c4\ub07c\ub97c
+        \uc81c\uc791\ud558\uc790","isClear":false,"position":null,"item":$eref:30,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":{"$id":2,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":3,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":4,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":5,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":6,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}},{"$id":7,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":null,"description":null,"isClear":false,"position":null,"item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":null}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[113]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[0]","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[114]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1]","value":{"$id":0,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":2,"title":null,"description":"\ub3c4\ub07c\ub97c
+        \uc81c\uc791\ud558\uc790","isClear":false,"position":null,"item":$eref:30,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":{"$id":1,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":2,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":3,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":4,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":5,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[115]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action","value":{"$id":0,"$type":"UnityEngine.Events.UnityEvent,
+        UnityEngine.CoreModule","m_PersistentCalls":{"$id":1,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":2,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":3,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":4,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[116]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCallGroup,
+        UnityEngine.CoreModule","m_Calls":{"$id":1,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":2,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":3,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[117]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls","value":{"$id":0,"$type":"System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":2,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[118]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0]","value":{"$id":0,"$type":"UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule","m_Target":$eref:31,"m_TargetAssemblyTypeName":"UnityEngine.GameObject,
+        UnityEngine","m_MethodName":"SetActive","m_Mode":6,"m_Arguments":{"$id":1,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true},"m_CallState":2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[119]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments","value":{"$id":0,"$type":"UnityEngine.Events.ArgumentCache,
+        UnityEngine.CoreModule","m_ObjectArgument":$eref:32,"m_ObjectArgumentAssemblyTypeName":"UnityEngine.Object,
+        UnityEngine","m_IntArgument":0,"m_FloatArgument":0,"m_StringArgument":"","m_BoolArgument":true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[120]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_BoolArgument","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",true}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[121]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_FloatArgument","value":{"$id":0,"$type":"System.Single,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[122]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_IntArgument","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[123]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgument","value":$eref:32'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[124]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_ObjectArgumentAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.Object, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[125]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Arguments.m_StringArgument","value":{"$id":0,"$type":"System.String,
+        mscorlib",""}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[126]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_CallState","value":{"$id":0,"$type":"UnityEngine.Events.UnityEventCallState,
+        UnityEngine.CoreModule",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[127]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_MethodName","value":{"$id":0,"$type":"System.String,
+        mscorlib","SetActive"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[128]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Mode","value":{"$id":0,"$type":"UnityEngine.Events.PersistentListenerMode,
+        UnityEngine.CoreModule",6}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[129]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_Target","value":$eref:31'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[130]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].action.m_PersistentCalls.m_Calls.[0].m_TargetAssemblyTypeName","value":{"$id":0,"$type":"System.String,
+        mscorlib","UnityEngine.GameObject, UnityEngine"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[131]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].chatKey","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[132]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].description","value":{"$id":0,"$type":"System.String,
+        mscorlib","\ub3c4\ub07c\ub97c \uc81c\uc791\ud558\uc790"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[133]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].isClear","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[134]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].item","value":$eref:30'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[135]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].itemCompleteCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[136]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].itemCurrentCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[137]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].position","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[138]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].questType","value":{"$id":0,"$type":"QuestType,
+        Assembly-CSharp",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[139]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[1].title","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[140]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2]","value":{"$id":0,"$type":"QuestInfo+QuestInfoData,
+        Assembly-CSharp","questType":0,"title":null,"description":null,"isClear":false,"position":null,"item":null,"itemCompleteCount":0,"itemCurrentCount":0,"chatKey":null,"action":null}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[141]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].action","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[142]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].chatKey","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[143]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].description","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[144]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].isClear","value":{"$id":0,"$type":"System.Boolean,
+        mscorlib",false}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[145]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].item","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[146]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].itemCompleteCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[147]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].itemCurrentCount","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[148]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].position","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[149]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].questType","value":{"$id":0,"$type":"QuestType,
+        Assembly-CSharp",0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[150]
+      value: '"path":"questMap.{\"CH503\"}.questInfoDatas.[2].title","value":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[363].Data
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[367].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[371].Data
+      value: CH50101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[773].Data
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[785].Data
+      value: 152|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[786].Data
+      value: 153|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[786].Name
+      value: m_PersistentCalls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[787].Data
+      value: 154|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[787].Name
+      value: m_Calls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[788].Data
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[789].Data
+      value: 155|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[789].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[790].Data
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[790].Name
+      value: m_Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[791].Data
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[791].Name
+      value: m_TargetAssemblyTypeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[792].Data
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[792].Name
+      value: m_MethodName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[793].Data
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[793].Name
+      value: m_Mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[794].Data
+      value: 156|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[794].Name
+      value: m_Arguments
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[795].Data
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[795].Name
+      value: m_ObjectArgument
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[796].Data
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[796].Name
+      value: m_ObjectArgumentAssemblyTypeName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[797].Data
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[797].Name
+      value: m_IntArgument
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[798].Data
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[798].Name
+      value: m_FloatArgument
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[799].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[799].Name
+      value: m_StringArgument
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[800].Data
+      value: true
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[800].Name
+      value: m_BoolArgument
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[801].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[801].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[802].Data
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[802].Name
+      value: m_CallState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[803].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[803].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[804].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[804].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[806].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[806].Name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[809].Data
+      value: 157|QuestInfo+QuestInfoData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[810].Data
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[810].Name
+      value: questType
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[811].Name
+      value: title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[812].Name
+      value: description
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[813].Data
+      value: false
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[813].Name
+      value: isClear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[814].Name
+      value: position
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[815].Name
+      value: item
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[371].Entry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[785].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[786].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[787].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[788].Entry
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[790].Entry
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[791].Entry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[792].Entry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[793].Entry
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[794].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[795].Entry
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[798].Entry
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[799].Entry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[800].Entry
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[801].Entry
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[802].Entry
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[803].Entry
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[804].Entry
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[806].Entry
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[808].Entry
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[809].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[810].Entry
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[811].Entry
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[812].Entry
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[813].Entry
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[814].Entry
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[815].Entry
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 207528722}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[17]
+      value: 
+      objectReference: {fileID: 1917048783}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[28]
+      value: 
+      objectReference: {fileID: 838198061}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[30]
+      value: 
+      objectReference: {fileID: 11400000, guid: 104fb102f69fa2b49977bbfd5a6b2e50, type: 2}
+    - target: {fileID: 5105138639136750346, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[31]
+      value: 
+      objectReference: {fileID: 497122553}
     - target: {fileID: 5915872918936332676, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5631,6 +6839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+--- !u!1 &1917048783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 884253703, guid: dc85783d8ab59b4429a3bb3d2e8bfda6, type: 3}
+  m_PrefabInstance: {fileID: 1917048782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1928333146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5770,12 +6983,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5842,6 +7067,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1928333146}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1930591001}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1930591001}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 615138811}
@@ -5876,7 +7109,7 @@ PrefabInstance:
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1736769445}
+      objectReference: {fileID: 497122553}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -5890,12 +7123,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 114974618}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[5].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5926,6 +7171,10 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SceneBroadcaster, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5952,6 +7201,10 @@ PrefabInstance:
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -5988,6 +7241,14 @@ PrefabInstance:
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6034264192454000758, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
       propertyPath: m_Events.m_Events.Array.data[8].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6668,6 +7929,11 @@ GameObject:
 --- !u!4 &1930591000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5534967906449713743, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
+  m_PrefabInstance: {fileID: 1930590998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930591001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5557283247487270252, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
   m_PrefabInstance: {fileID: 1930590998}
   m_PrefabAsset: {fileID: 0}
 --- !u!320 &1930591003 stripped
