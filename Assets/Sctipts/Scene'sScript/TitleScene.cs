@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class TitleScene : MonoBehaviour
 {
     [SerializeField] GameObject option_Window;
-    [SerializeField] GameObject uiCanvas;
+    [SerializeField] UIManager uiCanvas;
     void Start()
     {
+       if(uiCanvas == null) uiCanvas = FindObjectOfType<UIManager>();
        option_Window.SetActive(false);
-       uiCanvas.SetActive(false);
+       uiCanvas.gameObject.SetActive(false);
     }
     private void OnEnable()
     {
@@ -23,12 +24,18 @@ public class TitleScene : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if(uiCanvas != null)
+        if(IsActivedScene())
         {
-
+            uiCanvas = FindObjectOfType<UIManager>();
+            uiCanvas.gameObject.SetActive(false);
         }
     }
 
+    bool IsActivedScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        return scene.name == "Title";
+    }
     void Update()
     {
         
@@ -39,6 +46,7 @@ public class TitleScene : MonoBehaviour
         switch (btnNum)
         {
             case 0:
+                uiCanvas.gameObject.SetActive(true);
                 QuestTitle.instance.QuestInput("CH_01");
                 LoadingSceneController.Instance.LoadScene("L_Midas");
                 SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
