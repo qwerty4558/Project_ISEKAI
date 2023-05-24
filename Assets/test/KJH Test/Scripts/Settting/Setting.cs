@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class Setting : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class Setting : MonoBehaviour
     FullScreenMode fullScreenMode;
     int resolutionNum;
 
+    public List<RenderPipelineAsset> renderPipelineAssets;
+    public Dropdown qualityDropdown;
+
     [Header("게임 플레이")]
     public CinemachineFreeLook freelook;
     public Slider cameraSetRotateSlider;
@@ -45,27 +49,67 @@ public class Setting : MonoBehaviour
     [Header("UIManager")]
     [SerializeField] UIManager uiManager;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+
+        if (IsActivedScene())
+        {
+            freelook = null;
+            uiManager = null;
+        }
+        else
+        {
+            uiManager = FindObjectOfType<UIManager>();
+            freelook = FindObjectOfType<CinemachineFreeLook>();
+            freelook.m_XAxis.Value = _cameraRotateSpeed;
+        }
+    }
+
     public void Start()
     {
         AllBoardClosed();
         InitSoundSetting();
         InitCameraRotateSetting();
         InitGraphicSetting();
+        InitQuality();
         LoadSettings();
+        if (IsActivedScene())
+        {
+            uiManager = null;
+        }
+        else uiManager = FindObjectOfType<UIManager>();
+    }
+
+    bool IsActivedScene()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        return scene.name == "Title";
     }
 
     private void Update()
     {
-        if (SceneManager.GetSceneByName("Title") != SceneManager.GetActiveScene() || SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
+        if(uiManager != null)
         {
-            if (SceneManager.GetSceneByName("L_shop") != SceneManager.GetActiveScene())
+            if (!uiManager.cameraFollow.isInteraction)
             {
-                if (!uiManager.cameraFollow.isInteraction)
-                {
-                    AllBoardClosed();
-                }
+                AllBoardClosed();
             }
-            else AllBoardClosed();
+        }
+        if(freelook != null)
+        {
+            freelook.m_XAxis.m_MaxSpeed = _cameraRotateSpeed;
+            freelook.m_YAxis.m_MaxSpeed = _cameraRotateSpeed/100;
         }
         
     }
@@ -75,8 +119,11 @@ public class Setting : MonoBehaviour
     {
         for(int i = 0; i < Screen.resolutions.Length; i++)
         {
-            if (Screen.resolutions[i].refreshRate == 144)
+            Resolution _resolution = Screen.resolutions[i];
+            float aspectRatio = (float)_resolution.width / (float)_resolution.height;
+            if (Mathf.Approximately(aspectRatio, 16f/9))
             {
+                Application.targetFrameRate = 60;
                 resolutions.Add(Screen.resolutions[i]);
             }
         }
@@ -87,7 +134,7 @@ public class Setting : MonoBehaviour
         foreach (Resolution item in resolutions)
         {
             Dropdown.OptionData op = new Dropdown.OptionData();
-            op.text = item.width + " x " + item.height + " " + item.refreshRate + " hz ";
+            op.text = item.width + " x " + item.height;
             resolutionDropdown.options.Add(op);
 
             if (item.width == Screen.width && item.height == Screen.height)
@@ -98,6 +145,15 @@ public class Setting : MonoBehaviour
         }
         resolutionDropdown.RefreshShownValue();
         fullScreen_Toggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
+    }
+
+    public void InitQuality()
+    {
+        qualityDropdown.value = 2;
+        QualitySettings.SetQualityLevel(2);
+        QualitySettings.renderPipeline = renderPipelineAssets[2];
+        Debug.Log(QualitySettings.renderPipeline.name);
+        Debug.Log(QualitySettings.GetQualityLevel());
     }
 
     public void InitCameraRotateSetting()
@@ -121,6 +177,7 @@ public class Setting : MonoBehaviour
         settings.isFullScreen = fullScreen_Toggle.isOn;
         settings.isSoundOn = masterSoundToggle.isOn;
         settings.resolutionIndex = resolutionDropdown.value;
+        settings.qualityIndex = qualityDropdown.value;
         settings.masterVolume = masterSlider.value;
         settings.bgmVolume = BGMSlider.value;
         settings.sfxVolume = SFXSlider.value;
@@ -139,6 +196,8 @@ public class Setting : MonoBehaviour
             masterSoundToggle.isOn = settings.isSoundOn;
             resolutionDropdown.value = settings.resolutionIndex;
             SetResolution(settings.resolutionIndex);
+            qualityDropdown.value = settings.qualityIndex;
+            SetQuality(settings.qualityIndex);
             masterSlider.value = settings.masterVolume;
             BGMSlider.value = settings.bgmVolume;
             SFXSlider.value = settings.sfxVolume;
@@ -234,7 +293,7 @@ public class Setting : MonoBehaviour
     public void SettingCameraRotate()
     {
         //freelook.m_XAxis.m_MaxSpeed = cameraSetRotateSlider.value;
-        _cameraRotateSpeed = cameraSetRotateSlider.value / 100;
+        _cameraRotateSpeed = cameraSetRotateSlider.value;
 
     }
     #endregion
@@ -250,17 +309,36 @@ public class Setting : MonoBehaviour
     {
         Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullScreenMode, resolutions[resolutionNum].refreshRate);
     }
+
+    public void RevertResolution()
+    {
+        int resolutionValue = resolutions.Count;
+        resolutionNum = resolutionValue;
+        resolutionDropdown.value = resolutionValue;
+        fullScreen_Toggle.isOn = true;
+        SettingFullScreenMode(fullScreen_Toggle.isOn);
+        ApplyResolution();
+    }
     public void SettingFullScreenMode(bool isfull)
     {
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
 
-    #endregion
-
-    #region InTitle
-    public void GoToTitle(string sceneName)
+    public void SetQuality(int value)
     {
-        LoadingSceneController.Instance.LoadScene(sceneName);
+        QualitySettings.SetQualityLevel(value);
+        RenderPipelineAsset _renderPipelineAsset = renderPipelineAssets[value];
+        
+        if(_renderPipelineAsset is UniversalRenderPipelineAsset urpAsset)
+        {
+            GraphicsSettings.renderPipelineAsset = urpAsset;
+            Debug.Log(urpAsset.name);
+        }
+        
+        Debug.Log(QualitySettings.GetQualityLevel());
     }
+
+
+
     #endregion
 }
