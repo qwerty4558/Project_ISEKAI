@@ -1397,7 +1397,7 @@ PlayableDirector:
   - key: {fileID: 8898492522683990897, guid: d174a796cdc8e6749990d8b50b91110f, type: 2}
     value: {fileID: 691575527}
   - key: {fileID: 2845443443791180914, guid: d174a796cdc8e6749990d8b50b91110f, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1231248853488661}
   - key: {fileID: -5638738683313106534, guid: d174a796cdc8e6749990d8b50b91110f, type: 2}
     value: {fileID: 475103834}
   m_ExposedReferences:
@@ -1872,7 +1872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4882500762271389745
 Transform:
   m_ObjectHideFlags: 0
@@ -1887,6 +1887,7 @@ Transform:
   m_Children:
   - {fileID: 2187701733325658340}
   - {fileID: 543450652371449988}
+  - {fileID: 4164830653977977}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4378,6 +4379,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 20c4aea840de61e4fbd726edf736e961, type: 2}
     - {fileID: 11400000, guid: 3428e866591eadd44825c122fd741edb, type: 2}
     - {fileID: 11400000, guid: 31e896ff91cb43d4d84e1decfb48b47a, type: 2}
+    - {fileID: 11400000, guid: e850b312621eddc48b9daee16516d96e, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -4548,9 +4550,33 @@ MonoBehaviour:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: SceneBroadcastReceiver, Assembly-CSharp
+          m_MethodName: AddBroadcast
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: L_Main,ToForestToMainPotalON
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: SetActivePlayer
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4569,6 +4595,32 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4888471343817239990}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 6010969679376474390}
+          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+          m_MethodName: StartDialogue
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CH7010102
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &7327438764001789714
@@ -4721,9 +4773,10 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 21300000, guid: ea495d7c994291d41a5e96ad4ab04063, type: 3}
     - {fileID: 21300000, guid: 89481308bc94f4d43941a43e34b115f8, type: 3}
-    - {fileID: 21300000, guid: ac6b4b4e35073bf41b5800152e26ed9a, type: 3}
     - {fileID: 21300000, guid: 94c3f85525ae3344c999bc9e4af07110, type: 3}
     - {fileID: 21300000, guid: ee70db05520f7104c890cef925712ee3, type: 3}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 8909ec1c13408d342bec89f66028de0a, type: 3}
     - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -4743,7 +4796,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -4903,71 +4956,10 @@ MonoBehaviour:
       Data: 10|DialogueSequence[], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 5
     - Name: 
       Entry: 7
       Data: 11|DialogueSequence, Assembly-CSharp
-    - Name: speecher
-      Entry: 1
-      Data: "\uB9C8\uB9AC "
-    - Name: context
-      Entry: 1
-      Data: "\uBAAC\uC2A4\uD2B8\uB78C \uD30C\uB974\uBD90, \uB2E4 \uBBF8\uB2C8 \uBE44\uD0D0
-        \uD0C0\uC6C0!\r\n"
-    - Name: portrait_L
-      Entry: 10
-      Data: 4
-    - Name: portrait_R
-      Entry: 10
-      Data: 5
-    - Name: portrait_LFace
-      Entry: 6
-      Data: 
-    - Name: portrait_RFace
-      Entry: 6
-      Data: 
-    - Name: popup_Image
-      Entry: 6
-      Data: 
-    - Name: action
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 12|DialogueSequence, Assembly-CSharp
-    - Name: speecher
-      Entry: 1
-      Data: "\uC2AC\uB77C\uC784 "
-    - Name: context
-      Entry: 1
-      Data: "\uD06C\uD79B..!\r\n"
-    - Name: portrait_L
-      Entry: 10
-      Data: 6
-    - Name: portrait_R
-      Entry: 10
-      Data: 6
-    - Name: portrait_LFace
-      Entry: 6
-      Data: 
-    - Name: portrait_RFace
-      Entry: 6
-      Data: 
-    - Name: popup_Image
-      Entry: 6
-      Data: 
-    - Name: action
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 13|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -4997,7 +4989,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 14|DialogueSequence, Assembly-CSharp
+      Data: 12|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -5009,7 +5001,7 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 7
+      Data: 6
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -5027,7 +5019,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 15|DialogueSequence, Assembly-CSharp
+      Data: 13|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -5059,7 +5051,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 16|DialogueSequence, Assembly-CSharp
+      Data: 14|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -5073,10 +5065,10 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 7
+      Data: 6
     - Name: portrait_LFace
       Entry: 10
-      Data: 8
+      Data: 7
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -5091,7 +5083,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 17|DialogueSequence, Assembly-CSharp
+      Data: 15|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -5117,20 +5109,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 18|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 16|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 19|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 17|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 20|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 18|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 21|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 19|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -5145,10 +5137,159 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 22|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 20|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
+      Data: 8
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CH7010102
+    - Name: $v
+      Entry: 7
+      Data: 21|DialogueSequence[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 22|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uB9C8\uB9AC "
+    - Name: context
+      Entry: 1
+      Data: "\uBAAC\uC2A4\uD2B8\uB78C \uD30C\uB974\uBD90, \uB2E4 \uBBF8\uB2C8 \uBE44\uD0D0
+        \uD0C0\uC6C0!\r\n"
+    - Name: portrait_L
+      Entry: 10
       Data: 9
+    - Name: portrait_R
+      Entry: 10
+      Data: 5
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 23|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC2AC\uB77C\uC784 "
+    - Name: context
+      Entry: 1
+      Data: "\uD06C\uD79B..!\r\n"
+    - Name: portrait_L
+      Entry: 10
+      Data: 9
+    - Name: portrait_R
+      Entry: 10
+      Data: 9
+    - Name: portrait_LFace
+      Entry: 10
+      Data: 9
+    - Name: portrait_RFace
+      Entry: 10
+      Data: 9
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 24|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 25|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 26|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 27|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Playables.PlayableDirector, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: Play
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 28|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 10
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -6433,4 +6574,195 @@ Transform:
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: bc395f01c233e274eba80c7f16d7f589, type: 3}
   m_PrefabInstance: {fileID: 1362141039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1645246307
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4882500762271389745}
+    m_Modifications:
+    - target: {fileID: 1231247210357622, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_Name
+      value: FX_Ritual_Circle_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.64645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.64645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.64645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 9.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198517173316420940, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198517173316420940, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: stopAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835356494683118, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199855085707483186, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199897110710365382, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+--- !u!1 &1231248853488661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1231247210357622, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+  m_PrefabInstance: {fileID: 1645246307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4164830653977977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e, type: 3}
+  m_PrefabInstance: {fileID: 1645246307}
   m_PrefabAsset: {fileID: 0}
