@@ -25,12 +25,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         SceneManager.sceneLoaded += OnSceneLoeaded;  
     }
-
-    private void Start()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoeaded;
