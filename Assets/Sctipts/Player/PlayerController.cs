@@ -405,7 +405,7 @@ public class PlayerController : SerializedMonoBehaviour
         PlayerController.Instance.gameObject.SetActive(true);
     }
 
-    public void SavePlayerStates()
+        public void SavePlayerStates()
     {
 
     }

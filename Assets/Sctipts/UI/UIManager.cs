@@ -25,7 +25,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         SceneManager.sceneLoaded += OnSceneLoeaded;  
     }
-
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoeaded;
@@ -43,6 +42,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     private void Update()
     {
+        //SetActivedUI();
+        //CheckScene(SceneManager.GetActiveScene());
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -51,15 +52,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;
-                Time.timeScale = 1f;
+                    cameraFollow.isInteraction = false;                 
             }
             else
             {
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Time.timeScale = 0f;
             }
         }
     }
@@ -69,11 +68,5 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(true);
     }
 
-    public void ContinueGame()
-    {
-        settingBoard_obj.SetActive(false);
-        if (cameraFollow != null)
-            cameraFollow.isInteraction = false;
-        Time.timeScale = 1f;
-    }
+
 }
