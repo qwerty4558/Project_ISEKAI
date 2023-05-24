@@ -85,7 +85,7 @@ public class CraftPuzzleCore : MonoBehaviour
         }
         else
         {
-            InventoryTitle.instance.AlchemyItemPlus(currentItem.outputItem);
+            InventoryTitle.instance.PlusItem(currentItem.outputItem);
 
             foreach (var item in itemsUse)
             {
