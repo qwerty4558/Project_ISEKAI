@@ -309,9 +309,10 @@ public class Setting : MonoBehaviour
     #region InTitle
     public void GoToTitle(string sceneName)
     {
-        
-        LoadingSceneController.Instance.LoadScene(sceneName);
+        SceneLoaderExcess loader = new SceneLoaderExcess();
         Time.timeScale = 1f;
+        loader.LoadNewScene(sceneName);
+        //LoadingSceneController.Instance.LoadScene(sceneName);
     }
     #endregion
 }

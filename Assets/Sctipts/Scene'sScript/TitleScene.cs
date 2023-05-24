@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class TitleScene : MonoBehaviour
 {
     [SerializeField] GameObject option_Window;
+    [SerializeField] GameObject uiCanvas;
     void Start()
     {
        option_Window.SetActive(false);
+       uiCanvas.SetActive(false);
     }
     private void OnEnable()
     {
@@ -21,10 +23,12 @@ public class TitleScene : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        //GameObject uiManager_Canvas;
+        if(uiCanvas != null)
+        {
+
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -37,7 +41,7 @@ public class TitleScene : MonoBehaviour
             case 0:
                 QuestTitle.instance.QuestInput("CH_01");
                 LoadingSceneController.Instance.LoadScene("L_Midas");
-                //SceneBroadcaster.Instance.AddBroadcast("L_Midas,ToIntro");
+                SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
                 break;
             case 1:
                 option_Window.SetActive(true);
