@@ -118,6 +118,7 @@ public class Setting : MonoBehaviour
             float aspectRatio = (float)_resolution.width / (float)_resolution.height;
             if (Mathf.Approximately(aspectRatio, 16f/9))
             {
+                //Application.targetFrameRate = 60;
                 resolutions.Add(Screen.resolutions[i]);
             }
         }
@@ -128,7 +129,7 @@ public class Setting : MonoBehaviour
         foreach (Resolution item in resolutions)
         {
             Dropdown.OptionData op = new Dropdown.OptionData();
-            op.text = item.width + " x " + item.height + " " + item.refreshRate + " hz ";
+            op.text = item.width + " x " + item.height;
             resolutionDropdown.options.Add(op);
 
             if (item.width == Screen.width && item.height == Screen.height)

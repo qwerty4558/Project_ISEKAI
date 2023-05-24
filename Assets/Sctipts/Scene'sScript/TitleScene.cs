@@ -38,7 +38,8 @@ public class TitleScene : MonoBehaviour
     }
     void Update()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ClickButton(int btnNum)
