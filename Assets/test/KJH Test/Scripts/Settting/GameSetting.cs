@@ -8,6 +8,7 @@ public class GameSetting
     public bool isFullScreen;
     public bool isSoundOn;
     public int resolutionIndex;
+    public int qualityIndex;
     public float masterVolume;
     public float bgmVolume;
     public float sfxVolume;

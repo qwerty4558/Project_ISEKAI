@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class Setting : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class Setting : MonoBehaviour
     public Toggle fullScreen_Toggle;
     FullScreenMode fullScreenMode;
     int resolutionNum;
+
+    public List<RenderPipelineAsset> renderPipelineAssets;
+    public Dropdown qualityDropdown;
 
     [Header("게임 플레이")]
     public CinemachineFreeLook freelook;
@@ -78,6 +82,7 @@ public class Setting : MonoBehaviour
         InitSoundSetting();
         InitCameraRotateSetting();
         InitGraphicSetting();
+        InitQuality();
         LoadSettings();
         if (IsActivedScene())
         {
@@ -142,6 +147,15 @@ public class Setting : MonoBehaviour
         fullScreen_Toggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
     }
 
+    public void InitQuality()
+    {
+        qualityDropdown.value = 2;
+        QualitySettings.SetQualityLevel(2);
+        QualitySettings.renderPipeline = renderPipelineAssets[2];
+        Debug.Log(QualitySettings.renderPipeline.name);
+        Debug.Log(QualitySettings.GetQualityLevel());
+    }
+
     public void InitCameraRotateSetting()
     {
         cameraSetRotateSlider.value = 5.5f;
@@ -163,6 +177,7 @@ public class Setting : MonoBehaviour
         settings.isFullScreen = fullScreen_Toggle.isOn;
         settings.isSoundOn = masterSoundToggle.isOn;
         settings.resolutionIndex = resolutionDropdown.value;
+        settings.qualityIndex = qualityDropdown.value;
         settings.masterVolume = masterSlider.value;
         settings.bgmVolume = BGMSlider.value;
         settings.sfxVolume = SFXSlider.value;
@@ -181,6 +196,8 @@ public class Setting : MonoBehaviour
             masterSoundToggle.isOn = settings.isSoundOn;
             resolutionDropdown.value = settings.resolutionIndex;
             SetResolution(settings.resolutionIndex);
+            qualityDropdown.value = settings.qualityIndex;
+            SetQuality(settings.qualityIndex);
             masterSlider.value = settings.masterVolume;
             BGMSlider.value = settings.bgmVolume;
             SFXSlider.value = settings.sfxVolume;
@@ -295,8 +312,9 @@ public class Setting : MonoBehaviour
 
     public void RevertResolution()
     {
-        int resolutionValue = resolutionDropdown.value;
+        int resolutionValue = resolutions.Count;
         resolutionNum = resolutionValue;
+        resolutionDropdown.value = resolutionValue;
         fullScreen_Toggle.isOn = true;
         SettingFullScreenMode(fullScreen_Toggle.isOn);
         ApplyResolution();
@@ -305,6 +323,22 @@ public class Setting : MonoBehaviour
     {
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
+
+    public void SetQuality(int value)
+    {
+        QualitySettings.SetQualityLevel(value);
+        RenderPipelineAsset _renderPipelineAsset = renderPipelineAssets[value];
+        
+        if(_renderPipelineAsset is UniversalRenderPipelineAsset urpAsset)
+        {
+            GraphicsSettings.renderPipelineAsset = urpAsset;
+            Debug.Log(urpAsset.name);
+        }
+        
+        Debug.Log(QualitySettings.GetQualityLevel());
+    }
+
+
 
     #endregion
 }
