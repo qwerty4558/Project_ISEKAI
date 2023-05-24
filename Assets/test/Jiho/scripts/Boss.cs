@@ -1,18 +1,158 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator bossAnimator;
+    [SerializeField] private float damage;
+    [SerializeField] private float attackDelay;
+    [SerializeField] private float outlineDelay;
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private float currentHp;
+    [SerializeField] private float maxHp;
+    [SerializeField] private bool isMove;
+    [SerializeField] private bool isAttack;
+    [SerializeField] private bool isHit;
+    [SerializeField] private bool isAction;
+    [SerializeField] private ItemObject dropItem;
+    private Outline outline;
+    private PlayerController player;
+
+    private void Awake()
     {
-        
+        player = FindObjectOfType<PlayerController>();
+        bossAnimator = GetComponent<Animator>();
+        outline = GetComponent<Outline>();
+        currentHp = maxHp;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Action();
+        AttackDelay();
+        OutlineDelay();
+    }
+
+    private void OutlineDelay()
+    {
+        if (outlineDelay > 0) outlineDelay -= Time.deltaTime;
+        else outline.enabled = false;
+    }
+
+    private void OutlineActive()
+    {
+        outlineDelay = 1f;
+        outline.enabled = true;
+    }
+
+    private void AttackDelay()
+    {
+        if(attackDelay > 0) attackDelay -= Time.deltaTime;
+    }
+
+    private bool ToPlayerDistance(float _distance) //매개변수 거리보다 가까우면 true 멀면 false
+    {
+        if (Vector3.Distance(player.transform.position, this.transform.position) > _distance) return false;
+        else return true;
+    }
+
+    private void Action()
+    {
+        if(!ToPlayerDistance(5)) BossMove();
+        else if (ToPlayerDistance(5) && attackDelay <= 0) Attack();
+        else Idle();
+    }
+
+    private void BossMove()
+    {
+        bossAnimator.SetBool("isMove", true);
+        Vector3 foward = player.transform.position - this.transform.position;
+        transform.forward = foward;
+
+        transform.position = transform.position + foward * currentSpeed * Time.deltaTime;
+    }
+
+    private void Roar()
+    {
+        bossAnimator.SetTrigger("isRoar");
+    }
+
+    private void Idle()
+    {
+        bossAnimator.SetBool("isMove", false);
+    }
+
+    private void Attack()
+    {
+        attackDelay = 5;
+        bossAnimator.SetBool("isMove", false);
+
+        if (ToPlayerDistance(3))
+        {
+            int rand = Random.Range(0, 5);
+            if (rand < 1) Roar();
+            else KickAttack();
+        }
+        else
+        {
+            int rand = Random.Range(0, 2);
+            if (rand < 1) bossAnimator.SetTrigger("isAttack_1");
+            else bossAnimator.SetTrigger("isAttack_2");
+        }
+    }
+
+    private void KickAttack()
+    {
+        bossAnimator.SetTrigger("isKickAttack");
+    }
+
+    private void Hit()
+    {
+        if(currentHp <= 0) Dead();
+        else if(currentHp > 0 && !isHit)
+        {
+            isHit = true;
+            int rand = Random.Range(0, 2);
+            if(rand > 0) bossAnimator.SetTrigger("isHit_1");
+            else bossAnimator.SetTrigger("isHit_2");
+        }
+    }
+
+    private void Dead()
+    {
+        bossAnimator.SetTrigger("isDead");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("AttackCol"))
+        {
+            if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Sword))) return;
+
+            float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
+            GetDamage(tempDamage);
+        }
+    }
+
+    public void GetDamage(float _damage)
+    {
+        currentHp -= _damage;
+        OutlineActive();
+        Hit();
+    }
+
+    public void HitAnimExit()
+    {
+        isHit = false;
+    }
+
+    public void DeadAnimExit()
+    {
+        GameObject temp = Instantiate(dropItem.gameObject, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.identity);
+        temp.SetActive(true);
+        this.gameObject.SetActive(false);
+    
     }
 }
