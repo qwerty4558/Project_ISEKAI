@@ -295,7 +295,8 @@ public class Setting : MonoBehaviour
 
     public void RevertResolution()
     {
-        resolutionNum = 2;
+        int resolutionValue = resolutionDropdown.value;
+        resolutionNum = resolutionValue;
         fullScreen_Toggle.isOn = true;
         SettingFullScreenMode(fullScreen_Toggle.isOn);
         ApplyResolution();
@@ -304,10 +305,6 @@ public class Setting : MonoBehaviour
     {
         fullScreenMode = isfull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
-
-    #endregion
-
-    #region InTitle
 
     #endregion
 }
