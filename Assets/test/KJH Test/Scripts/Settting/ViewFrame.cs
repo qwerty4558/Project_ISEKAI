@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class ViewFrame : MonoBehaviour
+public class ViewFrame : SingletonMonoBehaviour<ViewFrame>
 {
 
     [Range(1, 100)]

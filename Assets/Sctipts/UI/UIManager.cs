@@ -49,6 +49,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             if (settingBoard_obj.activeSelf)
             {
+                Time.timeScale = 1.0f;
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
@@ -56,11 +57,32 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             }
             else
             {
+                Time.timeScale = 0f;
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
             }
         }
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1.0f;
+        option_obj.SetActive(false);
+        settingBoard_obj.SetActive(false);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = false;
+    }
+
+    public void ToTitle()
+    {
+        SceneLoaderExcess sceneLoad = new SceneLoaderExcess();
+        Time.timeScale = 1.0f;
+        option_obj.SetActive(false);
+        settingBoard_obj.SetActive(false);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = false;
+        sceneLoad.LoadNewScene("Title");
     }
 
     public void OptionActive()
