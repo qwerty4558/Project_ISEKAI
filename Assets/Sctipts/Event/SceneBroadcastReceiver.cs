@@ -10,6 +10,11 @@ public class SceneBroadcastReceiver : SerializedMonoBehaviour
 {
     public Dictionary<string, UnityEvent> Broadcasts;
 
+    public void AddBroadcast(string pair)
+    {
+        SceneBroadcaster.AddBroadcast(pair);
+    }
+
     private void Start()
     {
         if(SceneBroadcaster.Instance == null)
