@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] CinemachineFreeLook camFollow;
-
+    
     public bool isInteraction;
     private void Start()
     {

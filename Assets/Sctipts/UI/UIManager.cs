@@ -17,13 +17,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             cameraFollow = FindObjectOfType<CameraFollow>();
         }
+        settingBoard_obj.SetActive(false);
+        option_obj.SetActive(false);
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoeaded;  
     }
-
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoeaded;
@@ -35,29 +36,53 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             cameraFollow = FindObjectOfType<CameraFollow>();
         }
+        settingBoard_obj.SetActive(false);
+        option_obj.SetActive(false);
     }
 
     private void Update()
     {
+        //SetActivedUI();
+        //CheckScene(SceneManager.GetActiveScene());
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingBoard_obj.activeSelf)
             {
+                Time.timeScale = 1.0f;
                 option_obj.SetActive(false);
                 settingBoard_obj.SetActive(false);
                 if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;
-                Time.timeScale = 1f;
+                    cameraFollow.isInteraction = false;                 
             }
             else
             {
+                Time.timeScale = 0f;
                 settingBoard_obj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                Time.timeScale = 0f;
             }
         }
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1.0f;
+        option_obj.SetActive(false);
+        settingBoard_obj.SetActive(false);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = false;
+    }
+
+    public void ToTitle()
+    {
+        SceneLoaderExcess sceneLoad = new SceneLoaderExcess();
+        Time.timeScale = 1.0f;
+        option_obj.SetActive(false);
+        settingBoard_obj.SetActive(false);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = false;
+        sceneLoad.LoadNewScene("Title");
     }
 
     public void OptionActive()
@@ -65,11 +90,5 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(true);
     }
 
-    public void ContinueGame()
-    {
-        settingBoard_obj.SetActive(false);
-        if (cameraFollow != null)
-            cameraFollow.isInteraction = false;
-        Time.timeScale = 1f;
-    }
+
 }
