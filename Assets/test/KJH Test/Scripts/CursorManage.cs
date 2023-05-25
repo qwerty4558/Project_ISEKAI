@@ -15,10 +15,16 @@ public class CursorManage : MonoBehaviour
     public void OnMouseOver()
     {
         Cursor.SetCursor(clickCursor, new Vector2(clickCursor.width / 3 , 0), CursorMode.Auto);
+        StartCoroutine(_MouseAnimated());
     }
 
     public void OnMouseExit()
     {
         Cursor.SetCursor(defaultCursor, new Vector2(0, 0), CursorMode.Auto);
+        StartCoroutine(_MouseAnimated());
+    }
+    IEnumerator _MouseAnimated()
+    {
+        yield return null;
     }
 }

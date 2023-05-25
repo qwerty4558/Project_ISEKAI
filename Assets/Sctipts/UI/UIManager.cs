@@ -49,20 +49,23 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             if (settingBoard_obj.activeSelf)
             {
-                Time.timeScale = 1.0f;
-                option_obj.SetActive(false);
-                settingBoard_obj.SetActive(false);
-                if (cameraFollow != null)
-                    cameraFollow.isInteraction = false;                 
+                ContinueGame();
             }
             else
             {
-                Time.timeScale = 0f;
-                settingBoard_obj.SetActive(true);
-                if (cameraFollow != null)
-                    cameraFollow.isInteraction = true;
+                PauseGame();
             }
         }
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+        settingBoard_obj.SetActive(true);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ContinueGame()
@@ -72,6 +75,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void ToTitle()
