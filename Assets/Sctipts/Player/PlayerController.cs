@@ -43,11 +43,10 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private float playerSpeed;
     [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
     [SerializeField] private UIDataManager uiManager;
-    [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
-    
 
+    public CameraFollow cameraFollow;
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
     public GameObject axe_obj;
