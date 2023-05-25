@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6411972314585814813}
   - component: {fileID: 2711413704608050475}
   - component: {fileID: 8546821698513670610}
-  - component: {fileID: 6640784127074916645}
   - component: {fileID: 6746385412852967065}
+  - component: {fileID: 7224978509744919125}
   m_Layer: 0
   m_Name: Rock02
   m_TagString: Untagged
@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,10 +54,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,20 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6640784127074916645
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7971581355606680846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3115697924013626580, guid: 1a555dcad38ea93448b4430b156937de, type: 3}
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!205 &6746385412852967065
 LODGroup:
   m_ObjectHideFlags: 0
@@ -114,3 +104,16 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8546821698513670610}
   m_Enabled: 1
+--- !u!65 &7224978509744919125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971581355606680846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99644345, y: 0.24958822, z: 0.9963165}
+  m_Center: {x: 0, y: 0.0000000037252903, z: 0}
