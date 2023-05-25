@@ -52,13 +52,14 @@ public class Goblin : Enemy
         else if(!isAttack)
         {
             isHit = true;
-            anim.SetBool("isMove", false);
+            anim.SetTrigger("getDamageExit");
             anim.SetTrigger("getDamage");
         }
     }
 
     public void GoblinHitAnimExit()
     {
+        anim.SetTrigger("getDamageExit");
         isHit = false;
     }
 

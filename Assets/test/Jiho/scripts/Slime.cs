@@ -50,6 +50,7 @@ public class Slime : Enemy
         else if (!isHit && !isAttack)
         {
             isHit = true;
+            anim.SetTrigger("getDamageExit");
             anim.SetBool("isMove", false);
             anim.SetTrigger("getDamage");
         }
@@ -58,6 +59,7 @@ public class Slime : Enemy
     public void SlimeHitAnimExit()
     {
         isHit = false;
+        anim.SetTrigger("getDamageExit");
     }
 
     protected override void EnemyRePos()

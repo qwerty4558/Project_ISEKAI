@@ -16,11 +16,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float attackRange;
     [SerializeField] protected float respawnRange;
     [SerializeField] protected string enemyName;
-    protected bool isMove;
-    protected bool isRePosition;
-    protected bool isAttack;
-    protected bool isAttackDelay;
-    protected bool isHit;
+    [SerializeField] protected bool isMove;
+    [SerializeField] protected bool isRePosition;
+    [SerializeField] protected bool isAttack;
+    [SerializeField] protected bool isAttackDelay;
+    [SerializeField] protected bool isHit;
 
     [HideInInspector]
     public string outputName;
@@ -104,7 +104,6 @@ public class Enemy : MonoBehaviour
         else if (!isRePosition && isAttack && !isAttackDelay)
         {
             isMove = false;
-            isAttack = false;
             isAttackDelay = true;
             StartCoroutine(EnemyAttackAnimation());
         }
@@ -146,6 +145,12 @@ public class Enemy : MonoBehaviour
     {
         if (Vector3.Distance(target, transform.position) < distance) return true;
         else return false;
+    }
+
+    public void AttackAnimExit()
+    {
+        isAttack = false;
+
     }
 
     protected virtual void EnemyDead()
