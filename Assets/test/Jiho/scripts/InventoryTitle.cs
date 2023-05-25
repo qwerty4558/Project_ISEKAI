@@ -28,13 +28,19 @@ public class InventoryTitle : SerializedMonoBehaviour
 
     private void Awake()
     {       
-        instance = this;
-        itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
-        alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
-
-        InitializeMaps();
-        InitInventory();
-        DontDestroyOnLoad(this.gameObject);
+        if(instance == null)
+        {
+            instance = this;
+            itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
+            alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
+            DontDestroyOnLoad(this.gameObject);
+            InitializeMaps();
+            InitInventory();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void InitializeMaps(bool resetLists = true)
