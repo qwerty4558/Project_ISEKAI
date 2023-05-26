@@ -80,7 +80,7 @@ public class QuestTitle : SerializedMonoBehaviour
         currentQuest = null;
         questUI.SetActiveQuest(6, false);
         StartCoroutine(QuestClearAni());
-        Debug.Log("����Ʈ �Ϸ�");
+        Debug.Log("퀘스트 체크");
     }
 
     private IEnumerator QuestClearAni()
@@ -135,7 +135,7 @@ public class QuestTitle : SerializedMonoBehaviour
                         continue;
                     }
                     currentQuest.questInfoDatas[i].isClear = true;
-                    Debug.Log("������ ����Ʈ Ȯ��");
+                    Debug.Log("퀘스트 완료");
                     if (currentQuest.questInfoDatas[i].action != null)
                         currentQuest.questInfoDatas[i].action.Invoke();
                 }
@@ -172,7 +172,7 @@ public class QuestTitle : SerializedMonoBehaviour
                         continue; 
                     }
                     currentQuest.questInfoDatas[i].isClear = true;
-                    Debug.Log("������ ����Ʈ Ȯ��");
+                    Debug.Log("퀘스트 완료");
                     if (currentQuest.questInfoDatas[i].action != null)
                         currentQuest.questInfoDatas[i].action.Invoke();
                 }
@@ -208,7 +208,7 @@ public class QuestTitle : SerializedMonoBehaviour
                     continue;
                 }
                 currentQuest.questInfoDatas[i].isClear = true;
-                Debug.Log("��ȭ ����Ʈ Ȯ��");
+                Debug.Log("퀘스트 체크");
                 if (currentQuest.questInfoDatas[i].action != null)
                     currentQuest.questInfoDatas[i].action.Invoke();
                 QuestClearCheck();

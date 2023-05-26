@@ -703,6 +703,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1840174923, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
+      propertyPath: m_Damping
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840174923, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
+      propertyPath: m_DampingWhenOccluded
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 38284248209321902, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -729,11 +737,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.15730868
+      value: -0.15730865
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.02308801
+      value: 0.023088004
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109722611601, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_FollowOffset.y
@@ -761,11 +769,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.1580435
+      value: -0.15804353
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.01735854
+      value: 0.017358541
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110122446389, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_XAxis.m_MaxSpeed
@@ -870,6 +878,10 @@ PrefabInstance:
     - target: {fileID: 6926497817204468855, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270784994059765552, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7733821567939770061, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_Name
@@ -4530,6 +4542,10 @@ PrefabInstance:
       propertyPath: maxHp
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6872324692916367344, guid: 227d59a008dcf0c47b71a603e54d373f, type: 3}
+      propertyPath: bossAnimator
+      value: 
+      objectReference: {fileID: 1686724919}
     - target: {fileID: 6872324693078124036, guid: 227d59a008dcf0c47b71a603e54d373f, type: 3}
       propertyPath: m_Name
       value: Enemy_Boss
@@ -4580,6 +4596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 227d59a008dcf0c47b71a603e54d373f, type: 3}
+--- !u!95 &1686724919 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1023991998531637942, guid: 227d59a008dcf0c47b71a603e54d373f, type: 3}
+  m_PrefabInstance: {fileID: 1686724918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1715248797
 PrefabInstance:
   m_ObjectHideFlags: 0
