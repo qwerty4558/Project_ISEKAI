@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class Boss : MonoBehaviour
 {
@@ -17,21 +18,23 @@ public class Boss : MonoBehaviour
     [SerializeField] private bool isMove;
     [SerializeField] private bool isAttack;
     [SerializeField] private bool isHit;
-    [SerializeField] private bool isAction;
     [SerializeField] private bool isBossStart;
+
     [SerializeField] private ItemObject dropItem;
     [SerializeField] private DOTweenAnimation bossDotween;
     [SerializeField] private Image hpBar;
+    [SerializeField] private EnemyAttackCol bossAttackCol;
+    [SerializeField] private GameObject hitEffect_obj;
+
     private Outline outline;
     private PlayerController player;
-
+    
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
         bossAnimator = GetComponent<Animator>();
         outline = GetComponent<Outline>();
         currentHp = maxHp;
-        BossStart();
     }
 
     private void Update()
@@ -76,7 +79,7 @@ public class Boss : MonoBehaviour
     private void Action()
     {
         if(!ToPlayerDistance(5) && !isAttack) BossMove();
-        else if (ToPlayerDistance(5) && attackDelay <= 0) Attack();
+        else if (ToPlayerDistance(5) && attackDelay <= 0 && !isAttack) Attack();
         else Idle();
     }
 
@@ -89,7 +92,7 @@ public class Boss : MonoBehaviour
         transform.position = transform.position + foward.normalized * currentSpeed * Time.deltaTime;
     }
 
-    private void Roar()
+    private void AttackRoar()
     {
         bossAnimator.SetTrigger("isRoar");
     }
@@ -101,6 +104,9 @@ public class Boss : MonoBehaviour
 
     private void Attack()
     {
+        Vector3 foward = player.transform.position - this.transform.position;
+        transform.forward = foward;
+
         isAttack = true;
         attackDelay = 5;
         
@@ -108,8 +114,8 @@ public class Boss : MonoBehaviour
 
         if (ToPlayerDistance(3))
         {
-            int rand = Random.Range(0, 5);
-            if (rand < 1) Roar();
+            int rand = Random.Range(0, 3);
+            if (rand < 1) AttackRoar();
             else KickAttack();
         }
         else
@@ -145,6 +151,13 @@ public class Boss : MonoBehaviour
         bossAnimator.SetTrigger("isDead");
     }
 
+    private void EffectActive(Transform hitPoint)
+    {
+        hitEffect_obj.SetActive(false);
+        hitEffect_obj.transform.position = hitPoint.position;
+        hitEffect_obj.SetActive(true);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("AttackCol"))
@@ -153,14 +166,34 @@ public class Boss : MonoBehaviour
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             GetDamage(tempDamage);
+            EffectActive(other.transform);
         }
     }
+
 
     public void GetDamage(float _damage)
     {
         currentHp -= _damage;
         OutlineActive();
         Hit();
+    }
+
+    public void Roar()
+    {
+        Vector3 foward = player.transform.position - this.transform.position;
+        StartCoroutine(RoarCor(foward));
+    }
+
+    private IEnumerator RoarCor(Vector3 foward)
+    {
+        float count = 0;
+        while(count < 0.3f)
+        {
+            count += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+            player.transform.position += foward.normalized * 20 * Time.deltaTime;
+        }
+
     }
 
     public void HitAnimExit()
@@ -187,5 +220,11 @@ public class Boss : MonoBehaviour
     {
         bossDotween.DORestartById("start");
         isBossStart = true;
+    }
+
+    public void AttackCol(float _damage)
+    {
+        bossAttackCol.Damage = _damage;
+        bossAttackCol.gameObject.SetActive(true);
     }
 }
