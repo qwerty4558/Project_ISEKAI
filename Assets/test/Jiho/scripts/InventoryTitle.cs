@@ -33,13 +33,17 @@ public class InventoryTitle : SerializedMonoBehaviour
             instance = this;
             itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
             alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
-            DontDestroyOnLoad(this.gameObject);
+            
             InitializeMaps();
             InitInventory();
         }
         else
         {
             Destroy(gameObject);
+        }
+        if(instance != null)
+        {
+            DontDestroyOnLoad(gameObject);
         }
     }
 
