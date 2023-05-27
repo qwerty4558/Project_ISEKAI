@@ -7,15 +7,17 @@ using UnityEngine.UI;
 public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
     [Header("Scene °ü·Ã ¿Àµð¿À")]
-    /*public AudioClip titleAudio;
+    [Header("ÄÆ¾À")]
+    public AudioClip[] CutScene;
+   /* public AudioClip titleAudio;
     public AudioClip mainSceneSound;
     public AudioClip shopSceneSound;
-    public AudioClip forest_1_SceneSound;    
+    public AudioClip forest_1_SceneSound;
     public AudioClip forest_2_SceneSound;
     public AudioClip forest_EmbientSound;
     public AudioClip mineSceneSound;
-    public AudioClip bossSceneSound;*/
-    //public AudioClip cutScenesound;
+    public AudioClip bossSceneSound;
+    public AudioClip cutScenesound;*/
     public AudioSource nowScene;
 
 

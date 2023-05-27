@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 677326768}
   - component: {fileID: 677326767}
   - component: {fileID: 677326766}
+  - component: {fileID: 359403957}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677326764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -861.7, y: -493.52, z: 95.04}
-  m_LocalScale: {x: 21.976866, y: 1, z: 22.454958}
+  m_LocalPosition: {x: -912.13, y: -537.48, z: -18.5}
+  m_LocalScale: {x: 3.4511924, y: 4.1811166, z: 4.313553}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5915872918936332676}
@@ -67,7 +68,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -86,7 +87,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5105138639136750346}
+        m_TargetAssemblyTypeName: QuestTitle, Assembly-CSharp
+        m_MethodName: QuestInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CH602
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!23 &359403957
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677326764}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 239378781582670930, guid: 4096c7b74695b9b4496b0f32ad200009, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &884253703
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +641,7 @@ GameObject:
   - component: {fileID: 8846492695663236774}
   m_Layer: 5
   m_Name: Quest_Title
-  m_TagString: QuestUI
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2069,7 +2124,6 @@ RectTransform:
   - {fileID: 5075655082577477013}
   - {fileID: 677326765}
   - {fileID: 884253706}
-  - {fileID: 9151826099105884998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2189,9 +2243,16 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 11400000, guid: a95ce48555edaf443a6691d3ed68891f, type: 2}
     - {fileID: 0}
-    - {fileID: 9151826099105885003}
-    - {fileID: 0}
     - {fileID: 11400000, guid: 0cc291076b4520d4fad31c1422f92508, type: 2}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 4cfb35ccfbb0616468036b95c2d95a72, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     SerializedBytesString: 
@@ -2212,7 +2273,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 15
+      Data: 18
     - Name: 
       Entry: 7
       Data: 
@@ -3375,7 +3436,7 @@ MonoBehaviour:
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 82|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
@@ -3422,51 +3483,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 84|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 6
-      Data: 
-    - Name: m_TargetAssemblyTypeName
-      Entry: 6
-      Data: 
-    - Name: m_MethodName
-      Entry: 6
-      Data: 
-    - Name: m_Mode
-      Entry: 3
-      Data: 0
-    - Name: m_Arguments
-      Entry: 7
-      Data: 85|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 6
-      Data: 
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 6
-      Data: 
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 6
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -3492,16 +3508,16 @@ MonoBehaviour:
       Data: CH102
     - Name: $v
       Entry: 7
-      Data: 86|QuestInfo, Assembly-CSharp
+      Data: 84|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 87|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 85|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 88|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 86|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 0
@@ -3531,13 +3547,13 @@ MonoBehaviour:
       Data: CH10201
     - Name: action
       Entry: 7
-      Data: 89|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 87|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 90|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 88|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 91|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 89|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -3565,20 +3581,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 92|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 90|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 93|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 91|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 94|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 92|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 95|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 93|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -3593,7 +3609,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 96|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 94|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 15
@@ -3647,16 +3663,16 @@ MonoBehaviour:
       Data: CH30201
     - Name: $v
       Entry: 7
-      Data: 97|QuestInfo, Assembly-CSharp
+      Data: 95|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 98|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 96|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 99|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 97|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 1
@@ -3686,13 +3702,13 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 100|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 98|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 101|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 99|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 102|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 100|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -3720,20 +3736,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 103|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 101|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 104|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 102|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 105|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 103|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 106|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 104|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -3748,7 +3764,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 107|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 105|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 16
@@ -3778,7 +3794,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 108|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 106|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -3793,7 +3809,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 109|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 107|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 17
@@ -3847,16 +3863,16 @@ MonoBehaviour:
       Data: CH_01
     - Name: $v
       Entry: 7
-      Data: 110|QuestInfo, Assembly-CSharp
+      Data: 108|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 111|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 109|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 112|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 110|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 1
@@ -3886,20 +3902,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 113|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 111|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 114|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 112|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 115|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 113|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 116|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 114|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -3914,7 +3930,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 117|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 115|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 18
@@ -3965,20 +3981,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 118|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 116|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 119|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 117|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 120|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 118|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 121|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 119|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 19
@@ -3993,7 +4009,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 122|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 120|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 20
@@ -4023,7 +4039,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 123|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 121|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -4038,7 +4054,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 124|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 122|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 21
@@ -4092,16 +4108,16 @@ MonoBehaviour:
       Data: CH_02
     - Name: $v
       Entry: 7
-      Data: 125|QuestInfo, Assembly-CSharp
+      Data: 123|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 126|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 124|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 127|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 125|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 1
@@ -4131,13 +4147,13 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 128|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 126|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 129|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 127|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 130|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 128|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -4165,20 +4181,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 131|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 129|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 132|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 130|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 133|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 131|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 134|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 132|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 19
@@ -4193,7 +4209,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 135|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 133|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 22
@@ -4223,7 +4239,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 136|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 134|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -4238,7 +4254,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 137|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 135|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 23
@@ -4292,16 +4308,16 @@ MonoBehaviour:
       Data: CH_03
     - Name: $v
       Entry: 7
-      Data: 138|QuestInfo, Assembly-CSharp
+      Data: 136|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 139|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 137|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 140|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 138|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 1
@@ -4331,20 +4347,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 141|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 139|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 142|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 140|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 143|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 141|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 144|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 142|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -4359,7 +4375,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 145|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 143|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 24
@@ -4410,20 +4426,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 146|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 144|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 147|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 145|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 148|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 146|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 149|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 147|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 19
@@ -4438,7 +4454,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 150|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 148|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 25
@@ -4468,7 +4484,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 151|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 149|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -4483,7 +4499,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 152|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 150|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 26
@@ -4537,16 +4553,16 @@ MonoBehaviour:
       Data: CH503
     - Name: $v
       Entry: 7
-      Data: 153|QuestInfo, Assembly-CSharp
+      Data: 151|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 154|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 152|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 155|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 153|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 2
@@ -4576,20 +4592,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 156|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 154|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 157|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 155|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 158|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 156|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 159|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 157|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -4604,7 +4620,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 160|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 158|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 28
@@ -4619,10 +4635,10 @@ MonoBehaviour:
       Data: 0
     - Name: m_StringArgument
       Entry: 1
-      Data: L_shop,OnCH503_Trigger
+      Data: L_shop,ToCH503Trigger
     - Name: m_BoolArgument
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -4655,20 +4671,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 161|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 159|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 162|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 160|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 163|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 161|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 164|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 162|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -4683,7 +4699,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 165|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 163|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 29
@@ -4713,7 +4729,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 166|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 164|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -4728,7 +4744,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 167|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 165|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 30
@@ -4782,16 +4798,16 @@ MonoBehaviour:
       Data: CH601
     - Name: $v
       Entry: 7
-      Data: 168|QuestInfo, Assembly-CSharp
+      Data: 166|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 169|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 167|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 170|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 168|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 0
@@ -4821,13 +4837,13 @@ MonoBehaviour:
       Data: CH60101
     - Name: action
       Entry: 7
-      Data: 171|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 169|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 172|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 170|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 173|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 171|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -4855,20 +4871,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 174|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 172|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 175|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 173|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 176|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 174|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 177|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 175|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -4883,7 +4899,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 178|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 176|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 31
@@ -4937,16 +4953,16 @@ MonoBehaviour:
       Data: CH602
     - Name: $v
       Entry: 7
-      Data: 179|QuestInfo, Assembly-CSharp
+      Data: 177|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 180|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 178|QuestInfo+QuestInfoData[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 181|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 179|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 2
@@ -4976,13 +4992,13 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 182|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 180|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 183|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 181|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 184|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 182|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -5004,7 +5020,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 185|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 183|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 2
@@ -5034,20 +5050,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 186|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 184|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 187|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 185|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 188|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 186|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 189|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 187|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 0
@@ -5062,7 +5078,7 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 190|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 188|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 33
@@ -5091,51 +5107,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 191|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 34
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetActive
-    - Name: m_Mode
-      Entry: 3
-      Data: 6
-    - Name: m_Arguments
-      Entry: 7
-      Data: 192|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 35
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -5152,7 +5123,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 193|QuestInfo+QuestInfoData, Assembly-CSharp
+      Data: 189|QuestInfo+QuestInfoData, Assembly-CSharp
     - Name: questType
       Entry: 3
       Data: 2
@@ -5170,7 +5141,7 @@ MonoBehaviour:
       Data: 
     - Name: item
       Entry: 10
-      Data: 36
+      Data: 34
     - Name: itemCompleteCount
       Entry: 3
       Data: 1
@@ -5182,62 +5153,17 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 194|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 190|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 195|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 191|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 196|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 192|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 197|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 34
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetActive
-    - Name: m_Mode
-      Entry: 3
-      Data: 6
-    - Name: m_Arguments
-      Entry: 7
-      Data: 198|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 37
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
       Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -5261,20 +5187,20 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 199|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 193|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 200|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 194|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 201|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 195|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 202|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 196|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 2
@@ -5289,10 +5215,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 203|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 197|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 38
+      Data: 35
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -5343,13 +5269,116 @@ MonoBehaviour:
       Data: CH701
     - Name: $v
       Entry: 7
-      Data: 204|QuestInfo, Assembly-CSharp
+      Data: 198|QuestInfo, Assembly-CSharp
     - Name: questInfoDatas
       Entry: 7
-      Data: 205|QuestInfo+QuestInfoData[], Assembly-CSharp
+      Data: 199|QuestInfo+QuestInfoData[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 200|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 2
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uC790\uB3D9\uAE09\uC218\uAE30\uB97C \uC81C\uC791\uD558\uC790"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 6
+      Data: 
+    - Name: item
+      Entry: 10
+      Data: 36
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 1
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 201|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 202|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 203|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
+    - Name: 
+      Entry: 7
+      Data: 204|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: SceneBroadcaster, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: AddBroadcast
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 205|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 37
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: L_Main,OnCH702
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 206|QuestInfo+QuestInfoData, Assembly-CSharp
@@ -5360,8 +5389,713 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: description
+      Entry: 1
+      Data: "\uC624\uD06C \uC544\uC800\uC528\uC5D0\uAC8C \uAC00\uC838\uB2E4\uC8FC\uC790"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
       Entry: 6
       Data: 
+    - Name: item
+      Entry: 6
+      Data: 
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 0
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 1
+      Data: CH80102
+    - Name: action
+      Entry: 7
+      Data: 207|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 208|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 209|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 210|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: SceneBroadcaster, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: AddBroadcast
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 211|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 38
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: L_forest,ToCH801
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 212|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 213|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 214|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 215|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: QuestTitle, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: QuestInput
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 216|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 39
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: CH801
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CH801
+    - Name: $v
+      Entry: 7
+      Data: 217|QuestInfo, Assembly-CSharp
+    - Name: questInfoDatas
+      Entry: 7
+      Data: 218|QuestInfo+QuestInfoData[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 219|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 0
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uC218\uC778 \uC544\uC800\uC528\uC758 \uBD80\uD0C1\uC744 \uB4E4\uC5B4\uC8FC\uC790"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 6
+      Data: 
+    - Name: item
+      Entry: 6
+      Data: 
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 0
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 1
+      Data: CH90101
+    - Name: action
+      Entry: 7
+      Data: 220|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 221|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 222|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 223|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: SceneBroadcaster, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: AddBroadcast
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 224|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 40
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: L_forest,ToCH901
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 225|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: SceneBroadcaster, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: AddBroadcast
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 226|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 41
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: L_forest,ForestCH901
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 227|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 228|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 229|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 230|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: QuestTitle, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: QuestInput
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 231|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 42
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: CH901
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CH901
+    - Name: $v
+      Entry: 7
+      Data: 232|QuestInfo, Assembly-CSharp
+    - Name: questInfoDatas
+      Entry: 7
+      Data: 233|QuestInfo+QuestInfoData[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 234|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 2
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uC5D8\uD504 \uC5B8\uB2C8\uC758 \uBD80\uC801\uC744 \uCC3E\uC790/\uC2AC\uB77C\uC784
+        \uCC98\uCE58"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 6
+      Data: 
+    - Name: item
+      Entry: 10
+      Data: 34
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 10
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 235|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 236|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 237|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 238|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 0
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: SceneBroadcaster, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: AddBroadcast
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 239|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 43
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: L_forest,ToCH1001
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 240|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 0
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uBD80\uC801\uC744 \uC5D8\uD504 \uC5B8\uB2C8\uC5D0\uAC8C \uAC00\uC838\uB2E4
+        \uC8FC\uC790"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 6
+      Data: 
+    - Name: item
+      Entry: 6
+      Data: 
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 0
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 1
+      Data: CH100102
+    - Name: action
+      Entry: 7
+      Data: 241|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 242|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 243|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 244|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 245|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 246|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 247|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: QuestTitle, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: QuestInput
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 248|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 44
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: DH1001
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: DH1001
+    - Name: $v
+      Entry: 7
+      Data: 249|QuestInfo, Assembly-CSharp
+    - Name: questInfoDatas
+      Entry: 7
+      Data: 250|QuestInfo+QuestInfoData[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 251|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 2
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uBBFC\uCCA9\uC601\uC57D\uC744 \uB9CC\uB4E4\uC790"
     - Name: isClear
       Entry: 5
       Data: false
@@ -5382,13 +6116,72 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 207|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 252|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 208|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 253|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 209|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 254|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 255|QuestInfo+QuestInfoData, Assembly-CSharp
+    - Name: questType
+      Entry: 3
+      Data: 0
+    - Name: title
+      Entry: 6
+      Data: 
+    - Name: description
+      Entry: 1
+      Data: "\uC218\uC778 \uC544\uC800\uC528\uC5D0\uAC8C \uBBFC\uCCA9\uC601\uC57D\uC744
+        \uAC00\uC838\uB2E4 \uC8FC\uC790"
+    - Name: isClear
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 6
+      Data: 
+    - Name: item
+      Entry: 6
+      Data: 
+    - Name: itemCompleteCount
+      Entry: 3
+      Data: 0
+    - Name: itemCurrentCount
+      Entry: 3
+      Data: 0
+    - Name: chatKey
+      Entry: 1
+      Data: CH110101
+    - Name: action
+      Entry: 7
+      Data: 256|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 257|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 258|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
@@ -5416,17 +6209,62 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 210|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 259|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 211|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 260|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 212|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 261|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 262|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: QuestTitle, Assembly-CSharp
+    - Name: m_MethodName
+      Entry: 1
+      Data: QuestInput
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 263|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 45
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
       Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: DH1101
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -5677,90 +6515,3 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 0.495283, a: 1}
   m_EffectDistance: {x: 15, y: 10}
   m_UseGraphicAlpha: 1
---- !u!1001 &1608076729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5915872918936332676}
-    m_Modifications:
-    - target: {fileID: 9151826098454243058, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_Name
-      value: ItemGameObject (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243058, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243070, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: itemData
-      value: 
-      objectReference: {fileID: 11400000, guid: 0cc291076b4520d4fad31c1422f92508, type: 2}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -915.785
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -536.378
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.730291
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
---- !u!4 &9151826099105884998 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9151826098454243071, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-  m_PrefabInstance: {fileID: 1608076729}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9151826099105885003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9151826098454243058, guid: 85628010e2f8a5e46b03dec4c6bfccb7, type: 3}
-  m_PrefabInstance: {fileID: 1608076729}
-  m_PrefabAsset: {fileID: 0}
