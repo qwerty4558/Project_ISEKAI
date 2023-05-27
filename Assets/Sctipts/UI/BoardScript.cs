@@ -14,7 +14,7 @@ public class BoardScript : MonoBehaviour
 
     void Start()
     {
-        Combination_Item combinationItem = ItemManager.GetComponent<Combination_Item>();
+        
 
         //combinationItem.PrintResultItemInfo();
         /* combinationItem.PrintRandomResultItemInfo(); */

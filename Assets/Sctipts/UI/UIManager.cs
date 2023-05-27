@@ -10,6 +10,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
+    [SerializeField] private GameObject diary_obj;
 
     private void Start()
     {
@@ -19,13 +20,14 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         settingBoard_obj.SetActive(false);
         option_obj.SetActive(false);
+        diary_obj.SetActive(false);
     }
 
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoeaded;  
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoeaded;
     }
@@ -38,12 +40,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         settingBoard_obj.SetActive(false);
         option_obj.SetActive(false);
+        diary_obj?.SetActive(false);
     }
 
     private void Update()
     {
-        //SetActivedUI();
-        //CheckScene(SceneManager.GetActiveScene());
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -56,6 +57,26 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 PauseGame();
             }
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (diary_obj.activeSelf)
+            {
+                ContinueGame();
+            }
+            else
+            {
+                ViewDiary();
+            }
+        }
+    }
+
+    private void ViewDiary()
+    {
+        diary_obj.SetActive(true);
+        if (cameraFollow != null)
+            cameraFollow.isInteraction = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void PauseGame()
@@ -73,6 +94,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
+        diary_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
         Cursor.lockState = CursorLockMode.Locked;
