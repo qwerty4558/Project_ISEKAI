@@ -1512,6 +1512,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192411717}
   m_CullTransparentMesh: 1
+--- !u!1 &206256902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206256904}
+  - component: {fileID: 206256903}
+  m_Layer: 0
+  m_Name: ItemInrtialized
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &206256903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206256902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c416a1acdee3b549aab95e26d92e846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  all_Items:
+  - {fileID: 11400000, guid: de802812161bba842a46e1c55dde5c82, type: 2}
+  - {fileID: 11400000, guid: 29240acf4cc9fe04686b32fadd971d04, type: 2}
+  - {fileID: 11400000, guid: 5991cd12eeaba4f43a5f7fdd9c32a8c4, type: 2}
+  - {fileID: 11400000, guid: ed94da9bbc67ce546b08c26792d250a0, type: 2}
+  - {fileID: 11400000, guid: 148de2ac0d430b940b23092f8f471131, type: 2}
+  - {fileID: 11400000, guid: a95ce48555edaf443a6691d3ed68891f, type: 2}
+  - {fileID: 11400000, guid: 74f9d2fa8ed47dd458b17568eeabb1d8, type: 2}
+  - {fileID: 11400000, guid: 96242b2e9b7b0f046964cbe0335eb4e4, type: 2}
+  - {fileID: 11400000, guid: 0cc291076b4520d4fad31c1422f92508, type: 2}
+  - {fileID: 11400000, guid: 0a6d6401e05743e4ebea5fa7ba9278a4, type: 2}
+  - {fileID: 11400000, guid: 073e49065ce2e404ea75f87c7a865fa0, type: 2}
+  - {fileID: 11400000, guid: 1cc27513f2df25548b48739b483c27e3, type: 2}
+  - {fileID: 11400000, guid: 7d9399e7523627f4b8cffbdab0ca7363, type: 2}
+  - {fileID: 11400000, guid: 5988adf137459fa40909f755c15384ab, type: 2}
+  - {fileID: 11400000, guid: 7ed55f9c9173ad3419d0227c2ab1e2d8, type: 2}
+  - {fileID: 11400000, guid: d9f9aa6c6c9982e41b0eb33561a95613, type: 2}
+  - {fileID: 11400000, guid: 104fb102f69fa2b49977bbfd5a6b2e50, type: 2}
+  - {fileID: 11400000, guid: f21136df4799a94489f890749a5360e0, type: 2}
+  - {fileID: 11400000, guid: 555d6b20096eb06448e1d92e743166a7, type: 2}
+  - {fileID: 11400000, guid: 9e25b5b291244a544b92774e2684188c, type: 2}
+  - {fileID: 11400000, guid: 2c571bc0f61f6e9468857aa65bf78d4f, type: 2}
+  - {fileID: 11400000, guid: 4cfb35ccfbb0616468036b95c2d95a72, type: 2}
+--- !u!4 &206256904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206256902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246315783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10955,10 +11022,26 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 4831245362157692223, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+    - target: {fileID: 8065085824807141910, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8065085824807141910, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8424861286089901907, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 8424861286089901907, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+    - target: {fileID: 8747348814669574256, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8747348814669574256, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523f13121f5f10145b4da33f9371fbce, type: 3}
 --- !u!1 &1428724058

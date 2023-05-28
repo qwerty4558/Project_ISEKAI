@@ -40,7 +40,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         settingBoard_obj.SetActive(false);
         option_obj.SetActive(false);
-        diary_obj?.SetActive(false);
+        diary_obj.SetActive(false);
     }
 
     private void Update()
