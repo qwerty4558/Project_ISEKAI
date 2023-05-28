@@ -45,8 +45,18 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     private void Update()
     {
+        GetKeys();
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (settingBoard_obj.activeSelf || option_obj.activeSelf || diary_obj.activeSelf || InventoryTitle.instance.Inventory.activeSelf)
+        {
+            CursorManage.instance.ShowdMouse();
+        }
+        else CursorManage.instance.HideMouse();
+    }
+
+    private void GetKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingBoard_obj.activeSelf)
             {
@@ -75,8 +85,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.SetActive(true);
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     private void PauseGame()
@@ -85,8 +93,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         settingBoard_obj.SetActive(true);
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
     public void ContinueGame()
@@ -97,19 +103,17 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        CursorManage.instance.HideMouse();
     }
 
     public void ToTitle()
     {
-        SceneLoaderExcess sceneLoad = new SceneLoaderExcess();
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
-        sceneLoad.LoadNewScene("Title");
+        LoadingSceneController.Instance.LoadScene("Title");
     }
 
     public void OptionActive()
