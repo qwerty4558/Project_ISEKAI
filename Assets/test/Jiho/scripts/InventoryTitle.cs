@@ -67,8 +67,9 @@ public class InventoryTitle : SerializedMonoBehaviour
 
             if (item.appraiseCount != 0)
                 alchemyItemMap.Add(item.name, item);
-#endif
+
         }
+#endif
     }
 
     private void InitInventory()
