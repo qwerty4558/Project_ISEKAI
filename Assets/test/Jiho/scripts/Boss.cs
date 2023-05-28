@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using static ToonyColorsPro.ShaderGenerator.Enums;
+//using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class Boss : MonoBehaviour
 {

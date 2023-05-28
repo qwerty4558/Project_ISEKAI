@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -54,20 +54,22 @@ public class InventoryTitle : SerializedMonoBehaviour
             itemMap = new Dictionary<string, Ingredient_Item>();
             alchemyItemMap = new Dictionary<string, Ingredient_Item>();
         }
-
-        string[] ingredient_item_guids = AssetDatabase.FindAssets("t:" + typeof(Ingredient_Item));
+#if UNITY_EDITOR 
+        string[] ingredient_item_guids = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(Ingredient_Item));
 
         foreach (string guid in ingredient_item_guids)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            Ingredient_Item item = AssetDatabase.LoadAssetAtPath<Ingredient_Item>(path);
+            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
+            Ingredient_Item item = UnityEditor.AssetDatabase.LoadAssetAtPath<Ingredient_Item>(path);
 
             if (item.count != 0)
                 itemMap.Add(item.name, item);
 
             if (item.appraiseCount != 0)
                 alchemyItemMap.Add(item.name, item);
+
         }
+#endif
     }
 
     private void InitInventory()
