@@ -229,7 +229,18 @@ public class QuestTitle : SerializedMonoBehaviour
         //    }
     }
 
-
+    public void ResetQuestCheck()
+    {
+        Debug.Log("퀘스트 초기화");
+        foreach(KeyValuePair<string, QuestInfo> pair in questMap)
+        {
+            for(int i = 0; i < pair.Value.questInfoDatas.Length; i++)
+            {
+                pair.Value.questInfoDatas[i].isClear = false ;
+            }
+        }
+        
+    }
         //public void InputQuest(QuestInfo quest)
         //{
         //    if (quest.isProgress) return;

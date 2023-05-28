@@ -26,6 +26,7 @@ public class InventoryTitle : SerializedMonoBehaviour
     [ReadOnly]
     public Dictionary<string, Ingredient_Item> alchemyItemMap;
 
+    public GameObject Inventory { get => inventoryObj; }
     private void Awake()
     {       
         if(instance == null)

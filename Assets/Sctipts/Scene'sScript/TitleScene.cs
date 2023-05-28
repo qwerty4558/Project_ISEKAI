@@ -11,7 +11,7 @@ public class TitleScene : MonoBehaviour
     {
        if(uiCanvas == null) uiCanvas = FindObjectOfType<UIManager>();
        option_Window.SetActive(false);
-       uiCanvas.gameObject.SetActive(false);
+        uiCanvas.gameObject.SetActive(false);
     }
     private void OnEnable()
     {
@@ -28,6 +28,7 @@ public class TitleScene : MonoBehaviour
         {
             uiCanvas = FindObjectOfType<UIManager>();
             uiCanvas.gameObject.SetActive(false);
+            QuestTitle.instance.ResetQuestCheck();
         }
     }
 
