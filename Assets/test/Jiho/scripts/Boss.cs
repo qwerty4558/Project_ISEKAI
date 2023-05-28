@@ -108,7 +108,7 @@ public class Boss : MonoBehaviour
         transform.forward = foward;
 
         isAttack = true;
-        attackDelay = 5;
+        attackDelay = 3;
         
         bossAnimator.SetBool("isMove", false);
 
