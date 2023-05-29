@@ -16,24 +16,24 @@ public class UI_Tools : MonoBehaviour
 
         if (index - 1 >= 0 && actions.Length > 1)
         {
-            image_L.enabled = true;
+            image_L.gameObject.SetActive(true);
             if (actions[index-1].itemSprite != null)
                 image_L.sprite = actions[index- 1].itemSprite;
         }
         else
         {
-            image_L.enabled = false;
+            image_L.gameObject.SetActive(false);
         }
 
         if (index + 1 < actions.Length)
         {
-            image_R.enabled = true;
+            image_R.gameObject.SetActive(true);
             if (actions[index + 1].itemSprite != null)
                 image_R.sprite = actions[index + 1].itemSprite;
         }
         else
         {
-            image_R.enabled = false;
+            image_R.gameObject.SetActive(false);
         }
 
         image_C.sprite = actions[index].itemSprite;
