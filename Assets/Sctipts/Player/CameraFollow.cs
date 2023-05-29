@@ -23,6 +23,7 @@ public class CameraFollow : MonoBehaviour
         else
         {
             camFollow.enabled = false;
+            CursorManage.instance.HideMouse();
         }
         
     }
