@@ -12,7 +12,8 @@ public class Flower : Enemy
 
     protected override void Update()
     {
-        base.Update();
+        if (currentHp > 0)
+            TargetCheck();
     }
 
     protected override void OnEnable()
@@ -28,17 +29,32 @@ public class Flower : Enemy
 
     protected override void GetDamage(float damage)
     {
-        base.GetDamage(damage);
+        currentHp -= damage;
+        player.OtherCheck(this);
+        player.TargetOutline(this.outline);
+
+        if (currentHp <= 0)
+        {
+            player.IsTarget = false;
+            EnemyDead();
+        }
     }
 
     protected override void EnemyDead()
     {
-        base.EnemyDead();
+        for (int i = 0; i < items.Length; i++)
+        {
+            GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, this.transform.position.y + 2f, this.transform.position.z), Quaternion.identity);
+
+            temp.SetActive(true);
+        }
+        EnemySpawner.instance.GetEnemyData(enemyName, false);
+        this.gameObject.SetActive(false);
     }
 
     protected override void EnemyRePos()
     {
-        if (currentHp < maxHp && !TargetDistance(targetPos.position, 10f))
+        if (currentHp < maxHp && !ToPlayerDistance(playerCheckRange))
         {
             currentHp = maxHp;
         }

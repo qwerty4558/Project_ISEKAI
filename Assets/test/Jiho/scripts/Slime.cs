@@ -12,7 +12,20 @@ public class Slime : Enemy
 
     protected override void Update()
     {
-        base.Update();
+        if (currentHp > 0)
+            TargetCheck();
+
+        if (!isHit) Action();
+    }
+
+    protected override void Action()
+    {
+        anim.SetBool("isMove", false);
+    }
+
+    protected override void Idle()
+    {
+        base.Idle();
     }
 
     protected override void OnEnable()
@@ -24,47 +37,11 @@ public class Slime : Enemy
     {
         transform.position = spawnPos;
         currentHp = maxHp;
-        isAttack = false;
-        isAttackDelay = false;
-        isRePosition = false;
-        isMove = true;
-        anim.SetBool("isMove", false);
-    }
-
-    protected override void EnemyMove()
-    {
-        base.EnemyMove();
     }
 
     protected override void GetDamage(float damage)
     {
-        currentHp -= damage;
-        player.OtherCheck(this);
-        player.TargetOutline(this.outline);
-
-        if (currentHp <= 0)
-        {
-            player.IsTarget = false;
-            anim.SetTrigger("Dead");
-        }
-        else if (!isHit && !isAttack)
-        {
-            isHit = true;
-            anim.SetTrigger("getDamageExit");
-            anim.SetBool("isMove", false);
-            anim.SetTrigger("getDamage");
-        }
-    }
-
-    public void SlimeHitAnimExit()
-    {
-        isHit = false;
-        anim.SetTrigger("getDamageExit");
-    }
-
-    protected override void EnemyRePos()
-    {
-        base.EnemyRePos();
+        base.GetDamage(damage);
     }
 
     protected override void EnemyDead()
