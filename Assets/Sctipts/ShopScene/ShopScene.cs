@@ -39,23 +39,7 @@ public class ShopScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_craftPuzzle != null && _discrimination != null)
-        {
-            if(_craftPuzzle.activeSelf == true || _discrimination.activeSelf == true)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                _inGameUI.SetActive(false);
-                _questUI.SetActive(false);
-            }
-            else
-            {
-                Cursor.lockState= CursorLockMode.Locked;
-                Cursor.visible = false;
-                _inGameUI.SetActive(true);
-                _questUI.SetActive(true);
-            }
-        }
+
         
     }
 }

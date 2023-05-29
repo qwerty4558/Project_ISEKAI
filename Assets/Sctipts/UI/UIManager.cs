@@ -51,7 +51,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             CursorManage.instance.ShowdMouse();
         }
-        else CursorManage.instance.HideMouse();
+
     }
 
     private void GetKeys()

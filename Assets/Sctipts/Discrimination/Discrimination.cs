@@ -40,6 +40,12 @@ public class Discrimination : MonoBehaviour
         PlayerController player = FindObjectOfType<PlayerController>();
         if (player != null)
             player.ControlEnabled = true;
+        CursorManage.instance.HideMouse();
+    }
+
+    private void Update()
+    {
+        if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
     }
 
     public void TryDiscrimination(Ingredient_Item ingredient_Item)

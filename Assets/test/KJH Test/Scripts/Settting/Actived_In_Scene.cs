@@ -21,9 +21,12 @@ public class Actived_In_Scene : MonoBehaviour
 
     private void OnSceneLoeaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if (inGameUICanvas == null && questUI == null)
+        if (inGameUICanvas == null)
         {
             inGameUICanvas = GameObject.FindWithTag("InGameUI");
+        }
+        if(questUI == null)
+        {
             questUI = GameObject.FindWithTag("QuestUI");
         }
     }
@@ -31,12 +34,20 @@ public class Actived_In_Scene : MonoBehaviour
     public void SetActiveInGameUI()
     {
         inGameUICanvas.SetActive(true);
-        questUI.SetActive(true);
     }
 
     public void DeActiveInGameUI()
     {
         inGameUICanvas.SetActive(false);
+    }
+
+    public void SetActiveQuestUI()
+    {
+        questUI.SetActive(true);
+    }
+
+    public void DeActiveQuestUI()
+    {
         questUI.SetActive(false);
     }
 }

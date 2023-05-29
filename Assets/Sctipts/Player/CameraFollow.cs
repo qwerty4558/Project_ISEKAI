@@ -19,14 +19,10 @@ public class CameraFollow : MonoBehaviour
         if (!isInteraction)
         {
             camFollow.enabled = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
         else
         {
             camFollow.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
         
     }
