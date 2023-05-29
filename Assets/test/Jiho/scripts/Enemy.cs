@@ -8,18 +8,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float enemySpeed;
-    [SerializeField] protected float reposSpeed;
     [SerializeField] protected float maxHp;
     [SerializeField] protected float currentHp;
     [SerializeField] protected float damage;
     [SerializeField] protected float playerCheckRange;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float respawnRange;
+    [SerializeField] protected float attackDelay;
     [SerializeField] protected string enemyName;
-    [SerializeField] protected bool isMove;
     [SerializeField] protected bool isRePosition;
     [SerializeField] protected bool isAttack;
-    [SerializeField] protected bool isAttackDelay;
     [SerializeField] protected bool isHit;
 
     [HideInInspector]
@@ -46,11 +44,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Awake()
     {
-        playerCheckRange = 7;
-        attackRange = 2;
-        respawnRange = 5;
         currentHp = maxHp;
-        isMove = true;
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
     }
@@ -59,6 +53,61 @@ public class Enemy : MonoBehaviour
     {
         if(currentHp > 0)
             TargetCheck();
+
+        if (!isHit) Action();
+        AttackDelay();
+    }
+
+    protected virtual void Action()
+    {
+        if (!ToSpawnDistance(respawnRange) || isRePosition) EnemyRePos();
+        else if (ToPlayerDistance(attackRange) && !isAttack && !isRePosition && attackDelay <= 0) Attack();
+        else if (ToPlayerDistance(playerCheckRange) && !ToPlayerDistance(attackRange) && !isAttack && !isRePosition && !isHit) EnemyMove();
+        else Idle();
+    }
+
+    protected virtual void AttackDelay()
+    {
+        if (attackDelay > 0) attackDelay -= Time.deltaTime;
+    }
+
+    protected virtual void Attack()
+    {
+        Vector3 foward = player.transform.position - this.transform.position;
+        transform.forward = foward;
+
+        isAttack = true;
+        attackDelay = 3;
+
+        anim.SetBool("isMove", false);
+        anim.SetTrigger("isAttack");
+    }
+
+    protected virtual void EnemyMove()
+    {
+        anim.SetBool("isMove", true);
+        Vector3 foward = player.transform.position - this.transform.position;
+        transform.forward = foward;
+
+        transform.position = transform.position + foward.normalized * enemySpeed * Time.deltaTime;
+
+    }
+
+    protected virtual void Idle()
+    {
+        anim.SetBool("isMove", false);
+    }
+
+    protected virtual bool ToPlayerDistance(float _distance) //매개변수 거리보다 가까우면 true 멀면 false
+    {
+        if (Vector3.Distance(player.transform.position, this.transform.position) > _distance) return false;
+        else return true;
+    }
+
+    protected virtual bool ToSpawnDistance(float _distance)
+    {
+        if (Vector3.Distance(spawnPos, this.transform.position) > _distance) return false;
+        else return true;
     }
 
     protected virtual void TargetCheck()
@@ -87,32 +136,9 @@ public class Enemy : MonoBehaviour
         
     }
 
-    protected virtual void EnemyMove()
-    {
-        targetPos = player.transform;
-        if (TargetDistance(targetPos.position, playerCheckRange) && !isRePosition && !isAttack && isMove && !isHit)
-        {
-            isMove = true;
-            anim.SetBool("isMove", true);
-            Vector3 dir = targetPos.position - transform.position;
-            transform.forward = dir;
-            transform.position = transform.position + dir.normalized * Time.deltaTime * enemySpeed;
-
-            if (TargetDistance(targetPos.position, attackRange)) isAttack = true;
-        }
-        else if (isRePosition) EnemyRePos();
-        else if (!isRePosition && isAttack && !isAttackDelay)
-        {
-            isMove = false;
-            isAttackDelay = true;
-            StartCoroutine(EnemyAttackAnimation());
-        }
-
-        if (!TargetDistance(spawnPos, respawnRange)) isRePosition = true;
-    }
-
     protected virtual void GetDamage(float damage)
     {
+
         currentHp -= damage;
         player.OtherCheck(this);
         player.TargetOutline(this.outline);
@@ -122,38 +148,33 @@ public class Enemy : MonoBehaviour
             player.IsTarget = false;
             EnemyDead();
         }
+        else if(currentHp > 0 && !isAttack)
+        {
+            anim.SetBool("isMove", false);
+            if (isHit) anim.SetTrigger("getDamageExit");
+            isHit = true;
+            anim.SetTrigger("getDamage");
+        }
     }
 
-    protected IEnumerator EnemyAttackAnimation()
-    {
-        //공격 애니메이션
-        anim.SetBool("isMove", false);
-        anim.SetTrigger("isAttack");
-
-        yield return new WaitForSeconds(2f);
-        isMove = true;
-        isAttackDelay = false;
-    }
-
-    protected void AttackColActive()
+    protected virtual void AttackColActive()
     {
         enemyAttackCol.Damage = damage;
         enemyAttackCol.gameObject.SetActive(true);
     }
 
-    protected bool TargetDistance(Vector3 target, float distance)
-    {
-        if (Vector3.Distance(target, transform.position) < distance) return true;
-        else return false;
-    }
-
     public void AttackAnimExit()
     {
         isAttack = false;
-
     }
 
-    protected virtual void EnemyDead()
+    public void GetDamageAnimExit()
+    {
+        anim.SetTrigger("getDamageExit");
+        isHit = false;
+    }
+
+    public void DeadAnimExit()
     {
         for (int i = 0; i < items.Length; i++)
         {
@@ -165,18 +186,20 @@ public class Enemy : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    protected virtual void EnemyDead()
+    {
+        anim.SetTrigger("isDead");
+    }
+
     protected virtual void EnemyRePos()
     {
-        Vector3 dir = spawnPos - transform.position;
-        transform.forward = dir;
-        transform.position = transform.position + dir * Time.deltaTime * reposSpeed;
+        isRePosition = true;
+
+        Vector3 forward = spawnPos - transform.position;
+        transform.forward = forward;
+        transform.position = transform.position + forward.normalized * 3 * Time.deltaTime;
         currentHp = maxHp;
-        if (TargetDistance(spawnPos, 0.5f))
-        {
-            anim.SetBool("isMove", false);
-            isRePosition = false;
-            isMove = true;
-        }
+        if (ToSpawnDistance(0.5f))isRePosition = false;
     }
 
     protected virtual void OnTriggerEnter(Collider other)

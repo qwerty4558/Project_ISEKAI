@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private Animator bossAnimator;
-    [SerializeField] private float damage;
+    [SerializeField] private float normalAttackDamage;
+    [SerializeField] private float kickAttackDamage;
+    [SerializeField] private float roarAttackDamage;
     [SerializeField] private float attackDelay;
     [SerializeField] private float outlineDelay;
     [SerializeField] private float currentSpeed;
@@ -24,6 +26,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private DOTweenAnimation bossDotween;
     [SerializeField] private Image hpBar;
     [SerializeField] private EnemyAttackCol bossAttackCol;
+    [SerializeField] private EnemyAttackCol bossRoarAttackCol;
+    [SerializeField] private EnemyAttackCol bossKickAttackCol;
     [SerializeField] private GameObject hitEffect_obj;
 
     private Outline outline;
@@ -35,6 +39,7 @@ public class Boss : MonoBehaviour
         bossAnimator = GetComponent<Animator>();
         outline = GetComponent<Outline>();
         currentHp = maxHp;
+        BossStart();
     }
 
     private void Update()
@@ -191,7 +196,7 @@ public class Boss : MonoBehaviour
         {
             count += Time.deltaTime;
             yield return new WaitForEndOfFrame();
-            player.transform.position += foward.normalized * 20 * Time.deltaTime;
+            player.transform.position += foward.normalized * 25 * Time.deltaTime;
         }
 
     }
@@ -222,9 +227,20 @@ public class Boss : MonoBehaviour
         isBossStart = true;
     }
 
-    public void AttackCol(float _damage)
+    public void AttackCol()
     {
-        bossAttackCol.Damage = _damage;
+        bossAttackCol.Damage = normalAttackDamage;
         bossAttackCol.gameObject.SetActive(true);
+    }
+
+    public void KickAttackCol()
+    {
+        bossKickAttackCol.Damage = kickAttackDamage;
+        bossKickAttackCol.gameObject.SetActive(true);
+    }
+    public void RoarAttackCol()
+    {
+        bossRoarAttackCol.Damage = roarAttackDamage;
+        bossRoarAttackCol.gameObject.SetActive(true);
     }
 }

@@ -14,7 +14,31 @@ public class Goblin : Enemy
     protected override void Update()
     {
         base.Update();
-        EnemyMove();
+    }
+
+    protected override void Attack()
+    {
+        base.Attack();
+    }
+
+    protected override void Action()
+    {
+        base.Action();
+    }
+
+    protected override void Idle()
+    {
+        base.Idle();
+    }
+
+    protected override void AttackDelay()
+    {
+        base.AttackDelay();
+    }
+
+    protected override void AttackColActive()
+    {
+        base.AttackColActive();
     }
 
     protected override void OnEnable()
@@ -27,9 +51,7 @@ public class Goblin : Enemy
         transform.position = spawnPos;
         currentHp = maxHp;
         isAttack = false;
-        isAttackDelay = false;
         isRePosition = false;
-        isMove = true;
         anim.SetBool("isMove", false);
     }
 
@@ -40,27 +62,7 @@ public class Goblin : Enemy
 
     protected override void GetDamage(float damage)
     {
-        currentHp -= damage;
-        player.OtherCheck(this);
-        player.TargetOutline(this.outline);
-
-        if (currentHp <= 0)
-        {
-            player.IsTarget = false;
-            anim.SetTrigger("isDead");
-        }
-        else if(!isAttack)
-        {
-            isHit = true;
-            anim.SetTrigger("getDamageExit");
-            anim.SetTrigger("getDamage");
-        }
-    }
-
-    public void GoblinHitAnimExit()
-    {
-        anim.SetTrigger("getDamageExit");
-        isHit = false;
+        base.GetDamage(damage);
     }
 
     protected override void EnemyRePos()
