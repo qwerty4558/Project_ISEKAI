@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryTitle : SerializedMonoBehaviour
+public class InventoryTitle : MonoBehaviour
 {
     public static InventoryTitle instance;
 
