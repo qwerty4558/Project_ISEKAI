@@ -34,8 +34,9 @@ public class InventoryTitle : MonoBehaviour
             instance = this;
             itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
             alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
-            
+#if UNITY_EDITOR
             InitializeMaps();
+#endif
             InitInventory();
         }
         else
@@ -47,6 +48,7 @@ public class InventoryTitle : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+#if UNITY_EDITOR
 
     public void InitializeMaps(bool resetLists = true)
     {
@@ -55,7 +57,7 @@ public class InventoryTitle : MonoBehaviour
             itemMap = new Dictionary<string, Ingredient_Item>();
             alchemyItemMap = new Dictionary<string, Ingredient_Item>();
         }
-#if UNITY_EDITOR 
+
         string[] ingredient_item_guids = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(Ingredient_Item));
 
         foreach (string guid in ingredient_item_guids)
@@ -70,9 +72,9 @@ public class InventoryTitle : MonoBehaviour
                 alchemyItemMap.Add(item.name, item);
 
         }
-#endif
-    }
 
+    }
+#endif
     private void InitInventory()
     {
         for(int i = 0; i < slotItems.Length; i++)
