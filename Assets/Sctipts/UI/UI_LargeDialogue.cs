@@ -18,13 +18,16 @@ public class LargeDialogueData
     public Sprite fullImage;
     [FoldoutGroup("Extras")]
     public UnityEvent actions;
+    [FoldoutGroup("Extras")]
+    public bool disableCrossfade;
 }
 
 public class UI_LargeDialogue : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI speecherText;
     [SerializeField] private TextMeshProUGUI contextText;
-    [SerializeField] private Image fullImageUI;
+    [SerializeField] private Image fullImageUI_A;
+    [SerializeField] private Image fullImageUI_B;
     [SerializeField] private GameObject DialogueGroup;
     [SerializeField] private GameObject triangle;
 
@@ -53,12 +56,12 @@ public class UI_LargeDialogue : MonoBehaviour
             speecherText.text = dialogues[i].speecher;
             if (dialogues[i].fullImage != null)
             {
-                fullImageUI.gameObject.SetActive(true);
-                fullImageUI.sprite = dialogues[i].fullImage;
+                SetFullImage(dialogues[i].fullImage, dialogues[i].disableCrossfade);
             }
             else
             {
-                fullImageUI.gameObject.SetActive(false);
+                fullImageUI_A.gameObject.SetActive(false);
+                fullImageUI_B.gameObject.SetActive(false);
             }
 
 
@@ -96,5 +99,41 @@ public class UI_LargeDialogue : MonoBehaviour
 
         DialogueGroup.SetActive(false);
 
+    }
+
+    private bool IsAside = true;
+
+    private void SetFullImage(Sprite image, bool disableCrossfade)
+    {
+        if(IsAside)
+        {
+            fullImageUI_B.gameObject.SetActive(true);
+            fullImageUI_B.sprite = image;
+            fullImageUI_B.transform.SetAsLastSibling();
+            if(!disableCrossfade)
+            {
+                fullImageUI_B.GetComponent<DOTweenAnimation>().DORestart();
+            }
+            else
+            {
+                fullImageUI_B.GetComponent<CanvasGroup>().alpha = 1.0f;
+            }
+            IsAside = false;
+        }
+        else
+        {
+            fullImageUI_A.gameObject.SetActive(true);
+            fullImageUI_A.sprite = image;
+            fullImageUI_A.transform.SetAsLastSibling();
+            if (!disableCrossfade)
+            {
+                fullImageUI_A.GetComponent<DOTweenAnimation>().DORestart();
+            }
+            else
+            {
+                fullImageUI_A.GetComponent<CanvasGroup>().alpha = 1.0f;
+            }
+            IsAside = true;
+        }
     }
 }
