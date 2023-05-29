@@ -203,6 +203,19 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[2] = false;
     }
 
+    void CheckCurrentIndex()
+    {
+        Dictionary<string, Ingredient_Item> _item = InventoryTitle.instance.itemMap;
+
+        foreach(KeyValuePair<string, Ingredient_Item> _pair in _item)
+        {
+            if(_pair.Value.name == "µµ³¢")
+            {
+
+            }
+        }
+    }
+    
     void FixedUpdate()
     {
         if (!cameraFollow.isInteraction && ControlEnabled)
