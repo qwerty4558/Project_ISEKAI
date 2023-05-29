@@ -48,7 +48,10 @@ public class CraftPuzzleCore : MonoBehaviour
         if (DebugMode)
             SetResultItem(test_item);
         else
+        {
             LoadItemFromInventory();
+            SetResultItem(test_item);
+        }
     }
 
     private void OnDisable()
