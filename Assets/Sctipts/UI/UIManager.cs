@@ -51,7 +51,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             CursorManage.instance.ShowdMouse();
         }
-        else CursorManage.instance.HideMouse();
     }
 
     private void GetKeys()
@@ -61,6 +60,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
+
             }
             else
             {
