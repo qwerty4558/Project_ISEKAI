@@ -55,6 +55,9 @@ public class PlayerController : SerializedMonoBehaviour
 
 
     [SerializeField] private List<PlayerAction> playerActions;
+    [SerializeField] private List<PlayerAction> getPlayerActions;
+    [SerializeField] private UI_Tools tool;
+
     private int currentActionIndex = 0;
 
     [SerializeField] private bool isTarget;
@@ -114,7 +117,7 @@ public class PlayerController : SerializedMonoBehaviour
         hitCollider = GetComponent<BoxCollider>();  
         soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
-        UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
+        tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
         if(tool != null)
         tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
         abs = GetComponent<AudioSource>();
@@ -171,6 +174,7 @@ public class PlayerController : SerializedMonoBehaviour
             }
         }
         OtherHpSetActive();
+        tool.SwitchCurrentTool(playerActions.ToArray(), currentActionIndex);
     }
 
     private void OtherHpSetActive()
@@ -222,18 +226,6 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[2] = false;
     }
 
-    void CheckCurrentIndex()
-    {
-        Dictionary<string, Ingredient_Item> _item = InventoryTitle.instance.itemMap;
-
-        foreach(KeyValuePair<string, Ingredient_Item> _pair in _item)
-        {
-            if(_pair.Value.name == "µµ³¢")
-            {
-
-            }
-        }
-    }
     
     void FixedUpdate()
     {
