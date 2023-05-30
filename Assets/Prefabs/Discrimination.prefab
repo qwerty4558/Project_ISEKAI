@@ -2671,6 +2671,7 @@ GameObject:
   - component: {fileID: 8940493344130925660}
   - component: {fileID: 1282859181}
   - component: {fileID: 1282859179}
+  - component: {fileID: 4351191247136430475}
   - component: {fileID: 1282859180}
   m_Layer: 5
   m_Name: Discrimination
@@ -2792,6 +2793,21 @@ MonoBehaviour:
   TargetItemUI: {fileID: 8940493342606341492}
   TargetPatternUI: {fileID: 8940493344536617760}
   itemView: {fileID: 2496738963011856775}
+--- !u!114 &4351191247136430475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940493344130925661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 0
+  onDisableBehaviour: 2
 --- !u!114 &1282859180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,7 +2894,7 @@ MonoBehaviour:
   animationType: 7
   targetType: 2
   forcedTargetType: 0
-  autoPlay: 1
+  autoPlay: 0
   useTargetAsV3: 0
   endValueFloat: 0
   endValueV3: {x: 0, y: 0, z: 0}

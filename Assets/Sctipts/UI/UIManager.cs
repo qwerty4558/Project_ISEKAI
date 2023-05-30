@@ -46,6 +46,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     private void Update()
     {
         GetKeys();
+
+        if (settingBoard_obj.activeSelf || option_obj.activeSelf || diary_obj.activeSelf || InventoryTitle.instance.Inventory.activeSelf)
+        {
+            CursorManage.instance.ShowdMouse();
+        }
     }
 
     private void GetKeys()
@@ -55,6 +60,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
+
             }
             else
             {
@@ -87,7 +93,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         settingBoard_obj.SetActive(true);
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
-        CursorManage.instance.ShowdMouse();
     }
 
     public void ContinueGame()
@@ -114,7 +119,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public void OptionActive()
     {
         option_obj.SetActive(true);
-        CursorManage.instance.ShowdMouse();
     }
 
 
