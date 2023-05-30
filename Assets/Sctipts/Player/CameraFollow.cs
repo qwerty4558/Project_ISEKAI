@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -10,8 +11,25 @@ public class CameraFollow : MonoBehaviour
     public bool isInteraction;
     private void Start()
     {
+        isInteraction = false;
+        CursorManage.instance.HideMouse();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        isInteraction = false;
+        CursorManage.instance.HideMouse();
+    }
 
     private void Update()
     {
