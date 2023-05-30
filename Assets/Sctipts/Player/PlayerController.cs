@@ -139,18 +139,33 @@ public class PlayerController : SerializedMonoBehaviour
             {
                 if (currentActionIndex > 0)
                 {
-                    currentActionIndex--;
-                    ChangeAction(playerActions[currentActionIndex]);
+                    int count = currentActionIndex - 1;
+                    while (count >= 0)
+                    {
+                        if (playerActions[count].CheckStateCondition())
+                        {
+                            currentActionIndex = count;
+                            ChangeAction(playerActions[currentActionIndex]);
+                            break;
+                        }
+                        count--;
+                    }
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                if (currentActionIndex + 1 < playerActions.Count)
+                if (currentActionIndex < playerActions.Count - 1)
                 {
-                    if (playerActions[currentActionIndex + 1].CheckStateCondition())
+                    int count = currentActionIndex + 1;
+                    while (count < playerActions.Count)
                     {
-                        currentActionIndex++;
-                        ChangeAction(playerActions[currentActionIndex]);
+                        if (playerActions[count].CheckStateCondition())
+                        {
+                            currentActionIndex = count;
+                            ChangeAction(playerActions[currentActionIndex]);
+                            break;
+                        }
+                        count++;
                     }
                 }
             }
