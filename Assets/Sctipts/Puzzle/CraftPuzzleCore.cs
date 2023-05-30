@@ -109,7 +109,7 @@ public class CraftPuzzleCore : MonoBehaviour
     public void SetResultItem(Result_Item item)
     {
         if (PuzzleEnabled == false) return;
-        img.sprite = item.outputItem.itemImage;
+
         currentItem = item;
 
         itemPot.SetItemPot(item);
@@ -170,6 +170,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
     public void PuzzleComplete()
     {
+        img.sprite = currentItem.outputItem.itemImage;
         PuzzleEnabled = false;
         potFrame.GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
     }
