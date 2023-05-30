@@ -94,6 +94,7 @@ public class InventoryTitle : MonoBehaviour
                 itemStatus.SetActive(false);
                 if(cameraFollow != null)
                     cameraFollow.isInteraction = false;
+                CursorManage.instance.HideMouse();
             }
             else
             {
@@ -102,6 +103,7 @@ public class InventoryTitle : MonoBehaviour
                 inventoryObj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
+                CursorManage.instance.ShowdMouse();
             }
         }
 
