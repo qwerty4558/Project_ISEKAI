@@ -8,6 +8,7 @@ public class ShopScene : MonoBehaviour
 {
     [SerializeField] GameObject _craftPuzzle;
     [SerializeField] GameObject _discrimination;
+    [SerializeField] GameObject _discrimination_Tuto;
     [SerializeField] GameObject _inGameUI;
     [SerializeField] GameObject _questUI;
     // Start is called before the first frame update
@@ -41,7 +42,7 @@ public class ShopScene : MonoBehaviour
     {
         if(_craftPuzzle != null && _discrimination != null)
         {
-            if(_craftPuzzle.activeSelf == true || _discrimination.activeSelf == true)
+            if(_craftPuzzle.activeSelf == true || _discrimination.activeSelf == true ||_discrimination_Tuto.activeSelf == true)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
