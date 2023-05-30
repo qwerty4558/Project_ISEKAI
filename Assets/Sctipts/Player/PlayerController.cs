@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -138,16 +139,34 @@ public class PlayerController : SerializedMonoBehaviour
             {
                 if (currentActionIndex > 0)
                 {
-                    currentActionIndex--;
-                    ChangeAction(playerActions[currentActionIndex]);
+                    int count = currentActionIndex - 1;
+                    while (count >= 0)
+                    {
+                        if (playerActions[count].CheckStateCondition())
+                        {
+                            currentActionIndex = count;
+                            ChangeAction(playerActions[currentActionIndex]);
+                            break;
+                        }
+                        count--;
+                    }
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                if (currentActionIndex + 1 < playerActions.Count)
+                if (currentActionIndex < playerActions.Count - 1)
                 {
-                    currentActionIndex++;
-                    ChangeAction(playerActions[currentActionIndex]);
+                    int count = currentActionIndex + 1;
+                    while (count < playerActions.Count)
+                    {
+                        if (playerActions[count].CheckStateCondition())
+                        {
+                            currentActionIndex = count;
+                            ChangeAction(playerActions[currentActionIndex]);
+                            break;
+                        }
+                        count++;
+                    }
                 }
             }
         }
@@ -203,6 +222,19 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[2] = false;
     }
 
+    void CheckCurrentIndex()
+    {
+        Dictionary<string, Ingredient_Item> _item = InventoryTitle.instance.itemMap;
+
+        foreach(KeyValuePair<string, Ingredient_Item> _pair in _item)
+        {
+            if(_pair.Value.name == "µµ³¢")
+            {
+
+            }
+        }
+    }
+    
     void FixedUpdate()
     {
         if (!cameraFollow.isInteraction && ControlEnabled)

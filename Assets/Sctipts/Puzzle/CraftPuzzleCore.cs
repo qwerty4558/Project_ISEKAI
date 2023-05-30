@@ -59,12 +59,18 @@ public class CraftPuzzleCore : MonoBehaviour
         PlayerController player = PlayerController.instance;
         if (player != null)
             player.ControlEnabled = true;
+        CursorManage.instance.HideMouse();
     }
 
     private void Start()
     {
         OnPuzzleComplete.AddListener(PuzzleComplete);
         OnPuzzleComplete.AddListener(ProcessToInventory);
+    }
+
+    private void Update()
+    {
+        if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
     }
 
     public void LoadItemFromInventory()
@@ -74,6 +80,7 @@ public class CraftPuzzleCore : MonoBehaviour
             itemView.SetItemWindow(InventoryTitle.instance.AlchemyItemMapReturn());
         }
     }
+
 
     public void ProcessToInventory()
     {
