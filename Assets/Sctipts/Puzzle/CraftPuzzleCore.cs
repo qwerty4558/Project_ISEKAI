@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class CraftPuzzleCore : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CraftPuzzleCore : MonoBehaviour
     [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
     [SerializeField] private PuzzleIngredientItems itemView;
+    [SerializeField] private Image img;
 
     [Title("Debug")]
     [SerializeField] private Result_Item test_item;
@@ -107,7 +109,7 @@ public class CraftPuzzleCore : MonoBehaviour
     public void SetResultItem(Result_Item item)
     {
         if (PuzzleEnabled == false) return;
-
+        img.sprite = item.outputItem.itemImage;
         currentItem = item;
 
         itemPot.SetItemPot(item);
