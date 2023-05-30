@@ -18,6 +18,8 @@ public class PlayerAction
     public Sprite itemSprite;
     public AnimatorOverrideController animOverride;
 
+    public virtual bool CheckStateCondition() { return true; }
+
     virtual public void Action(PlayerController player) { }
     virtual public void OnEnterAction(PlayerController player) { }
 
@@ -72,6 +74,17 @@ public class Action_Sword : PlayerAction
         //player.SoundModule.Play("Action_Sword");
     }
 
+    public override bool CheckStateCondition()
+    {
+        foreach (KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
+        {
+            for (int i = 0; i < _pair.Value.count; ++i)
+            {
+                if (_pair.Value.name == "´ë°Ë") return true;
+            }
+        }
+        return false;
+    }
     public override void OnEnterAction(PlayerController player)
     {
         if (animOverride != null)
@@ -91,6 +104,17 @@ public class Action_Pickaxe : PlayerAction
     {
     }
 
+    public override bool CheckStateCondition()
+    {
+        foreach (KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
+        {
+            for (int i = 0; i < _pair.Value.count; ++i)
+            {
+                if (_pair.Value.name == "°î±ªÀÌ") return true;
+            }
+        }
+        return false;
+    }
 
     public override void Action(PlayerController player)
     {
@@ -110,6 +134,8 @@ public class Action_Pickaxe : PlayerAction
         player.axe_obj.SetActive(false);
         player.sword_obj.SetActive(false);
     }
+
+    
 }
 
 [System.Serializable]
@@ -127,6 +153,18 @@ public class Action_Axe : PlayerAction
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
         player.SoundModule.Play("Action_Axe");
+    }
+
+    public override bool CheckStateCondition()
+    {
+        foreach(KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
+        {
+            for(int i = 0; i < _pair.Value.count; ++i)
+            {
+                if(_pair.Value.name == "µµ³¢") return true;
+            }
+        }
+        return false;
     }
 
     public override void OnEnterAction(PlayerController player)

@@ -8,6 +8,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -146,8 +147,11 @@ public class PlayerController : SerializedMonoBehaviour
             {
                 if (currentActionIndex + 1 < playerActions.Count)
                 {
-                    currentActionIndex++;
-                    ChangeAction(playerActions[currentActionIndex]);
+                    if (playerActions[currentActionIndex + 1].CheckStateCondition())
+                    {
+                        currentActionIndex++;
+                        ChangeAction(playerActions[currentActionIndex]);
+                    }
                 }
             }
         }
