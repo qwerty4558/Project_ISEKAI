@@ -137,11 +137,10 @@ public class InventoryTitle : MonoBehaviour
         foreach(KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
             Ingredient_Item temp = pair.Value;
-            if(temp.itemType == ItemType.Ingredient)
-            {
-                slotItems[count].itemData = temp;
-                slotItems[count].updateData();
-            }            
+
+            slotItems[count].itemData = temp;
+            slotItems[count].updateData();
+                        
             count++;
         }
     }
