@@ -54,8 +54,8 @@ public class PlayerController : SerializedMonoBehaviour
     public Outline targetOutline;
 
 
-    [SerializeField] private List<PlayerAction> playerActions;
-    [SerializeField] private List<PlayerAction> getPlayerActions;
+    [SerializeField,ReadOnly] private List<PlayerAction> playerActions;
+    public List<PlayerAction> PlayerActions { get { return playerActions; } }
     [SerializeField] private UI_Tools tool;
 
     private int currentActionIndex = 0;
@@ -114,12 +114,17 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[0] = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
-        hitCollider = GetComponent<BoxCollider>();  
+        hitCollider = GetComponent<BoxCollider>();
         soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
-        tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
-        if(tool != null)
-        tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
+
+        tool = FindObjectOfType<UI_Tools>();
+        if (tool != null)
+        {
+            SetValidPlayerActions();
+            tool.SwitchCurrentTool(playerActions.ToArray(), 0);
+        }
+
         abs = GetComponent<AudioSource>();
     }
 
@@ -174,7 +179,7 @@ public class PlayerController : SerializedMonoBehaviour
             }
         }
         OtherHpSetActive();
-        tool.SwitchCurrentTool(playerActions.ToArray(), currentActionIndex);
+      
     }
 
     private void OtherHpSetActive()
@@ -393,6 +398,36 @@ public class PlayerController : SerializedMonoBehaviour
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isRun", isRun);
     }
+
+    public void SetValidPlayerActions()
+    {
+        if (InventoryTitle.instance == null)
+        {
+            Debug.LogError("InventoryTitle이 없습니다!");
+            return;
+        }
+
+        foreach (var item in InventoryTitle.instance.InvenItemMapReturn())
+        {
+            if (item.GetType() == typeof(Equipment_Item))
+            {
+                Equipment_Item equip = item as Equipment_Item;
+
+                if (item.count >= 1 || equip.belongAlways)
+                {
+                    if (!playerActions.Contains(equip.AppliedAction))
+                        PlayerActions.Add(equip.AppliedAction);
+                }
+                else
+                {
+                    if (PlayerActions.Contains(equip.AppliedAction))
+                        PlayerActions.Remove(equip.AppliedAction);
+                }
+            }
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -428,7 +463,7 @@ public class PlayerController : SerializedMonoBehaviour
         PlayerController.Instance.gameObject.SetActive(true);
     }
 
-        public void SavePlayerStates()
+    public void SavePlayerStates()
     {
 
     }
