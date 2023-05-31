@@ -18,6 +18,7 @@ public class Result_Item : SerializedScriptableObject
     public string result_Item_Name;
     public string icon_File_Name;
     public Ingredient_Item outputItem;
+    public bool ReCraftable;
     
     public PUZZLE_STATE[,] board;
     public int puzzle_usage;
