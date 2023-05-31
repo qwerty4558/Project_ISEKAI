@@ -55,14 +55,14 @@ public class QuestTitle : SerializedMonoBehaviour
     {
         if(isQuestActive)
         {
-            titleDotweenAni.DOPauseAllById("false");
-            titleDotweenAni.DORestartById("true");
+            titleDotweenAni.DOPause();
+            titleDotweenAni.DORestartAllById("false");
             isQuestActive = !isQuestActive;
         }
         else if(!isQuestActive)
         {
-            titleDotweenAni.DOPauseAllById("true");
-            titleDotweenAni.DORestartById("false");
+            titleDotweenAni.DOPause();
+            titleDotweenAni.DORestartAllById("true");
             isQuestActive = !isQuestActive;
         }
     }

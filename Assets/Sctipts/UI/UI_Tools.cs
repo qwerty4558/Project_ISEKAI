@@ -71,7 +71,7 @@ public class UI_Tools : MonoBehaviour
 
         // 중앙 이미지 업데이트
         centerImage.sprite = actions[currentIndex].itemSprite;
-        centerImageAnimation.DORestart();
+  
     }
 
     public void SwitchCurrentTool(PlayerAction[] _actions, int _index)
@@ -79,5 +79,6 @@ public class UI_Tools : MonoBehaviour
         this.actions = _actions;
         this.index = _index;
         UpdateImage();
+        centerImageAnimation.DORestart();
     }
 }
