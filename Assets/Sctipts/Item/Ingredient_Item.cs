@@ -19,9 +19,8 @@ public enum ItemType
     Special_ingredient
 }
 
-
 public class Ingredient_Item : SerializedScriptableObject
-{ 
+{
     public int id;
     public Sprite itemImage;
     public string status;
@@ -47,4 +46,3 @@ public class Ingredient_Item : SerializedScriptableObject
         this.appraiseCount = _appraiseCount;
     }
 }
-

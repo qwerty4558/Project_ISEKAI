@@ -2,6 +2,7 @@ using PlayerInterface;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerAnimParameter
@@ -14,25 +15,17 @@ public enum PlayerAnimParameter
 
 public class PlayerAction
 {
-    [PreviewField]
-    public Sprite itemSprite;
+    public Equipment_Item assignedEquipmentData;
     public AnimatorOverrideController animOverride;
-
-    public virtual bool CheckStateCondition() { return true; }
 
     virtual public void Action(PlayerController player) { }
     virtual public void OnEnterAction(PlayerController player) { }
-
-    public PlayerAction(Sprite _itemSprite)
-    {
-        itemSprite = _itemSprite;
-    }
 }
 
 [System.Serializable]
 public class Action_Hand : PlayerAction
 {
-    public Action_Hand(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Hand(Sprite _itemSprite)
     {
     }
 
@@ -61,7 +54,7 @@ public class Action_Hand : PlayerAction
 [System.Serializable]
 public class Action_Sword : PlayerAction
 {
-    public Action_Sword(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Sword(Sprite _itemSprite)
     {
     }
 
@@ -74,17 +67,6 @@ public class Action_Sword : PlayerAction
         //player.SoundModule.Play("Action_Sword");
     }
 
-    public override bool CheckStateCondition()
-    {
-        foreach (KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
-        {
-            for (int i = 0; i < _pair.Value.count; ++i)
-            {
-                if (_pair.Value.name == "´ë°Ë") return true;
-            }
-        }
-        return false;
-    }
     public override void OnEnterAction(PlayerController player)
     {
         if (animOverride != null)
@@ -100,20 +82,8 @@ public class Action_Sword : PlayerAction
 [System.Serializable]
 public class Action_Pickaxe : PlayerAction
 {
-    public Action_Pickaxe(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Pickaxe(Sprite _itemSprite)
     {
-    }
-
-    public override bool CheckStateCondition()
-    {
-        foreach (KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
-        {
-            for (int i = 0; i < _pair.Value.count; ++i)
-            {
-                if (_pair.Value.name == "°î±ªÀÌ") return true;
-            }
-        }
-        return false;
     }
 
     public override void Action(PlayerController player)
@@ -135,13 +105,13 @@ public class Action_Pickaxe : PlayerAction
         player.sword_obj.SetActive(false);
     }
 
-    
+
 }
 
 [System.Serializable]
 public class Action_Axe : PlayerAction
 {
-    public Action_Axe(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Axe(Sprite _itemSprite)
     {
 
     }
@@ -153,18 +123,6 @@ public class Action_Axe : PlayerAction
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
         player.SoundModule.Play("Action_Axe");
-    }
-
-    public override bool CheckStateCondition()
-    {
-        foreach(KeyValuePair<string, Ingredient_Item> _pair in InventoryTitle.instance.itemMap)
-        {
-            for(int i = 0; i < _pair.Value.count; ++i)
-            {
-                if(_pair.Value.name == "µµ³¢") return true;
-            }
-        }
-        return false;
     }
 
     public override void OnEnterAction(PlayerController player)
