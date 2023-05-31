@@ -45,7 +45,7 @@ public class Discrimination : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
+        if (gameObject.activeSelf) CursorManage.instance.ShowMouse();
     }
 
     public void TryDiscrimination(Ingredient_Item ingredient_Item)

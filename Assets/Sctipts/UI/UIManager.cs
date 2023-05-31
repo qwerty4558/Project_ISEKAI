@@ -50,9 +50,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
         if (settingBoard_obj.activeSelf || option_obj.activeSelf || diary_obj.activeSelf || InventoryTitle.instance.Inventory.activeSelf)
         {
-            CursorManage.instance.ShowdMouse();
             if (cameraFollow != null)
                 cameraFollow.isInteraction = true;
+            CursorManage.instance.ShowMouse();
         }
         else
         {
@@ -109,7 +109,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
-        CursorManage.instance.HideMouse();
         diary_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;        

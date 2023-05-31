@@ -64,7 +64,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
+        if (gameObject.activeSelf) CursorManage.instance.ShowMouse();
     } 
 
     public void LoadItemFromInventory()

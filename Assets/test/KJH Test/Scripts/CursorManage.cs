@@ -28,7 +28,7 @@ public class CursorManage : MonoBehaviour
         Cursor.SetCursor(defaultCursor, new Vector2(0, 0), CursorMode.Auto);
     }
 
-    public void ShowdMouse()
+    public void ShowMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

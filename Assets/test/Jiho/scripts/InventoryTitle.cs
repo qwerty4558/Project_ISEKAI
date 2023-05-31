@@ -103,7 +103,7 @@ public class InventoryTitle : MonoBehaviour
                 inventoryObj.SetActive(true);
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
-                CursorManage.instance.ShowdMouse();
+                CursorManage.instance.ShowMouse();
             }
         }
 
