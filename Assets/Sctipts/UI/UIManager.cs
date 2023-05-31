@@ -60,8 +60,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
-                CursorManage.instance.OnMouseExit();
-                CursorManage.instance.HideMouse();
                 
             }
             else
