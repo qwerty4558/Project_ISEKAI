@@ -270,16 +270,19 @@ public class PlayerController : SerializedMonoBehaviour
         {
             isAttack = true;
             animator.SetTrigger("Attack1");
+            SoundModule.Play("Action_Sword");
         }
         if (isClicks[0] && isClicks[1] && !isClicks[2])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
+            SoundModule.Play("Action_Sword");
         }
         if (isClicks[0] && isClicks[1] && isClicks[2])
         {
             isAttack = true;
             animator.SetTrigger("Attack3");
+            SoundModule.Play("Action_Sword_2");
         }
     }
 
@@ -343,10 +346,14 @@ public class PlayerController : SerializedMonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
             transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);
+
+            soundModule.PlayGroup("Player_Walk", "Player_Walk_1");
         }
         else
         {
             isMove = false;
+
+            soundModule.StopAllCoroutines();
         }
     }
 
@@ -424,16 +431,6 @@ public class PlayerController : SerializedMonoBehaviour
         }
 
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-        if (other.CompareTag("NPC"))
-        {
-
-        }
-    }
-
     public static void DeActivePlayer()
     {
         PlayerController.Instance.gameObject.SetActive(false);

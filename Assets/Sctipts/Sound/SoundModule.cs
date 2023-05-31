@@ -53,7 +53,8 @@ public class SoundModule : SerializedMonoBehaviour
             else
                 aud.volume = 1.0f;
 
-            aud.Play();
+            if(!aud.isPlaying)
+                aud.Play();
         }
 #pragma warning disable CS0168
         catch (NullReferenceException n)
@@ -65,6 +66,62 @@ public class SoundModule : SerializedMonoBehaviour
             Debug.LogError("SimpleSoundModule : soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
         }
 #pragma warning restore CS0168
+    }
+    public void PlayGroup(string soundName_0, string soundName_1)
+    {
+        try
+        {
+            var cur1 = SoundItem.GetSoundItem(soundItems, soundName_0);
+            var cur2 = SoundItem.GetSoundItem(soundItems, soundName_1);
+
+            aud.clip = cur1.audioClips[Random.Range(0, cur1.audioClips.Length)];
+
+            if (cur1.randomPitch)
+                aud.pitch = Random.Range(cur1.pitchMin, cur1.pitchMax);
+            else
+                aud.pitch = 1.0f;
+
+            if (cur1.randomVolume)
+                aud.volume = Random.Range(cur1.volumeMin, cur1.volumeMax);
+            else
+                aud.volume = 1.0f;
+
+            
+            if (!aud.isPlaying)
+                aud.Play();
+
+            StartCoroutine(PlaySoundClip(cur2));
+        }
+#pragma warning disable CS0168
+        catch (NullReferenceException n)
+        {
+            Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\"");
+        }
+        catch (IndexOutOfRangeException i)
+        {
+            Debug.LogError("SimpleSoundModule : soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
+        }
+#pragma warning restore CS0168
+    }
+
+    private IEnumerator PlaySoundClip(SoundItem soundItem)
+    {
+        yield return new WaitUntil(() => !aud.isPlaying);
+
+        aud.clip = soundItem.audioClips[Random.Range(0, soundItem.audioClips.Length)];
+
+        if (soundItem.randomPitch)      
+            aud.pitch = Random.Range(soundItem.pitchMin, soundItem.pitchMax);
+        
+        else aud.pitch = 1.0f;
+
+        if (soundItem.randomVolume) 
+            aud.volume = Random.Range(soundItem.volumeMin, soundItem.volumeMax);
+
+        else aud.volume = 1.0f;
+
+        if(!aud.isPlaying) 
+            aud.Play();
     }
 
     public void Stop()
