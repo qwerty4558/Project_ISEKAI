@@ -19,19 +19,19 @@ public class PlayerController : SerializedMonoBehaviour
     {
         get
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = new PlayerController();
-                if(instance == null)
+                if (instance == null)
                 {
                     GameObject gobj = new GameObject();
                     gobj.name = typeof(PlayerController).Name;
                     instance = gobj.AddComponent<PlayerController>();
-                }                
+                }
             }
             return instance;
         }
-        
+
     }
 
     [SerializeField] float walkSpeed = 3.5f;
@@ -42,7 +42,7 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private float currentHp;
     [SerializeField] private float maxHp;
     [SerializeField] private float playerSpeed;
-    [SerializeField] private GameObject normalAttackCol; //기본 평타 콜라이더 껏다 키기만 해서 공격 판정
+    [SerializeField] private GameObject normalAttackCol; //?? ??? ?????? ???? ??? ??? ???? ????
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
@@ -55,20 +55,20 @@ public class PlayerController : SerializedMonoBehaviour
 
 
     [SerializeField] private List<PlayerAction> playerActions;
-    [SerializeField] private List<PlayerAction> getPlayerActions;
+    public List<PlayerAction> PlayerActions { get { return playerActions; } }
     [SerializeField] private UI_Tools tool;
 
     private int currentActionIndex = 0;
 
     [SerializeField] private bool isTarget;
-    
+
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
     public bool IsTarget { get => isTarget; set => isTarget = value; }
     public InventoryTitle inven;
     public bool[] isClicks;
     private Animator animator;
-    public Animator anim { get { return animator; }}
+    public Animator anim { get { return animator; } }
     public TextMeshProUGUI otherName;
     public Image otherHp;
 
@@ -77,7 +77,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     private float hpTime;
 
-   
+
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
 
@@ -95,11 +95,11 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] AudioClip player_Interction_SFX;
 
     SoundModule soundModule;
-    public SoundModule SoundModule { get { return soundModule; }}
+    public SoundModule SoundModule { get { return soundModule; } }
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this as PlayerController;
         }
@@ -114,12 +114,17 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[0] = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
-        hitCollider = GetComponent<BoxCollider>();  
+        hitCollider = GetComponent<BoxCollider>();
         soundModule = GetComponent<SoundModule>();
         playerSpeed = walkSpeed;
-        tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
-        if(tool != null)
-        tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
+
+        tool = FindObjectOfType<UI_Tools>();
+        if (tool != null)
+        {
+            SetValidPlayerActions();
+            tool.SwitchCurrentTool(playerActions.ToArray(), 0);
+        }
+
         abs = GetComponent<AudioSource>();
     }
 
@@ -142,51 +147,34 @@ public class PlayerController : SerializedMonoBehaviour
             {
                 if (currentActionIndex > 0)
                 {
-                    int count = currentActionIndex - 1;
-                    while (count >= 0)
-                    {
-                        if (playerActions[count].CheckStateCondition())
-                        {
-                            currentActionIndex = count;
-                            ChangeAction(playerActions[currentActionIndex]);
-                            break;
-                        }
-                        count--;
-                    }
+                    currentActionIndex--;
+                    ChangeAction(playerActions[currentActionIndex]);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 if (currentActionIndex < playerActions.Count - 1)
                 {
-                    int count = currentActionIndex + 1;
-                    while (count < playerActions.Count)
-                    {
-                        if (playerActions[count].CheckStateCondition())
-                        {
-                            currentActionIndex = count;
-                            ChangeAction(playerActions[currentActionIndex]);
-                            break;
-                        }
-                        count++;
-                    }
+                    currentActionIndex++;
+                    ChangeAction(playerActions[currentActionIndex]);
+                
                 }
             }
         }
         OtherHpSetActive();
-        tool.SwitchCurrentTool(playerActions.ToArray(), currentActionIndex);
+
     }
 
     private void OtherHpSetActive()
     {
-        if(hpTime > 0)
+        if (hpTime > 0)
         {
             otherHp_obj.SetActive(true);
             hpTime -= Time.deltaTime;
         }
         else
         {
-            if(otherHp_obj.activeSelf)
+            if (otherHp_obj.activeSelf)
                 otherHp_obj.SetActive(false);
         }
     }
@@ -206,7 +194,7 @@ public class PlayerController : SerializedMonoBehaviour
             targetOutline = outline;
             targetOutline.enabled = true;
         }
-        else if(targetOutline == null)
+        else if (targetOutline == null)
         {
             targetOutline = outline;
             targetOutline.enabled = true;
@@ -226,7 +214,7 @@ public class PlayerController : SerializedMonoBehaviour
         isClicks[2] = false;
     }
 
-    
+
     void FixedUpdate()
     {
         if (!cameraFollow.isInteraction && ControlEnabled)
@@ -236,12 +224,12 @@ public class PlayerController : SerializedMonoBehaviour
             PlayerSetAnimations();
         }
 
-        if(ControlEnabled)
+        if (ControlEnabled)
         {
-            Vector3 counterCamera = Vector3.ProjectOnPlane(transform.position - Camera.main.transform.position,Vector3.up).normalized;
+            Vector3 counterCamera = Vector3.ProjectOnPlane(transform.position - Camera.main.transform.position, Vector3.up).normalized;
             Ray interactionRay = new Ray(transform.position + Vector3.up, counterCamera);
-            Debug.DrawRay(interactionRay.origin, interactionRay.origin + counterCamera*interactionRange);
-            var rHits = Physics.RaycastAll(interactionRay, interactionRange,interactableLayermask);
+            Debug.DrawRay(interactionRay.origin, interactionRay.origin + counterCamera * interactionRange);
+            var rHits = Physics.RaycastAll(interactionRay, interactionRange, interactableLayermask);
 
             if (rHits.Length != 0)
             {
@@ -258,20 +246,20 @@ public class PlayerController : SerializedMonoBehaviour
             else
             {
                 UI_Interaction interactionUI = FindObjectOfType<UI_Interaction>();
-                if(interactionUI != null)
-                interactionUI.Disable();
+                if (interactionUI != null)
+                    interactionUI.Disable();
             }
         }
     }
 
     public void Attack()
     {
-        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // 데미지는 무기에 따라 다르게 하는게 나으니 나중에 교체 바람
-        normalAttackCol.SetActive(true); //꺼지는건 공격 콜라이더 스스로 꺼지게
+        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // ???????? ???? ???? ????? ??°? ?????? ????? ??? ???
+        normalAttackCol.SetActive(true); //?????°? ???? ?????? ?????? ??????
         normalAttackCol.GetComponent<ActiveAttackCol>().currentPlayerAction = playerActions[currentActionIndex];
     }
 
-    public void AttackAnimExit() //애니메이션 추가 후 이벤트로 적용 예정
+    public void AttackAnimExit() //??????? ??? ?? ?????? ???? ????
     {
 
     }
@@ -299,7 +287,6 @@ public class PlayerController : SerializedMonoBehaviour
     {
         currentHp -= damage;
         playerHp_Bar.fillAmount = currentHp / maxHp;
-        Debug.Log("맞은 데미지: " + damage + " 체력: " + currentHp);
     }
 
     public void ChangeAction(PlayerAction action)
@@ -310,7 +297,7 @@ public class PlayerController : SerializedMonoBehaviour
         {
             UI_Tools tool = (UI_Tools)FindObjectOfType(typeof(UI_Tools));
 
-            tool.SwitchCurrentTool(playerActions.ToArray(),currentActionIndex);
+            tool.SwitchCurrentTool(playerActions.ToArray(), currentActionIndex);
         }
     }
 
@@ -333,14 +320,14 @@ public class PlayerController : SerializedMonoBehaviour
         }
     }
 
-    // 이동
+    // ???
     private void Move()
     {
-        // 입력값을 Vector3에 저장
+        // ??°??? Vector3?? ????
         player_Move_Input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         player_Move_Input.Normalize();
 
-        // 카메라의 Forward를 가져옴
+        // ?????? Forward?? ??????
         heading = Camera.main.transform.forward;
         heading.y = 0;
         heading.Normalize();
@@ -393,16 +380,45 @@ public class PlayerController : SerializedMonoBehaviour
         animator.SetBool("isWalk", isMove);
         animator.SetBool("isRun", isRun);
     }
+
+    public void SetValidPlayerActions()
+    {
+        if (InventoryTitle.instance == null)
+        {
+            Debug.LogError("InventoryTitle이 없습니다!");
+            return;
+        }
+
+        foreach (var item in InventoryTitle.instance.InvenItemMapReturn())
+        {
+            if (item.GetType() == typeof(Equipment_Item))
+            {
+                Equipment_Item equip = item as Equipment_Item;
+
+                if (item.count >= 1 || equip.belongAlways)
+                {
+                    if (!playerActions.Contains(equip.AppliedAction))
+                        PlayerActions.Add(equip.AppliedAction);
+                }
+                else
+                {
+                    if (PlayerActions.Contains(equip.AppliedAction))
+                        PlayerActions.Remove(equip.AppliedAction);
+                }
+            }
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.CompareTag("EnemyAttackCol"))
+        if (other.CompareTag("EnemyAttackCol"))
         {
-            Debug.Log("공격 받음 : " + other.GetComponent<EnemyAttackCol>().Damage);
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
         }
 
-        if(other.CompareTag("QuestPos"))
+        if (other.CompareTag("QuestPos"))
         {
             QuestTitle.instance.QuestPositionCheck(other.name);
         }
@@ -428,7 +444,7 @@ public class PlayerController : SerializedMonoBehaviour
         PlayerController.Instance.gameObject.SetActive(true);
     }
 
-        public void SavePlayerStates()
+    public void SavePlayerStates()
     {
 
     }
