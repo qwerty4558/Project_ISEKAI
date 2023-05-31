@@ -35,10 +35,8 @@ public class CraftPuzzleCore : MonoBehaviour
         if (instance == null) 
             instance = this;
 
-        if (OnPuzzleComplete == null)
-            OnPuzzleComplete = new UnityEvent();
-    }
 
+    }
     private void OnEnable()
     {
         PuzzleEnabled = true;
@@ -66,13 +64,19 @@ public class CraftPuzzleCore : MonoBehaviour
 
     private void Start()
     {
+        if (OnPuzzleComplete == null)
+            OnPuzzleComplete = new UnityEvent();
         OnPuzzleComplete.AddListener(PuzzleComplete);
         OnPuzzleComplete.AddListener(ProcessToInventory);
     }
 
     private void Update()
     {
-        if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
+        if (gameObject.activeSelf)
+        {
+            CursorManage.instance.ShowdMouse();
+            
+        }
     }
 
     public void LoadItemFromInventory()
@@ -111,7 +115,8 @@ public class CraftPuzzleCore : MonoBehaviour
         if (PuzzleEnabled == false) return;
 
         currentItem = item;
-
+        img.sprite = currentItem.outputItem.itemImage;
+        img.SetNativeSize();
         itemPot.SetItemPot(item);
         usageSlot.SetUsageSlot(item);
         if (DebugMode)
@@ -170,7 +175,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
     public void PuzzleComplete()
     {
-        img.sprite = currentItem.outputItem.itemImage;
+        
         PuzzleEnabled = false;
         potFrame.GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
     }
