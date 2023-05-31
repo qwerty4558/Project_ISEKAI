@@ -19,7 +19,7 @@ public enum ItemType
     Special_ingredient
 }
 
-
+[CreateAssetMenu(fileName = "New_Ingredient_Item", menuName = "ScriptableObjects/Equipment_Item", order = 1)]
 public class Ingredient_Item : SerializedScriptableObject
 { 
     public int id;
