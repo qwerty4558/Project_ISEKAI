@@ -6,79 +6,38 @@ using UnityEngine.UI;
 
 public class UI_Tools : MonoBehaviour
 {
-    [SerializeField] private Image leftImage;
-    [SerializeField] private Image centerImage;
-    [SerializeField] private Image rightImage;
-    [SerializeField] private Sprite emptyImage;
+    [SerializeField] private Image image_L;
+    [SerializeField] private Image image_C;
+    [SerializeField] private Image image_R;
 
-    [SerializeField] private PlayerAction[] actions;
-    [SerializeField] private int index;
-    private DOTweenAnimation centerImageAnimation;
-
-    private void Awake()
+    public void SwitchCurrentTool(PlayerAction[] actions, int index)
     {
-        centerImageAnimation = centerImage.gameObject.GetComponent<DOTweenAnimation>();
-    }
+        if (actions == null || actions.Length == 0) return;
+        if (actions[index].assignedEquipmentData.UI_Sprite == null) return;
 
-    private void Update()
-    {
-        UpdateImage();
-    }
-
-    private void UpdateImage()
-    {
-        int currentIndex = index;
-
-        // 왼쪽 이미지 업데이트
-        if (currentIndex - 1 >= 0 && currentIndex < actions.Length)
+        if (index - 1 >= 0 && actions.Length > 1)
         {
-            PlayerAction leftAction = actions[currentIndex - 1];
-            if (leftAction.CheckStateCondition() && leftAction.itemSprite != null)
-            {
-                leftImage.gameObject.SetActive(true);
-                leftImage.sprite = leftAction.itemSprite;
-            }
-            else
-            {
-                leftImage.gameObject.SetActive(true);
-                leftImage.sprite = emptyImage;
-            }
+            image_L.gameObject.SetActive(true);
+            if (actions[index - 1].assignedEquipmentData.UI_Sprite != null)
+                image_L.sprite = actions[index - 1].assignedEquipmentData.UI_Sprite;
         }
         else
         {
-            leftImage.gameObject.SetActive(false);
+            image_L.gameObject.SetActive(false);
         }
 
-        // 오른쪽 이미지 업데이트
-        if (currentIndex + 1 < actions.Length)
+        if (index + 1 < actions.Length)
         {
-            PlayerAction rightAction = actions[currentIndex + 1];
-            if (rightAction.CheckStateCondition() && rightAction.itemSprite != null)
-            {
-                rightImage.gameObject.SetActive(true);
-                rightImage.sprite = rightAction.itemSprite;
-            }
-            else
-            {
-                rightImage.gameObject.SetActive(true);
-                rightImage.sprite = emptyImage;
-            }
+            image_R.gameObject.SetActive(true);
+            if (actions[index + 1].assignedEquipmentData.UI_Sprite != null)
+                image_R.sprite = actions[index + 1].assignedEquipmentData.UI_Sprite;
         }
         else
         {
-            rightImage.gameObject.SetActive(false);
+            image_R.gameObject.SetActive(false);
         }
 
-        // 중앙 이미지 업데이트
-        centerImage.sprite = actions[currentIndex].itemSprite;
-  
-    }
-
-    public void SwitchCurrentTool(PlayerAction[] _actions, int _index)
-    {
-        this.actions = _actions;
-        this.index = _index;
-        UpdateImage();
-        centerImageAnimation.DORestart();
+        image_C.sprite = actions[index].assignedEquipmentData.UI_Sprite;
+        image_C.gameObject.GetComponent<DOTweenAnimation>().DORestart();
     }
 }
