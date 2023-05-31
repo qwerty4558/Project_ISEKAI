@@ -1,4 +1,7 @@
+/*#if UNITY_EDITOR 
 using Sirenix.OdinInspector.Editor.Validation;
+
+#endif*/
 using System;
 using System.Collections.Generic;
 using TMPro;
