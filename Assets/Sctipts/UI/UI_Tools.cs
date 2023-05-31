@@ -6,37 +6,79 @@ using UnityEngine.UI;
 
 public class UI_Tools : MonoBehaviour
 {
-    [SerializeField] private Image image_L;
-    [SerializeField] private Image image_C;
-    [SerializeField] private Image image_R;
+    [SerializeField] private Image leftImage;
+    [SerializeField] private Image centerImage;
+    [SerializeField] private Image rightImage;
+    [SerializeField] private Sprite emptyImage;
 
-    public void SwitchCurrentTool(PlayerAction[] actions, int index)
+    [SerializeField] private PlayerAction[] actions;
+    [SerializeField] private int index;
+    private DOTweenAnimation centerImageAnimation;
+
+    private void Awake()
     {
-        if (actions[index].assignedEquipmentData.UI_Sprite == null) return;
+        centerImageAnimation = centerImage.gameObject.GetComponent<DOTweenAnimation>();
+    }
 
-        if (index - 1 >= 0 && actions.Length > 1)
+    private void Update()
+    {
+        UpdateImage();
+    }
+
+    private void UpdateImage()
+    {
+        int currentIndex = index;
+
+        // 왼쪽 이미지 업데이트
+        if (currentIndex - 1 >= 0 && currentIndex < actions.Length)
         {
-            image_L.gameObject.SetActive(true);
-            if (actions[index - 1].assignedEquipmentData.UI_Sprite != null)
-                image_L.sprite = actions[index - 1].assignedEquipmentData.UI_Sprite;
+            PlayerAction leftAction = actions[currentIndex - 1];
+            if (leftAction.CheckStateCondition() && leftAction.itemSprite != null)
+            {
+                leftImage.gameObject.SetActive(true);
+                leftImage.sprite = leftAction.itemSprite;
+            }
+            else
+            {
+                leftImage.gameObject.SetActive(true);
+                leftImage.sprite = emptyImage;
+            }
         }
         else
         {
-            image_L.gameObject.SetActive(false);
+            leftImage.gameObject.SetActive(false);
         }
 
-        if (index + 1 < actions.Length)
+        // 오른쪽 이미지 업데이트
+        if (currentIndex + 1 < actions.Length)
         {
-            image_R.gameObject.SetActive(true);
-            if (actions[index + 1].assignedEquipmentData.UI_Sprite != null)
-                image_R.sprite = actions[index + 1].assignedEquipmentData.UI_Sprite;
+            PlayerAction rightAction = actions[currentIndex + 1];
+            if (rightAction.CheckStateCondition() && rightAction.itemSprite != null)
+            {
+                rightImage.gameObject.SetActive(true);
+                rightImage.sprite = rightAction.itemSprite;
+            }
+            else
+            {
+                rightImage.gameObject.SetActive(true);
+                rightImage.sprite = emptyImage;
+            }
         }
         else
         {
-            image_R.gameObject.SetActive(false);
+            rightImage.gameObject.SetActive(false);
         }
 
-        image_C.sprite = actions[index].assignedEquipmentData.UI_Sprite;
-        image_C.gameObject.GetComponent<DOTweenAnimation>().DORestart();
+        // 중앙 이미지 업데이트
+        centerImage.sprite = actions[currentIndex].itemSprite;
+  
+    }
+
+    public void SwitchCurrentTool(PlayerAction[] _actions, int _index)
+    {
+        this.actions = _actions;
+        this.index = _index;
+        UpdateImage();
+        centerImageAnimation.DORestart();
     }
 }
