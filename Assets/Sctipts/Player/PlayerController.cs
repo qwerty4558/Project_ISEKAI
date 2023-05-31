@@ -49,8 +49,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
-    [SerializeField] private ParticleSystem[] player_Attack_VFX;
-    [SerializeField] private ParticleSystem player_Hit_VFX;
+    //[SerializeField] private ParticleSystem[] player_Attack_VFX;
+    //[SerializeField] private ParticleSystem player_Hit_VFX;
 
     public CameraFollow cameraFollow;
     public GameObject sword_obj;
@@ -274,14 +274,14 @@ public class PlayerController : SerializedMonoBehaviour
         {
             isAttack = true;
             animator.SetTrigger("Attack1");
-            player_Attack_VFX[0].Play();
+            //player_Attack_VFX[0].Play();
             SoundModule.Play("Action_Sword");
         }
         if (isClicks[0] && isClicks[1])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
-            player_Attack_VFX[1].Play();
+            //player_Attack_VFX[1].Play();
             SoundModule.Play("Action_Sword");
         }
     }
@@ -295,7 +295,7 @@ public class PlayerController : SerializedMonoBehaviour
         }
     }
 
-    public void StopAttack()
+   /* public void StopAttack()
     {
         isAttack = false;
         for(int i = 0; i < player_Attack_VFX.Length; i++)
@@ -307,7 +307,7 @@ public class PlayerController : SerializedMonoBehaviour
     private void AttackAnimationSetup()
     {
 
-    }
+    }*/
 
     public void GetDamage(float damage)
     {
@@ -446,8 +446,6 @@ public class PlayerController : SerializedMonoBehaviour
         if (other.CompareTag("EnemyAttackCol"))
         {
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
-            if(!player_Hit_VFX.isPlaying)
-                player_Hit_VFX.Play();
         }
 
         if (other.CompareTag("QuestPos"))
