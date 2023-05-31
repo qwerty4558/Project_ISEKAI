@@ -2,6 +2,7 @@ using PlayerInterface;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerAnimParameter
@@ -14,25 +15,19 @@ public enum PlayerAnimParameter
 
 public class PlayerAction
 {
-    [PreviewField]
-    public Sprite itemSprite;
+    public Equipment_Item assignedEquipmentData;
     public AnimatorOverrideController animOverride;
 
     public virtual bool CheckStateCondition() { return true; }
 
     virtual public void Action(PlayerController player) { }
     virtual public void OnEnterAction(PlayerController player) { }
-
-    public PlayerAction(Sprite _itemSprite)
-    {
-        itemSprite = _itemSprite;
-    }
 }
 
 [System.Serializable]
 public class Action_Hand : PlayerAction
 {
-    public Action_Hand(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Hand(Sprite _itemSprite)
     {
     }
 
@@ -61,7 +56,7 @@ public class Action_Hand : PlayerAction
 [System.Serializable]
 public class Action_Sword : PlayerAction
 {
-    public Action_Sword(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Sword(Sprite _itemSprite)
     {
     }
 
@@ -100,7 +95,7 @@ public class Action_Sword : PlayerAction
 [System.Serializable]
 public class Action_Pickaxe : PlayerAction
 {
-    public Action_Pickaxe(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Pickaxe(Sprite _itemSprite)
     {
     }
 
@@ -141,7 +136,7 @@ public class Action_Pickaxe : PlayerAction
 [System.Serializable]
 public class Action_Axe : PlayerAction
 {
-    public Action_Axe(Sprite _itemSprite) : base(_itemSprite)
+    public Action_Axe(Sprite _itemSprite)
     {
 
     }

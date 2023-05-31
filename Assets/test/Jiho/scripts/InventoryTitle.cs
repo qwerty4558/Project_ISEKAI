@@ -202,8 +202,7 @@ public class InventoryTitle : MonoBehaviour
 
         foreach (KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
-            if(pair.Value.itemType == ItemType.Ingredient)
-                _itemMap.Add(pair.Value);
+            _itemMap.Add(pair.Value);
         }
 
         return _itemMap.ToArray();
