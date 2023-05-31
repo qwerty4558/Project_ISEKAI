@@ -15,6 +15,12 @@ public class SceneBroadcastReceiver : SerializedMonoBehaviour
         SceneBroadcaster.AddBroadcast(pair);
     }
 
+    public void AddCraftableResultItem(Result_Item result)
+    {
+        if (!MultisceneDatapass.Instance.craftableItems.Contains(result))
+            MultisceneDatapass.Instance.craftableItems.Add(result);
+    }
+
     private void Start()
     {
         if(SceneBroadcaster.Instance == null)

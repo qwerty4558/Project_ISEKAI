@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -17,18 +18,15 @@ public class CraftPuzzleCore : MonoBehaviour
     [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
     [SerializeField] private PuzzleIngredientItems itemView;
+    [SerializeField] private TargetItem targetItem;
     [SerializeField] private Image img;
 
-    [Title("Debug")]
-    [SerializeField] private Result_Item test_item;
      public Ingredient_Item[] testIngredientInventory;
-    public bool DebugMode = false;
 
     public UnityEvent OnPuzzleComplete;
 
     private Result_Item currentItem;
     private bool PuzzleEnabled = false;
-
 
     private void Awake()
     {
@@ -47,13 +45,7 @@ public class CraftPuzzleCore : MonoBehaviour
         if (player != null)
             player.ControlEnabled = false;
 
-        if (DebugMode)
-            SetResultItem(test_item);
-        else
-        {
-            LoadItemFromInventory();
-            SetResultItem(test_item);
-        }
+        LoadItemFromInventory();
     }
 
     private void OnDisable()
@@ -73,7 +65,7 @@ public class CraftPuzzleCore : MonoBehaviour
     private void Update()
     {
         if (gameObject.activeSelf) CursorManage.instance.ShowdMouse();
-    }
+    } 
 
     public void LoadItemFromInventory()
     {
@@ -82,7 +74,6 @@ public class CraftPuzzleCore : MonoBehaviour
             itemView.SetItemWindow(InventoryTitle.instance.AlchemyItemMapReturn());
         }
     }
-
 
     public void ProcessToInventory()
     {
@@ -103,6 +94,8 @@ public class CraftPuzzleCore : MonoBehaviour
             {
                 InventoryTitle.instance.AlchemyItemMinus(item);
             }
+
+            if (!currentItem.ReCraftable) MultisceneDatapass.Instance.craftableItems.Remove(currentItem);
         }
     }
 
@@ -114,19 +107,14 @@ public class CraftPuzzleCore : MonoBehaviour
 
         itemPot.SetItemPot(item);
         usageSlot.SetUsageSlot(item);
-        if (DebugMode)
-            itemView.SetItemWindow(testIngredientInventory);
-        else
-        {
-            LoadItemFromInventory();
-        }
+        LoadItemFromInventory();
     }
 
     public bool TryPuzzlePiece(Ingredient_Item item)
     {
         if (PuzzleEnabled == false) return false;
 
-        bool tryOnItemview = DebugMode || itemView.TryOneItem(item);
+        bool tryOnItemview = itemView.TryOneItem(item);
 
         return itemPot.TryPuzzlePiece(item) && tryOnItemview;
     }

@@ -18,6 +18,7 @@ public class PuzzleIngredientItems : MonoBehaviour
         UndoStack = new Stack<ItemviewSlot>();
     }
 
+
     public void SetItemWindow(Ingredient_Item[] _items)
     {
         if (ItemButtonObjects != null)
