@@ -6,75 +6,113 @@ using UnityEngine.UI;
 
 public class DiaryController : MonoBehaviour
 {
-
+    int bookType;
+    int bookPage;
+    int infoPage_Diary;
+    int infoPage_Recipe;
     [SerializeField] private GameObject _diary;
     [SerializeField] private GameObject _recipe;
     [SerializeField] public GameObject[] diaryPage;
     [SerializeField] public GameObject[] recipePage;
+    [SerializeField] public GameObject[] diaryPageInfo;
+    [SerializeField] public GameObject[] recipePageInfo;
     [SerializeField] private AutoFlip diaryAuto;
     [SerializeField] private AutoFlip recipeAuto;
     // Start is called before the first frame update
 
     private void Awake()
     {
-       
     }
     void Start()
     {
+        InitDiary();
+    }
+
+    public void InitDiary()
+    {
         int diaryPage_Lenght = diaryPage.Length;
         int recipePage_Lenght = recipePage.Length;
-        for(int i = 0; i < diaryPage_Lenght; ++i)
+        diaryPageInfo = new GameObject[diaryPage.Length];
+        recipePageInfo = new GameObject[recipePage.Length];
+        infoPage_Diary = diaryPageInfo.Length;
+        infoPage_Recipe = recipePageInfo.Length;
+        for (int i = 0; i < diaryPage_Lenght; ++i)
         {
-            diaryPage[i].SetActive(false);
+            diaryPageInfo[i] = diaryPage[i].transform.GetChild(0).gameObject;
+            diaryPageInfo[i].SetActive(false);
         }
-        for(int i = 0; i < recipePage_Lenght; ++i)
+        for (int i = 0; i < recipePage_Lenght; ++i)
         {
-            recipePage[i].SetActive(false);
+            recipePageInfo[i] = recipePage[i].transform.GetChild(0).gameObject;
+            recipePageInfo[i].SetActive(false);
         }
     }
 
-    public void UnLockPage(string keyPair)
+    public void GetBookType(int book)
     {
-        int booktype = int.Parse(keyPair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[0]);
-        int toPage = int.Parse(keyPair.Split(',', System.StringSplitOptions.RemoveEmptyEntries)[1]);
-        StopAllCoroutines();
-        StartCoroutine(OpenBook(booktype, toPage));
+        bookType = book;
     }
-    IEnumerator OpenBook(int book,int _page)
+    public void GetBookPage(int page)
     {
-       
+        bookPage = page;
+    }
+    public void UnLockPage()
+    {
+        StopAllCoroutines();
+        StartCoroutine(OpenBook(bookType, bookPage));
+        
+    }
+    IEnumerator OpenBook(int book, int _page)
+    {
         _diary.SetActive(false);
         _recipe.SetActive(false);
         switch (book)
         {
             case 0:
                 _diary.SetActive(true);
-                diaryPage[_page].SetActive(true);
+                if (_page >= 0 && _page < infoPage_Diary)
+                {
+                    diaryPageInfo[_page].SetActive(true);
+                }
+                else
+                {
+                    Debug.LogError("Invalid page index: " + _page);
+                }
                 GotoPage(book, _page);
+                yield return new WaitForSeconds(0.7f);
                 for (int i = 0; i < 3; ++i)
                 {
-                    diaryPage[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
+                    diaryPageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
                     yield return new WaitForSeconds(0.3f);
-                    diaryPage[_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
+                    diaryPageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
                     yield return new WaitForSeconds(0.3f);
                 }
-                
                 break;
             case 1:
                 _recipe.SetActive(true);
-                recipePage[_page].SetActive(true);
+                if (_page >= 0 && _page < infoPage_Recipe)
+                {
+                    recipePageInfo[_page].SetActive(true);
+                }
+                else
+                {
+                    Debug.LogError("Invalid page index: " + _page);
+                }
                 GotoPage(book, _page);
+                yield return new WaitForSeconds(0.7f);
                 for (int i = 0; i < 3; ++i)
                 {
-                    recipePage[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
+                    recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
                     yield return new WaitForSeconds(0.3f);
-                    recipePage [_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
+                    recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
                     yield return new WaitForSeconds(0.3f);
                 }
                 break;
         }
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        this.gameObject.SetActive(false);
     }
+
 
     public void GotoPage(int book, int _page)
     {

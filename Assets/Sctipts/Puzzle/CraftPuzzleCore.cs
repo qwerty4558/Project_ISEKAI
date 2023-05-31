@@ -16,6 +16,7 @@ public class CraftPuzzleCore : MonoBehaviour
     [SerializeField] private ItemPot itemPot;
     [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
+    [SerializeField] private GameObject viewEffect;
     [SerializeField] private PuzzleIngredientItems itemView;
     [SerializeField] private Image img;
 
@@ -34,7 +35,6 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (instance == null) 
             instance = this;
-
 
     }
     private void OnEnable()
@@ -64,10 +64,12 @@ public class CraftPuzzleCore : MonoBehaviour
 
     private void Start()
     {
+        
         if (OnPuzzleComplete == null)
             OnPuzzleComplete = new UnityEvent();
         OnPuzzleComplete.AddListener(PuzzleComplete);
         OnPuzzleComplete.AddListener(ProcessToInventory);
+        
     }
 
     private void Update()

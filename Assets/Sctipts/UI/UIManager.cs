@@ -20,6 +20,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         settingBoard_obj.SetActive(false);
         option_obj.SetActive(false);
+        diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
     }
 
@@ -50,7 +51,15 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         if (settingBoard_obj.activeSelf || option_obj.activeSelf || diary_obj.activeSelf || InventoryTitle.instance.Inventory.activeSelf)
         {
             CursorManage.instance.ShowdMouse();
+            if (cameraFollow != null)
+                cameraFollow.isInteraction = true;
         }
+        else
+        {
+            if (cameraFollow != null)
+                cameraFollow.isInteraction = false;
+        }
+  
     }
 
     private void GetKeys()
