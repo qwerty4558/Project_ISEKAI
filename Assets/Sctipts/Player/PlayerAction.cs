@@ -17,7 +17,7 @@ public class PlayerAction
 {
     public Equipment_Item assignedEquipmentData;
     public AnimatorOverrideController animOverride;
-
+    protected bool isAttack = false;
     virtual public void Action(PlayerController player) { }
     virtual public void OnEnterAction(PlayerController player) { }
 }

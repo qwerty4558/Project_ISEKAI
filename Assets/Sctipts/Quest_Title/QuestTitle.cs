@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using Sirenix.OdinInspector.Editor;
 
 public class QuestTitle : SerializedMonoBehaviour
 {

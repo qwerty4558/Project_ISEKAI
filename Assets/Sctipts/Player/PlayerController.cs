@@ -3,6 +3,9 @@ using UnityEngine;
 using PlayerInterface;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
+#endif
 using System.Reflection;
 using TMPro;
 using UnityEngine.UI;
@@ -46,13 +49,15 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+    [SerializeField] private ParticleSystem[] player_Attack_VFX;
+    [SerializeField] private ParticleSystem player_Hit_VFX;
 
     public CameraFollow cameraFollow;
     public GameObject sword_obj;
     public GameObject pickaxe_obj;
     public GameObject axe_obj;
     public Outline targetOutline;
-
+    
 
     [SerializeField] private List<PlayerAction> playerActions;
     public List<PlayerAction> PlayerActions { get { return playerActions; } }
@@ -211,7 +216,6 @@ public class PlayerController : SerializedMonoBehaviour
         isAttack = false;
         isClicks[0] = true;
         isClicks[1] = false;
-        isClicks[2] = false;
     }
 
 
@@ -266,24 +270,43 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void AttackAction()
     {
-        if (isClicks[0] && !isClicks[1] && !isClicks[2] && !isAttack)
+        if (isClicks[0] && !isClicks[1] && !isAttack)
         {
             isAttack = true;
             animator.SetTrigger("Attack1");
+            player_Attack_VFX[0].Play();
             SoundModule.Play("Action_Sword");
         }
-        if (isClicks[0] && isClicks[1] && !isClicks[2])
+        if (isClicks[0] && isClicks[1])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
+            player_Attack_VFX[1].Play();
             SoundModule.Play("Action_Sword");
         }
-        if (isClicks[0] && isClicks[1] && isClicks[2])
+    }
+
+    public void Attack1END()
+    {
+        if(!isAttack)
         {
-            isAttack = true;
-            animator.SetTrigger("Attack3");
-            SoundModule.Play("Action_Sword_2");
+            isAttack = false;
+            animator.SetTrigger("Attack2");
         }
+    }
+
+    public void StopAttack()
+    {
+        isAttack = false;
+        for(int i = 0; i < player_Attack_VFX.Length; i++)
+        {
+            player_Attack_VFX[i].Stop();
+        }
+    }
+
+    private void AttackAnimationSetup()
+    {
+
     }
 
     public void GetDamage(float damage)
@@ -423,6 +446,8 @@ public class PlayerController : SerializedMonoBehaviour
         if (other.CompareTag("EnemyAttackCol"))
         {
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
+            if(!player_Hit_VFX.isPlaying)
+                player_Hit_VFX.Play();
         }
 
         if (other.CompareTag("QuestPos"))
