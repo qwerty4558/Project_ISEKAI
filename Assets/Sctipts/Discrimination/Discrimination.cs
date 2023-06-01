@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Discrimination : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class Discrimination : MonoBehaviour
     public void TryDiscrimination(Ingredient_Item ingredient_Item)
     {
         TargetItemUI.gameObject.SetActive(true);
+        TargetItemUI.GetComponent<DOTweenAnimation>().DORestart();
         TargetPatternUI.gameObject.SetActive(false);
         TargetItemUI.sprite = ingredient_Item.itemImage;
         //TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
