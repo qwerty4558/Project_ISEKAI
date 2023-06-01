@@ -23,6 +23,7 @@ public class Portal : MonoBehaviour
     {
         LoadingSceneController.Instance.LoadScene(to_Scene_Name);
         MultisceneDatapass.Instance.PortalDestinationID = Destination_Point_ID;
+
     }
 
     private void OnTriggerEnter(Collider other)

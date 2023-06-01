@@ -36,6 +36,8 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
             else
             {
                 PlayerController.Instance.transform.position = pointTF.position;
+                PlayerController.Instance.transform.forward = pointTF.forward;
+                Camera.main.transform.forward = pointTF.forward;
                 return true;
             }
         }
@@ -48,7 +50,10 @@ public class PortalDestinationPoints : SerializedMonoBehaviour
     public Vector3 GetSpawnPoint(string str)
     {
         Transform point;
-        if (PlayerController.Instance != null) point = PlayerController.Instance.transform;
+        if (PlayerController.Instance != null)
+        {
+            point = PlayerController.Instance.transform;
+        }
         if (destinationPoints.TryGetValue(str, out point))
         {
             return point.position;

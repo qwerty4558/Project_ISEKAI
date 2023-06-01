@@ -28,6 +28,7 @@ public class ItemManager : MonoBehaviour
         for(int i = 0; i < _listCount; ++i)
         {
             all_Items[i].count = 0;
+            all_Items[i].appraiseCount = 0;
         }
     }
 

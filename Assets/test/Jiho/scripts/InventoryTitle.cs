@@ -208,12 +208,12 @@ public class InventoryTitle : MonoBehaviour
         return _itemMap.ToArray();
     }
 
-    public Ingredient_Item[] InventoryMapReturnExceptEquipment() // 장비 제외한 다른 타입만 출력
+    public Ingredient_Item[] InventoryMapReturnOnlyIngredient() // 장비 제외한 다른 타입만 출력
     {
         List<Ingredient_Item> _itemMap = new List<Ingredient_Item> ();
         foreach (KeyValuePair<string, Ingredient_Item> pair in itemMap) 
         {
-            if(pair.Value.itemType != ItemType.Equipment)
+            if(pair.Value.itemType != ItemType.Quest && pair.Value.itemType != ItemType.Equipment && pair.Value.itemType == ItemType.Ingredient)
             {
                 _itemMap.Add(pair.Value);
             }

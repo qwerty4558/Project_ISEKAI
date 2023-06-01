@@ -32,7 +32,7 @@ public class Discrimination : MonoBehaviour
             player.ControlEnabled = false;
 
         if(InventoryTitle.instance != null)
-        itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnExceptEquipment()); // InvenItemMapReturn() -> InventoryMapReturnExceptEquipment() 으로 변경
+        itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient()); // InvenItemMapReturn() -> InventoryMapReturnExceptEquipment() 으로 변경
     }
 
     private void OnDisable()
@@ -63,7 +63,7 @@ public class Discrimination : MonoBehaviour
 
         InventoryTitle.instance.MinusItem(activeIngredient);
         InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
-        itemView.SetItemWindow(InventoryTitle.instance.InvenItemMapReturn());
+        itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
 
     }
 }

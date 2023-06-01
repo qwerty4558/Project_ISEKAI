@@ -40,10 +40,13 @@ public class PuzzleIngredientItems : MonoBehaviour
 
         for (int i = 0; i < _items.Length; i++)
         {
-            GameObject newSlot = Instantiate(ItemSlotPrefab, Viewport, false);
-            newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2((i % 3) * SlotSize.x, i / 3 * -SlotSize.y);
-            newSlot.GetComponent<ItemviewSlot>().SetItemData(_items[i]);
-            ItemButtonObjects.Add(newSlot.GetComponent<ItemviewSlot>());
+            if (_items[i].itemType != ItemType.Equipment && _items[i].itemType != ItemType.Quest && _items[i].itemType == ItemType.Ingredient)
+            {
+                GameObject newSlot = Instantiate(ItemSlotPrefab, Viewport, false);
+                newSlot.GetComponent<RectTransform>().anchoredPosition = new Vector2((i % 3) * SlotSize.x, i / 3 * -SlotSize.y);
+                newSlot.GetComponent<ItemviewSlot>().SetItemData(_items[i]);
+                ItemButtonObjects.Add(newSlot.GetComponent<ItemviewSlot>());
+            }            
         }
     }
 
