@@ -12,6 +12,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -103,6 +104,12 @@ public class PlayerController : SerializedMonoBehaviour
 
     SoundModule soundModule;
     public SoundModule SoundModule { get { return soundModule; } }
+
+    [FoldoutGroup("Actions")]
+    public UnityEvent OnStep;
+    [FoldoutGroup("Actions")]
+    public UnityEvent OnAttack;
+
 
     private void Awake()
     {
@@ -261,31 +268,39 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void Attack()
     {
-        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // ???????? ???? ???? ????? ??¡Æ? ?????? ????? ??? ???
-        normalAttackCol.SetActive(true); //?????¡Æ? ???? ?????? ?????? ??????
+        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; 
+        normalAttackCol.SetActive(true); 
         normalAttackCol.GetComponent<ActiveAttackCol>().currentPlayerAction = playerActions[currentActionIndex];
+
+        SoundModule.Play("Action_Sword");
+        OnAttack.Invoke();
     }
 
-    public void AttackAnimExit() //??????? ??? ?? ?????? ???? ????
+    public void AttackAnimExit() 
     {
 
+    }
+
+    public void StepEvent()
+    {
+        OnStep.Invoke();
     }
 
     public void AttackAction()
     {
         if (isClicks[0] && !isClicks[1] && !isAttack)
         {
+
             isAttack = true;
             animator.SetTrigger("Attack1");
             //player_Attack_VFX[0].Play();
-            SoundModule.Play("Action_Sword");
+
         }
         if (isClicks[0] && isClicks[1])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
             //player_Attack_VFX[1].Play();
-            SoundModule.Play("Action_Sword");
         }
     }
 
