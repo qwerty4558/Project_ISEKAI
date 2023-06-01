@@ -49,6 +49,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+
+    Rigidbody rd;
     //[SerializeField] private ParticleSystem[] player_Attack_VFX;
     //[SerializeField] private ParticleSystem player_Hit_VFX;
 
@@ -121,6 +123,7 @@ public class PlayerController : SerializedMonoBehaviour
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
         soundModule = GetComponent<SoundModule>();
+        rd = GetComponent<Rigidbody>();
         playerSpeed = walkSpeed;
 
         tool = FindObjectOfType<UI_Tools>();
@@ -368,7 +371,7 @@ public class PlayerController : SerializedMonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
-            transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);
+            rd.velocity = transform.forward * playerSpeed;
 
             soundModule.PlayGroup("Player_Walk", "Player_Walk_1");
         }
