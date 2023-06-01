@@ -12,6 +12,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -101,6 +102,12 @@ public class PlayerController : SerializedMonoBehaviour
 
     SoundModule soundModule;
     public SoundModule SoundModule { get { return soundModule; } }
+
+    [FoldoutGroup("Actions")]
+    public UnityEvent OnStep;
+    [FoldoutGroup("Actions")]
+    public UnityEvent OnAttack;
+
 
     private void Awake()
     {
@@ -266,6 +273,11 @@ public class PlayerController : SerializedMonoBehaviour
     public void AttackAnimExit() //??????? ??? ?? ?????? ???? ????
     {
 
+    }
+
+    public void StepEvent()
+    {
+        OnStep.Invoke();
     }
 
     public void AttackAction()
