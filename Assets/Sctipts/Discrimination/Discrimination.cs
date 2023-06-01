@@ -57,10 +57,11 @@ public class Discrimination : MonoBehaviour
         activeIngredient = ingredient_Item;
     }
 
-    public void DoDiscrimination()
+    public void DoDiscrimination(Ingredient_Item ingredient_Item)
     {
         if (activeIngredient == null) return;
         TargetPatternUI.gameObject.SetActive(true);
+        TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
         InventoryTitle.instance.MinusItem(activeIngredient);
         InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
         itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
