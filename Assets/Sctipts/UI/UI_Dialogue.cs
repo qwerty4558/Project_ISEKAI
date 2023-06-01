@@ -106,7 +106,7 @@ public class UI_Dialogue : MonoBehaviour
 
                 for (float t = textInterval; t > 0; t -= Time.deltaTime)
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
                     {
                         skipFlag = true;
                     }
@@ -123,7 +123,7 @@ public class UI_Dialogue : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
             triangle.SetActive(true);
-            yield return new WaitUntil(() => Input.GetMouseButton(0));
+            yield return new WaitUntil(() => Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space));
             triangle.SetActive(false);
 
             if (dialogues[i].action != null)
