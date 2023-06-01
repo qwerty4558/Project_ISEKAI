@@ -265,12 +265,15 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void Attack()
     {
-        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; // ???????? ???? ???? ????? ??¡Æ? ?????? ????? ??? ???
-        normalAttackCol.SetActive(true); //?????¡Æ? ???? ?????? ?????? ??????
+        normalAttackCol.GetComponent<ActiveAttackCol>().LinkDamage = playerAttackDamage; 
+        normalAttackCol.SetActive(true); 
         normalAttackCol.GetComponent<ActiveAttackCol>().currentPlayerAction = playerActions[currentActionIndex];
+
+        SoundModule.Play("Action_Sword");
+        OnAttack.Invoke();
     }
 
-    public void AttackAnimExit() //??????? ??? ?? ?????? ???? ????
+    public void AttackAnimExit() 
     {
 
     }
@@ -284,17 +287,17 @@ public class PlayerController : SerializedMonoBehaviour
     {
         if (isClicks[0] && !isClicks[1] && !isAttack)
         {
+
             isAttack = true;
             animator.SetTrigger("Attack1");
             //player_Attack_VFX[0].Play();
-            SoundModule.Play("Action_Sword");
+
         }
         if (isClicks[0] && isClicks[1])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
             //player_Attack_VFX[1].Play();
-            SoundModule.Play("Action_Sword");
         }
     }
 
