@@ -23,7 +23,7 @@ public class Discrimination_ItemSlot : ItemviewSlot
 
     public void DoDiscrimination()
     {
-        Discrimination.Instance.DoDiscrimination(ItemData);
+        Discrimination.Instance.DoDiscrimination();
     }
 
     public override void OnItemButtonEnter()
