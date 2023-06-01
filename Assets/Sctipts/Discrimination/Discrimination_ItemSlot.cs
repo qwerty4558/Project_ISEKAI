@@ -12,7 +12,7 @@ public class Discrimination_ItemSlot : ItemviewSlot
     {
         itemData = item;
         image.sprite = Resources.Load<Sprite>(item.icon_File_Name);
-        patternImage.sprite = item.itemPatternImage;
+        patternImage.gameObject.SetActive(false);
         quantatyText.text = item.count.ToString();
     }
 
