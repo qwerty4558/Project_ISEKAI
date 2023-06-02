@@ -46,7 +46,11 @@ public class QuestTitle : SerializedMonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) QuestActive();
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            QuestActive();
+            if(questUI.checking_Quest == false) questUI.checking_Quest = true;
+        }
 
         if(currentQuest == null && tempQuest != null)
         {
@@ -108,6 +112,7 @@ public class QuestTitle : SerializedMonoBehaviour
         isQuestActive = false;
         QuestActive();
         StartCoroutine(QuestInptAnim());
+        StartCoroutine(questUI.ViewOutLine());
     }
 
     private IEnumerator QuestInptAnim()
@@ -119,7 +124,11 @@ public class QuestTitle : SerializedMonoBehaviour
             questOutline.enabled = false;
             yield return new WaitForSeconds(0.3f);
         }
-        if (isQuestActive) QuestActive();
+        if (isQuestActive)
+        {
+            QuestActive();
+            questUI.checking_Quest = false;
+        }
     }
 
     public void QuestItemCheck()

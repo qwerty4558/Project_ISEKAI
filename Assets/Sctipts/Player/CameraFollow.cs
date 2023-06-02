@@ -29,6 +29,7 @@ public class CameraFollow : MonoBehaviour
     {
         isInteraction = false;
         CursorManage.instance.HideMouse();
+
         Vector3 pPos = PlayerController.instance.transform.position;
         Vector3 newVec = pPos + new Vector3(0, 5, -10);
         Quaternion newRot = Quaternion.LookRotation(pPos - newVec, Vector3.up);
