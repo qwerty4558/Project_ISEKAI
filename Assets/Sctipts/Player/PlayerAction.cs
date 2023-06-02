@@ -62,7 +62,6 @@ public class Action_Sword : PlayerAction
     public override void Action(PlayerController player)
     {
         player.AttackAction();
-        player.OnAttack.Invoke();
         //player.IsAttack = true;
         //player.anim.SetTrigger("Action");
         //player.SoundModule.Play("Action_Sword");
