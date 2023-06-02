@@ -1,5 +1,7 @@
 using Sirenix.OdinInspector;
-//using Sirenix.OdinInspector.Editor.TypeSearch;
+#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor.TypeSearch;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
