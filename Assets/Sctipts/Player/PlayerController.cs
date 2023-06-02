@@ -70,6 +70,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     [SerializeField] private bool isTarget;
 
+    [SerializeField] float desiredGravityForce;
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
     public bool IsTarget { get => isTarget; set => isTarget = value; }
@@ -139,6 +140,7 @@ public class PlayerController : SerializedMonoBehaviour
             SetValidPlayerActions();
             tool.SwitchCurrentTool(playerActions.ToArray(), 0);
         }
+        desiredGravityForce = -100f;
 
         abs = GetComponent<AudioSource>();
     }
@@ -264,6 +266,8 @@ public class PlayerController : SerializedMonoBehaviour
                     interactionUI.Disable();
             }
         }
+
+        rd.AddForce(Vector3.up * desiredGravityForce, ForceMode.Acceleration);
     }
 
     public void Attack()
