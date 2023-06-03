@@ -390,8 +390,8 @@ public class PlayerController : SerializedMonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
-            //rd.velocity = transform.forward * playerSpeed;
-            transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);
+            rd.velocity = transform.forward * playerSpeed;
+            /*transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);*/
 
             soundModule.PlayGroup("Player_Walk", "Player_Walk_1");
         }
