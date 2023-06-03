@@ -11,10 +11,19 @@ public class QuestUI : MonoBehaviour
     [SerializeField] private GameObject title_obj;
     [SerializeField] private TextMeshProUGUI[] quest_Texts;
     private QuestInfo currentQuest;
+    
+    [SerializeField] UnityEngine.UI.Outline outline;
 
+    public bool checking_Quest;
     private void Awake()
     {
+        StopAllCoroutines();
         //currentQuest = QuestTitle.instance.currentQuest;
+    }
+
+    private void Update()
+    {
+
     }
 
     public void SetActiveQuest(int index, bool _bool)
@@ -23,11 +32,14 @@ public class QuestUI : MonoBehaviour
             quest_Texts[i].gameObject.SetActive(_bool);
     }
 
+    
+
     public void ReRoadUI(QuestInfo quest)
     {
         currentQuest = quest;
         SetActiveQuest(quest_Texts.Length, false);
         SetActiveQuest(currentQuest.questInfoDatas.Length, true);
+        checking_Quest = false;
         UpdateUI();
     }
 
@@ -47,5 +59,19 @@ public class QuestUI : MonoBehaviour
                 else quest_Texts[i].text = currentQuest.questInfoDatas[i].description + " (0/1)";
             }
         }
+    }
+
+    public IEnumerator ViewOutLine()
+    {
+        while (!checking_Quest)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                outline.enabled = true;
+                yield return new WaitForSeconds(0.3f);
+                outline.enabled = false;
+                yield return new WaitForSeconds(0.3f);
+            }
+        } 
     }
 }

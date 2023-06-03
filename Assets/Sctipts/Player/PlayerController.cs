@@ -50,6 +50,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+
+    Rigidbody rd;
     //[SerializeField] private ParticleSystem[] player_Attack_VFX;
     //[SerializeField] private ParticleSystem player_Hit_VFX;
 
@@ -68,6 +70,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     [SerializeField] private bool isTarget;
 
+    [SerializeField] float desiredGravityForce;
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
     public bool IsTarget { get => isTarget; set => isTarget = value; }
@@ -128,6 +131,7 @@ public class PlayerController : SerializedMonoBehaviour
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
         soundModule = GetComponent<SoundModule>();
+        rd = GetComponent<Rigidbody>();
         playerSpeed = walkSpeed;
 
         tool = FindObjectOfType<UI_Tools>();
@@ -136,6 +140,7 @@ public class PlayerController : SerializedMonoBehaviour
             SetValidPlayerActions();
             tool.SwitchCurrentTool(playerActions.ToArray(), 0);
         }
+        desiredGravityForce = -100f;
 
         abs = GetComponent<AudioSource>();
     }
@@ -261,6 +266,8 @@ public class PlayerController : SerializedMonoBehaviour
                     interactionUI.Disable();
             }
         }
+
+        rd.AddForce(Vector3.up * desiredGravityForce, ForceMode.Acceleration);
     }
 
     public void Attack()
@@ -383,6 +390,7 @@ public class PlayerController : SerializedMonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
+            //rd.velocity = transform.forward * playerSpeed;
             transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);
 
             soundModule.PlayGroup("Player_Walk", "Player_Walk_1");

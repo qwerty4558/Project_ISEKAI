@@ -20,9 +20,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DL_Amilla
+  m_Name: DL_elf
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf, type: 3}
   m_ValidKeywords:
+  - TCP2_OCCLUSION
   - TCP2_RAMP_BANDS
   - TCP2_REFLECTIONS_FRESNEL
   - TCP2_RIM_LIGHTING
@@ -30,6 +31,7 @@ Material:
   - TCP2_SHADOW_LIGHT_COLOR
   - TCP2_SHADOW_TEXTURE
   - _ALPHATEST_ON
+  - _NORMALMAP
   m_InvalidKeywords:
   - TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
@@ -43,11 +45,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 0b49cf61b95df55449a439eac06d3785, type: 3}
+        m_Texture: {fileID: 2800000, guid: 32166c2ce1764fa4daad66c707f89818, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f630d1fabfe0eb0499cacb38f29923a9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4c9a611a125edae4b8fa86c359ef7bcb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -63,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: aebed3828b0d16846937e54e73e76b55, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -83,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: b12ad10027a1d624eaef35d4df293f85, type: 3}
+        m_Texture: {fileID: 2800000, guid: a1c7463a7e3058f48832853ea46ce40b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -99,7 +101,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowBaseMap:
-        m_Texture: {fileID: 2800000, guid: 4f88597c6db2d47488e2e431ab76ab7a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 32166c2ce1764fa4daad66c707f89818, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -147,7 +149,7 @@ Material:
     - _NormalsSource: 0
     - _NormalsUVType: 0
     - _OcclusionChannel: 1
-    - _OcclusionStrength: 1
+    - _OcclusionStrength: 0.831
     - _OutlineLightingType: 0
     - _OutlineLightingTypeURP: 0
     - _OutlineMaxWidth: 1
@@ -159,11 +161,11 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _RampBands: 3
-    - _RampBandsSmoothing: 1
+    - _RampBandsSmoothing: 0.533
     - _RampOffset: 0
     - _RampScale: 1
-    - _RampSmoothing: 1
-    - _RampThreshold: 0.372
+    - _RampSmoothing: 0.37
+    - _RampThreshold: 0.736
     - _RampType: 2
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
@@ -191,8 +193,8 @@ Material:
     - _UseMatCap: 0
     - _UseMatCapMask: 0
     - _UseMobileMode: 0
-    - _UseNormalMap: 0
-    - _UseOcclusion: 0
+    - _UseNormalMap: 1
+    - _UseOcclusion: 1
     - _UseOutline: 0
     - _UseReflections: 0
     - _UseRim: 1
@@ -202,15 +204,15 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8490566, g: 0.748932, b: 0.748932, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.9622641, g: 0.9304913, b: 0.9304913, a: 1}
+    - _EmissionColor: {r: 0, g: 0.89370084, b: 1, a: 1}
+    - _HColor: {r: 1, g: 0.818691, b: 0.8066038, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0.5}
-    - _SColor: {r: 0.8490566, g: 0.6688323, b: 0.6688323, a: 1}
+    - _RimColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 0.5}
+    - _SColor: {r: 0.77254903, g: 0.66434604, b: 0.6304, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   m_BuildTextureStacks: []
