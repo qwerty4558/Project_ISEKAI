@@ -51,28 +51,33 @@ public class Discrimination : MonoBehaviour
 
     public void TryDiscrimination(Ingredient_Item ingredient_Item)
     {
-        TargetItemUI.gameObject.SetActive(true);
-        TargetItemUI.GetComponent<DOTweenAnimation>().DORestart();
-        TargetPatternUI.gameObject.SetActive(false);
-        TargetItemUI.sprite = ingredient_Item.itemImage;
-        //TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
-        activeIngredient = ingredient_Item;
+        if(ingredient_Item.count > 0)
+        {
+            TargetItemUI.gameObject.SetActive(true);
+            TargetItemUI.GetComponent<DOTweenAnimation>().DORestart();
+            TargetPatternUI.gameObject.SetActive(false);
+            TargetItemUI.sprite = ingredient_Item.itemImage;
+            //TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
+            activeIngredient = ingredient_Item;
+        }
+        
     }
 
     public void DoDiscrimination()
     {
         if (activeIngredient == null) return;
-        else
+
+        if (activeIngredient.count > 0)
         {
-            if (activeIngredient.count > 0)
-            {
-                TargetPatternUI.gameObject.SetActive(true);
-                TargetPatternUI.sprite = activeIngredient.itemPatternImage;
-                InventoryTitle.instance.MinusItem(activeIngredient);
-                InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
-                itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
-            }
-            else Debug.Log("No Item");
+            TargetPatternUI.gameObject.SetActive(true);
+            TargetPatternUI.sprite = activeIngredient.itemPatternImage;
+            InventoryTitle.instance.MinusItem(activeIngredient);
+            InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
+
+            if(activeIngredient.count == 0) TargetItemUI.gameObject.SetActive(false);
+
+            itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
         }
+        
     }
 }
