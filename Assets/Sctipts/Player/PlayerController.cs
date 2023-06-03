@@ -276,7 +276,7 @@ public class PlayerController : SerializedMonoBehaviour
         normalAttackCol.SetActive(true); 
         normalAttackCol.GetComponent<ActiveAttackCol>().currentPlayerAction = playerActions[currentActionIndex];
 
-        SoundModule.Play("Action_Sword");
+        //SoundModule.Play("Action_Sword");
         OnAttack.Invoke();
     }
 
