@@ -25,6 +25,11 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 		_RampThreshold ("Threshold", Range(0.01,1)) = 0.5
 		_RampSmoothing ("Smoothing", Range(0.001,1)) = 0.5
 		[TCP2Separator]
+
+		[TCP2HeaderHelp(Emission)]
+		[TCP2ColorNoAlpha] [HDR] _Emission ("Emission Color", Color) = (0,0,0,1)
+		 [NoScaleOffset] _Emission1 ("Emission Texture", 2D) = "white" {}
+		[TCP2Separator]
 		
 		[TCP2HeaderHelp(Wind)]
 		_WindDirection ("Direction", Vector) = (1,0,0,0)
@@ -81,6 +86,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 		// Shader Properties
 		TCP2_TEX2D_WITH_SAMPLER(_BaseMap);
 		TCP2_TEX2D_WITH_SAMPLER(_DissolveMap);
+		TCP2_TEX2D_WITH_SAMPLER(_Emission1);
 
 		CBUFFER_START(UnityPerMaterial)
 			
@@ -92,6 +98,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 			float _DissolveValue;
 			float _Cutoff;
 			fixed4 _BaseColor;
+			half4 _Emission;
 			float _RampThreshold;
 			float _RampSmoothing;
 			fixed4 _SColor;
@@ -249,6 +256,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 				float __dissolveValue = ( _DissolveValue );
 				float __cutoff = ( _Cutoff );
 				float __ambientIntensity = ( 1.0 );
+				float3 __emission = ( _Emission.rgb * TCP2_TEX2D_SAMPLE(_Emission1, _Emission1, input.pack0.xy).rgb );
 				float __rampThreshold = ( _RampThreshold );
 				float __rampSmoothing = ( _RampSmoothing );
 				float3 __shadowColor = ( _SColor.rgb );
@@ -303,6 +311,7 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 
 				half3 indirectDiffuse = bakedGI;
 				indirectDiffuse *= occlusion * albedo * __ambientIntensity;
+				emission += __emission;
 
 				half3 lightDir = mainLight.direction;
 				half3 lightColor = mainLight.color.rgb;
@@ -595,5 +604,5 @@ Shader "Toony Colors Pro 2/Examples/SG2/Wind Animation"
 	CustomEditor "ToonyColorsPro.ShaderGenerator.MaterialInspector_SG2"
 }
 
-/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","AUTO_TRANSPARENT_BLENDING","WIND_ANIM_SIN","DISSOLVE","DISSOLVE_CLIP","SS_SCREEN_INFLUENCE","SS_MULTIPLICATIVE","SUBSURFACE_AMB_COLOR","TEMPLATE_LWRP"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
-/* TCP_HASH 968cc83dfdf71f38c1db58eb6301df45 */
+/* TCP_DATA u config(ver:"2.9.4";unity:"2021.3.12f1";tmplt:"SG2_Template_URP";features:list["UNITY_5_4","UNITY_5_5","UNITY_5_6","UNITY_2017_1","ALPHA_TESTING","ALPHA_TO_COVERAGE","CULLING","BACKFACE_LIGHTING_XYZ","UNITY_2018_1","UNITY_2018_2","UNITY_2018_3","UNITY_2019_1","UNITY_2019_2","UNITY_2019_3","UNITY_2019_4","UNITY_2020_1","UNITY_2021_1","UNITY_2021_2","WIND_ANIM","AUTO_TRANSPARENT_BLENDING","WIND_ANIM_SIN","DISSOLVE","DISSOLVE_CLIP","SS_SCREEN_INFLUENCE","SS_MULTIPLICATIVE","SUBSURFACE_AMB_COLOR","TEMPLATE_LWRP","EMISSION"];flags:list["addshadow","fullforwardshadows"];flags_extra:dict[];keywords:dict[RENDER_TYPE="TransparentCutout",RampTextureDrawer="[TCP2Gradient]",RampTextureLabel="Ramp Texture",SHADER_TARGET="3.0"];shaderProperties:list[,,,,,,,,,sp(name:"Emission";imps:list[imp_mp_color(def:RGBA(0, 0, 0, 1);hdr:True;cc:3;chan:"RGB";prop:"_Emission";md:"";gbv:False;custom:False;refs:"";pnlock:False;guid:"ed175d1e-0873-4875-897b-a37188acaaee";op:Multiply;lbl:"Emission Color";gpu_inst:False;locked:False;impl_index:0),imp_mp_texture(uto:False;tov:"";tov_lbl:"";gto:False;sbt:False;scr:False;scv:"";scv_lbl:"";gsc:False;roff:False;goff:False;sin_anm:False;sin_anmv:"";sin_anmv_lbl:"";gsin:False;notile:False;triplanar_local:False;def:"white";locked_uv:False;uv:0;cc:3;chan:"RGB";mip:-1;mipprop:False;ssuv_vert:False;ssuv_obj:False;uv_type:Texcoord;uv_chan:"XZ";tpln_scale:1;uv_shaderproperty:__NULL__;uv_cmp:__NULL__;sep_sampler:__NULL__;prop:"_Emission1";md:"";gbv:False;custom:False;refs:"";pnlock:False;guid:"45705ade-7a61-42aa-8aa7-28e6fe80ca2f";op:Multiply;lbl:"Emission Texture";gpu_inst:False;locked:False;impl_index:-1)];layers:list[];unlocked:list[];clones:dict[];isClone:False)];customTextures:list[];codeInjection:codeInjection(injectedFiles:list[];mark:False);matLayers:list[]) */
+/* TCP_HASH ebffd7361c1988dc15660577eb00fd4d */
