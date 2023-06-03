@@ -297,14 +297,12 @@ public class PlayerController : SerializedMonoBehaviour
 
             isAttack = true;
             animator.SetTrigger("Attack1");
-            //player_Attack_VFX[0].Play();
 
         }
         if (isClicks[0] && isClicks[1])
         {
             isAttack = true;
             animator.SetTrigger("Attack2");
-            //player_Attack_VFX[1].Play();
         }
     }
 

@@ -86,7 +86,8 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         statusTexts[2].text = route;
 
         itemStatus.transform.position = this.transform.position;
-        itemStatus.SetActive(true);
+        if(count > 0)
+            itemStatus.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
