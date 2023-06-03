@@ -62,11 +62,17 @@ public class Discrimination : MonoBehaviour
     public void DoDiscrimination()
     {
         if (activeIngredient == null) return;
-        TargetPatternUI.gameObject.SetActive(true);
-        TargetPatternUI.sprite = activeIngredient.itemPatternImage;
-        InventoryTitle.instance.MinusItem(activeIngredient);
-        InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
-        itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
-
+        else
+        {
+            if (activeIngredient.count > 0)
+            {
+                TargetPatternUI.gameObject.SetActive(true);
+                TargetPatternUI.sprite = activeIngredient.itemPatternImage;
+                InventoryTitle.instance.MinusItem(activeIngredient);
+                InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
+                itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
+            }
+            else Debug.Log("No Item");
+        }
     }
 }
