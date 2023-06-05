@@ -13,6 +13,8 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -38,6 +40,22 @@ public class PlayerController : SerializedMonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoadScene;
+    }
+    
+
+    private void OnLoadScene(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        
+    }
+
     [SerializeField] float walkSpeed = 3.5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float rotateSpeed = 10f;
@@ -50,6 +68,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+
+    [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
 
     Rigidbody rd;
     //[SerializeField] private ParticleSystem[] player_Attack_VFX;
@@ -85,7 +105,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private LayerMask interactableLayermask;
 
     private float hpTime;
-
+    private float enemyMaxHP;
+    private float enemyCurrentHP;
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -111,7 +132,12 @@ public class PlayerController : SerializedMonoBehaviour
     [FoldoutGroup("Actions")]
     public UnityEvent OnAttack;
 
+    [FoldoutGroup("GameOver")]
+    public UnityEvent OnGameOver;
 
+
+    [SerializeField] DOTweenAnimation amountShake;
+    [SerializeField] DOTweenAnimation enemy_HP_Shake;
     private void Awake()
     {
         if (instance == null)
@@ -147,6 +173,26 @@ public class PlayerController : SerializedMonoBehaviour
 
     private void Update()
     {
+        InputInteraction();
+        OtherHpSetActive();
+        CheckGameOver();
+        FillAmountHP();
+        OtherFillAmount();
+    }
+
+    private void CheckGameOver()
+    {
+        if (currentHp > 0) return;
+        else
+        {
+            OnGameOver.Invoke();
+            currentHp = maxHp;
+            //SceneInfomation.Instance.ReSpawnPlayer();
+        }
+    }
+
+    private void InputInteraction()
+    {
         if (ControlEnabled)
         {
             if (!cameraFollow.isInteraction)
@@ -174,12 +220,10 @@ public class PlayerController : SerializedMonoBehaviour
                 {
                     currentActionIndex++;
                     ChangeAction(playerActions[currentActionIndex]);
-                
+
                 }
             }
         }
-        OtherHpSetActive();
-
     }
 
     private void OtherHpSetActive()
@@ -187,6 +231,7 @@ public class PlayerController : SerializedMonoBehaviour
         if (hpTime > 0)
         {
             otherHp_obj.SetActive(true);
+            //enemy_HP_Shake.DORestartById("DamagedEnemy");    
             hpTime -= Time.deltaTime;
         }
         else
@@ -198,9 +243,24 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void OtherCheck(Enemy enemy)
     {
+        
         otherName.text = enemy.outputName;
-        otherHp.fillAmount = enemy.CurrentHp / enemy.MaxHp;
+        enemyCurrentHP = enemy.CurrentHp;
+        enemyMaxHP = enemy.MaxHp;
         hpTime = 1.5f;
+    }
+
+    private void OtherFillAmount()
+    {
+        if (otherHp_obj.activeSelf)
+        {
+            float fillSpeed = 5f;
+            otherHp.fillAmount = Mathf.Lerp(otherHp.fillAmount, enemyCurrentHP / enemyMaxHP, fillSpeed * Time.deltaTime);
+        }
+        else
+        {
+            otherHp.fillAmount = 1f;
+        }
     }
 
     public void TargetOutline(Outline outline)
@@ -332,7 +392,12 @@ public class PlayerController : SerializedMonoBehaviour
     public void GetDamage(float damage)
     {
         currentHp -= damage;
-        playerHp_Bar.fillAmount = currentHp / maxHp;
+    }
+
+    public void FillAmountHP()
+    {
+        float fillSpeed = 10f;
+        playerHp_Bar.fillAmount = Mathf.Lerp(playerHp_Bar.fillAmount, currentHp / maxHp, fillSpeed * Time.deltaTime);
     }
 
     public void ChangeAction(PlayerAction action)
@@ -467,6 +532,7 @@ public class PlayerController : SerializedMonoBehaviour
         if (other.CompareTag("EnemyAttackCol"))
         {
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
+            amountShake.DORestartById("DamagedPlayer");
         }
 
         if (other.CompareTag("QuestPos"))
