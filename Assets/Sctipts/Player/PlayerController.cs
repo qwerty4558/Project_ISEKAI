@@ -259,7 +259,8 @@ public class PlayerController : SerializedMonoBehaviour
         }
         else
         {
-            otherHp.fillAmount = 1f;
+            if (enemyCurrentHP > 0) return;
+            else otherHp.fillAmount = 1f;
         }
     }
 
@@ -455,6 +456,7 @@ public class PlayerController : SerializedMonoBehaviour
 
             rd.velocity = transform.forward * playerSpeed;
             /*transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);*/
+            rd.AddForce(Vector3.up * desiredGravityForce, ForceMode.Acceleration);
 
             soundModule.PlayGroup("Player_Walk", "Player_Walk_1");
         }
