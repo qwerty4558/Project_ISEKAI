@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -134,6 +135,8 @@ public class PlayerController : SerializedMonoBehaviour
     [FoldoutGroup("GameOver")]
     public UnityEvent OnGameOver;
 
+
+    [SerializeField] DOTweenAnimation amountShake;
     private void Awake()
     {
         if (instance == null)
@@ -387,7 +390,6 @@ public class PlayerController : SerializedMonoBehaviour
     public void GetDamage(float damage)
     {
         currentHp -= damage;
-        
     }
 
     public void FillAmountHP()
@@ -528,6 +530,7 @@ public class PlayerController : SerializedMonoBehaviour
         if (other.CompareTag("EnemyAttackCol"))
         {
             GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
+            amountShake.DORestartById("DamagedPlayer");
         }
 
         if (other.CompareTag("QuestPos"))
