@@ -425,8 +425,8 @@ public class PlayerController : SerializedMonoBehaviour
             float duration = 1f; // 깜빡임 효과의 전체 지속 시간
             float elapsedTime = 0f;
 
-            Color startColor = new Color(255, 255, 255, 0);
-            Color endColor = new Color(255, 255, 255, 1);
+            Color startColor = new Color(255, 0, 0, 0);
+            Color endColor = new Color(255, 0, 0, 1);
 
             while (elapsedTime < duration)
             {
