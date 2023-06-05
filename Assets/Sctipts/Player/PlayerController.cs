@@ -171,6 +171,7 @@ public class PlayerController : SerializedMonoBehaviour
         InputInteraction();
         OtherHpSetActive();
         CheckGameOver();
+        FillAmountHP();
     }
 
     private void CheckGameOver()
@@ -180,7 +181,6 @@ public class PlayerController : SerializedMonoBehaviour
         {
             //OnGameOver.Invoke();
             currentHp = maxHp;
-            playerHp_Bar.fillAmount = currentHp / maxHp;
             SceneInfomation.Instance.ReSpawnPlayer();
         }
     }
@@ -236,9 +236,10 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void OtherCheck(Enemy enemy)
     {
+        float fillSpeed = 5f;
         otherName.text = enemy.outputName;
-        otherHp.fillAmount = enemy.CurrentHp / enemy.MaxHp;
-        hpTime = 1.5f;
+        otherHp.fillAmount = Mathf.Lerp(otherHp.fillAmount, enemy.CurrentHp / enemy.MaxHp, fillSpeed * Time.deltaTime);        
+        hpTime = 2f;
     }
 
     public void TargetOutline(Outline outline)
@@ -370,7 +371,13 @@ public class PlayerController : SerializedMonoBehaviour
     public void GetDamage(float damage)
     {
         currentHp -= damage;
-        playerHp_Bar.fillAmount = currentHp / maxHp;
+        
+    }
+
+    public void FillAmountHP()
+    {
+        float fillSpeed = 10f;
+        playerHp_Bar.fillAmount = Mathf.Lerp(playerHp_Bar.fillAmount, currentHp / maxHp, fillSpeed * Time.deltaTime);
     }
 
     public void ChangeAction(PlayerAction action)
