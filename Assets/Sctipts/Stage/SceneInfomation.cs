@@ -47,12 +47,18 @@ public class SceneInfomation : MonoBehaviour
     {
         if(spawnPosition != null)
         {
-            PlayerController.Instance.transform.position = spawnPosition.transform.position;
-            PlayerController.Instance.transform.forward = spawnPosition.transform.forward;
+            StopAllCoroutines();
+            StartCoroutine(SpawnPlayer());
         }
         else
         {
             Debug.LogError("리스폰 위치가 현재 씬에 없습니다. 오브젝트를 생성하거나 태그를 RespawnPos로 지정해 주세요");
         }
+    }
+    IEnumerator SpawnPlayer()
+    {
+        yield return new WaitForSeconds(3f);
+        PlayerController.Instance.transform.position = spawnPosition.transform.position;
+        PlayerController.Instance.transform.forward = spawnPosition.transform.forward;
     }
 }

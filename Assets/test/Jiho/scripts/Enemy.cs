@@ -56,6 +56,8 @@ public class Enemy : MonoBehaviour
 
         if (!isHit) Action();
         AttackDelay();
+
+
     }
 
     protected virtual void Action()

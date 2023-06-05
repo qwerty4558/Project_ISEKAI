@@ -68,6 +68,7 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+    [SerializeField] private UnityEngine.UI.Outline playerHP_Outline;
 
     [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
 
@@ -159,6 +160,7 @@ public class PlayerController : SerializedMonoBehaviour
         soundModule = GetComponent<SoundModule>();
         rd = GetComponent<Rigidbody>();
         playerSpeed = walkSpeed;
+        playerHP_Outline.enabled = false;
 
         tool = FindObjectOfType<UI_Tools>();
         if (tool != null)
@@ -169,6 +171,8 @@ public class PlayerController : SerializedMonoBehaviour
         desiredGravityForce = -100f;
 
         abs = GetComponent<AudioSource>();
+
+        StopAllCoroutines();
     }
 
     private void Update()
@@ -178,6 +182,8 @@ public class PlayerController : SerializedMonoBehaviour
         CheckGameOver();
         FillAmountHP();
         OtherFillAmount();
+
+        
     }
 
     private void CheckGameOver()
@@ -294,6 +300,16 @@ public class PlayerController : SerializedMonoBehaviour
 
     void FixedUpdate()
     {
+        if (currentHp < (maxHp / 2))
+        {
+            playerHP_Outline.enabled = true;
+            StartCoroutine(IBlink_HP_Bar());
+
+        }
+        else
+        {
+            StopCoroutine(IBlink_HP_Bar());
+        }
         if (!cameraFollow.isInteraction && ControlEnabled)
         {
             Move();
@@ -399,7 +415,41 @@ public class PlayerController : SerializedMonoBehaviour
     {
         float fillSpeed = 10f;
         playerHp_Bar.fillAmount = Mathf.Lerp(playerHp_Bar.fillAmount, currentHp / maxHp, fillSpeed * Time.deltaTime);
+        
     }
+
+    IEnumerator IBlink_HP_Bar()
+    {
+        while (currentHp < maxHp/2)
+        {
+            float duration = 1f; // 깜빡임 효과의 전체 지속 시간
+            float elapsedTime = 0f;
+
+            Color startColor = new Color(255, 255, 255, 0);
+            Color endColor = new Color(255, 255, 255, 1);
+
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration; // 0부터 1까지 보간 비율
+                playerHP_Outline.effectColor = Color.Lerp(startColor, endColor, t);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration;
+
+                playerHP_Outline.effectColor = Color.Lerp(endColor, startColor, t);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }        
+    }
+
+
 
     public void ChangeAction(PlayerAction action)
     {
