@@ -76,7 +76,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
     public void ProcessToInventory()
     {
-        if (InventoryTitle.instance == null) return;
+        if (InventoryTitle.instance == null || currentItem == null) return;
 
         var itemsUse = itemPot.WritedItems;
 
@@ -113,7 +113,10 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (PuzzleEnabled == false) return;
 
+        currentItem = null;
+
         itemPot.SetItempotNone();
+        usageSlot.SetUsageSlotNone();
     }
 
     public bool TryPuzzlePiece(Ingredient_Item item)

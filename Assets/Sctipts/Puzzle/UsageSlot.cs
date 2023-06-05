@@ -40,6 +40,19 @@ public class UsageSlot : MonoBehaviour
         }
     }
 
+    public void SetUsageSlotNone()
+    {
+        slotIndex = 0;
+
+        for (int i = 0; i < SlotObjects.Length; i++)
+        {
+            SlotObjects[i].slot_back.sprite = spr_Closed;
+            SlotObjects[i].SlotOpened = false;
+            SlotObjects[i].Filled = false;
+            SlotObjects[i].slot_itemImage.enabled = false;
+        }
+    }
+
     public void InsertIngredient(Ingredient_Item item)
     {
         if (SlotsFull()) return;
