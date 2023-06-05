@@ -12,18 +12,10 @@ public class UISpriteAnimation : MonoBehaviour
 
     private int m_IndexSprite;
     Coroutine m_CoroutineAnim;
-    bool IsDone;
 
-    public void Func_PlayUIAnim()
+    public void StartEffact()
     {
-        IsDone = false;
         StartCoroutine(Func_PlayAnimUI());
-    }
-
-    public void Func_StopUIAnim()
-    {
-        IsDone = true;
-        StopCoroutine(Func_PlayAnimUI());
     }
 
     IEnumerator Func_PlayAnimUI()
@@ -35,7 +27,6 @@ public class UISpriteAnimation : MonoBehaviour
         }
         m_Image.sprite = m_SpriteArray[m_IndexSprite];
         m_IndexSprite += 1;
-        if (IsDone == false)
-            m_CoroutineAnim = StartCoroutine(Func_PlayAnimUI());
+        m_CoroutineAnim = StartCoroutine(Func_PlayAnimUI());
     }
 }
