@@ -45,7 +45,7 @@ public class QuestTitle : SerializedMonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             QuestActive();
             if(questUI.checking_Quest == false) questUI.checking_Quest = true;

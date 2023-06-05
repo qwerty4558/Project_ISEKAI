@@ -76,7 +76,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 PauseGame();
             }
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             if (diary_obj.activeSelf)
             {

@@ -86,7 +86,7 @@ public class InventoryTitle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             if (inventoryObj.activeSelf)
             {
@@ -107,7 +107,7 @@ public class InventoryTitle : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.U)) //발표용 임시
+        /*if(Input.GetKeyDown(KeyCode.U)) //발표용 임시
         {
             if (inventoryObj.activeSelf)
             {
@@ -127,7 +127,7 @@ public class InventoryTitle : MonoBehaviour
                 if (cameraFollow != null)
                     cameraFollow.isInteraction = true;
             }
-        }
+        }*/
     }
 
     public void PrintInventory()
