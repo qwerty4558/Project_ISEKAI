@@ -9,24 +9,38 @@ public class SceneInfomation : MonoBehaviour
     [SerializeField] string nowScene;
     [SerializeField] GameObject spawnPosition;
 
-
     private void Awake()
     {
-        if(Instance == null) Instance = this;
+        if (Instance == null) Instance = this;
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadedScene;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoadedScene;
+    }
+
+    private void OnLoadedScene(Scene scnee, LoadSceneMode loadSceneMode)
+    {
+        WriteSceneInfomation();
+    }
+
     void Start()
     {
+        WriteSceneInfomation();
+    }
+
+    private void WriteSceneInfomation()
+    {
         nowScene = SceneManager.GetActiveScene().name;
-        if(spawnPosition == null)
+        if (spawnPosition == null)
         {
             spawnPosition = GameObject.FindGameObjectWithTag("SpawnPos");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ReSpawnPlayer()
@@ -35,6 +49,10 @@ public class SceneInfomation : MonoBehaviour
         {
             PlayerController.Instance.transform.position = spawnPosition.transform.position;
             PlayerController.Instance.transform.forward = spawnPosition.transform.forward;
+        }
+        else
+        {
+            Debug.LogError("리스폰 위치가 현재 씬에 없습니다. 오브젝트를 생성하거나 태그를 RespawnPos로 지정해 주세요");
         }
     }
 }

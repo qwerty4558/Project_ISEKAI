@@ -252,7 +252,10 @@ public class PlayerController : SerializedMonoBehaviour
             float fillSpeed = 5f;
             otherHp.fillAmount = Mathf.Lerp(otherHp.fillAmount, enemyCurrentHP / enemyMaxHP, fillSpeed * Time.deltaTime);
         }
-
+        else
+        {
+            otherHp.fillAmount = 1f;
+        }
     }
 
     public void TargetOutline(Outline outline)
