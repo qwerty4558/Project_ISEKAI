@@ -104,7 +104,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private LayerMask interactableLayermask;
 
     private float hpTime;
-
+    private float enemyMaxHP;
+    private float enemyCurrentHP;
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -172,6 +173,7 @@ public class PlayerController : SerializedMonoBehaviour
         OtherHpSetActive();
         CheckGameOver();
         FillAmountHP();
+        OtherFillAmount();
     }
 
     private void CheckGameOver()
@@ -179,9 +181,9 @@ public class PlayerController : SerializedMonoBehaviour
         if (currentHp > 0) return;
         else
         {
-            //OnGameOver.Invoke();
+            OnGameOver.Invoke();
             currentHp = maxHp;
-            SceneInfomation.Instance.ReSpawnPlayer();
+            //SceneInfomation.Instance.ReSpawnPlayer();
         }
     }
 
@@ -236,10 +238,21 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void OtherCheck(Enemy enemy)
     {
-        float fillSpeed = 5f;
+        
         otherName.text = enemy.outputName;
-        otherHp.fillAmount = Mathf.Lerp(otherHp.fillAmount, enemy.CurrentHp / enemy.MaxHp, fillSpeed * Time.deltaTime);        
-        hpTime = 2f;
+        enemyCurrentHP = enemy.CurrentHp;
+        enemyMaxHP = enemy.MaxHp;
+        hpTime = 1.5f;
+    }
+
+    private void OtherFillAmount()
+    {
+        if (otherHp_obj.activeSelf)
+        {
+            float fillSpeed = 5f;
+            otherHp.fillAmount = Mathf.Lerp(otherHp.fillAmount, enemyCurrentHP / enemyMaxHP, fillSpeed * Time.deltaTime);
+        }
+
     }
 
     public void TargetOutline(Outline outline)
