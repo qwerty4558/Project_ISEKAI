@@ -57,7 +57,7 @@ public class SceneInfomation : MonoBehaviour
     }
     IEnumerator SpawnPlayer()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.8f);
         PlayerController.Instance.transform.position = spawnPosition.transform.position;
         PlayerController.Instance.transform.forward = spawnPosition.transform.forward;
     }
