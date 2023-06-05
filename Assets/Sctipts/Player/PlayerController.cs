@@ -137,6 +137,7 @@ public class PlayerController : SerializedMonoBehaviour
 
 
     [SerializeField] DOTweenAnimation amountShake;
+    [SerializeField] DOTweenAnimation enemy_HP_Shake;
     private void Awake()
     {
         if (instance == null)
@@ -230,6 +231,7 @@ public class PlayerController : SerializedMonoBehaviour
         if (hpTime > 0)
         {
             otherHp_obj.SetActive(true);
+            //enemy_HP_Shake.DORestartById("DamagedEnemy");    
             hpTime -= Time.deltaTime;
         }
         else
