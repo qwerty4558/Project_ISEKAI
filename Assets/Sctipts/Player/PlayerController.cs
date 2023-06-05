@@ -13,6 +13,7 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : SerializedMonoBehaviour
 {
@@ -38,6 +39,22 @@ public class PlayerController : SerializedMonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoadScene;
+    }
+    
+
+    private void OnLoadScene(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        
+    }
+
     [SerializeField] float walkSpeed = 3.5f;
     [SerializeField] float runSpeed = 7f;
     [SerializeField] float rotateSpeed = 10f;
@@ -50,6 +67,8 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private UIDataManager uiManager;
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
+
+    [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
 
     Rigidbody rd;
     //[SerializeField] private ParticleSystem[] player_Attack_VFX;
@@ -111,6 +130,8 @@ public class PlayerController : SerializedMonoBehaviour
     [FoldoutGroup("Actions")]
     public UnityEvent OnAttack;
 
+    [FoldoutGroup("GameOver")]
+    public UnityEvent OnGameOver;
 
     private void Awake()
     {
@@ -147,6 +168,25 @@ public class PlayerController : SerializedMonoBehaviour
 
     private void Update()
     {
+        InputInteraction();
+        OtherHpSetActive();
+        CheckGameOver();
+    }
+
+    private void CheckGameOver()
+    {
+        if (currentHp > 0) return;
+        else
+        {
+            //OnGameOver.Invoke();
+            currentHp = maxHp;
+            playerHp_Bar.fillAmount = currentHp / maxHp;
+            SceneInfomation.Instance.ReSpawnPlayer();
+        }
+    }
+
+    private void InputInteraction()
+    {
         if (ControlEnabled)
         {
             if (!cameraFollow.isInteraction)
@@ -174,12 +214,10 @@ public class PlayerController : SerializedMonoBehaviour
                 {
                     currentActionIndex++;
                     ChangeAction(playerActions[currentActionIndex]);
-                
+
                 }
             }
         }
-        OtherHpSetActive();
-
     }
 
     private void OtherHpSetActive()

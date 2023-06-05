@@ -9,24 +9,17 @@ using Modules.EventSystem;
 
 [System.Serializable]
 public class GameManager
-{    
-    private readonly UIManager uiManager;
-    private readonly ItemManager itemManager;
-    private readonly EventManager eventManager;
-    private readonly SoundManager soundManager;
+{
+    public float maxHP;
+    public float currentHP;
 
-    public static GameManager instance;
+    public string nowScene;
 
-    public GameManager(UIManager _uiManager, ItemManager _itemManager, EventManager _evenetManager, SoundManager _soundManager)
-    {
-        this.uiManager = _uiManager;
-        this.itemManager = _itemManager;
-        this.eventManager = _evenetManager;
-        this.soundManager = _soundManager;
-    }
 
     
+    
 
+    [SerializeField] GameObject spawnPosition;
     public void Start()
     {
         
