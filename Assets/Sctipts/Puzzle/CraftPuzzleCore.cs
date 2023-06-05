@@ -18,7 +18,6 @@ public class CraftPuzzleCore : MonoBehaviour
     [SerializeField] private GameObject potFrame;
     [SerializeField] private UsageSlot usageSlot;
     [SerializeField] private PuzzleIngredientItems itemView;
-    [SerializeField] private TargetItem targetItem;
     [SerializeField] private Image img;
 
      public Ingredient_Item[] testIngredientInventory;
@@ -108,6 +107,13 @@ public class CraftPuzzleCore : MonoBehaviour
         itemPot.SetItemPot(item);
         usageSlot.SetUsageSlot(item);
         LoadItemFromInventory();
+    }
+
+    public void SetResultItemNone()
+    {
+        if (PuzzleEnabled == false) return;
+
+        itemPot.SetItempotNone();
     }
 
     public bool TryPuzzlePiece(Ingredient_Item item)

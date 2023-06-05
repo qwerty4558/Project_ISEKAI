@@ -31,6 +31,9 @@ public class TargetItem : MonoBehaviour
         SetItemdata(MultisceneDatapass.Instance.craftableItems.ToArray());
         if (itemIndex.Count > 0)
             CraftPuzzleCore.Instance.SetResultItem(itemIndex[0]);
+        else
+            CraftPuzzleCore.Instance.SetResultItemNone();
+
     }
 
     public void SetItemdata(Result_Item[] items)
