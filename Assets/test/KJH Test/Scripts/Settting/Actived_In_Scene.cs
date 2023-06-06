@@ -23,11 +23,11 @@ public class Actived_In_Scene : MonoBehaviour
     {
         if (inGameUICanvas == null)
         {
-            inGameUICanvas = GameObject.FindWithTag("InGameUI");
+            inGameUICanvas = GameObject.FindGameObjectWithTag("InGameUI"); //GameObject.FindWithTag("InGameUI");
         }
         if(questUI == null)
         {
-            questUI = GameObject.FindWithTag("QuestUI");
+            questUI = GameObject.FindGameObjectWithTag("QuestUI"); //GameObject.FindWithTag("QuestUI");
         }
     }
 
