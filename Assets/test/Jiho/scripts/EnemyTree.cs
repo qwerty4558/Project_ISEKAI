@@ -67,6 +67,7 @@ public class EnemyTree : Enemy
             if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Axe))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
+            hpAmount.DORestartById("DamagedEnemy");
             GetDamage(tempDamage);
         }
     }

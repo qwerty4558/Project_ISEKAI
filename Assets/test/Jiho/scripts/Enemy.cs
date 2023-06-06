@@ -1,4 +1,5 @@
 using Cinemachine.Utility;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected EnemyAttackCol enemyAttackCol;
     [SerializeField] protected PlayerController player;
     [SerializeField] protected Outline outline;
+    [SerializeField] protected DOTweenAnimation hpAmount;
 
 
     public string EnemyName { get => enemyName; }
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
         currentHp = maxHp;
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
+        hpAmount = GameObject.FindGameObjectWithTag("OtherHP").GetComponent<DOTweenAnimation>();
     }
 
     protected virtual void Update()

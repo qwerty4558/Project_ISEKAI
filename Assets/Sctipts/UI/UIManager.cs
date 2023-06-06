@@ -11,7 +11,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
     [SerializeField] private GameObject diary_obj;
-
+    [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
+    [SerializeField] public bool checkingDiary;
     private void Start()
     {
         if (cameraFollow == null)
@@ -22,6 +23,12 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(false);
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
+
+        /*if (checkingDiary) return;
+        else
+        {
+            StartCoroutine(IBlink_Icon());
+        }*/
     }
 
     private void OnEnable()
@@ -84,12 +91,47 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             }
             else
             {
-                ViewDiary();
+                if (checkingDiary == false)
+                {
+                    checkingDiary = true;
+                    ViewDiary();
+                }
+                else ViewDiary();
             }
         }
     }
 
-    private void ViewDiary()
+    IEnumerator IBlink_Icon()
+    {
+        while (!checkingDiary)
+        {
+            float duration = 1f;
+            float elapsedTime = 0f;
+
+            Color startColor = new Color(255, 0, 255, 0);
+            Color endColor = new Color(255, 0, 255, 1);
+
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration;
+                diaryOutLine.effectColor = Color.Lerp(startColor, endColor, t);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+
+
+            }
+            elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration;
+                diaryOutLine.effectColor = Color.Lerp(endColor, startColor, t);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
+
+        private void ViewDiary()
     {
         diary_obj.SetActive(true);
         if (cameraFollow != null)

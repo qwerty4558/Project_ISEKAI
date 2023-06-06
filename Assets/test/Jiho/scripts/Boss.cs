@@ -29,6 +29,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private EnemyAttackCol bossRoarAttackCol;
     [SerializeField] private EnemyAttackCol bossKickAttackCol;
     [SerializeField] private GameObject hitEffect_obj;
+    
 
     private Outline outline;
     private PlayerController player;
