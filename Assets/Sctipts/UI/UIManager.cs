@@ -109,7 +109,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
-        diary_obj.SetActive(false);
+        diary_obj.GetComponent<DOTweenAnimation>().DOPlayBackwards();
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;        
     }
