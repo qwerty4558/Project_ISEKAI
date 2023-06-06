@@ -14,7 +14,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject ingame_obj;
     [SerializeField] private GameObject quest_obj;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
-    [SerializeField] public bool checkingDiary;
+    [SerializeField] public bool checkingDiary = true;
 
     [Header("Diary")]
     [SerializeField] int latest_Page;
@@ -102,10 +102,16 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 {
                     checkingDiary = true;
                     ViewDiary();
+                    diary_obj.GetComponent<DiaryController>().UnLockPage();
                 }
                 else ViewDiary();
             }
         }
+    }
+
+    public void QuestComplateUnlockCheckDiary()
+    {
+        checkingDiary = false;
     }
 
     IEnumerator IBlink_Icon()
@@ -138,7 +144,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
     }
 
-        private void ViewDiary()
+    private void ViewDiary()
     {
         diary_obj.SetActive(true);
         if (cameraFollow != null)
