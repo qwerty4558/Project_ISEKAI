@@ -26,7 +26,6 @@ public class UISpriteAnimation : MonoBehaviour
 
     IEnumerator Func_PlayAnimUI()
     {
-        int maxIndex = m_SpriteArray.Length;
         m_IndexSprite = 0;
         while(m_IndexSprite < m_SpriteArray.Length)
         {
