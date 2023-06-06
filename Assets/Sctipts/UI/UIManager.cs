@@ -11,6 +11,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
     [SerializeField] private GameObject diary_obj;
+    [SerializeField] private GameObject ingame_obj;
+    [SerializeField] private GameObject quest_obj;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
     [SerializeField] public bool checkingDiary;
     private void Start()
@@ -158,11 +160,17 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     public void ToTitle()
     {
+        
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
+        if (!ingame_obj.activeSelf || !quest_obj.activeSelf)
+        {
+            quest_obj.SetActive(true);
+            ingame_obj.SetActive(true);
+        }
         LoadingSceneController.Instance.LoadScene("Title");
     }
 
