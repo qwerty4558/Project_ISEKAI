@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 #if UNITY_EDITOR
+using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 #endif
 
