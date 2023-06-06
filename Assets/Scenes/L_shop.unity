@@ -6016,7 +6016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &751159497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16868,7 +16868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -16888,7 +16888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
@@ -16917,11 +16917,11 @@ PrefabInstance:
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1504745719}
+      objectReference: {fileID: 1909252327}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 388325057}
+      objectReference: {fileID: 39520872}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
@@ -16980,11 +16980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: StartEffact
+      value: StartEffect
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: StartEffact
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
@@ -17012,11 +17012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UISpriteAnimation, Assembly-CSharp
+      value: PlayUIAnimationTerm, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: UISpriteAnimation, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6939996099756909928, guid: 6903eb7f3ae78354084d30f6fe2c31d1, type: 3}
       propertyPath: OnPuzzleComplete.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
@@ -17799,6 +17799,7 @@ GameObject:
   - component: {fileID: 1909252325}
   - component: {fileID: 1909252324}
   - component: {fileID: 1909252323}
+  - component: {fileID: 1909252327}
   m_Layer: 5
   m_Name: Puzzle_complet_Effect
   m_TagString: Untagged
@@ -17889,6 +17890,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1909252327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909252322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8f03662b46a1e4da00ef22d1aa689b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAnimation_1: {fileID: 1504745719}
+  uiAnimation_2: {fileID: 388325057}
+  waitSecond: 0.5
 --- !u!1 &1924679851
 GameObject:
   m_ObjectHideFlags: 0

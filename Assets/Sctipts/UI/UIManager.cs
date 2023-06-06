@@ -15,6 +15,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject quest_obj;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
     [SerializeField] public bool checkingDiary;
+
+    [Header("Diary")]
+    [SerializeField] int latest_Page;
     private void Start()
     {
         if (cameraFollow == null)
@@ -26,11 +29,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
 
-        /*if (checkingDiary) return;
-        else
-        {
-            StartCoroutine(IBlink_Icon());
-        }*/
+       
     }
 
     private void OnEnable()
@@ -68,7 +67,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (cameraFollow != null)
                 cameraFollow.isInteraction = false;
         }
-  
+
+        if (checkingDiary) return;
+        else
+        {
+            StartCoroutine(IBlink_Icon());
+        }
+
     }
 
     private void GetKeys()
@@ -107,7 +112,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         while (!checkingDiary)
         {
-            float duration = 1f;
+            float duration = .5f;
             float elapsedTime = 0f;
 
             Color startColor = new Color(255, 0, 255, 0);
