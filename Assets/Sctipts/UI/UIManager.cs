@@ -11,8 +11,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
     [SerializeField] private GameObject diary_obj;
+    [SerializeField] private GameObject ingame_obj;
+    [SerializeField] private GameObject quest_obj;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
-    [SerializeField] public bool checkingDiary;
+    [SerializeField] public bool checkingDiary = true;
+
+    [Header("Diary")]
+    [SerializeField] int latest_Page;
     private void Start()
     {
         if (cameraFollow == null)
@@ -24,11 +29,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
 
-        /*if (checkingDiary) return;
-        else
-        {
-            StartCoroutine(IBlink_Icon());
-        }*/
+       
     }
 
     private void OnEnable()
@@ -66,7 +67,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (cameraFollow != null)
                 cameraFollow.isInteraction = false;
         }
-  
+
+        if (checkingDiary) return;
+        else
+        {
+            StartCoroutine(IBlink_Icon());
+        }
+
     }
 
     private void GetKeys()
@@ -95,17 +102,23 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 {
                     checkingDiary = true;
                     ViewDiary();
+                    diary_obj.GetComponent<DiaryController>().UnLockPage();
                 }
                 else ViewDiary();
             }
         }
     }
 
+    public void QuestComplateUnlockCheckDiary()
+    {
+        checkingDiary = false;
+    }
+
     IEnumerator IBlink_Icon()
     {
         while (!checkingDiary)
         {
-            float duration = 1f;
+            float duration = .5f;
             float elapsedTime = 0f;
 
             Color startColor = new Color(255, 0, 255, 0);
@@ -131,7 +144,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
     }
 
-        private void ViewDiary()
+    private void ViewDiary()
     {
         diary_obj.SetActive(true);
         if (cameraFollow != null)
@@ -158,11 +171,17 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     public void ToTitle()
     {
+        
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
+        if (!ingame_obj.activeSelf || !quest_obj.activeSelf)
+        {
+            quest_obj.SetActive(true);
+            ingame_obj.SetActive(true);
+        }
         LoadingSceneController.Instance.LoadScene("Title");
     }
 
