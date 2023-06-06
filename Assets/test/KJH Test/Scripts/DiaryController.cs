@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class DiaryController : MonoBehaviour
 {
-    int bookType;
-    int bookPage;
-    int infoPage_Diary;
-    int infoPage_Recipe;
+    private int bookType;
+    private int bookPage;
+    private int infoPage_Diary;
+    private int infoPage_Recipe;
     [SerializeField] private GameObject _diary;
     [SerializeField] private GameObject _recipe;
     [SerializeField] public GameObject[] diaryPage;
@@ -18,6 +18,8 @@ public class DiaryController : MonoBehaviour
     [SerializeField] public GameObject[] recipePageInfo;
     [SerializeField] private AutoFlip diaryAuto;
     [SerializeField] private AutoFlip recipeAuto;
+    
+    
     // Start is called before the first frame update
 
     private void Awake()
@@ -26,6 +28,11 @@ public class DiaryController : MonoBehaviour
     void Start()
     {
         InitDiary();
+    }
+
+    private void Update()
+    {
+
     }
 
     public void InitDiary()
@@ -59,9 +66,10 @@ public class DiaryController : MonoBehaviour
     public void UnLockPage()
     {
         StopAllCoroutines();
-        StartCoroutine(OpenBook(bookType, bookPage));
-        
+
+        StartCoroutine(OpenBook(bookType, bookPage));        
     }
+
     IEnumerator OpenBook(int book, int _page)
     {
         _diary.SetActive(false);
@@ -110,7 +118,6 @@ public class DiaryController : MonoBehaviour
                 break;
         }
         yield return new WaitForSeconds(1f);
-        this.gameObject.SetActive(false);
     }
 
 
