@@ -24,8 +24,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
 
-        if (checkingDiary) return;
-        else StartCoroutine(IBlink_Icon());
+        /*if (checkingDiary) return;
+        else
+        {
+            StartCoroutine(IBlink_Icon());
+        }*/
     }
 
     private void OnEnable()
