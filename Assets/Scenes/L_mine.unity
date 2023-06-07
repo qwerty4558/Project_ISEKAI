@@ -832,6 +832,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1d0a80782cf8944ba0e6ec2bcf66d76, type: 3}
+--- !u!320 &78148319 stripped
+PlayableDirector:
+  m_CorrespondingSourceObject: {fileID: 1125527337078955996, guid: a1d0a80782cf8944ba0e6ec2bcf66d76, type: 3}
+  m_PrefabInstance: {fileID: 78148318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &78148320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577885492773350381, guid: a1d0a80782cf8944ba0e6ec2bcf66d76, type: 3}
+  m_PrefabInstance: {fileID: 78148318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &82305693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5981,6 +5991,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1923074600382132595, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: interactorName
+      value: "\uB300\uD654\uD558\uAE30(F)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923074600382132595, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: actionOnInteract.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -5999,11 +6013,11 @@ PrefabInstance:
     - target: {fileID: 1923074600382132595, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: actionOnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 78148320}
     - target: {fileID: 1923074600382132595, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: actionOnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 78148319}
     - target: {fileID: 1923074600382132595, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: actionOnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -12983,7 +12997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -7.516685e-16
+      value: 1.0152167e-15
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
@@ -12991,7 +13005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0757079e-16
+      value: 1.4528692e-16
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109722611601, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_FollowOffset.y
@@ -18369,7 +18383,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 158195144}
   player: {fileID: 0}
   outline: {fileID: 98061152}
-  hpAmount: {fileID: 0}
 --- !u!65 &1548405710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25246,7 +25259,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 1591573193295858115}
-  hpAmount: {fileID: 0}
 --- !u!114 &677711217917665594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25280,7 +25292,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 1591573193540439044}
-  hpAmount: {fileID: 0}
 --- !u!114 &677711217962259770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25314,7 +25325,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 1591573193518528516}
-  hpAmount: {fileID: 0}
 --- !u!1001 &777119094192220440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28760,7 +28770,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 7848482734178676348}
-  hpAmount: {fileID: 0}
 --- !u!114 &3364967311094126444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28794,7 +28803,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 7848482733653318490}
-  hpAmount: {fileID: 0}
 --- !u!114 &3364967311224121894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28828,7 +28836,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 7848482733531653652}
-  hpAmount: {fileID: 0}
 --- !u!33 &3700867088972544361
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30472,7 +30479,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 6724927596155237783}
-  hpAmount: {fileID: 0}
 --- !u!1001 &5886097511812401544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31134,7 +31140,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 1801995261723055036}
   player: {fileID: 0}
   outline: {fileID: 6084427426158788909}
-  hpAmount: {fileID: 0}
 --- !u!114 &6144002381531414235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31168,7 +31173,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 1801995261742525242}
   player: {fileID: 0}
   outline: {fileID: 6084427426182461867}
-  hpAmount: {fileID: 0}
 --- !u!114 &6144002381738657930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31202,7 +31206,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 1801995261554400619}
   player: {fileID: 0}
   outline: {fileID: 6084427425989873660}
-  hpAmount: {fileID: 0}
 --- !u!114 &6144002381957069545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31236,7 +31239,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 1801995261337710344}
   player: {fileID: 0}
   outline: {fileID: 6084427425773452697}
-  hpAmount: {fileID: 0}
 --- !u!23 &6394506810884896182
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32016,7 +32018,6 @@ MonoBehaviour:
   enemyAttackCol: {fileID: 0}
   player: {fileID: 0}
   outline: {fileID: 7817644796603519256}
-  hpAmount: {fileID: 0}
 --- !u!4 &7309710315477720301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 761039079158179380, guid: b2db42cc016f0c54489a37cf6216365b, type: 3}
