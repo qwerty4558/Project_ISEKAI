@@ -27,8 +27,16 @@ public class ShopTutorial : MonoBehaviour
         StartCoroutine(IDoTutorial(0));
     }
 
+    void OnDisable()
+    {
+        PlayerController.SetActivePlayer();
+    }
     private void Update()
     {
+        if (this.gameObject.activeSelf)
+        {
+            PlayerController.DeActivePlayer();
+        }
         if (isNext)
         {
             if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonDown(0))
