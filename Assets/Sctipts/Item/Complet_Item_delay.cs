@@ -24,7 +24,7 @@ public class Complet_Item_delay : MonoBehaviour
     IEnumerator SFX_delay()
     {
         AudioSource audio = GetComponent<AudioSource>();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         audio.Play();
         StopAllCoroutines();
     }
