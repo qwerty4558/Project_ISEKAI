@@ -1360,7 +1360,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &117959692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3802,7 +3804,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &422911183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5844,7 +5848,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -7345,6 +7349,18 @@ MonoBehaviour:
       - m_Target: {fileID: 355039419}
         m_TargetAssemblyTypeName: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
         m_MethodName: DOPlayBackwards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 685749153}
+        m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+        m_MethodName: SetActiveInGameUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12003,7 +12019,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &1314527416
 GameObject:
   m_ObjectHideFlags: 0
@@ -15439,11 +15457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7027585
+      value: 0.70275843
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -2.976298e-22
+      value: 2.4966995e-15
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15451,7 +15469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -8.954349e-23
+      value: 2.5275023e-15
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15459,7 +15477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.025527664
+      value: -0.02552766
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15467,7 +15485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110054500088, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02584261
+      value: -0.025842607
       objectReference: {fileID: 0}
     - target: {fileID: 5049202110122446390, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18915,7 +18933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &1930591001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5557283247487270252, guid: 0539726f589f33c4fa22e6b8eaa37f5f, type: 3}
@@ -18939,7 +18959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1001 &1932183568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36255,7 +36277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &8394719667867459429
 GameObject:
   m_ObjectHideFlags: 0
