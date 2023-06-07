@@ -39,6 +39,7 @@ public class SceneBroadcaster : SerializedMonoBehaviour
                 if(receiver.Broadcasts.ContainsKey(broadcastID))
                 {
                     receiver.Broadcasts[broadcastID].Invoke();
+                    return;
                 }
             }
         }
