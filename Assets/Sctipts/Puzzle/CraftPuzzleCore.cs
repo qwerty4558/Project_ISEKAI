@@ -46,7 +46,7 @@ public class CraftPuzzleCore : MonoBehaviour
         PlayerController player = PlayerController.instance;
         if (player != null)
             player.ControlEnabled = false;
-
+        sound.Play("Close");
         LoadItemFromInventory();
     }
 
@@ -137,7 +137,7 @@ public class CraftPuzzleCore : MonoBehaviour
 
         if (usageSlot.SlotsFull()) return;
 
-        sound.Play("InputPieces");
+        sound.Play_No_Isplay("InputPieces");
 
         itemPot.WritePuzzlePiece(item);
         usageSlot.InsertIngredient(item);
@@ -149,6 +149,7 @@ public class CraftPuzzleCore : MonoBehaviour
         if (PuzzleEnabled == false) return;
 
         sound.Play_No_Isplay("UndoOrReset");
+
         itemPot.DisablePuzzlePieceVisualizer();
         SetResultItem(currentItem);
     }
@@ -158,6 +159,7 @@ public class CraftPuzzleCore : MonoBehaviour
         if (PuzzleEnabled == false) return;
 
         sound.Play_No_Isplay("UndoOrReset");
+
         itemPot.DisablePuzzlePieceVisualizer();
         itemPot.UndoSetItemPot(currentItem);
         itemPot.UndoPiece();
