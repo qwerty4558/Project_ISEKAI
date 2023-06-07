@@ -82,7 +82,7 @@ public class Goblin : Enemy
             if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Sword))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
-            hpAmount.DORestartById("DamagedEnemy");
+
             GetDamage(tempDamage);
         }
     }

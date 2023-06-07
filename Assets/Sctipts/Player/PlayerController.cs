@@ -70,7 +70,7 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private Image playerHp_Bar;
     [SerializeField] private UnityEngine.UI.Outline playerHP_Outline;
 
-    [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
+   // [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
 
     Rigidbody rd;
     //[SerializeField] private ParticleSystem[] player_Attack_VFX;
@@ -237,7 +237,7 @@ public class PlayerController : SerializedMonoBehaviour
         if (hpTime > 0)
         {
             otherHp_obj.SetActive(true);
-            //enemy_HP_Shake.DORestartById("DamagedEnemy");    
+  
             hpTime -= Time.deltaTime;
         }
         else
