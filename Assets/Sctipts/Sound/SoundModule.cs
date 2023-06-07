@@ -124,6 +124,38 @@ public class SoundModule : SerializedMonoBehaviour
             aud.Play();
     }
 
+    public void Play_No_Isplay(string soundName)
+    {
+        try
+        {
+            var cur = SoundItem.GetSoundItem(soundItems, soundName);
+
+            aud.clip = cur.audioClips[Random.Range(0, cur.audioClips.Length)];
+
+            if (cur.randomPitch)
+                aud.pitch = Random.Range(cur.pitchMin, cur.pitchMax);
+            else
+                aud.pitch = 1.0f;
+
+            if (cur.randomVolume)
+                aud.volume = Random.Range(cur.volumeMin, cur.volumeMax);
+            else
+                aud.volume = 1.0f;
+
+            
+            aud.Play();
+        }
+#pragma warning disable CS0168
+        catch (NullReferenceException n)
+        {
+            Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\"");
+        }
+        catch (IndexOutOfRangeException i)
+        {
+            Debug.LogError("SimpleSoundModule : soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
+        }
+#pragma warning restore CS0168
+    }
     public void Stop()
     {
         aud.Stop();
