@@ -30,9 +30,14 @@ public class ItemviewSlot : MonoBehaviour
 
     public virtual void WriteOnPot()
     {
-        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData) || (itemData.appraiseCount - itemUsed) <= 0) return;
+        if (!CraftPuzzleCore.Instance.TryPuzzlePiece(itemData) || (itemData.appraiseCount - itemUsed) <= 0) 
+        {
+            CraftPuzzleCore.sound.Play_No_Isplay("NoInsertPieces");
+        }
 
-        CraftPuzzleCore.Instance.WritePuzzlePiece(itemData);
+        
+
+        else CraftPuzzleCore.Instance.WritePuzzlePiece(itemData);
     }
 
     public virtual void OnItemButtonEnter()

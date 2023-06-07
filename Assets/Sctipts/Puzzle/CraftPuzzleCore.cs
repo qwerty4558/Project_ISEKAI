@@ -27,6 +27,8 @@ public class CraftPuzzleCore : MonoBehaviour
     private Result_Item currentItem;
     private bool PuzzleEnabled = false;
 
+    public static SoundModule sound;
+
     private void Awake()
     {
         if (instance == null) 
@@ -39,6 +41,7 @@ public class CraftPuzzleCore : MonoBehaviour
     private void OnEnable()
     {
         PuzzleEnabled = true;
+        sound = GetComponent<SoundModule>();
 
         PlayerController player = PlayerController.instance;
         if (player != null)
@@ -134,6 +137,8 @@ public class CraftPuzzleCore : MonoBehaviour
 
         if (usageSlot.SlotsFull()) return;
 
+        sound.Play("InputPieces");
+
         itemPot.WritePuzzlePiece(item);
         usageSlot.InsertIngredient(item);
         itemView.UseOneItem(item);
@@ -143,6 +148,7 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (PuzzleEnabled == false) return;
 
+        sound.Play_No_Isplay("UndoOrReset");
         itemPot.DisablePuzzlePieceVisualizer();
         SetResultItem(currentItem);
     }
@@ -151,6 +157,7 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         if (PuzzleEnabled == false) return;
 
+        sound.Play_No_Isplay("UndoOrReset");
         itemPot.DisablePuzzlePieceVisualizer();
         itemPot.UndoSetItemPot(currentItem);
         itemPot.UndoPiece();
