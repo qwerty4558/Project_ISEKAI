@@ -7,7 +7,10 @@ using UnityEngine.Playables;
 public class PlayerPlayableControl : MonoBehaviour
 {
     public bool DisablePlayerOnStart = true;
+    public bool DisablePlayerOnEnabled = true;
     public bool EnablePlayerOnComplete = true;
+    public bool EnablePlayerOnDisabled = true;
+
 
     PlayableDirector playDir;
 
@@ -16,6 +19,30 @@ public class PlayerPlayableControl : MonoBehaviour
         playDir = GetComponent<PlayableDirector>();
         playDir.played += Disableplayer;
         playDir.stopped += EnablePlayer;
+    }
+
+    public void OnEnable()
+    {
+        if(DisablePlayerOnEnabled)
+        {
+            var player = FindObjectOfType<PlayerController>();
+            if (player != null)
+            {
+                player.ControlEnabled = false;
+            }
+        }
+    }
+
+    public void OnDisable()
+    {
+        if (EnablePlayerOnDisabled)
+        {
+            var player = FindObjectOfType<PlayerController>();
+            if (player != null)
+            {
+                player.ControlEnabled = true;
+            }
+        }
     }
 
     public void Disableplayer(PlayableDirector obj)
