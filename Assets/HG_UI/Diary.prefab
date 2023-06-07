@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 2434063534591073430}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1096,7 +1096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1180675420249727014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2144,6 +2144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216a783be3ae9be4eb72066acb0cd6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookType: 0
+  bookPage: 0
   _diary: {fileID: 2091884106220515584}
   _recipe: {fileID: 3439734632946547793}
   diaryPage:
@@ -2172,6 +2174,9 @@ MonoBehaviour:
   recipePageInfo: []
   diaryAuto: {fileID: 7918285065746197584}
   recipeAuto: {fileID: 7081445070602195682}
+  diaryOutline: {fileID: 0}
+  isDiaryPageActive: 0
+  isRecipePageActive: 0
 --- !u!222 &2318853771995207210
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3137,7 +3142,7 @@ GameObject:
   - component: {fileID: 4817191443137001321}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3229,7 +3234,7 @@ GameObject:
   - component: {fileID: 6677678360975739419}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3321,7 +3326,7 @@ GameObject:
   - component: {fileID: 6490295318179141413}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3558,7 +3563,7 @@ GameObject:
   - component: {fileID: 1988509348609600133}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3902,7 +3907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9139413108233201792
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4262,7 +4267,7 @@ GameObject:
   - component: {fileID: 7482224527252011251}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4444,7 +4449,7 @@ GameObject:
   - component: {fileID: 1831601727678820594}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5000,7 +5005,7 @@ GameObject:
   - component: {fileID: 661537031686401497}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5092,7 +5097,7 @@ GameObject:
   - component: {fileID: 3172456238083812574}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5184,7 +5189,7 @@ GameObject:
   - component: {fileID: 4330061213983252416}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5711,7 +5716,7 @@ GameObject:
   - component: {fileID: 4405203600069198131}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6616,7 +6621,7 @@ GameObject:
   - component: {fileID: 4433919050416528237}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6708,7 +6713,7 @@ GameObject:
   - component: {fileID: 2728498162002196726}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6800,7 +6805,7 @@ GameObject:
   - component: {fileID: 4588061284622619781}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6892,7 +6897,7 @@ GameObject:
   - component: {fileID: 6463432442511756783}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6984,7 +6989,7 @@ GameObject:
   - component: {fileID: 3416340117067273624}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7076,7 +7081,7 @@ GameObject:
   - component: {fileID: 2984987295584118678}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7396,7 +7401,7 @@ GameObject:
   - component: {fileID: 8615229186658103239}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7667,7 +7672,7 @@ GameObject:
   - component: {fileID: 2133830592900285687}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7759,7 +7764,7 @@ GameObject:
   - component: {fileID: 1196151657617119369}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: PageInfo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

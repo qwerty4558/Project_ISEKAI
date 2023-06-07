@@ -73,7 +73,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         {
             StartCoroutine(IBlink_Icon());
         }
-
     }
 
     private void GetKeys()
@@ -102,16 +101,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 {
                     checkingDiary = true;
                     ViewDiary();
-                    diary_obj.GetComponent<DiaryController>().UnLockPage();
                 }
-                else ViewDiary();
+                else
+                {                    
+                    ViewDiary();
+                }
             }
         }
-    }
-
-    public void QuestComplateUnlockCheckDiary()
-    {
-        checkingDiary = false;
     }
 
     IEnumerator IBlink_Icon()
@@ -130,8 +126,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 diaryOutLine.effectColor = Color.Lerp(startColor, endColor, t);
                 elapsedTime += Time.deltaTime;
                 yield return null;
-
-
             }
             elapsedTime = 0f;
             while (elapsedTime < duration)
@@ -149,6 +143,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.SetActive(true);
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
+        diary_obj.GetComponent<DiaryController>().UnLockPage();
     }
 
     private void PauseGame()
