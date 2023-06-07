@@ -13,7 +13,7 @@ public class Discrimination : MonoBehaviour
     [SerializeField] private Image TargetItemUI;
     [SerializeField] private Image TargetPatternUI;
     [SerializeField] private PuzzleIngredientItems itemView;
-
+    [SerializeField] SoundModule sound;
     private Ingredient_Item activeIngredient;
 
     private void Awake()
@@ -34,6 +34,8 @@ public class Discrimination : MonoBehaviour
 
         if(InventoryTitle.instance != null)
         itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient()); // InvenItemMapReturn() -> InventoryMapReturnExceptEquipment() 으로 변경
+
+        sound = GetComponent<SoundModule>();    
     }
 
     private void OnDisable()
@@ -51,7 +53,7 @@ public class Discrimination : MonoBehaviour
 
     public void TryDiscrimination(Ingredient_Item ingredient_Item)
     {
-        if(ingredient_Item.count > 0)
+        if (ingredient_Item.count > 0)
         {
             TargetItemUI.gameObject.SetActive(true);
             TargetItemUI.GetComponent<DOTweenAnimation>().DORestart();
@@ -60,15 +62,16 @@ public class Discrimination : MonoBehaviour
             //TargetPatternUI.sprite = ingredient_Item.itemPatternImage;
             activeIngredient = ingredient_Item;
         }
-        
     }
 
     public void DoDiscrimination()
     {
-        if (activeIngredient == null) return;
+        if (activeIngredient == null) sound.Play_No_Isplay("NoHasItem");
 
         if (activeIngredient.count > 0)
         {
+            sound.Play_No_Isplay("DoDiscrimination");
+
             TargetPatternUI.gameObject.SetActive(true);
             TargetPatternUI.sprite = activeIngredient.itemPatternImage;
             InventoryTitle.instance.MinusItem(activeIngredient);
@@ -78,6 +81,7 @@ public class Discrimination : MonoBehaviour
 
             itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
         }
-        
+        else sound.Play_No_Isplay("NoHasItem");
+
     }
 }

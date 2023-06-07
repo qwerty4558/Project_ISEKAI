@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ShopTutorial : MonoBehaviour
 {
@@ -29,13 +30,19 @@ public class ShopTutorial : MonoBehaviour
 
     void OnDisable()
     {
-        PlayerController.SetActivePlayer();
+        if (PlayerController.Instance != null)
+            PlayerController.SetActivePlayer();
+        else return;
     }
     private void Update()
     {
         if (this.gameObject.activeSelf)
         {
-            PlayerController.DeActivePlayer();
+            if (PlayerController.Instance != null)
+            {
+                PlayerController.DeActivePlayer();
+            }
+            else return;
         }
         if (isNext)
         {
