@@ -34,10 +34,17 @@ public class DiaryController : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        CursorManage.instance.HideMouse();
+    }
+
     private void Update()
     {
         if(isDiaryPageActive)
         StartCoroutine(TabIconBlink());
+
+        
     }
 
     public void InitDiary()
@@ -128,7 +135,7 @@ public class DiaryController : MonoBehaviour
         switch (book)
         {
             case 0:
-                if (_page > 0 && _page < infoPage_Recipe)
+                if (_page >= 0 && _page < infoPage_Recipe)
                 {
                     diaryPageInfo[_page].SetActive(true);
                 }
@@ -140,7 +147,7 @@ public class DiaryController : MonoBehaviour
                 break;
             case 1:
                 isRecipePageActive = false;
-                if (_page > 0 && _page < infoPage_Diary)
+                if (_page >= 0 && _page < infoPage_Diary)
                 {
                     recipePageInfo[_page].SetActive(true);
                 }
