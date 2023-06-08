@@ -121,8 +121,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             float duration = .5f;
             float elapsedTime = 0f;
 
-            Color startColor = new Color(255, 0, 255, 0);
-            Color endColor = new Color(255, 0, 255, 1);
+            Color startColor = new Color(255, 255, 0, 0);
+            Color endColor = new Color(255, 255, 0, 1);
 
             while (elapsedTime < duration)
             {
