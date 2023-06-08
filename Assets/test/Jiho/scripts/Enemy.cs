@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected PlayerController player;
     [SerializeField] protected Outline outline;
 
-
+    [SerializeField] private ParticleSystem hitParticle;
 
     public string EnemyName { get => enemyName; }
     public float CurrentHp { get => currentHp; }
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-
+        
     }
 
     protected virtual void Awake()

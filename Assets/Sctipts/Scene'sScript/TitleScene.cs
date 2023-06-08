@@ -43,6 +43,7 @@ public class TitleScene : MonoBehaviour
         Cursor.visible = true;
     }
 
+
     public void ClickButton(int btnNum)
     {
         switch (btnNum)
@@ -53,6 +54,7 @@ public class TitleScene : MonoBehaviour
                 QuestTitle.instance.QuestInput("CH_01");
                 SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
                 LoadingSceneController.Instance.LoadScene("L_Midas");
+                
                 break;
             case 1:
                 option_Window.SetActive(true);

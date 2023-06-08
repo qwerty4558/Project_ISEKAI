@@ -3331,6 +3331,7 @@ GameObject:
   - component: {fileID: 8673836428254024101}
   - component: {fileID: 6439925021562779031}
   - component: {fileID: 1100226772}
+  - component: {fileID: 3803906440919669257}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -3413,6 +3414,21 @@ MonoBehaviour:
   m_EffectDistance: {x: 4, y: 4}
   m_UseGraphicAlpha: 1
 --- !u!114 &1100226772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446021652009595019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0, b: 0, a: 0}
+  m_EffectDistance: {x: 4, y: 4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &3803906440919669257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4433,6 +4449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8922901669853008399}
   - component: {fileID: 1149236873}
+  - component: {fileID: 1893416571119698959}
   m_Layer: 5
   m_Name: Hp bar
   m_TagString: Untagged
@@ -4464,6 +4481,114 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149236873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7481668935437345015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateType: 0
+  isSpeedBased: 0
+  hasOnStart: 0
+  hasOnPlay: 0
+  hasOnUpdate: 0
+  hasOnStepComplete: 0
+  hasOnComplete: 0
+  hasOnTweenCreated: 0
+  hasOnRewind: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onStepComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onTweenCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  onRewind:
+    m_PersistentCalls:
+      m_Calls: []
+  targetIsSelf: 1
+  targetGO: {fileID: 0}
+  tweenTargetIsTargetGO: 1
+  delay: 0
+  duration: 0.5
+  easeType: 6
+  easeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loopType: 0
+  loops: 1
+  id: DamagedPlayer
+  isRelative: 0
+  isFrom: 0
+  isIndependentUpdate: 0
+  autoKill: 0
+  autoGenerate: 1
+  isActive: 1
+  isValid: 1
+  target: {fileID: 8922901669853008399}
+  animationType: 12
+  targetType: 5
+  forcedTargetType: 0
+  autoPlay: 1
+  useTargetAsV3: 0
+  endValueFloat: 0
+  endValueV3: {x: 10, y: 10, z: 1}
+  endValueV2: {x: 0, y: 0}
+  endValueColor: {r: 1, g: 1, b: 1, a: 1}
+  endValueString: 
+  endValueRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  endValueTransform: {fileID: 0}
+  optionalBool0: 0
+  optionalBool1: 1
+  optionalFloat0: 90
+  optionalInt0: 44
+  optionalRotationMode: 0
+  optionalScrambleMode: 0
+  optionalShakeRandomnessMode: 0
+  optionalString: 
+--- !u!114 &1893416571119698959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4785,6 +4910,8 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: e634efa8a7e97a044833ef40aead134a, type: 2}
     - {fileID: 22100000, guid: e6224d06352871e4299dad2254634634, type: 2}
+    - {fileID: 11400000, guid: b66939b59b0118849ac0101ced6bfc48, type: 2}
+    - {fileID: 22100000, guid: 3968395c08a95b645ace216765f53525, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -4796,7 +4923,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|Action_Hand, Assembly-CSharp
@@ -4806,6 +4933,18 @@ MonoBehaviour:
     - Name: animOverride
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|Action_Axe, Assembly-CSharp
+    - Name: assignedEquipmentData
+      Entry: 10
+      Data: 2
+    - Name: animOverride
+      Entry: 10
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -4827,12 +4966,7 @@ MonoBehaviour:
   uiManager: {fileID: 0}
   otherHp_obj: {fileID: 7270784994059765552}
   playerHp_Bar: {fileID: 7769095399079771530}
-  playerHP_Outline: {fileID: 1100226772}
-  playerInfo:
-    HP: 0
-    playerAttackDamage: 0
-    nowScene: 
-    nowAction: 
+  playerHP_Outline: {fileID: 3803906440919669257}
   cameraFollow: {fileID: 5049202109948012562}
   sword_obj: {fileID: 7929349967061543851}
   pickaxe_obj: {fileID: 5062825103802054563}
@@ -4885,7 +5019,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  amountShake: {fileID: 1149236873}
+  amountShake: {fileID: 1893416571119698959}
   enemy_HP_Shake: {fileID: 0}
 --- !u!114 &5295361495118303466
 MonoBehaviour:
@@ -4966,6 +5100,24 @@ MonoBehaviour:
   - name: Player_Walk_1
     audioClips:
     - {fileID: 8300000, guid: 4910d625f4c9c0243b9fdea92c00cc97, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
+  - name: Hit_The_Tree
+    audioClips:
+    - {fileID: 8300000, guid: 4d4c3a75b9c05634a9dd9f6807870d1f, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 1
+    volumeMax: 1
+  - name: Hit_The_Rock
+    audioClips:
+    - {fileID: 8300000, guid: 85334765619821c40a8db150eb80edbc, type: 3}
     randomPitch: 0
     pitchMin: 1
     pitchMax: 1

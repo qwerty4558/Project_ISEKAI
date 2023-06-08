@@ -35,7 +35,7 @@ public class Action_Hand : PlayerAction
         if (player.IsAttack) return;
         player.IsAttack = true;
         player.anim.SetTrigger("Action");
-        player.SoundModule.Play("Action_Hand");
+        //player.SoundModule.Play("Action_Hand");
 
     }
 

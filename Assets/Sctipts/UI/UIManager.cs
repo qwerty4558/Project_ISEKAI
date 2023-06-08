@@ -182,6 +182,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             quest_obj.SetActive(true);
             ingame_obj.SetActive(true);
         }
+        //string savePath = Application.persistentDataPath + "Quest.Sav";
+        
         LoadingSceneController.Instance.LoadScene("Title");
     }
 
