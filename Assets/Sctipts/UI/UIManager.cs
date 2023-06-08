@@ -69,7 +69,10 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 cameraFollow.isInteraction = false;
         }
 
-        if (checkingDiary) return;
+        if (checkingDiary)
+        {
+            diaryOutLine.effectColor = new Color(255, 255, 0, 0);
+        }
         else
         {
             StartCoroutine(IBlink_Icon());
@@ -104,6 +107,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 if (checkingDiary == false)
                 {
                     checkingDiary = true;
+                    
                     ViewDiary();
                 }
                 else
