@@ -69,7 +69,7 @@ public class Stone : Enemy
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
 
             PlayerController.instance.SoundModule.Play("Hit_The_Rock");
-
+            hitAnimation.DORestartById("HIT");
             GetDamage(tempDamage);
         }
     }

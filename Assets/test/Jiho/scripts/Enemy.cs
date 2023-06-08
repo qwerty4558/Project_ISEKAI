@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected bool isRePosition;
     [SerializeField] protected bool isAttack;
     [SerializeField] protected bool isHit;
-
+    [SerializeField] protected DOTweenAnimation hitAnimation;
     [HideInInspector]
     public string outputName;
 
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         currentHp = maxHp;
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
-       
+        hitAnimation = GetComponent<DOTweenAnimation>();
     }
 
     protected virtual void Update()

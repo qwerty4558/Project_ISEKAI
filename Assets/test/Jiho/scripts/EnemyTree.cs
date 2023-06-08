@@ -69,6 +69,7 @@ public class EnemyTree : Enemy
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
             
             PlayerController.instance.SoundModule.Play("Hit_The_Tree");
+            hitAnimation.DORestartById("HIT");
             GetDamage(tempDamage);
         }
     }

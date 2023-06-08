@@ -2276,8 +2276,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202109129680134}
-  m_LocalRotation: {x: -0, y: 0.71142864, z: -0, w: -0.7027584}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -3.9102169e-25, y: -0.7114286, z: -8.289523e-26, w: 0.70275843}
+  m_LocalPosition: {x: 0.000010967255, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2528,8 +2528,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110054500089}
-  m_LocalRotation: {x: 0.025527662, y: 0.71095914, z: 0.02584261, w: -0.7022945}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.025527664, y: -0.7109591, z: -0.025842603, w: 0.70229465}
+  m_LocalPosition: {x: 0.000002861023, y: 0, z: -0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2608,7 +2608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110122446391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4998126, y: 0.49999994, z: 0.030653238}
+  m_LocalPosition: {x: 2.4998126, y: 0.5, z: 0.030653238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2776,8 +2776,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110821915194}
-  m_LocalRotation: {x: 0.012782816, y: 0.711311, z: 0.012940526, w: -0.70264214}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.012782818, y: -0.7113109, z: -0.012940523, w: 0.7026422}
+  m_LocalPosition: {x: 0.000002861023, y: 0, z: -0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4910,8 +4910,6 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: e634efa8a7e97a044833ef40aead134a, type: 2}
     - {fileID: 22100000, guid: e6224d06352871e4299dad2254634634, type: 2}
-    - {fileID: 11400000, guid: b66939b59b0118849ac0101ced6bfc48, type: 2}
-    - {fileID: 22100000, guid: 3968395c08a95b645ace216765f53525, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -4923,7 +4921,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 1|Action_Hand, Assembly-CSharp
@@ -4933,18 +4931,6 @@ MonoBehaviour:
     - Name: animOverride
       Entry: 10
       Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 2|Action_Axe, Assembly-CSharp
-    - Name: assignedEquipmentData
-      Entry: 10
-      Data: 2
-    - Name: animOverride
-      Entry: 10
-      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -5117,13 +5103,22 @@ MonoBehaviour:
     volumeMax: 1
   - name: Hit_The_Rock
     audioClips:
-    - {fileID: 8300000, guid: 85334765619821c40a8db150eb80edbc, type: 3}
+    - {fileID: 8300000, guid: f98e27e2045b7fa4b86bdb8e72d3b4c3, type: 3}
     randomPitch: 0
     pitchMin: 1
     pitchMax: 1
     randomVolume: 0
     volumeMin: 1
     volumeMax: 1
+  - name: Hit_The_Mineral
+    audioClips:
+    - {fileID: 8300000, guid: 85bae9f93488e1a4680dc4085d7f0d0e, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 2
+    volumeMax: 2
 --- !u!54 &4985967549053530756
 Rigidbody:
   m_ObjectHideFlags: 0
