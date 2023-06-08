@@ -15,7 +15,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject quest_obj;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
     [SerializeField] public bool checkingDiary = true;
-
+    SoundModule sound;
     [Header("Diary")]
     [SerializeField] int latest_Page;
     private void Start()
@@ -28,8 +28,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(false);
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
+        sound = GetComponent<SoundModule>();
 
-       
+
     }
 
     private void OnEnable()
@@ -79,6 +80,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            sound.Play("OnOff");
+            
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
@@ -91,6 +94,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
+            sound.Play("OnOff");
             if (diary_obj.activeSelf)
             {
                 ContinueGame();

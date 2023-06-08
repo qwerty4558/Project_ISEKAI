@@ -7,6 +7,8 @@ public class CursorManage : MonoBehaviour
     public static CursorManage instance;
     [SerializeField] Texture2D clickCursor;
     [SerializeField] Texture2D defaultCursor;
+    [SerializeField] SoundModule sound;
+
 
     private void Awake()
     {
@@ -39,5 +41,9 @@ public class CursorManage : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
+    public void PlayButtonClickSound()
+    {
+        if (sound != null)
+            sound.Play_No_Isplay("Click");
+    }
 }
