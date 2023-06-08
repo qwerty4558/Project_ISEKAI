@@ -36,7 +36,6 @@ public class UISpriteAnimation : MonoBehaviour
         }
         m_Image.sprite = empty_spite;
 
-        m_CoroutineAnim = null;       
-        
+        m_CoroutineAnim = null;
     }
 }

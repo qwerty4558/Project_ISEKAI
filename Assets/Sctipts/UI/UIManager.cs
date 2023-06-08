@@ -185,6 +185,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         LoadingSceneController.Instance.LoadScene("Title");
     }
 
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     public void OptionActive()
     {
         option_obj.SetActive(true);
