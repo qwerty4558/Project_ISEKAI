@@ -160,6 +160,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
         diary_obj.GetComponent<DOTweenAnimation>().DOPlayBackwards();
+        CursorManage.instance.HideMouse();
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;        
     }
