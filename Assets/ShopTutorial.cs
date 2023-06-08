@@ -32,7 +32,23 @@ public class ShopTutorial : MonoBehaviour
     {
         if (PlayerController.Instance != null)
             PlayerController.SetActivePlayer();
-        else return;
+        spaceImage.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < pages.Length; i++)
+        {
+            for (int j = 0; j < pages[i].transform.childCount; j++)
+            {
+                pages[i].transform.GetChild(j).gameObject.SetActive(false);
+            }
+            pages[i].SetActive(false);
+        }
+        if (currentPageIndex != 0)
+            currentPageIndex = 0;
+        isNext = false;
+        StartCoroutine(IDoTutorial(0));
     }
     private void Update()
     {
