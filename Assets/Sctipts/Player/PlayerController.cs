@@ -100,7 +100,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     [SerializeField] float idleChangeTime = 5.5f;
 
-    [SerializeField] AudioSource abs;
+    [SerializeField] public AudioSource abs;
     [SerializeField] AudioClip player_Interction_SFX;
 
     SoundModule soundModule;

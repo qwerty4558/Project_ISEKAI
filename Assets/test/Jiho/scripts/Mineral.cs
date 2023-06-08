@@ -68,6 +68,7 @@ public class Mineral : Enemy
             if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Pickaxe))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
+            PlayerController.instance.SoundModule.Play("Hit_The_Mineral");
             GetDamage(tempDamage);
         }
     }

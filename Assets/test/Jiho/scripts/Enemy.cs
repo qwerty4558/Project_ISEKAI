@@ -1,4 +1,5 @@
 using Cinemachine.Utility;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected PlayerController player;
     [SerializeField] protected Outline outline;
 
+    [SerializeField] private ParticleSystem hitParticle;
 
     public string EnemyName { get => enemyName; }
     public float CurrentHp { get => currentHp; }
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-
+        
     }
 
     protected virtual void Awake()
@@ -47,6 +49,7 @@ public class Enemy : MonoBehaviour
         currentHp = maxHp;
         player = FindObjectOfType<PlayerController>();
         spawnPos = transform.position;
+       
     }
 
     protected virtual void Update()
@@ -56,6 +59,8 @@ public class Enemy : MonoBehaviour
 
         if (!isHit) Action();
         AttackDelay();
+
+
     }
 
     protected virtual void Action()

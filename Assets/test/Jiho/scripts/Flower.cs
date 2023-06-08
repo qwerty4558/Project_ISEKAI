@@ -67,6 +67,7 @@ public class Flower : Enemy
             if (!other.GetComponent<ActiveAttackCol>().CompareActionType(typeof(Action_Hand))) return;
 
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
+            PlayerController.instance.SoundModule.Play("Action_Hand");
             GetDamage(tempDamage);
         }
     }

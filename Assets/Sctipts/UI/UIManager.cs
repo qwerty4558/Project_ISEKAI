@@ -11,7 +11,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject option_obj;
     [SerializeField] public CameraFollow cameraFollow;
     [SerializeField] private GameObject diary_obj;
-
+    [SerializeField] private GameObject ingame_obj;
+    [SerializeField] private GameObject quest_obj;
+    [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
+    [SerializeField] public bool checkingDiary = true;
+    SoundModule sound;
+    [Header("Diary")]
+    [SerializeField] int latest_Page;
     private void Start()
     {
         if (cameraFollow == null)
@@ -22,6 +28,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         option_obj.SetActive(false);
         diary_obj.GetComponent<DiaryController>().InitDiary();
         diary_obj.SetActive(false);
+        sound = GetComponent<SoundModule>();
+
+
     }
 
     private void OnEnable()
@@ -59,13 +68,20 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (cameraFollow != null)
                 cameraFollow.isInteraction = false;
         }
-  
+
+        if (checkingDiary) return;
+        else
+        {
+            StartCoroutine(IBlink_Icon());
+        }
     }
 
     private void GetKeys()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            sound.Play("OnOff");
+            
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
@@ -76,15 +92,52 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 PauseGame();
             }
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.T))
         {
+            sound.Play("OnOff");
             if (diary_obj.activeSelf)
             {
                 ContinueGame();
             }
             else
             {
-                ViewDiary();
+                if (checkingDiary == false)
+                {
+                    checkingDiary = true;
+                    ViewDiary();
+                }
+                else
+                {                    
+                    ViewDiary();
+                }
+            }
+        }
+    }
+
+    IEnumerator IBlink_Icon()
+    {
+        while (!checkingDiary)
+        {
+            float duration = .5f;
+            float elapsedTime = 0f;
+
+            Color startColor = new Color(255, 255, 0, 0);
+            Color endColor = new Color(255, 255, 0, 1);
+
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration;
+                diaryOutLine.effectColor = Color.Lerp(startColor, endColor, t);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                float t = Mathf.PingPong(elapsedTime, duration) / duration;
+                diaryOutLine.effectColor = Color.Lerp(endColor, startColor, t);
+                elapsedTime += Time.deltaTime;
+                yield return null;
             }
         }
     }
@@ -94,6 +147,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         diary_obj.SetActive(true);
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
+        diary_obj.GetComponent<DiaryController>().UnLockPage();
     }
 
     private void PauseGame()
@@ -109,21 +163,35 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
-        diary_obj.SetActive(false);
+        diary_obj.GetComponent<DOTweenAnimation>().DOPlayBackwards();
+        CursorManage.instance.HideMouse();
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;        
     }
 
     public void ToTitle()
     {
+        
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
+        if (!ingame_obj.activeSelf || !quest_obj.activeSelf)
+        {
+            quest_obj.SetActive(true);
+            ingame_obj.SetActive(true);
+        }
+        //string savePath = Application.persistentDataPath + "Quest.Sav";
+        
         LoadingSceneController.Instance.LoadScene("Title");
     }
 
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     public void OptionActive()
     {
         option_obj.SetActive(true);

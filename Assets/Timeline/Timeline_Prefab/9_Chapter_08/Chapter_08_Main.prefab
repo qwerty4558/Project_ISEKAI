@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1752209076}
   m_Father: {fileID: 4573168434310867628}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0.000001015377, y: 359.6714, z: 0.00000143142}
 --- !u!114 &1367562066
 MonoBehaviour:
@@ -210,8 +210,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4843459703813322}
-  m_LocalRotation: {x: 0.015217702, y: 0.9870481, z: -0.04341859, w: -0.15368578}
-  m_LocalPosition: {x: 0.0066420026, y: -0.022699255, z: 0.110345505}
+  m_LocalRotation: {x: -0.10717394, y: 0.979485, z: 0.100125186, w: 0.13819526}
+  m_LocalPosition: {x: 0.0066421917, y: -0.02269791, z: 0.11034408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -338,6 +338,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 422103291113461894}
@@ -391,44 +403,18 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+          m_TargetAssemblyTypeName: SceneBroadcastReceiver, Assembly-CSharp
+          m_MethodName: AddBroadcast
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: L_forest,CH801_ON
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 39870200761060794}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 5521440393413890602}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5031001933577948141}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -451,6 +437,68 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5521440393413890602}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5031001933577948141}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!1 &253242267416219156
 GameObject:
@@ -475,7 +523,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253242267416219156}
-  m_LocalRotation: {x: -0, y: -0, z: -3.0020428e-13, w: 1}
+  m_LocalRotation: {x: -0.0005365406, y: -0.027594803, z: -0.110350765, w: 0.9935095}
   m_LocalPosition: {x: -0.08816924, y: 0.00028315187, z: 0.00033796084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -507,7 +555,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353485535744990566}
-  m_LocalRotation: {x: -0, y: -0, z: -1.2878584e-13, w: 1}
+  m_LocalRotation: {x: -0.0035419075, y: -0.02526283, z: -0.06628715, w: 0.9974745}
   m_LocalPosition: {x: -0.08513356, y: -0.00010962039, z: -0.000000072024704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -631,18 +679,38 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: ea495d7c994291d41a5e96ad4ab04063, type: 3}
     - {fileID: 21300000, guid: f33e4dd5fcf283b42bafc82bb4a0a4ca, type: 3}
+    - {fileID: 4097686381338428444}
+    - {fileID: 0}
     - {fileID: 21300000, guid: 37dec1f56990a80489be4b72a1fc4546, type: 3}
     - {fileID: 21300000, guid: acff08f72528338469fa37ca2e6b1286, type: 3}
+    - {fileID: 3046747932843273187}
+    - {fileID: 0}
     - {fileID: 21300000, guid: 90b6ebdcfbb5dad42bc0edb9ff850f6f, type: 3}
+    - {fileID: 1763803441042950957}
+    - {fileID: 0}
     - {fileID: 21300000, guid: 425114f8625875048834de142d8de168, type: 3}
     - {fileID: 21300000, guid: 5001d54f63a67e54aaaafb5a8c68475a, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 21300000, guid: ee70db05520f7104c890cef925712ee3, type: 3}
+    - {fileID: 0}
     - {fileID: 21300000, guid: 24c0a71fab7f5184ab66854ee0ed978e, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 21300000, guid: ae307f96c236f7640b0cd5338e1c749e, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 1424130679488241548}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 21300000, guid: bfb3b2bdf4f157a4586a8009dcad8517, type: 3}
     - {fileID: 21300000, guid: ccdd137d901078847ae7208df5f791f9, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 21300000, guid: 3c870debe281b5647b3b13302823b08a, type: 3}
     - {fileID: 0}
     - {fileID: 0}
@@ -706,14 +774,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 4|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 5|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 8|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 3
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A68
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|DialogueSequence, Assembly-CSharp
+      Data: 9|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -724,10 +859,10 @@ MonoBehaviour:
         \uB9CC\uB4E4\uC5B4\uC92C\uC5B4.\r \n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -738,14 +873,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 10|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 11|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 13|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 14|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 7
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A39
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|DialogueSequence, Assembly-CSharp
+      Data: 15|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -765,19 +967,86 @@ MonoBehaviour:
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 4
+      Data: 8
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 16|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 17|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 19|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 9
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 20|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 10
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A69
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|DialogueSequence, Assembly-CSharp
+      Data: 21|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC624\uD06C "
@@ -789,25 +1058,92 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 5
+      Data: 11
     - Name: portrait_LFace
       Entry: 6
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 6
+      Data: 12
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 22|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 23|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 24|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 25|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 26|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 13
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A74
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 7|DialogueSequence, Assembly-CSharp
+      Data: 27|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -826,19 +1162,86 @@ MonoBehaviour:
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 4
+      Data: 8
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 28|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 29|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 30|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 31|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 32|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 14
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A56
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 8|DialogueSequence, Assembly-CSharp
+      Data: 33|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -847,13 +1250,13 @@ MonoBehaviour:
       Data: "\uC544\uC800\uC528 \uC5D0\uACE0\uC18C\uB4DC? \n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: portrait_LFace
       Entry: 10
-      Data: 7
+      Data: 15
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -861,14 +1264,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 34|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 35|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 36|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 37|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 38|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 16
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A41
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|DialogueSequence, Assembly-CSharp
+      Data: 39|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -888,19 +1358,86 @@ MonoBehaviour:
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 8
+      Data: 17
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 40|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 41|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 42|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 43|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 44|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 18
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A75
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 10|DialogueSequence, Assembly-CSharp
+      Data: 45|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -919,19 +1456,86 @@ MonoBehaviour:
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 4
+      Data: 8
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 46|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 47|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 48|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 49|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 50|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 19
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A1
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 11|DialogueSequence, Assembly-CSharp
+      Data: 51|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -942,13 +1546,13 @@ MonoBehaviour:
         \r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: portrait_LFace
       Entry: 10
-      Data: 9
+      Data: 20
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -956,14 +1560,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 52|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 53|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 54|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 55|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 56|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 21
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A76
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 12|DialogueSequence, Assembly-CSharp
+      Data: 57|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -990,14 +1661,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 58|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 59|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 60|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 61|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 62|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 22
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A34
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 13|DialogueSequence, Assembly-CSharp
+      Data: 63|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1007,10 +1745,10 @@ MonoBehaviour:
         \n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: portrait_LFace
       Entry: 6
       Data: 
@@ -1021,14 +1759,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 64|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 65|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 66|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 67|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 68|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 23
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A27
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 14|DialogueSequence, Assembly-CSharp
+      Data: 69|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC218\uC778 "
@@ -1051,14 +1856,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 70|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 71|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 72|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 73|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 9
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 74|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 24
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A77
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 15|DialogueSequence, Assembly-CSharp
+      Data: 75|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC624\uD06C "
@@ -1070,35 +1942,35 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 5
+      Data: 11
     - Name: portrait_LFace
       Entry: 6
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 6
+      Data: 12
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 16|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 76|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 17|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 77|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 18|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 78|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 19|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 79|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 10
+      Data: 25
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -1110,10 +1982,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 20|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 80|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 11
+      Data: 26
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1170,13 +2042,13 @@ MonoBehaviour:
       Data: CH80101
     - Name: $v
       Entry: 7
-      Data: 21|DialogueSequence[], Assembly-CSharp
+      Data: 81|DialogueSequence[], Assembly-CSharp
     - Name: 
       Entry: 12
       Data: 6
     - Name: 
       Entry: 7
-      Data: 22|DialogueSequence, Assembly-CSharp
+      Data: 82|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1185,7 +2057,7 @@ MonoBehaviour:
       Data: "\uC544\uC800\uC528, \uC5EC\uAE30 \uC790\uB3D9 \uAE09\uC218\uAE30 \uB9CC\uB4E4\uC5C8\uC5B4\uC694!\r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 6
       Data: 
@@ -1199,14 +2071,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 83|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 84|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 85|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 86|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 9
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 87|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 27
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A65
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 23|DialogueSequence, Assembly-CSharp
+      Data: 88|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC624\uD06C "
@@ -1219,25 +2158,92 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 5
+      Data: 11
     - Name: portrait_LFace
       Entry: 6
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 6
+      Data: 12
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 89|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 90|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 91|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 92|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 93|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 28
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A1
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 24|DialogueSequence, Assembly-CSharp
+      Data: 94|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1247,13 +2253,13 @@ MonoBehaviour:
         \uAE01\uB358\uB370, \uAD1C\uCC2E\uC544\uC694?\r "
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 12
+      Data: 29
     - Name: portrait_LFace
       Entry: 10
-      Data: 13
+      Data: 30
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -1261,14 +2267,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 95|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 96|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 97|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 98|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 9
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 99|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 31
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A66
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 25|DialogueSequence, Assembly-CSharp
+      Data: 100|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC624\uD06C "
@@ -1281,25 +2354,92 @@ MonoBehaviour:
       Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 5
+      Data: 11
     - Name: portrait_LFace
       Entry: 6
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 6
+      Data: 12
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 101|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 102|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 103|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 104|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 9
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 105|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 32
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A51
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 26|DialogueSequence, Assembly-CSharp
+      Data: 106|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC624\uD06C "
@@ -1318,19 +2458,86 @@ MonoBehaviour:
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 6
+      Data: 12
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 107|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 108|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 109|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 110|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 2
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 111|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 33
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A27
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 27|DialogueSequence, Assembly-CSharp
+      Data: 112|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1340,13 +2547,13 @@ MonoBehaviour:
         \n"
     - Name: portrait_L
       Entry: 10
-      Data: 2
+      Data: 4
     - Name: portrait_R
       Entry: 10
-      Data: 12
+      Data: 29
     - Name: portrait_LFace
       Entry: 10
-      Data: 14
+      Data: 34
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -1355,23 +2562,23 @@ MonoBehaviour:
       Data: 
     - Name: action
       Entry: 7
-      Data: 28|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 113|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 29|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 114|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 30|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 115|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 31|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 116|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 15
+      Data: 35
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -1383,10 +2590,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 32|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 117|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 16
+      Data: 36
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1413,10 +2620,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 33|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 118|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 17
+      Data: 37
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -1428,10 +2635,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 34|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 119|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 18
+      Data: 38
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1458,10 +2665,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 35|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 120|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 10
+      Data: 25
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -1473,10 +2680,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 36|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 121|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 19
+      Data: 39
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1715,7 +2922,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765882420043442383}
-  m_LocalRotation: {x: 0.61493456, y: -0.036494438, z: -0.2284503, w: -0.75387937}
+  m_LocalRotation: {x: 0.6849304, y: -0.052169193, z: -0.096862905, w: -0.7202544}
   m_LocalPosition: {x: -0.0054699844, y: 0.027359977, z: 0.089870006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1899,7 +3106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2441478637318746223}
-  m_LocalRotation: {x: -0.025091855, y: 0.010785682, z: 0.0071066464, w: -0.9996017}
+  m_LocalRotation: {x: 0.014600782, y: 0.022375876, z: 0.2186821, w: -0.9754303}
   m_LocalPosition: {x: -0.06505998, y: -0.015620008, z: 0.011569984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1931,7 +3138,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2451708557131230300}
-  m_LocalRotation: {x: 0.5868582, y: -0.00051340635, z: 0.809678, w: -0.0043135276}
+  m_LocalRotation: {x: 0.5328134, y: -0.037485026, z: 0.8440295, w: -0.04815712}
   m_LocalPosition: {x: -0.07788003, y: -0.09683001, z: -0.12718998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1973,7 +3180,7 @@ Transform:
   - {fileID: 5897579216360554020}
   m_Father: {fileID: 4573168434310867628}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.000002077711, y: 359.9315, z: 0.0000008500937}
 --- !u!114 &3577758601363310787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,8 +3262,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3014532564943678716}
-  m_LocalRotation: {x: 0.04254462, y: -0.14917749, z: 0.07945561, w: 0.9846943}
-  m_LocalPosition: {x: -0.11054489, y: -0.05734842, z: 0.000009894441}
+  m_LocalRotation: {x: -0.0037722562, y: 0.017155122, z: -0.036302235, w: 0.9991865}
+  m_LocalPosition: {x: -0.1099198, y: -0.057024136, z: 0.000009838492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2087,7 +3294,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3116871406274059342}
-  m_LocalRotation: {x: -0.010396641, y: -0.3031122, z: 0.030687924, w: 0.95240384}
+  m_LocalRotation: {x: -0.048590407, y: 0.17506152, z: 0.24294358, w: 0.9528751}
   m_LocalPosition: {x: -0.12199004, y: 0.0029700026, z: -0.0017200261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2120,7 +3327,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3678773722778458237}
-  m_LocalRotation: {x: 0.69900817, y: 0.07977378, z: -0.18831553, w: 0.6852452}
+  m_LocalRotation: {x: 0.7986844, y: 0.13110906, z: -0.08431436, w: 0.5812098}
   m_LocalPosition: {x: -0.16308996, y: 0.00423, z: 0.020039972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2153,7 +3360,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104852875797541606}
-  m_LocalRotation: {x: -0.69903743, y: -0.08019337, z: -0.18825588, w: 0.6851828}
+  m_LocalRotation: {x: -0.81451076, y: -0.050885994, z: -0.09551745, w: 0.5699642}
   m_LocalPosition: {x: -0.16308576, y: 0.0042335633, z: -0.020043038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2217,7 +3424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4362757189648394231}
-  m_LocalRotation: {x: -0.023778671, y: 0.018264009, z: -0.3541143, w: -0.93472135}
+  m_LocalRotation: {x: -0.043220643, y: -0.021199739, z: -0.42733872, w: -0.9028091}
   m_LocalPosition: {x: -0.09345997, y: -0.03909999, z: -0.01812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2249,7 +3456,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4376664750683030124}
-  m_LocalRotation: {x: 0.61458236, y: -0.036257688, z: 0.2289166, w: 0.7540365}
+  m_LocalRotation: {x: 0.68582535, y: -0.037419282, z: 0.08652192, w: 0.7216352}
   m_LocalPosition: {x: -0.0054735704, y: 0.027355557, z: -0.08987154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2558,7 +3765,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4947326669274985667}
-  m_LocalRotation: {x: 0.000000028932915, y: 0.000000036968586, z: 0.075914755, w: 0.9971143}
+  m_LocalRotation: {x: -0.02152166, y: -0.014751938, z: 0.12342039, w: 0.9920114}
   m_LocalPosition: {x: -0.17416514, y: 0.014954016, z: -0.00000006053597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2592,8 +3799,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5031001933577948141}
-  m_LocalRotation: {x: 0, y: 0.8587426, z: 0, w: 0.51240724}
-  m_LocalPosition: {x: 93.64, y: 2.77, z: 129.45}
+  m_LocalRotation: {x: -0, y: 0.6948719, z: -0, w: 0.7191336}
+  m_LocalPosition: {x: 93.64, y: 1.99, z: 127.41}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2603,8 +3810,8 @@ Transform:
   - {fileID: 3363271248084260371}
   - {fileID: 8144666670846113647}
   m_Father: {fileID: 4573168434310867628}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 88.034, z: 0}
 --- !u!95 &1763803441042950957
 Animator:
   serializedVersion: 4
@@ -2621,7 +3828,13 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'SK_ORC_SK_ORC_Lower_Arm_R'\n\tTransform 'SK_ORC_SK_ORC_Upper_Arm_L'\n\tTransform
+    'SK_ORC_SK_ORC_Clavicle_R'\n\tTransform 'SK_ORC_SK_ORC_Hips'\n\tTransform 'SK_ORC_SK_ORC_Eye_L'\n\tTransform
+    'SK_ORC_SK_ORC_Lower_Leg_R'\n\tTransform 'SK_ORC_SK_ORC_Finger_L_Middle_Proximal'\n\tTransform
+    'SK_ORC_SK_ORC_Neck'\n\tTransform 'SK_ORC_SK_ORC_Hand_R'\n\tTransform 'SK_ORC_SK_ORC_Toes_R'\n\tand
+    more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2662,7 +3875,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5173003924452858892}
-  m_LocalRotation: {x: -0.025103511, y: 0.010816474, z: -0.007131583, w: 0.9996009}
+  m_LocalRotation: {x: 0.011221048, y: 0.021229206, z: -0.20076227, w: 0.9793457}
   m_LocalPosition: {x: -0.065063335, y: -0.01561947, z: -0.011567082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2694,7 +3907,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5253115310015301289}
-  m_LocalRotation: {x: 0.05125169, y: -0.019732347, z: 0.106404245, w: 0.99280524}
+  m_LocalRotation: {x: 0.06164864, y: 0.049880028, z: 0.17877994, w: 0.98068815}
   m_LocalPosition: {x: -0.093457304, y: -0.039101537, z: 0.018116804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2726,8 +3939,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5285811534421500161}
-  m_LocalRotation: {x: 0.0046657613, y: -0.005000858, z: 0.70712966, w: 0.70705086}
-  m_LocalPosition: {x: -0.0004743493, y: -0.020558238, z: 0.37785512}
+  m_LocalRotation: {x: -0.13560897, y: 0.053677443, z: 0.66598433, w: 0.7315694}
+  m_LocalPosition: {x: 0.00359147, y: 0.018015426, z: 0.3609664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2769,8 +3982,8 @@ Transform:
   - {fileID: 771387414700129916}
   - {fileID: 7943721754808016486}
   - {fileID: 8982453434590081433}
-  - {fileID: 1367562064}
   - {fileID: 5663950768026669399}
+  - {fileID: 1367562064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2797,8 +4010,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5730860275156554043}
-  m_LocalRotation: {x: -0.040974535, y: 0.1406706, z: 0.11356471, w: 0.9826678}
-  m_LocalPosition: {x: -0.110555686, y: -0.05735399, z: -0.000009651856}
+  m_LocalRotation: {x: 0.0066784457, y: 0.17929922, z: 0.14644825, w: 0.9728104}
+  m_LocalPosition: {x: -0.1132361, y: -0.05874453, z: -0.0000098858645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2924,7 +4137,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058854411795138435}
-  m_LocalRotation: {x: -0.000000012614599, y: -0.000000010817548, z: -0.04794213, w: 0.99885017}
+  m_LocalRotation: {x: -0.033329464, y: -0.041004557, z: 0.040031623, w: 0.9978003}
   m_LocalPosition: {x: -0.030474871, y: 0.008017901, z: 0.000000004656613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2992,7 +4205,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6091486984151103520}
-  m_LocalRotation: {x: -0.000002002512, y: 0.0000019026771, z: -0.707107, w: 0.7071066}
+  m_LocalRotation: {x: -0.0000016864818, y: 0.00000236782, z: -0.7676439, w: 0.6408766}
   m_LocalPosition: {x: 0.09795004, y: 0.15758276, z: 0.00000037252903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3023,7 +4236,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6127917531559219234}
-  m_LocalRotation: {x: -0.04846512, y: -0.074594274, z: 0.06786091, w: 0.9937212}
+  m_LocalRotation: {x: -0.20172381, y: -0.084347114, z: 0.044600904, w: 0.974784}
   m_LocalPosition: {x: -0.17867918, y: 0.009157054, z: -0.06288129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3044,6 +4257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016088012950478927}
   - component: {fileID: 1424130679488241548}
+  - component: {fileID: 485524073}
   m_Layer: 0
   m_Name: Chapter_08_Main
   m_TagString: Untagged
@@ -3085,8 +4299,6 @@ PlayableDirector:
     value: {fileID: 3302419682465727593}
   - key: {fileID: -6889666007400614806, guid: 4c32408948927f34191440957f6e6f03, type: 2}
     value: {fileID: 1763803441042950957}
-  - key: {fileID: -8444405678926667429, guid: 4c32408948927f34191440957f6e6f03, type: 2}
-    value: {fileID: 4097686381338428444}
   - key: {fileID: -5863776031313163470, guid: 4c32408948927f34191440957f6e6f03, type: 2}
     value: {fileID: 3046747932843273187}
   - key: {fileID: 7265447963544604957, guid: 4c32408948927f34191440957f6e6f03, type: 2}
@@ -3095,12 +4307,28 @@ PlayableDirector:
     value: {fileID: 1367562065}
   - key: {fileID: -2799169805442874752, guid: 4c32408948927f34191440957f6e6f03, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 8431111073135800287, guid: 4c32408948927f34191440957f6e6f03, type: 2}
+  - key: {fileID: 3896426107592666309, guid: 4c32408948927f34191440957f6e6f03, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 6986767ea214e854ca46eb9637cea0af: {fileID: 3577758601363310787}
     - e4f2022588325494db6d08fbe34ff17f: {fileID: 1367562066}
+--- !u!114 &485524073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127946743363101521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &6232727485602756924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,8 +4352,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6232727485602756924}
-  m_LocalRotation: {x: -0.05832501, y: -0.006770833, z: -0.1437668, w: 0.98786813}
-  m_LocalPosition: {x: -0.11934532, y: 0.027939102, z: 0.000012249337}
+  m_LocalRotation: {x: -0.00034480164, y: 0.016757738, z: 0.21803083, w: 0.97579795}
+  m_LocalPosition: {x: -0.11867015, y: 0.027779832, z: 0.0000145758195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3251,7 +4479,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6425917214006545721}
-  m_LocalRotation: {x: 0.011293645, y: 0.30309603, z: 0.030696206, w: 0.9523986}
+  m_LocalRotation: {x: 0.07110443, y: -0.24031338, z: 0.21410333, w: 0.9441152}
   m_LocalPosition: {x: -0.12199419, y: 0.0029732063, z: 0.001722563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3315,7 +4543,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6841130427101712062}
-  m_LocalRotation: {x: 0.000000023972202, y: 0.000000026322274, z: -0.70710677, w: 0.7071068}
+  m_LocalRotation: {x: -0.000000048512316, y: 0.000000032651695, z: -0.7098432, w: 0.70435965}
   m_LocalPosition: {x: -0.02465362, y: 0.18381336, z: -0.018260986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3346,7 +4574,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6858149079310053614}
-  m_LocalRotation: {x: -0.000000022184732, y: -0.000000022046148, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0.0002391799, y: 0.00018898457, z: -0.7214046, w: 0.6925138}
   m_LocalPosition: {x: -0.02465401, y: 0.18381326, z: 0.018260255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3470,8 +4698,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7538413561872137172}
-  m_LocalRotation: {x: 0.016830977, y: 0.98846567, z: 0.03811456, w: 0.14560114}
-  m_LocalPosition: {x: 0.006641593, y: -0.02269809, z: -0.10503985}
+  m_LocalRotation: {x: 0.1972368, y: 0.9467355, z: 0.0499734, w: 0.24958427}
+  m_LocalPosition: {x: 0.006641583, y: -0.022698794, z: -0.105039135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3503,8 +4731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7774183773102877455}
-  m_LocalRotation: {x: 0.04999639, y: 0.005787625, z: -0.14483792, w: 0.9881745}
-  m_LocalPosition: {x: -0.11935677, y: 0.027941626, z: -0.000012324987}
+  m_LocalRotation: {x: 0.16180305, y: 0.021896044, z: -0.27618888, w: 0.9471325}
+  m_LocalPosition: {x: -0.1222506, y: 0.028617412, z: -0.000014101466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3536,7 +4764,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8505916427443280882}
-  m_LocalRotation: {x: 0.048483152, y: 0.074755386, z: 0.06781708, w: 0.9937112}
+  m_LocalRotation: {x: 0.18560326, y: 0.087521, z: 0.085655354, w: 0.97496396}
   m_LocalPosition: {x: -0.17867999, y: 0.00916, z: 0.062879995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3663,7 +4891,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9151515824386441084}
-  m_LocalRotation: {x: -0.5868616, y: 0.00051210437, z: 0.8096757, w: -0.004311024}
+  m_LocalRotation: {x: -0.56065345, y: 0.1173645, z: 0.80828595, w: -0.136261}
   m_LocalPosition: {x: -0.07788382, y: -0.09683278, z: 0.12719306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3695,7 +4923,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9193685803171687481}
-  m_LocalRotation: {x: -0.0000021329106, y: 0.0000006906062, z: -0.00039817122, w: 1}
+  m_LocalRotation: {x: -0.008476931, y: -0.01619189, z: -0.1136745, w: 0.99334997}
   m_LocalPosition: {x: -0.090516396, y: -0.00021763891, z: -0.0003379464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3711,13 +4939,229 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4573168434310867628}
     m_Modifications:
+    - target: {fileID: 223367061557387010, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.6315093
+      objectReference: {fileID: 0}
+    - target: {fileID: 223367061557387010, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7478471
+      objectReference: {fileID: 0}
+    - target: {fileID: 223367061557387010, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.004216842
+      objectReference: {fileID: 0}
+    - target: {fileID: 223367061557387010, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20470239
+      objectReference: {fileID: 0}
+    - target: {fileID: 241930341385512016, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6934884
+      objectReference: {fileID: 0}
+    - target: {fileID: 241930341385512016, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6553556
+      objectReference: {fileID: 0}
+    - target: {fileID: 241930341385512016, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.25252908
+      objectReference: {fileID: 0}
+    - target: {fileID: 241930341385512016, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.16066101
+      objectReference: {fileID: 0}
+    - target: {fileID: 259062667037684038, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9987402
+      objectReference: {fileID: 0}
+    - target: {fileID: 259062667037684038, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.045419224
+      objectReference: {fileID: 0}
+    - target: {fileID: 259062667037684038, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.011839132
+      objectReference: {fileID: 0}
+    - target: {fileID: 259062667037684038, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.017746141
+      objectReference: {fileID: 0}
+    - target: {fileID: 320282393585270703, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9418607
+      objectReference: {fileID: 0}
+    - target: {fileID: 320282393585270703, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.3169303
+      objectReference: {fileID: 0}
+    - target: {fileID: 320282393585270703, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.109632164
+      objectReference: {fileID: 0}
+    - target: {fileID: 320282393585270703, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.02084254
+      objectReference: {fileID: 0}
+    - target: {fileID: 328698717546794992, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66596407
+      objectReference: {fileID: 0}
+    - target: {fileID: 328698717546794992, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0000027084393
+      objectReference: {fileID: 0}
+    - target: {fileID: 328698717546794992, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.000002087928
+      objectReference: {fileID: 0}
+    - target: {fileID: 328698717546794992, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.74598384
+      objectReference: {fileID: 0}
+    - target: {fileID: 843351779066391001, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99640995
+      objectReference: {fileID: 0}
+    - target: {fileID: 843351779066391001, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08149291
+      objectReference: {fileID: 0}
+    - target: {fileID: 843351779066391001, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.017263519
+      objectReference: {fileID: 0}
+    - target: {fileID: 843351779066391001, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.015105798
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041781662949889219, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9791594
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041781662949889219, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.02687971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041781662949889219, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.013286425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041781662949889219, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20086777
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464384982236927199, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9394194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464384982236927199, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07751975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464384982236927199, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.29435194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464384982236927199, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.15760374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349806292567526917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9889424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349806292567526917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.029359225
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349806292567526917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.007998294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349806292567526917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.1451449
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633842051958276318, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9938028
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633842051958276318, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.010655003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633842051958276318, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.05264171
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633842051958276318, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.09732096
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731286240110794640, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6896956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731286240110794640, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7058794
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731286240110794640, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.007563352
+      objectReference: {fileID: 0}
+    - target: {fileID: 2731286240110794640, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.16123651
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737527256920464512, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9978766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737527256920464512, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.054182105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737527256920464512, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0014136167
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737527256920464512, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.036120877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118528989085209942, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9994055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118528989085209942, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.033370037
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118528989085209942, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0074079097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3118528989085209942, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0045040175
+      objectReference: {fileID: 0}
     - target: {fileID: 3363153811232665959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000009872019
+      value: 0.0000011406373
       objectReference: {fileID: 0}
     - target: {fileID: 3363153811232665959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.005012751
+      value: -0.005019512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363153811232665959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363153811232665959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 3363153811232665959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3727,41 +5171,313 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 3397489148826863552, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.94603544
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397489148826863552, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.039590158
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397489148826863552, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.012357263
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397489148826863552, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.3213985
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416869707908838774, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9980319
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416869707908838774, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04959637
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416869707908838774, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.029534686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416869707908838774, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.024498148
+      objectReference: {fileID: 0}
     - target: {fileID: 3472066610643010432, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Upper_Leg_R'\n\tTransform
-        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_L_Thumb_Distal'\n\tTransform
-        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Upper_Chest'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_R_Thumb_Distal'\n\tTransform
-        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Neck'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Toes_R'\n\tTransform
-        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Toes_L'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Lower_Leg_R'\n\tTransform
-        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Foot_L'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_R_Thumb_Proximal'\n\tand
-        more ..."
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038636388678954430, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66606414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038636388678954430, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0000026662535
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038636388678954430, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000019798924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038636388678954430, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.74589455
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077525848994235815, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9987279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077525848994235815, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.046330944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077525848994235815, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.007507991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077525848994235815, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.018430088
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261570136858006398, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.93340814
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261570136858006398, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.016185183
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261570136858006398, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.026238853
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261570136858006398, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.35748973
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389004270556396868, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9145105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389004270556396868, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.056347884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389004270556396868, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.016330454
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389004270556396868, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4002858
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.002728738
+      value: -0.0035869228
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.03637615
+      value: -0.0126827955
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.38911888
+      value: 0.37788537
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70678854
+      value: 0.76598537
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.026713463
+      value: 0.034780376
       objectReference: {fileID: 0}
     - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.004501549
+      value: 0.013465875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137513688002484519, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6417753
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.10464492
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.067516506
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04317621
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9776321
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.056160506
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.19429897
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578828012792112408, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.05770104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.08259785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.040387385
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08279947
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.27841097
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.14153576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9479931
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759036124097566767, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.06135319
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981952031066223858, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9399374
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981952031066223858, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.29319122
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981952031066223858, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.12893307
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981952031066223858, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.11803793
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999706782256031974, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9899216
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999706782256031974, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08376419
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999706782256031974, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.05833193
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999706782256031974, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.09816377
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492506792152719959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99871653
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492506792152719959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.047138438
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492506792152719959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.011676253
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492506792152719959, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.014385651
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.104647666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.067515686
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.04317646
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96471786
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.09588972
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14170879
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752885562043572639, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20010811
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806510263079242872, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92001677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806510263079242872, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.14778988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806510263079242872, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.36294258
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806510263079242872, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000025084228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107553448391991098, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.998837
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107553448391991098, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.020293806
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107553448391991098, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0020866538
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107553448391991098, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.043687016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113611312372846436, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8342301
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113611312372846436, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.038794275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113611312372846436, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.54718506
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113611312372846436, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.056068145
       objectReference: {fileID: 0}
     - target: {fileID: 7408261937548679674, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_RootOrder
@@ -3811,9 +5527,101 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7766136933967247920, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.95766586
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766136933967247920, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.014159425
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766136933967247920, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.040939294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766136933967247920, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.2846043
+      objectReference: {fileID: 0}
     - target: {fileID: 7891641731623584576, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_Name
       value: DL_RACCOON
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0825983
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.040388525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08279906
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.023147147
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.9502573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.28270674
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283784918955131910, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.12865531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375604090616759856, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.09009632
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375604090616759856, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.54513806
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375604090616759856, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.059984464
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375604090616759856, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.83132964
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450682286164242529, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.995629
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450682286164242529, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.026520412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450682286164242529, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.023223247
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450682286164242529, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08648861
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545147734286611917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7019915
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545147734286611917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.670064
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545147734286611917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14096712
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545147734286611917, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.19583292
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
