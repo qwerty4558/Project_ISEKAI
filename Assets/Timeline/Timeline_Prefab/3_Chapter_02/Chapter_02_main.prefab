@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18057148747228402}
   - component: {fileID: 18057148747228403}
+  - component: {fileID: 2025591696}
   m_Layer: 0
   m_Name: Chapter_02_main_02
   m_TagString: Untagged
@@ -307,8 +308,26 @@ PlayableDirector:
     value: {fileID: 18057148892548828}
   - key: {fileID: -1334611411273178733, guid: f05347efc3a12434380b3e5a042b1df7, type: 2}
     value: {fileID: 5427215768367427941}
+  - key: {fileID: -5550622199443929259, guid: f05347efc3a12434380b3e5a042b1df7, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &2025591696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18057148747228400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &18057148892548829
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +416,18 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -462,6 +493,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -550,6 +593,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -684,18 +739,6 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
@@ -729,6 +772,18 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: SetActivePlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -828,6 +883,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -950,6 +1017,42 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 18057149627093698}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
@@ -972,6 +1075,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18057148945114175}
   - component: {fileID: 18057148945114172}
+  - component: {fileID: 1084058209}
   m_Layer: 0
   m_Name: Chapter_02_main_03
   m_TagString: Untagged
@@ -1019,6 +1123,22 @@ PlayableDirector:
     value: {fileID: 1657889011}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1084058209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18057148945114173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &18057149020608887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,6 +1353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18057149627093701}
   - component: {fileID: 18057149627093700}
+  - component: {fileID: 1657889012}
   m_Layer: 0
   m_Name: Chapter_02_main_04
   m_TagString: Untagged
@@ -1286,6 +1407,22 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - 00b634a847a842743ab717e1c1ca1328: {fileID: 18057149320179966}
+--- !u!114 &1657889012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18057149627093698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &179678472921516582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,10 +1519,11 @@ MonoBehaviour:
     - {fileID: 18057148747228403}
     - {fileID: 0}
     - {fileID: 21300000, guid: bfb3b2bdf4f157a4586a8009dcad8517, type: 3}
-    - {fileID: 5259956585323343841}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 21300000, guid: 425114f8625875048834de142d8de168, type: 3}
     - {fileID: 0}
+    - {fileID: 5259956585323343841}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -1404,11 +1542,13 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 18057148945114172}
     - {fileID: 0}
+    - {fileID: 21300000, guid: cd67a7e5f3478774aa46296596b88d83, type: 3}
     - {fileID: 5393472833315050055}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 5241970358742197722}
     - {fileID: 0}
+    - {fileID: 21300000, guid: 44a9caef677542c42b826adce2df6991, type: 3}
     - {fileID: 18057149627093700}
     - {fileID: 0}
     SerializedBytesString: 
@@ -1572,9 +1712,9 @@ MonoBehaviour:
       Data: "\uC218\uC778"
     - Name: context
       Entry: 1
-      Data: "\uD06C\uD760\uD760 \uC7A0\uAE50 \uBC29\uC2EC\uD588\uC744 \uBFD0 \uD07C!
-        \uC544\uBB34\uB798\uB3C4 \uBB54\uAC00 \uC774\uC0C1\uD558\uAD74...\uC544\uBC00\uB77C
-        \uB108\uB3C4 \uC870\uC2EC\uD574 \uD07C"
+      Data: "\uD06C\uD760\uD760 \uC7A0\uAE50 \uBC29\uC2EC\uD588\uC744 \uBFD0, \uD07C!
+        \uC544\uBB34\uB798\uB3C4 \uBB54\uAC00 \uC774\uC0C1\uD558\uAD70... \uC544\uBC00\uB77C
+        \uB108\uB3C4 \uC870\uC2EC\uD574. \uD07C."
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -1635,8 +1775,9 @@ MonoBehaviour:
       Data: "\uC218\uC778"
     - Name: context
       Entry: 1
-      Data: "\uD760...\uC544\uB2D0\uAC70\uC57C \uD07C...\uC544\uC9C1 \uB108\uC5D0\uAC8C
-        \uB9D0\uD574\uC904 \uC218 \uC5C6\uB2E4 \uD07C!"
+      Data: "\uD760...\uC544\uB2D0\uAC70\uC57C. \uD07C... \uB098\uB3C4 \uD655\uC2E4\uD55C
+        \uAC8C \uC544\uB2C8\uB77C \uC544\uC9C1 \uB9D0\uD574\uC904 \uC218 \uC5C6\uB2E4.
+        \uD07C!"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -1815,7 +1956,7 @@ MonoBehaviour:
       Data: "\uC544\uBC00\uB77C "
     - Name: context
       Entry: 1
-      Data: "\uC624\uD06C \uC544\uC800\uC528 \uD070\uC77C\uB0AC\uC5B4!! \uBD84\uC218\uB300\uAC00
+      Data: "\uC624\uD06C \uC544\uC800\uC528, \uD070\uC77C\uB0AC\uC5B4!! \uBD84\uC218\uB300\uAC00
         \uC774\uC0C1\uD574\uC84C\uC5B4\uC694!"
     - Name: portrait_L
       Entry: 10
@@ -1877,7 +2018,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_StringArgument
       Entry: 1
-      Data: A27
+      Data: A33
     - Name: m_BoolArgument
       Entry: 5
       Data: false
@@ -1914,7 +2055,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uADF8\uB7EC\uAC8C\uB9D0\uC774\uB2E4...\uC774\uAC8C \uBB34\uC2A8 \uC77C\uC778\uC9C0
-        \uBAA8\uB974\uACA0\uB2E4"
+        \uBAA8\uB974\uACA0\uB2E4. "
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -1975,7 +2116,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_StringArgument
       Entry: 1
-      Data: A29
+      Data: A28
     - Name: m_BoolArgument
       Entry: 5
       Data: false
@@ -2110,7 +2251,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC774\uC720\uB294 \uBAA8\uB974\uACA0\uC9C0\uB9CC \uC544\uAE4C\uBD80\uD130
-        \uADF8\uB7AC\uB2E4\n"
+        \uADF8\uB7AC\uB2E4.\n"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2144,7 +2285,7 @@ MonoBehaviour:
       Data: 40|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 11
+      Data: 17
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -2159,7 +2300,7 @@ MonoBehaviour:
       Data: 41|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 17
+      Data: 18
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2257,7 +2398,7 @@ MonoBehaviour:
       Data: 47|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 18
+      Data: 19
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2306,7 +2447,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uB9C8\uCE68 \uB9C8\uB9AC\uAC00 \uBB34\uC2A8 \uC77C\uC778\uC9C0 \uBCF4\uACE0
-        \uC628\uB2E4\uACE0\uD558\uB2C8 \uAE30\uB2E4\uB824 \uBCF4\uC790"
+        \uC628\uB2E4\uACE0 \uD574\uC11C \uAE30\uB2E4\uB9AC\uB294 \uC911\uC774\uB2E4."
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2340,7 +2481,7 @@ MonoBehaviour:
       Data: 52|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 11
+      Data: 17
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -2355,7 +2496,7 @@ MonoBehaviour:
       Data: 53|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 19
+      Data: 20
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2412,7 +2553,7 @@ MonoBehaviour:
       Data: 
     - Name: portrait_LFace
       Entry: 10
-      Data: 20
+      Data: 21
     - Name: portrait_RFace
       Entry: 10
       Data: 10
@@ -2452,7 +2593,7 @@ MonoBehaviour:
       Data: 59|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 21
+      Data: 22
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2501,7 +2642,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uBB58 \uC880 \uD655\uC778\uD558\uACE0 \uC628\uB2E4\uACE0 \uC232\uC73C\uB85C
-        \uAC14\uC5C8\uB2E4\n"
+        \uAC14\uB2E4.\n"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2535,7 +2676,7 @@ MonoBehaviour:
       Data: 64|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 15
+      Data: 17
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -2550,7 +2691,7 @@ MonoBehaviour:
       Data: 65|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 22
+      Data: 23
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2608,7 +2749,7 @@ MonoBehaviour:
       Data: 10
     - Name: portrait_LFace
       Entry: 10
-      Data: 20
+      Data: 21
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -2633,7 +2774,7 @@ MonoBehaviour:
       Data: 70|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 23
+      Data: 24
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -2648,7 +2789,7 @@ MonoBehaviour:
       Data: 71|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 24
+      Data: 25
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -2723,13 +2864,13 @@ MonoBehaviour:
       Data: 2
     - Name: portrait_R
       Entry: 10
-      Data: 25
+      Data: 26
     - Name: portrait_LFace
       Entry: 6
       Data: 
     - Name: portrait_RFace
       Entry: 10
-      Data: 26
+      Data: 27
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2747,8 +2888,8 @@ MonoBehaviour:
       Data: "\uC5D8\uD504"
     - Name: context
       Entry: 1
-      Data: "\uC544\uAD6C \uC6B0\uB9AC \uC544\uBC00\uB77C \uAC71\uC815\uC774 \uB9CE\uAD6C\uB098.
-        \uADF8\uB7EC\uAC8C \uB9D0\uC57C...\uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uB78C"
+      Data: "\uC544\uAD6C, \uC6B0\uB9AC \uC544\uBC00\uB77C \uAC71\uC815\uC774 \uB9CE\uAD6C\uB098.
+        \uADF8\uB7EC\uAC8C \uB9D0\uC57C... \uC774\uAC8C \uBB34\uC2A8 \uC77C\uC774\uB78C?"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2760,7 +2901,7 @@ MonoBehaviour:
       Data: 4
     - Name: portrait_RFace
       Entry: 10
-      Data: 27
+      Data: 28
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2788,10 +2929,10 @@ MonoBehaviour:
       Data: 
     - Name: portrait_LFace
       Entry: 10
-      Data: 20
+      Data: 21
     - Name: portrait_RFace
       Entry: 10
-      Data: 26
+      Data: 27
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2809,8 +2950,8 @@ MonoBehaviour:
       Data: "\uC5D8\uD504"
     - Name: context
       Entry: 1
-      Data: "\uD06C\uD760 \uC774\uBAA8... \uADF8..\uADF8\uB0E5 \uC0DD\uAC01 \uC880
-        \uD558\uACE0 \uC788\uC5C8\uC5B4"
+      Data: "\uD06C\uD760 \uC774\uBAA8... \uADF8... \uADF8\uB0E5 \uC0DD\uAC01 \uC880
+        \uD558\uACE0 \uC788\uC5C8\uC5B4."
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2822,7 +2963,7 @@ MonoBehaviour:
       Data: 4
     - Name: portrait_RFace
       Entry: 10
-      Data: 28
+      Data: 29
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2853,7 +2994,7 @@ MonoBehaviour:
       Data: 7
     - Name: portrait_RFace
       Entry: 10
-      Data: 26
+      Data: 27
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2893,8 +3034,8 @@ MonoBehaviour:
       Data: "\uC5D8\uD504"
     - Name: context
       Entry: 1
-      Data: "\uC74C...\uD558\uAE34 \uADF8 \uB54C \uC6B0\uB9AC \uC544\uBC00\uB77C\uB294
-        \uB108\uBB34 \uC5B4\uB9AC\uAE34\uD588\uC9C0"
+      Data: "\uC74C... \uD558\uAE34 \uADF8 \uB54C \uC6B0\uB9AC \uC544\uBC00\uB77C\uB294
+        \uB108\uBB34 \uC5B4\uB9AC\uAE34\uD588\uC9C0..."
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -2906,7 +3047,7 @@ MonoBehaviour:
       Data: 4
     - Name: portrait_RFace
       Entry: 10
-      Data: 27
+      Data: 26
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2934,10 +3075,10 @@ MonoBehaviour:
       Data: 
     - Name: portrait_LFace
       Entry: 10
-      Data: 20
+      Data: 21
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 27
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -2959,7 +3100,7 @@ MonoBehaviour:
       Data: 86|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 29
+      Data: 30
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -2974,7 +3115,7 @@ MonoBehaviour:
       Data: 87|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 30
+      Data: 31
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3023,7 +3164,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC544\uBB34\uAC83\uB3C4 \uC544\uB2C8\uB780\uB2E4. \uC6B0\uB9AC \uC544\uBC00\uB77C\uB294
-        \uAC71\uC815\uB9D0\uACE0 \uC788\uC73C\uB834"
+        \uAC71\uC815\uB9D0\uACE0 \uC788\uC73C\uB834. "
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -3035,7 +3176,7 @@ MonoBehaviour:
       Data: 4
     - Name: portrait_RFace
       Entry: 10
-      Data: 28
+      Data: 29
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -3064,8 +3205,8 @@ MonoBehaviour:
       Entry: 10
       Data: 6
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 27
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -3087,7 +3228,7 @@ MonoBehaviour:
       Data: 93|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 31
+      Data: 32
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -3102,7 +3243,7 @@ MonoBehaviour:
       Data: 94|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 32
+      Data: 33
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3178,8 +3319,8 @@ MonoBehaviour:
       Entry: 10
       Data: 2
     - Name: portrait_R
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 34
     - Name: portrait_LFace
       Entry: 10
       Data: 4
@@ -3207,7 +3348,7 @@ MonoBehaviour:
       Data: 100|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 33
+      Data: 35
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -3222,7 +3363,7 @@ MonoBehaviour:
       Data: 101|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 34
+      Data: 36
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3304,7 +3445,7 @@ MonoBehaviour:
       Data: 106|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 33
+      Data: 35
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -3319,7 +3460,7 @@ MonoBehaviour:
       Data: 107|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 35
+      Data: 37
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3402,7 +3543,7 @@ MonoBehaviour:
       Data: 112|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 36
+      Data: 38
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -3417,7 +3558,7 @@ MonoBehaviour:
       Data: 113|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 37
+      Data: 39
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3465,7 +3606,7 @@ MonoBehaviour:
       Data: "\uC544\uBC00\uB77C"
     - Name: context
       Entry: 1
-      Data: "!?... \uC5BC\uB978 \uAC00\uBD10\uC694!"
+      Data: "\uC5B8\uB2C8\uAC00\uC694?! \uC5BC\uB978 \uAC00\uBD10\uC694!"
     - Name: portrait_L
       Entry: 10
       Data: 2
@@ -3473,11 +3614,11 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 7
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 40
     - Name: popup_Image
       Entry: 6
       Data: 
@@ -3499,7 +3640,7 @@ MonoBehaviour:
       Data: 118|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 38
+      Data: 41
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -3514,7 +3655,7 @@ MonoBehaviour:
       Data: 119|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 39
+      Data: 42
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -3582,6 +3723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179678474920229786}
   - component: {fileID: 179678474920229787}
+  - component: {fileID: 1970778950}
   m_Layer: 0
   m_Name: Chapter_02_main
   m_TagString: Untagged
@@ -3631,6 +3773,22 @@ PlayableDirector:
     value: {fileID: 5259956585323343841}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1970778950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179678474920229784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &682810359542488763
 GameObject:
   m_ObjectHideFlags: 0

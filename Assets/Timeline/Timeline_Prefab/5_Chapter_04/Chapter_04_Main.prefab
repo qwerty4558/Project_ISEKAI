@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4776278919984041999
 Transform:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
       Data: "\uB9C8\uB9AC "
     - Name: context
       Entry: 1
-      Data: "\uC090\uC090! \uC77C\uB8E8\uC640! \uC544\uAD6C\uAD6C\r... \n"
+      Data: "\uC090\uC090! \uC77C\uB8E8\uC640! \uC5D0\uAD6C.\n"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -1295,7 +1295,7 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC544\uC544. \uC74C, \uC774\uBC88\uC5D0 \uB098\uD0C0\uB09C \uC774 \uD604\uC0C1\uC5D0
-        \uAD00\uD574\uC11C \uC774\uC57C\uAE30\uB97C \uD558\uACE0 \uC788\uC5C8\uC5B4.
+        \uB300\uD574\uC11C \uC774\uC57C\uAE30\uB97C \uD558\uACE0 \uC788\uC5C8\uC5B4.
         \r\n"
     - Name: portrait_L
       Entry: 10
@@ -1326,8 +1326,8 @@ MonoBehaviour:
       Data: "\uC544\uBC00\uB77C "
     - Name: context
       Entry: 1
-      Data: "\uADF8\uB798\uC11C? \uBB50\uAC00 \uC5B4\uB5BB\uAC8C \uB41C \uAC70\uC57C?
-        \r\n"
+      Data: "\uC544\uD558... \uADF8\uB798\uC11C? \uBB50\uAC00 \uC5B4\uB5BB\uAC8C
+        \uB41C \uAC70\uC57C? \r\n"
     - Name: portrait_L
       Entry: 10
       Data: 1
@@ -1358,8 +1358,8 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC815\uD655\uD788\uB294 \uBAA8\uB974\uACA0\uB124. \uADF8\uB798\uB3C4
-        \uD639\uC2DC \uBAA8\uB974\uB2C8 \uC800\uD56D \uBC0F \uBA74\uC5ED\uC758 \uBD80\uC801\uC744
-        \uB9CC\uB4E4\uC5B4\uC654\uC5B4! \uC774\uAC74 \uB124 \uAC70\uC57C. "
+        \uD639\uC2DC \uBAA8\uB974\uB2C8 \uBC29\uC5B4 \uBD80\uC801\uC744 \uB9CC\uB4E4\uC5B4\uC654\uC5B4!
+        \uC774\uAC74 \uB124 \uAC70\uC57C. "
     - Name: portrait_L
       Entry: 10
       Data: 3
@@ -1389,7 +1389,7 @@ MonoBehaviour:
       Data: "\uC544\uBC00\uB77C "
     - Name: context
       Entry: 1
-      Data: "\uC624. \uACE0\uB9C8\uC6CC, \uC608\uC05C \uD478\uB978\uBE5B \uB3CC\uC774\uB124.\r\n"
+      Data: "\uC6B0\uC640. \uACE0\uB9C8\uC6CC, \uC608\uC05C \uD478\uB978\uBE5B \uB3CC\uC774\uB124.\r\n"
     - Name: portrait_L
       Entry: 10
       Data: 1
@@ -2008,9 +2008,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2055,6 +2055,30 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 0}
@@ -2079,7 +2103,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &5030604711278386085
 GameObject:
@@ -2283,6 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8863831116732177460}
   - component: {fileID: 7578721408797714590}
+  - component: {fileID: 1931625694}
   m_Layer: 0
   m_Name: Chapter_04_Main
   m_TagString: Untagged
@@ -2346,6 +2371,22 @@ PlayableDirector:
     m_References:
     - d52f39783bcac4644abe4bb2f382c3a0: {fileID: 521053952}
     - 53e9659c046446540bbd671ec20fa6f8: {fileID: 1372094457}
+--- !u!114 &1931625694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241367383712596286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &5278055265839480344
 GameObject:
   m_ObjectHideFlags: 0
