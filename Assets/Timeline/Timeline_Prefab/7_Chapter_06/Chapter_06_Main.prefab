@@ -132,7 +132,7 @@ MonoBehaviour:
       Data: "\uC624\uD06C "
     - Name: context
       Entry: 1
-      Data: "\uC544\uBC00\uB77C, \uB9C8\uCE68 \uC798 \uB9CC\uB0AC\uB2E4. \r\n"
+      Data: "\uC544\uBC00\uB77C, \uB9C8\uCE68 \uC798 \uB9CC\uB0AC\uB2E4. "
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -163,9 +163,9 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC774\uC820 \uAF43 \uD654\uB2E8 \uAC00\uAFB8\uB294 \uC77C\uC774 \uB108\uBB34
-        \uBC88\uAC70\uB85C\uC6CC\uC84C\uC5B4... \uBB3C \uC870\uB9AC\uAC1C\uB3C4 \uAE08\uBC29
-        \uBD80\uC11C\uC9C0\uACE0... \uC790\uB3D9 \uAE09\uC218\uAE30 \uAC19\uC740
-        \uAC78 \uB9CC\uB4E4\uC5B4 \uC904 \uC218 \uC788\uC744\uAE4C? \r\n"
+        \uBC88\uAC70\uB85C\uC6CC\uC84C\uB2E4... \uBB3C \uC870\uB9AC\uAC1C\uB3C4 \uAE08\uBC29
+        \uBD80\uC11C\uC9C0\uACE0 \uC788\uB2E4... \uC790\uB3D9 \uAE09\uC218\uAE30
+        \uAC19\uC740 \uAC78 \uB9CC\uB4E4\uC5B4 \uC904 \uC218 \uC788\uC744\uAE4C?"
     - Name: portrait_L
       Entry: 6
       Data: 
@@ -227,8 +227,9 @@ MonoBehaviour:
       Data: "\uC624\uD06C "
     - Name: context
       Entry: 1
-      Data: "\uC65C \uC774\uB807\uAC8C \uAC00\uB835\uC9C0... \uC74C, \uBAA8\uB974\uACA0\uB124.
-        \uD765\uBBF8\uAC00 \uC2DD\uC740 \uAC74\uC9C0 \uBB50... \uADF8\uB0E5 \uADC0\uCC2E\uC544. "
+      Data: "\uC65C \uC774\uB807\uAC8C \uAC00\uB824\uC6B4\uC9C0 \uBAA8\uB974\uACA0\uB2E4...
+        \uC74C, \uBAA8\uB974\uACA0\uB2E4. \uD765\uBBF8\uAC00 \uC2DD\uC740 \uAC83
+        \uAC19\uB2E4. \uBB50... \uADF8\uB0E5 \uADC0\uCC2E\uB2E4. "
     - Name: portrait_L
       Entry: 10
       Data: 4
@@ -375,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6201905800140294310}
   - component: {fileID: 1864780516346690876}
+  - component: {fileID: 494111648}
   m_Layer: 0
   m_Name: Chapter_06_Main
   m_TagString: Untagged
@@ -422,6 +424,22 @@ PlayableDirector:
     value: {fileID: 848614772716332430}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &494111648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011739004729296530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &4154058143573418782
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +585,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d2dd3bcaf23246a4ea2d81619ab39cc8, type: 2}
     - {fileID: 11400000, guid: c0e94f7119742cd4ca3e5c4fd396f30d, type: 2}
     - {fileID: 0}
-    - {fileID: 11400000, guid: d3dda029fbd0517408622303d0d7e019, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -610,21 +627,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -645,7 +650,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 2093436729892387696}
+        - m_Target: {fileID: 6080850072791567800}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -669,6 +674,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
@@ -683,30 +700,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 6080850072791567800}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2093436729892387696}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
@@ -720,16 +713,16 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -757,20 +750,6 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls: []
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
 --- !u!1 &6924297958261456880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,11 +2270,6 @@ PrefabInstance:
 --- !u!95 &848614772716332430 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5259956585302010205, guid: a9dea2d52af0544438f50dc128033d51, type: 3}
-  m_PrefabInstance: {fileID: 4844179980772494547}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2093436729892387696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6788223830134192035, guid: a9dea2d52af0544438f50dc128033d51, type: 3}
   m_PrefabInstance: {fileID: 4844179980772494547}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6712279306138697716 stripped
