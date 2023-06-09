@@ -13,6 +13,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject diary_obj;
     [SerializeField] private GameObject ingame_obj;
     [SerializeField] private GameObject quest_obj;
+    [SerializeField] private GameObject inventorys;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
     [SerializeField] public bool checkingDiary = true;
     SoundModule sound;
@@ -83,16 +84,19 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            sound.Play("OnOff");
+            
             
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
-                
+                sound.Play("OnOff");
             }
             else
             {
+                if (diary_obj.activeSelf || inventorys.activeSelf)
+                    return;
                 PauseGame();
+                sound.Play("OnOff");
             }
         }
         if (Input.GetKeyDown(KeyCode.T))
