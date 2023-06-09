@@ -31,12 +31,24 @@ public class CraftPuzzleCore : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) 
+        if (instance == null)
+        {
             instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 인스턴스가 존재하면 중복 생성된 인스턴스를 파괴
+            return;
+        }
 
         if (OnPuzzleComplete == null)
+        {
             OnPuzzleComplete = new UnityEvent();
+        }
+
+        // 이하 생략
     }
+
 
     private void OnEnable()
     {
