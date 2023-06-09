@@ -69,7 +69,7 @@ public class PlayerController : SerializedMonoBehaviour
     [SerializeField] private GameObject otherHp_obj;
     [SerializeField] private Image playerHp_Bar;
     [SerializeField] private UnityEngine.UI.Outline playerHP_Outline;
-
+    [SerializeField] private ParticleSystem attackParticle;
    // [SerializeField] PlayerStateInfomation playerInfo; // 플레이어의 상태를 저장하는 공간
 
     Rigidbody rd;
@@ -96,7 +96,7 @@ public class PlayerController : SerializedMonoBehaviour
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
     public bool IsTarget { get => isTarget; set => isTarget = value; }
     public InventoryTitle inven;
-    public bool[] isClicks;
+    public bool isClicks;
     private Animator animator;
     public Animator anim { get { return animator; } }
     public TextMeshProUGUI otherName;
@@ -153,7 +153,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     void Start()
     {
-        isClicks[0] = true;
+        isClicks = true;
         currentHp = maxHp;
         animator = GetComponent<Animator>();
         hitCollider = GetComponent<BoxCollider>();
@@ -287,14 +287,12 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void SetAnimCheck(int count)
     {
-        isClicks[count] = true;
+        isClicks = true;
     }
 
     public void GetAnimCheck()
     {
         isAttack = false;
-        isClicks[0] = true;
-        isClicks[1] = false;
     }
 
 
@@ -369,18 +367,14 @@ public class PlayerController : SerializedMonoBehaviour
 
     public void AttackAction()
     {
-        if (isClicks[0] && !isClicks[1] && !isAttack)
+        if (isClicks && !isAttack)
         {
 
             isAttack = true;
             animator.SetTrigger("Attack1");
-
+            attackParticle.Play();
         }
-        if (isClicks[0] && isClicks[1])
-        {
-            isAttack = true;
-            animator.SetTrigger("Attack2");
-        }
+        
     }
 
     public void Attack1END()
@@ -388,7 +382,7 @@ public class PlayerController : SerializedMonoBehaviour
         if(!isAttack)
         {
             isAttack = false;
-            animator.SetTrigger("Attack2");
+            
         }
     }
 
