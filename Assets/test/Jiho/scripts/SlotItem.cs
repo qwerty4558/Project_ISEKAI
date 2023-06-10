@@ -13,10 +13,12 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private int id;
 
     [SerializeField] private int count;
+    [SerializeField] private int appraiseCount;
     [SerializeField] private string itemName;
     [SerializeField] private string status;
     [SerializeField] private string route;
     [SerializeField] private Image slotImage;
+    [SerializeField] private Image puzzleImage;
     [SerializeField] private TextMeshProUGUI countText;
 
     private Vector3 orgPos;
@@ -25,6 +27,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TextMeshProUGUI[] statusTexts;
     public GameObject itemStatus;
     public Sprite itemImage;
+    public Sprite appraiseImage;
 
     public Ingredient_Item itemData;
 
@@ -33,6 +36,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public string Route { get => route; set => route = value; }
     public int ID { get => id; set => id = value; }
     public int Count { get => count; set => count = value; }
+    public int AppraiseCount { get => appraiseCount; set => appraiseCount = value; }
 
     private void Awake()
     {
@@ -45,10 +49,12 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(itemData != null)
         {
             itemImage = itemData.itemImage;
+            appraiseImage = itemData.itemPatternImage;
             count = itemData.count;
             status = itemData.status;
             route = itemData.route;
             itemName = itemData.name_KR;
+            appraiseCount = itemData.appraiseCount;
         }
         
     }
@@ -84,10 +90,13 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         statusTexts[0].text = itemName;
         statusTexts[1].text = status;
         statusTexts[2].text = route;
-
+        InventoryTitle.instance.puzzleImage.sprite = appraiseImage;
         itemStatus.transform.position = this.transform.position;
         if(count > 0)
             itemStatus.SetActive(true);
+        if (appraiseCount > 0)
+            InventoryTitle.instance.puzzleImage.enabled = true;
+        else InventoryTitle.instance.puzzleImage.enabled = false;
     }
 
     public void OnPointerExit(PointerEventData eventData)
