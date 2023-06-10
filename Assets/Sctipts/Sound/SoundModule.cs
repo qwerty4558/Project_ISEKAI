@@ -29,6 +29,7 @@ public class SoundModule : SerializedMonoBehaviour
     public SoundItem[] SoundItems { get => soundItems; }
 
     private AudioSource aud;
+    private Coroutine soundCoroutine;
 
     private void Awake()
     {
@@ -53,10 +54,9 @@ public class SoundModule : SerializedMonoBehaviour
             else
                 aud.volume = 1.0f;
 
-            if(!aud.isPlaying)
+            if (!aud.isPlaying)
                 aud.Play();
         }
-#pragma warning disable CS0168
         catch (NullReferenceException n)
         {
             Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\"");
@@ -65,9 +65,9 @@ public class SoundModule : SerializedMonoBehaviour
         {
             Debug.LogError("SimpleSoundModule : soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
         }
-#pragma warning restore CS0168
     }
-    public void PlayGroup(string soundName_0, string soundName_1)
+
+    public void PlayGroup_Walk(string soundName_0, string soundName_1)
     {
         try
         {
@@ -86,13 +86,11 @@ public class SoundModule : SerializedMonoBehaviour
             else
                 aud.volume = 1.0f;
 
-            
             if (!aud.isPlaying)
                 aud.Play();
 
-            StartCoroutine(PlaySoundClip(cur2));
+            soundCoroutine = StartCoroutine(PlaySoundClip_Walk(cur2));
         }
-#pragma warning disable CS0168
         catch (NullReferenceException n)
         {
             Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\"");
@@ -101,17 +99,16 @@ public class SoundModule : SerializedMonoBehaviour
         {
             Debug.LogError("SimpleSoundModule : soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
         }
-#pragma warning restore CS0168
     }
 
-    public void PlayInteraction(string soundName_0, string soundName_1)
+    public void PlayGroup_Run(string soundName_0, string soundName_1)
     {
         try
         {
             var cur1 = SoundItem.GetSoundItem(soundItems, soundName_0);
             var cur2 = SoundItem.GetSoundItem(soundItems, soundName_1);
 
-            
+            aud.clip = cur1.audioClips[Random.Range(0, cur1.audioClips.Length)];
 
             if (cur1.randomPitch)
                 aud.pitch = Random.Range(cur1.pitchMin, cur1.pitchMax);
@@ -123,11 +120,11 @@ public class SoundModule : SerializedMonoBehaviour
             else
                 aud.volume = 1.0f;
 
+            if (!aud.isPlaying)
+                aud.Play();
 
-            
-            StartCoroutine(IPlayGroup(cur1, cur2));
+            soundCoroutine = StartCoroutine(PlaySoundClip_Run(cur2));
         }
-#pragma warning disable CS0168
         catch (NullReferenceException n)
         {
             Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\"");
@@ -136,50 +133,55 @@ public class SoundModule : SerializedMonoBehaviour
         {
             Debug.LogError("SimpleSoundModule : soundname \"" + soundName_0 + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
         }
-#pragma warning restore CS0168
     }
 
-    private IEnumerator IPlayGroup(SoundItem s1, SoundItem s2)
+    // ...
+
+    private IEnumerator PlaySoundClip_Walk(SoundItem soundItem)
     {
-        aud.clip = s1.audioClips[Random.Range(0, s1.audioClips.Length)];
-        aud.Play();
-
-        yield return new WaitWhile(() => aud.isPlaying);
-
-        if (s2.randomPitch)
-            aud.pitch = Random.Range(s2.pitchMin, s2.pitchMax);
-        else
-            aud.pitch = 1.0f;
-
-        if (s2.randomVolume)
-            aud.volume = Random.Range(s2.volumeMin, s2.volumeMax);
-        else
-            aud.volume = 1.0f;
-
-        aud.clip = s2.audioClips[Random.Range(0, s2.audioClips.Length)];
-        aud.Play();
-    }
-
-
-    private IEnumerator PlaySoundClip(SoundItem soundItem)
-    {
-        yield return new WaitUntil(() => !aud.isPlaying);
+        yield return new WaitForSeconds(soundItem.delay);
 
         aud.clip = soundItem.audioClips[Random.Range(0, soundItem.audioClips.Length)];
 
-        if (soundItem.randomPitch)      
+        if (soundItem.randomPitch)
             aud.pitch = Random.Range(soundItem.pitchMin, soundItem.pitchMax);
-        
-        else aud.pitch = 1.0f;
+        else
+            aud.pitch = 1.0f;
 
-        if (soundItem.randomVolume) 
+        if (soundItem.randomVolume)
             aud.volume = Random.Range(soundItem.volumeMin, soundItem.volumeMax);
+        else
+            aud.volume = 1.0f;
 
-        else aud.volume = 1.0f;
-
-        if(!aud.isPlaying) 
+        if (!aud.isPlaying)
             aud.Play();
+
+        soundCoroutine = null;
     }
+
+    private IEnumerator PlaySoundClip_Run(SoundItem soundItem)
+    {
+        yield return new WaitForSeconds(soundItem.delay);
+
+        aud.clip = soundItem.audioClips[Random.Range(0, soundItem.audioClips.Length)];
+
+        if (soundItem.randomPitch)
+            aud.pitch = Random.Range(soundItem.pitchMin, soundItem.pitchMax);
+        else
+            aud.pitch = 1.0f;
+
+        if (soundItem.randomVolume)
+            aud.volume = Random.Range(soundItem.volumeMin, soundItem.volumeMax);
+        else
+            aud.volume = 1.0f;
+
+        if (!aud.isPlaying)
+            aud.Play();
+
+        soundCoroutine = null;
+    }
+
+    // ...
 
     public void Play_No_Isplay(string soundName)
     {
@@ -199,10 +201,8 @@ public class SoundModule : SerializedMonoBehaviour
             else
                 aud.volume = 1.0f;
 
-            
             aud.Play();
         }
-#pragma warning disable CS0168
         catch (NullReferenceException n)
         {
             Debug.LogError("SimpleSoundModule : Cannot found soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\"");
@@ -211,11 +211,13 @@ public class SoundModule : SerializedMonoBehaviour
         {
             Debug.LogError("SimpleSoundModule : soundname \"" + soundName + "\" in Object \"" + gameObject.name + "\" : Audio is Empty!");
         }
-#pragma warning restore CS0168
     }
+
     public void Stop()
     {
         aud.Stop();
+        if (soundCoroutine != null)
+            StopCoroutine(soundCoroutine);
     }
 
     public void FadeIn(string soundName, float time)
@@ -256,6 +258,7 @@ public class SoundModule : SerializedMonoBehaviour
     }
 }
 
+
 [Serializable]
 public class SoundItem
 {
@@ -277,6 +280,8 @@ public class SoundItem
     [Range(0f, 2f), FoldoutGroup("Additional Settings")]
     public float volumeMax = 2.0f;
 
+
+    public float delay = 0f;
     public static SoundItem GetSoundItem(SoundItem[] soundItems, string key)
     {
         return Array.Find(soundItems, i => i.name == key);
