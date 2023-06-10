@@ -29,7 +29,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private EnemyAttackCol bossRoarAttackCol;
     [SerializeField] private EnemyAttackCol bossKickAttackCol;
     [SerializeField] private GameObject hitEffect_obj;
-    
+    [SerializeField] private GameObject bossDefPos;
 
     private Outline outline;
     private PlayerController player;
@@ -37,6 +37,7 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        bossDefPos = GameObject.FindGameObjectWithTag("BossInitPos");
         bossAnimator = GetComponent<Animator>();
         outline = GetComponent<Outline>();
         currentHp = maxHp;
@@ -52,6 +53,14 @@ public class Boss : MonoBehaviour
             OutlineDelay();
             HpUpdate();
         }
+        
+    }
+
+    public void ResetPos()
+    {
+        this.transform.position = bossDefPos.transform.position;
+        this.transform.LookAt(bossDefPos.transform.forward);
+        currentHp = maxHp;
     }
 
     private void HpUpdate()

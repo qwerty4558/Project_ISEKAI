@@ -82,6 +82,7 @@ public class PlayerController : SerializedMonoBehaviour
     public GameObject axe_obj;
     public Outline targetOutline;
     
+    public float HP { get => currentHp; set => currentHp = value; }
 
     [SerializeField] private List<PlayerAction> playerActions;
     public List<PlayerAction> PlayerActions { get { return playerActions; } }
