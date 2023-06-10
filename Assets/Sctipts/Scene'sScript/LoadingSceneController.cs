@@ -23,7 +23,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         if (loadingFlag) return;
 
         StopAllCoroutines();
-        StartCoroutine(Cor_LoadNewScene(sceneName));    
+        StartCoroutine(Cor_LoadNewScene(sceneName));
     }
 
     public IEnumerator YieldLoadScene(string sceneName)
@@ -44,12 +44,23 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
 
         visualGroupObj.SetActive(true);
 
+        float progress = 0f;
+        float targetProgress = 0.9f; // 임의로 지정한 90%의 진행도
+
+        while (progress < targetProgress)
+        {
+            progress += Time.deltaTime; // 시간에 따라 진행도를 증가시킴
+            progressBar.value = progress;
+            yield return null;
+        }
+
+        // 실제 로딩 처리
         var async = SceneManager.LoadSceneAsync(SceneName);
 
-        for (float asy = async.progress; async.progress < 1.0f;)
+        while (!async.isDone)
         {
-            progressBar.value = asy;
-            yield return asy;
+            progressBar.value = Mathf.Lerp(targetProgress, 1f, async.progress); // 90% 이후 실제 로딩 진행도 반영
+            yield return null;
         }
 
         yield return new WaitForEndOfFrame();
@@ -61,3 +72,4 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         loadingFlag = false;
     }
 }
+
