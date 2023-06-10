@@ -13,14 +13,26 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     [SerializeField] private Slider progressBar;
     [SerializeField] private DOTweenAnimation coverAnimation;
 
+    [SerializeField] private Image backgroundImage;
+
+    public Sprite[] backgroundSprite;
+
     private void Start()
     {
         GetComponent<CanvasGroup>().alpha = 1.0f;
+
+        
     }
 
     public void LoadScene(string sceneName)
     {
         if (loadingFlag) return;
+
+        if (backgroundSprite != null && backgroundSprite.Length > 0)
+        {
+            int randIndex = Random.Range(0, backgroundSprite.Length);
+            backgroundImage.sprite = backgroundSprite[randIndex];
+        }
 
         StopAllCoroutines();
         StartCoroutine(Cor_LoadNewScene(sceneName));
