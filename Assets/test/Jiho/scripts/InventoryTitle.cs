@@ -16,6 +16,7 @@ public class InventoryTitle : MonoBehaviour
     [SerializeField] private SlotItem[] slotItems;
     [SerializeField] private GameObject itemStatus;
     [SerializeField] private TextMeshProUGUI[] statusTexts;
+    [SerializeField] public Image puzzleImage;
     [SerializeField] private GameObject inventoryObj;
     [SerializeField] private GameObject appraiseObj;
     [SerializeField] private CameraFollow cameraFollow;
@@ -34,6 +35,7 @@ public class InventoryTitle : MonoBehaviour
             instance = this;
             itemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
             alchemyItemMap = new Dictionary<string, Ingredient_Item>(slotItems.Length);
+            
 #if UNITY_EDITOR
             InitializeMaps();
 #endif
@@ -77,7 +79,8 @@ public class InventoryTitle : MonoBehaviour
 #endif
     private void InitInventory()
     {
-        for(int i = 0; i < slotItems.Length; i++)
+        itemStatus.SetActive(false);
+        for (int i = 0; i < slotItems.Length; i++)
         {
             slotItems[i].itemStatus = itemStatus;
             slotItems[i].statusTexts = statusTexts;
