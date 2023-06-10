@@ -499,10 +499,10 @@ public class PlayerController : SerializedMonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotateSpeed);
 
             rd.velocity = transform.forward * playerSpeed;
-            /*transform.Translate(Vector3.forward * Time.deltaTime * playerSpeed);*/
-            rd.AddForce(Vector3.up * desiredGravityForce, ForceMode.Acceleration);
 
-            soundModule.PlayGroup("Player_Walk", "Player_Walk_1");
+            if (isRun) soundModule.PlayGroup_Run("Player_Walk", "Player_Walk_1");
+
+            else soundModule.PlayGroup_Walk("Player_Walk", "Player_Walk_1");
         }
         else
         {
@@ -518,11 +518,13 @@ public class PlayerController : SerializedMonoBehaviour
         {
             playerSpeed = runSpeed;
             isRun = true;
+            soundModule.StopAllCoroutines();
         }
         else
         {
             playerSpeed = walkSpeed;
             isRun = false;
+            soundModule.StopAllCoroutines();
         }
     }
     private void PlayerSetAnimations()
