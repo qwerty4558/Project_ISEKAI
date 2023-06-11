@@ -105,9 +105,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (diary_obj.activeSelf)
             {
                 ContinueGame();
+
             }
             else
             {
+                
                 if (checkingDiary == false)
                 {
                     checkingDiary = true;
@@ -115,7 +117,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                     ViewDiary();
                 }
                 else
-                {                    
+                {
+                    
                     ViewDiary();
                 }
             }
