@@ -2243,7 +2243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202109129680134}
-  m_LocalRotation: {x: -0.00005105882, y: -0.7424286, z: 0.22279412, w: 0.63179314}
+  m_LocalRotation: {x: 0.000051014118, y: 0.7424286, z: -0.22279415, w: -0.6317932}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2287,7 +2287,7 @@ MonoBehaviour:
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
+    GateFit: 1
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
@@ -2495,7 +2495,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110054500089}
-  m_LocalRotation: {x: -0.023000881, y: -0.7500316, z: 0.19567841, w: 0.6313744}
+  m_LocalRotation: {x: 0.023000827, y: 0.7500316, z: -0.19567844, w: -0.63137436}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2539,7 +2539,7 @@ MonoBehaviour:
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
+    GateFit: 1
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
@@ -2575,7 +2575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110122446391}
   m_LocalRotation: {x: -0.1446325, y: -0.09424725, z: 0.013840497, w: -0.98488957}
-  m_LocalPosition: {x: 4.999625, y: 2, z: 0.061309263}
+  m_LocalPosition: {x: 4.999624, y: 2, z: 0.061308384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2614,7 +2614,7 @@ MonoBehaviour:
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
+    GateFit: 1
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
@@ -2743,7 +2743,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049202110821915194}
-  m_LocalRotation: {x: -0.011543035, y: -0.7463583, z: 0.20925283, w: 0.6316877}
+  m_LocalRotation: {x: 0.011543006, y: 0.7463583, z: -0.20925292, w: -0.63168776}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2787,7 +2787,7 @@ MonoBehaviour:
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
+    GateFit: 1
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
@@ -5009,7 +5009,7 @@ MonoBehaviour:
     delay: 0
   - name: Action_Sword
     audioClips:
-    - {fileID: 8300000, guid: 2926ed753b2cfdd408f94282a8ee3b71, type: 3}
+    - {fileID: 8300000, guid: e30b12fe70cccf44bb21a6775c906f51, type: 3}
     randomPitch: 0
     pitchMin: 1
     pitchMax: 1
@@ -5037,16 +5037,6 @@ MonoBehaviour:
     volumeMin: 1
     volumeMax: 1
     delay: 0
-  - name: Action_Sword_2
-    audioClips:
-    - {fileID: 8300000, guid: 5fd3ab68650b23349bd36336bf86ed92, type: 3}
-    randomPitch: 0
-    pitchMin: 1
-    pitchMax: 1
-    randomVolume: 0
-    volumeMin: 1
-    volumeMax: 1
-    delay: 0
   - name: Player_Walk
     audioClips:
     - {fileID: 8300000, guid: 7344d419bbeecb0468a15407736f264e, type: 3}
@@ -5066,7 +5056,7 @@ MonoBehaviour:
     randomVolume: 0
     volumeMin: 1
     volumeMax: 1
-    delay: 0
+    delay: 3
   - name: Hit_The_Tree
     audioClips:
     - {fileID: 8300000, guid: 4d4c3a75b9c05634a9dd9f6807870d1f, type: 3}
@@ -5090,6 +5080,26 @@ MonoBehaviour:
   - name: Hit_The_Mineral
     audioClips:
     - {fileID: 8300000, guid: 85bae9f93488e1a4680dc4085d7f0d0e, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 2
+    volumeMax: 2
+    delay: 0
+  - name: Player_Run
+    audioClips:
+    - {fileID: 8300000, guid: e98b1c880fc350d47be21a6dcdfc4ab0, type: 3}
+    randomPitch: 0
+    pitchMin: 1
+    pitchMax: 1
+    randomVolume: 0
+    volumeMin: 2
+    volumeMax: 2
+    delay: 0
+  - name: Player_Run_1
+    audioClips:
+    - {fileID: 8300000, guid: 22046fcfcd08b2749b0824db3797bf05, type: 3}
     randomPitch: 0
     pitchMin: 1
     pitchMax: 1

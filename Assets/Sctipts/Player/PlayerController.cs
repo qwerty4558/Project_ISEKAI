@@ -501,7 +501,7 @@ public class PlayerController : SerializedMonoBehaviour
 
             rd.velocity = transform.forward * playerSpeed;
 
-            if (isRun) soundModule.PlayGroup_Run("Player_Walk", "Player_Walk_1");
+            if (isRun) soundModule.PlayGroup_Run("Player_Run", "Player_Run_1");
 
             else soundModule.PlayGroup_Walk("Player_Walk", "Player_Walk_1");
         }
