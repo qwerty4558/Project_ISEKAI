@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4776278919984041999
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,8 +1497,8 @@ MonoBehaviour:
     - Name: context
       Entry: 1
       Data: "\uC815\uD655\uD788\uB294 \uBAA8\uB974\uACA0\uB124. \uADF8\uB798\uB3C4
-        \uD639\uC2DC \uBAA8\uB974\uB2C8 \uC800\uD56D \uBC0F \uBA74\uC5ED\uC758 \uBD80\uC801\uC744
-        \uB9CC\uB4E4\uC5B4\uC654\uC5B4! \uC774\uAC74 \uB124 \uAC70\uC57C. "
+        \uD639\uC2DC \uBAA8\uB974\uB2C8 \uBD80\uC801\uC744 \uB9CC\uB4E4\uC5B4\uC654\uC5B4!
+        \uC774\uAC74 \uB124 \uAC70\uC57C. "
     - Name: portrait_L
       Entry: 10
       Data: 5
@@ -2269,9 +2269,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: DeActiveInGameUI
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2281,9 +2281,9 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
-          m_MethodName: DeActiveInGameUI
-          m_Mode: 1
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2307,6 +2307,18 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
+          m_MethodName: SetActiveInGameUI
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
@@ -2334,18 +2346,6 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
-          m_MethodName: SetActiveInGameUI
-          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
