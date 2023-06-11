@@ -118,7 +118,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3319310670779568775}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3359,6 +3359,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 0}
@@ -3548,6 +3560,18 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
           m_MethodName: SetActiveInGameUI
           m_Mode: 1
@@ -3558,6 +3582,18 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 3319310670779568775}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -3601,18 +3637,6 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_MethodName: SetActive
           m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Actived_In_Scene, Assembly-CSharp
-          m_MethodName: DeActiveInGameUI
-          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4147,7 +4171,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291327382697327519, guid: 3e1fc8aedae1dbb40a026fded8670ed9, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'ELF_Finger_L_Pinky_Intermediate'\n\tTransform
+        'ELF_Lower_Arm_L'\n\tTransform 'ELF_Upper_Leg_L'\n\tTransform 'ELF_Clavicle_R'\n\tTransform
+        'ELF_Hand_L'\n\tTransform 'ELF_center'\n\tTransform 'ELF_Upper_Chest'\n\tTransform
+        'ELF_Finger_L_Thumb_Proximal'\n\tTransform 'ELF_Finger_R_Thumb_Intermediate'\n\tTransform
+        'ELF_Eye_L'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 2483334869099597318, guid: 3e1fc8aedae1dbb40a026fded8670ed9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4938,7 +4968,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5259956585302010205, guid: a9dea2d52af0544438f50dc128033d51, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'SK_MAIN_AttackA_Finger_R_Ring_Proximal'\n\tTransform
+        'SK_MAIN_AttackA_Lower_Leg_R'\n\tTransform 'SK_MAIN_AttackA_Foot_L'\n\tTransform
+        'SK_MAIN_AttackA_Finger_L_Thumb_Proximal'\n\tTransform 'SK_MAIN_AttackA_Neck'\n\tTransform
+        'SK_MAIN_AttackA_Finger_R_Middle_Intermediate'\n\tTransform 'SK_MAIN_AttackA_Finger_R_Thumb_Proximal'\n\tTransform
+        'SK_MAIN_AttackA_Clavicle_L'\n\tTransform 'SK_MAIN_AttackA_Eye_L'\n\tTransform
+        'SK_MAIN_AttackA_Spine'\n\tand more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 6788223829563007030, guid: a9dea2d52af0544438f50dc128033d51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7507,7 +7544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472066610643010432, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Upper_Leg_R'\n\tTransform
+        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_L_Thumb_Distal'\n\tTransform
+        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Upper_Chest'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_R_Thumb_Distal'\n\tTransform
+        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Neck'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Toes_R'\n\tTransform
+        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Toes_L'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Lower_Leg_R'\n\tTransform
+        'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Foot_L'\n\tTransform 'UNITYCHAN_BONE_BONE_UNITYCHAN_AttackA_Finger_R_Thumb_Proximal'\n\tand
+        more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 4038636388678954430, guid: 2fe1687c25580354ba7bfdba8c147d7e, type: 3}
       propertyPath: m_LocalRotation.w
