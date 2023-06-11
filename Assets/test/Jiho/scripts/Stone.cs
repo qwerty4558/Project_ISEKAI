@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 public class Stone : Enemy
@@ -69,6 +70,7 @@ public class Stone : Enemy
             float tempDamage = other.GetComponent<ActiveAttackCol>().LinkDamage;
 
             PlayerController.instance.SoundModule.Play("Hit_The_Rock");
+            hitParticles.Play();
             hitAnimation.DORestartById("HIT");
             GetDamage(tempDamage);
         }
