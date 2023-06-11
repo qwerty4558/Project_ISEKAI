@@ -161,7 +161,7 @@ public class SoundModule : SerializedMonoBehaviour
 
     private IEnumerator PlaySoundClip_Run(SoundItem soundItem)
     {
-        yield return new WaitForSeconds(soundItem.delay);
+        yield return new WaitForSeconds(0.6f);
 
         aud.clip = soundItem.audioClips[Random.Range(0, soundItem.audioClips.Length)];
 
