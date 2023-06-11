@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &270930025914745477
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 76d719d2d930e5c4cb46a220095675bc, type: 2}
     - {fileID: 11400000, guid: 0d1b05fc8126da2438b305ba60369eb1, type: 2}
     - {fileID: 11400000, guid: facc0b39cfbe73a468ee53424cc8ab8d, type: 2}
+    - {fileID: 11400000, guid: 7bff64622631b394e88a27e68c972508, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -237,6 +238,18 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1125527337078955996}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
           m_MethodName: SetActivePlayer
@@ -270,7 +283,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: ToCH1201
+            m_StringArgument: CH120201
             m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 1219005467174594496}
@@ -377,6 +390,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2426957312907544730}
+          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+          m_MethodName: StartDialogue
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ToBOSS
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5718430949456409259
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3442524022727404227}
   - component: {fileID: 1125527337078955996}
+  - component: {fileID: 78148322}
   m_Layer: 0
   m_Name: Chapter_12_mine
   m_TagString: Untagged
@@ -450,6 +478,22 @@ PlayableDirector:
     m_References:
     - a0e118df5fbc0e843a3ad0ca79677596: {fileID: 8255581963064323538}
     - b9ade5847726be641aa470fab1e9258b: {fileID: 8080661111868249260}
+--- !u!114 &78148322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5718430949456409259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0c5b1b128d47746901a3a4e7afdd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisablePlayerOnStart: 1
+  DisablePlayerOnEnabled: 1
+  EnablePlayerOnComplete: 1
+  EnablePlayerOnDisabled: 1
 --- !u!1 &6093053034915296603
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +576,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -1141,6 +1185,57 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ToBOSS
+    - Name: $v
+      Entry: 7
+      Data: 38|DialogueSequence[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 39|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: '-'
+    - Name: context
+      Entry: 1
+      Data: '-'
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 6
+      Data: 
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
