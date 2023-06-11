@@ -106,7 +106,7 @@ public class DiaryController : MonoBehaviour
         if (isDiaryPageActive)
         {
             isDiaryPageActive = false;
-            GotoPage(bookType, bookPage);
+            GotoPage(bookType, bookPage-1);
             StopCoroutine(TabIconBlink());
         }
     }
