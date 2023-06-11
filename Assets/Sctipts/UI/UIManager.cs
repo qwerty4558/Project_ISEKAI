@@ -101,21 +101,24 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            sound.Play("OnOff");
+            
             if (diary_obj.activeSelf)
             {
                 ContinueGame();
+                sound.Play("OnOff");
             }
             else
             {
+                
                 if (checkingDiary == false)
                 {
                     checkingDiary = true;
-                    
+                    sound.Play("OpenBookSound");
                     ViewDiary();
                 }
                 else
-                {                    
+                {
+                    sound.Play("OpenBookSound");
                     ViewDiary();
                 }
             }
