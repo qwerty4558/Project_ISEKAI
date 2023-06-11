@@ -89,7 +89,7 @@ public class InventoryTitle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             if (inventoryObj.activeSelf)
             {
