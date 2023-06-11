@@ -78,13 +78,21 @@ public class Outline : MonoBehaviour {
   public Material outlineMaskMaterial;
   public Material outlineFillMaterial;
 
-  private bool needsUpdate;
+    private ParticleSystem[] pt;
+    private bool needsUpdate;
 
   void Awake() {
 
     // Cache renderers
     renderers = GetComponentsInChildren<Renderer>();
 
+        pt = new ParticleSystem[renderers.Length];
+        for(int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i].GetComponentInParent<Renderer>() != null) continue;
+
+            pt[i] = GameObject.FindGameObjectWithTag("VFXEffect").GetComponent<ParticleSystem>();
+        }
     //  // Instantiate outline materials
     //  outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
     //  outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
@@ -104,7 +112,11 @@ public class Outline : MonoBehaviour {
   }
 
   void OnEnable() {
-    foreach (var renderer in renderers) {
+      
+      foreach (var renderer in renderers) {
+
+            //Skip Particles
+            if (renderer.GetComponentInParent<ParticleSystem>() != null) continue;
 
       // Append outline shaders
       var materials = renderer.sharedMaterials.ToList();
