@@ -54,11 +54,11 @@ public class CraftPuzzleCore : MonoBehaviour
     {
         PuzzleEnabled = true;
         sound = GetComponent<SoundModule>();
-
+        sound.Play("On");
         PlayerController player = PlayerController.instance;
         if (player != null)
             player.ControlEnabled = false;
-        sound.Play("Close");
+        
         LoadItemFromInventory();
     }
 

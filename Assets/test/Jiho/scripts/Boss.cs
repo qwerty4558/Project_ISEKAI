@@ -235,6 +235,10 @@ public class Boss : MonoBehaviour
     {
         bossDotween.DORestartById("start");
         isBossStart = true;
+        if (!PlayerController.instance.ControlEnabled)
+        {
+            PlayerController.instance.ControlEnabled = true;
+        }
     }
 
     public void AttackCol()

@@ -7,7 +7,7 @@ public class CursorManage : MonoBehaviour
     public static CursorManage instance;
     [SerializeField] Texture2D clickCursor;
     [SerializeField] Texture2D defaultCursor;
-    [SerializeField] SoundModule sound;
+    [SerializeField] public SoundModule sound;
 
 
     private void Awake()
