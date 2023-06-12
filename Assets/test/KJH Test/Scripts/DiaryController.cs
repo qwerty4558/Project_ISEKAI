@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using BookCurlPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DiaryController : MonoBehaviour
 {
+
+    public static DiaryController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
+
     [SerializeField] private int bookType;
     [SerializeField] private int bookPage;
     private int infoPage_Diary;
@@ -21,30 +31,30 @@ public class DiaryController : MonoBehaviour
     [SerializeField] UnityEngine.UI.Outline diaryOutline;
     public bool isDiaryPageActive = false;
     public bool isRecipePageActive = false;
-    
-    
-    // Start is called before the first frame update
 
-    private void Awake()
+    void OnSceneLoaded(Scene scnen, LoadSceneMode loadSceneMode)
     {
-        InitDiary();
+
     }
-    void Start()
+
+    private void OnEnable()
     {
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+
 
     private void OnDisable()
     {
-        CursorManage.instance.HideMouse();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Update()
     {
-        if(isDiaryPageActive)
-        StartCoroutine(TabIconBlink());
+        if (isDiaryPageActive)
+            StartCoroutine(TabIconBlink());
 
-        
+
     }
 
     public void InitDiary()
@@ -72,10 +82,10 @@ public class DiaryController : MonoBehaviour
 
     private GameObject FindPageInfoWithTag(GameObject parent, string _tag)
     {
-        for(int i = 0; i < parent.transform.childCount; ++i)
+        for (int i = 0; i < parent.transform.childCount; ++i)
         {
             Transform child = parent.transform.GetChild(i);
-            if(child.CompareTag(_tag))
+            if (child.CompareTag(_tag))
             {
                 return child.gameObject;
             }
@@ -93,12 +103,14 @@ public class DiaryController : MonoBehaviour
         if (bookType == 0)
         {
             isDiaryPageActive = true;
-            
+
         }
-        else if(bookType == 1)
+        else if (bookType == 1)
         {
             isRecipePageActive = true;
         }
+
+        UnLockPage();
     }
 
     public void OffBlink()
@@ -106,24 +118,24 @@ public class DiaryController : MonoBehaviour
         if (isDiaryPageActive)
         {
             isDiaryPageActive = false;
-            GotoPage(bookType, bookPage-1);
+            GotoPage(bookType, bookPage - 1);
             StopCoroutine(TabIconBlink());
         }
     }
 
     public void UnLockPage()
     {
-        if(isDiaryPageActive)
+        if (isDiaryPageActive)
         {
-            
-            StartCoroutine(OpenBook(0, bookPage-1));
-            
+
+            StartCoroutine(OpenBook(0, bookPage - 1));
+
         }
 
         else if (isRecipePageActive)
         {
-            
-            StartCoroutine(OpenBook(1, bookPage-1));
+
+            StartCoroutine(OpenBook(1, bookPage - 1));
         }
     }
 
@@ -143,7 +155,7 @@ public class DiaryController : MonoBehaviour
                 {
                     Debug.LogError("Invalid page index: " + _page);
                 }
-                yield return new WaitForSeconds(0.7f);
+                StartCoroutine(Co_OpenBook(book, _page));
                 break;
             case 1:
                 isRecipePageActive = false;
@@ -161,8 +173,23 @@ public class DiaryController : MonoBehaviour
                     GotoPage(book, _page);
                 }
                 else GotoPage(book, _page);
-                
+
+                StartCoroutine(Co_OpenBook(book, _page));
+
+                break;
+
+        }
+        yield return null;
+    }
+
+    IEnumerator Co_OpenBook(int book, int _page)
+    {
+        switch (book)
+        {
+            case 0:
                 yield return new WaitForSeconds(0.7f);
+                break;
+            case 1:
                 for (int i = 0; i < 3; ++i)
                 {
                     recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;

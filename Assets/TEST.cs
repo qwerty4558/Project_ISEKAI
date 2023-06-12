@@ -14,6 +14,13 @@ public class TEST : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            DiaryController.instance.GetBookInfomation("0,1");
+        }
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            DiaryController.instance.GetBookInfomation("1,3");
+        }
     }
 }
