@@ -17,7 +17,8 @@ public class DiaryController : MonoBehaviour
     }
 
     [SerializeField] private int bookType;
-    [SerializeField] private int bookPage;
+    [SerializeField] private int bookPage_diary;
+    [SerializeField] private int bookPage_recipe;
     private int infoPage_Diary;
     private int infoPage_Recipe;
     [SerializeField] private GameObject _diary;
@@ -96,17 +97,19 @@ public class DiaryController : MonoBehaviour
     public void GetBookInfomation(string _bookInfo)
     {
         bookType = int.Parse(_bookInfo.Split(',')[0]);
-        bookPage = int.Parse(_bookInfo.Split(",")[1]);
+        
 
         UIManager.Instance.checkingDiary = false;
 
         if (bookType == 0)
         {
+            bookPage_diary = int.Parse(_bookInfo.Split(",")[1]);
             isDiaryPageActive = true;
 
         }
         if (bookType == 1)
         {
+            bookPage_recipe = int.Parse(_bookInfo.Split(",")[1]);
             isRecipePageActive = true;
         }
 
@@ -117,7 +120,7 @@ public class DiaryController : MonoBehaviour
         if (isDiaryPageActive)
         {
             isDiaryPageActive = false;
-            GotoPage(bookType, bookPage - 1);
+            GotoPage(0, bookPage_diary - 1);
             StopCoroutine(TabIconBlink());
         }
     }
@@ -126,82 +129,73 @@ public class DiaryController : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (isDiaryPageActive)
+        if (isDiaryPageActive && isRecipePageActive)
+        {
+            StartCoroutine(CO_Open_Diary_Page(bookPage_diary - 1));
+            StartCoroutine(CO_Open_Recipe_Page(bookPage_recipe - 1));
+        }
+
+        else if (isDiaryPageActive)
         {
 
-            StartCoroutine(OpenBook(0, bookPage - 1));
+            StartCoroutine(CO_Open_Diary_Page(bookPage_diary - 1));
 
         }
 
-        if (isRecipePageActive)
+        else if (isRecipePageActive)
         {
 
-            StartCoroutine(OpenBook(1, bookPage - 1));
+            StartCoroutine(CO_Open_Recipe_Page(bookPage_recipe - 1));
         }
     }
 
 
-
-
-    IEnumerator OpenBook(int book, int _page)
+    IEnumerator CO_Open_Diary_Page(int _page)
     {
-        switch (book)
+        if (_page >= 0 && _page < infoPage_Recipe)
         {
-            case 0:
-                if (_page >= 0 && _page < infoPage_Recipe)
-                {
-                    diaryPageInfo[_page].SetActive(true);
-                }
-                else
-                {
-                    Debug.LogError("Invalid page index: " + _page);
-                }
-                StartCoroutine(Co_OpenBook(book, _page));
-                break;
-            case 1:
-                isRecipePageActive = false;
-                if (_page >= 0 && _page < infoPage_Diary)
-                {
-                    recipePageInfo[_page].SetActive(true);
-                }
-                else
-                {
-                    Debug.LogError("Invalid page index: " + _page);
-                }
-                if (!_recipe.activeSelf)
-                {
-                    _recipe.SetActive(true);
-                    GotoPage(book, _page);
-                }
-                else GotoPage(book, _page);
-
-                StartCoroutine(Co_OpenBook(book, _page));
-
-                break;
-
+            diaryPageInfo[_page].SetActive(true);
         }
+        else
+        {
+            Debug.LogError("Invalid page index: " + _page);
+        }
+ 
         yield return null;
     }
 
-    IEnumerator Co_OpenBook(int book, int _page)
+    IEnumerator CO_Open_Recipe_Page(int _page)
     {
-        switch (book)
+        isRecipePageActive = false;
+        if (_page >= 0 && _page < infoPage_Diary)
         {
-            case 0:
-                yield return new WaitForSeconds(0.7f);
-                break;
-            case 1:
-                for (int i = 0; i < 3; ++i)
-                {
-                    recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
-                    yield return new WaitForSeconds(0.3f);
-                    recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
-                    yield return new WaitForSeconds(0.3f);
-                }
-                break;
-
+            recipePageInfo[_page].SetActive(true);
         }
+        else
+        {
+            Debug.LogError("Invalid page index: " + _page);
+        }
+        if (!_recipe.activeSelf)
+        {
+            _recipe.SetActive(true);
+            GotoPage(1, _page);
+        }
+        else GotoPage(1, _page);
+
+
+
+        for (int i = 0; i < 3; ++i)
+        {
+            recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = true;
+            yield return new WaitForSeconds(0.3f);
+            recipePageInfo[_page].GetComponent<UnityEngine.UI.Outline>().enabled = false;
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        yield return null;
     }
+
+  
 
     IEnumerator TabIconBlink()
     {
@@ -243,6 +237,7 @@ public class DiaryController : MonoBehaviour
                 diaryAuto.PageFlipTime = 0.2f;
                 diaryAuto.TimeBetweenPages = 0;
                 diaryAuto.StartFlipping((pageNum + 1) / 2);
+
                 break;
             case 1:
                 int pageNum2 = _page;
@@ -255,6 +250,8 @@ public class DiaryController : MonoBehaviour
                 break;
         }
     }
+
+    
 }
 
 
