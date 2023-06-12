@@ -105,7 +105,7 @@ public class DiaryController : MonoBehaviour
             isDiaryPageActive = true;
 
         }
-        else if (bookType == 1)
+        if (bookType == 1)
         {
             isRecipePageActive = true;
         }
@@ -133,7 +133,7 @@ public class DiaryController : MonoBehaviour
 
         }
 
-        else if (isRecipePageActive)
+        if (isRecipePageActive)
         {
 
             StartCoroutine(OpenBook(1, bookPage - 1));
