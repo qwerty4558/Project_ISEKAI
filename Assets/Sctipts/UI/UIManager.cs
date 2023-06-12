@@ -155,10 +155,13 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
 
     private void ViewDiary()
     {
-        diary_obj.SetActive(true);
-        if (cameraFollow != null)
-            cameraFollow.isInteraction = true;
-        diary_obj.GetComponent<DiaryController>().UnLockPage();
+        if (!diary_obj.activeSelf)
+        {
+            diary_obj.SetActive(true);
+            if (cameraFollow != null)
+                cameraFollow.isInteraction = true;
+            diary_obj.GetComponent<DiaryController>().UnLockPage();
+        }
     }
 
     private void PauseGame()
