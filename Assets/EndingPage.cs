@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EndingPage : MonoBehaviour
 {
+    private void Update()
+    {
+        CursorManage.instance.ShowMouse();
+    }
     private void OnEnable()
     {
         PlayerController.instance.gameObject.SetActive(false);

@@ -24,6 +24,11 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         
     }
 
+    private void Update()
+    {
+        if(loadingFlag) Input.ResetInputAxes();
+    }
+
     public void LoadScene(string sceneName)
     {
         if (loadingFlag) return;
@@ -50,8 +55,6 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     private IEnumerator Cor_LoadNewScene(string SceneName)
     {
         loadingFlag = true;
-
-        Input.ResetInputAxes();
         var tw = coverAnimation.tween;
         coverAnimation.DORestartById("Loader_Close");
         yield return tw.WaitForCompletion();

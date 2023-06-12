@@ -103,6 +103,11 @@ public class QuestTitle : SerializedMonoBehaviour
 
     public void QuestInput(string id)
     {
+        if (!questMap.ContainsKey(id))
+        {
+            return;
+        }
+
         if (currentQuest != null)
         {
             tempQuest = questMap[id];
