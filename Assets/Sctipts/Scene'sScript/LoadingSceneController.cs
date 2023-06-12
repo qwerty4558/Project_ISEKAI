@@ -33,6 +33,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
             int randIndex = Random.Range(0, backgroundSprite.Length);
             backgroundImage.sprite = backgroundSprite[randIndex];
         }
+        
 
         StopAllCoroutines();
         StartCoroutine(Cor_LoadNewScene(sceneName));
@@ -50,6 +51,7 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     {
         loadingFlag = true;
 
+        Input.ResetInputAxes();
         var tw = coverAnimation.tween;
         coverAnimation.DORestartById("Loader_Close");
         yield return tw.WaitForCompletion();
@@ -78,10 +80,13 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
         yield return new WaitForEndOfFrame();
 
         visualGroupObj.SetActive(false);
+ 
         coverAnimation.DORestartById("Loader_Open");
         yield return tw.WaitForCompletion();
 
         loadingFlag = false;
+
+        
     }
 }
 
