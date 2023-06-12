@@ -4,8 +4,12 @@ using UnityEngine;
 using BookCurlPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
+#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
+#endif
 
-public class DiaryController : MonoBehaviour
+public class DiaryController : SerializedMonoBehaviour
 {
 
     public static DiaryController instance;
