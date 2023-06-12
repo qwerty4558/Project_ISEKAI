@@ -16,6 +16,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     [SerializeField] private GameObject inventorys;
     [SerializeField] private UnityEngine.UI.Outline diaryOutLine;
     [SerializeField] public bool checkingDiary = true;
+    [SerializeField] public bool isControl = true;
     SoundModule sound;
     [Header("Diary")]
     [SerializeField] int latest_Page;
@@ -52,11 +53,16 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         settingBoard_obj.SetActive(false);
         option_obj.SetActive(false);
         diary_obj.SetActive(false);
+        isControl = true;
     }
 
     private void Update()
     {
-        GetKeys();
+        if(isControl == true)
+        {
+            GetKeys();
+        }
+        
 
         if (settingBoard_obj.activeSelf || option_obj.activeSelf || diary_obj.activeSelf || InventoryTitle.instance.Inventory.activeSelf)
         {

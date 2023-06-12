@@ -34,11 +34,13 @@ public class Actived_In_Scene : MonoBehaviour
     public void SetActiveInGameUI()
     {
         inGameUICanvas.SetActive(true);
+        UIManager.Instance.isControl = true;
     }
 
     public void DeActiveInGameUI()
     {
         inGameUICanvas.SetActive(false);
+        UIManager.Instance.isControl = false;
     }
 
     public void SetActiveQuestUI()
