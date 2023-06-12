@@ -45,17 +45,21 @@ public class QuestTitle : SerializedMonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if(UIManager.Instance.isControl == true)
         {
-            QuestActive();
-            if (questUI.checking_Quest == false) questUI.checking_Quest = true;
-        }
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                QuestActive();
+                if (questUI.checking_Quest == false) questUI.checking_Quest = true;
+            }
 
-        if (currentQuest == null && tempQuest != null)
-        {
-            QuestInput(tempQuest.questInfoDatas[0].title);
-            tempQuest = null;
+            if (currentQuest == null && tempQuest != null)
+            {
+                QuestInput(tempQuest.questInfoDatas[0].title);
+                tempQuest = null;
+            }
         }
+        
     }
 
     private void QuestActive()

@@ -89,26 +89,30 @@ public class InventoryTitle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (UIManager.Instance.isControl == true) 
         {
-            if (inventoryObj.activeSelf)
+            if (Input.GetKeyDown(KeyCode.I))
             {
-                inventoryObj.SetActive(false);
-                itemStatus.SetActive(false);
-                if(cameraFollow != null)
-                    cameraFollow.isInteraction = false;
-                CursorManage.instance.HideMouse();
-            }
-            else
-            {
-                cameraFollow = FindObjectOfType<CameraFollow>();
-                PrintInventory();
-                inventoryObj.SetActive(true);
-                if (cameraFollow != null)
-                    cameraFollow.isInteraction = true;
-                CursorManage.instance.ShowMouse();
+                if (inventoryObj.activeSelf)
+                {
+                    inventoryObj.SetActive(false);
+                    itemStatus.SetActive(false);
+                    if (cameraFollow != null)
+                        cameraFollow.isInteraction = false;
+                    CursorManage.instance.HideMouse();
+                }
+                else
+                {
+                    cameraFollow = FindObjectOfType<CameraFollow>();
+                    PrintInventory();
+                    inventoryObj.SetActive(true);
+                    if (cameraFollow != null)
+                        cameraFollow.isInteraction = true;
+                    CursorManage.instance.ShowMouse();
+                }
             }
         }
+        
 
         /*if(Input.GetKeyDown(KeyCode.U)) //발표용 임시
         {
