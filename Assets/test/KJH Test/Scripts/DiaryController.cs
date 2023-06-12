@@ -110,7 +110,6 @@ public class DiaryController : MonoBehaviour
             isRecipePageActive = true;
         }
 
-        UnLockPage();
     }
 
     public void OffBlink()
@@ -125,6 +124,8 @@ public class DiaryController : MonoBehaviour
 
     public void UnLockPage()
     {
+        StopAllCoroutines();
+
         if (isDiaryPageActive)
         {
 
