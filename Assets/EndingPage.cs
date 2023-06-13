@@ -12,6 +12,7 @@ public class EndingPage : MonoBehaviour
     {
         PlayerController.instance.gameObject.SetActive(false);
         UIManager.Instance.gameObject.SetActive(false);
+        QuestTitle.instance.StopAllCoroutines();
         QuestTitle.instance.gameObject.SetActive(false);
     }
 

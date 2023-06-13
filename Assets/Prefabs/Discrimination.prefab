@@ -1440,8 +1440,8 @@ GameObject:
   - component: {fileID: 8940493342812320334}
   - component: {fileID: 8940493342812320335}
   - component: {fileID: 8940493342812320328}
-  - component: {fileID: 975685010}
   - component: {fileID: 975685011}
+  - component: {fileID: 975685010}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1576,6 +1576,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &975685011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940493342812320330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 0
+  onDisableBehaviour: 2
 --- !u!114 &975685010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,21 +1723,6 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
---- !u!114 &975685011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940493342812320330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preset: 0
-  onEnableBehaviour: 0
-  onDisableBehaviour: 2
 --- !u!1 &8940493342866504398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,8 +1811,8 @@ GameObject:
   - component: {fileID: 8940493342991525935}
   - component: {fileID: 8940493342991525928}
   - component: {fileID: 8940493342991525929}
-  - component: {fileID: 845303096}
   - component: {fileID: 845303097}
+  - component: {fileID: 845303096}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1935,6 +1935,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &845303097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8940493342991525931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preset: 0
+  onEnableBehaviour: 0
+  onDisableBehaviour: 2
 --- !u!114 &845303096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,21 +2202,6 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
---- !u!114 &845303097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940493342991525931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 40306178, guid: aa0b1eebb5db27a419fa4564bbe5c9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preset: 0
-  onEnableBehaviour: 0
-  onDisableBehaviour: 2
 --- !u!1 &8940493343402333865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3020,7 @@ MonoBehaviour:
     randomVolume: 0
     volumeMin: 1
     volumeMax: 1
+    delay: 0
   - name: OnOff
     audioClips:
     - {fileID: 8300000, guid: e2eb008e50806d24cad35f9975c15173, type: 3}
@@ -3029,6 +3030,7 @@ MonoBehaviour:
     randomVolume: 0
     volumeMin: 1
     volumeMax: 1
+    delay: 0
   - name: NoHasItem
     audioClips:
     - {fileID: 8300000, guid: 2a80423c3c67a854ba5f38c6a70fb85e, type: 3}
@@ -3038,6 +3040,7 @@ MonoBehaviour:
     randomVolume: 0
     volumeMin: 1
     volumeMax: 1
+    delay: 0
 --- !u!1 &8940493344377227234
 GameObject:
   m_ObjectHideFlags: 0

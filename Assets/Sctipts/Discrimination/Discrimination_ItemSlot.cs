@@ -28,6 +28,7 @@ public class Discrimination_ItemSlot : ItemviewSlot
 
     public override void OnItemButtonEnter()
     {
-        Discrimination.Instance.TryDiscrimination(ItemData);
+        if(itemData !=  null) 
+            Discrimination.Instance.TryDiscrimination(ItemData);
     }
 }

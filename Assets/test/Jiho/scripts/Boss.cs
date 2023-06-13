@@ -202,11 +202,14 @@ public class Boss : MonoBehaviour
     private IEnumerator RoarCor(Vector3 foward)
     {
         float count = 0;
+        Rigidbody pRb = player.GetComponent<Rigidbody>();
         while(count < 0.3f)
         {
             count += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-            player.transform.position += foward.normalized * 25 * Time.deltaTime;
+            pRb.MovePosition(pRb.position + player.transform.forward.normalized * 25 * Time.deltaTime);
+            yield return null;
+            /*yield return new WaitForEndOfFrame();
+            player.transform.position += foward.normalized * 25 * Time.deltaTime;*/
         }
 
     }

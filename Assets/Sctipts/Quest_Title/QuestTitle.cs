@@ -90,8 +90,24 @@ public class QuestTitle : SerializedMonoBehaviour
 
         currentQuest = null;
         questUI.SetActiveQuest(6, false);
-        StartCoroutine(QuestClearAni());
+
+        if(!QuestAllClear())
+            StartCoroutine(QuestClearAni());
+        else StopAllCoroutines();
+
         Debug.Log("퀘스트 체크");
+    }
+
+    private bool QuestAllClear()
+    {
+        foreach (KeyValuePair<string, QuestInfo> pair in questMap)
+        {
+            for (int i = 0; i < pair.Value.questInfoDatas.Length; i++)
+            {
+                if(pair.Value.questInfoDatas[i].isClear == true) return true;
+            }
+        }
+        return false;
     }
 
     private IEnumerator QuestClearAni()
