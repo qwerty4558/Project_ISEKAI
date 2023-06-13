@@ -55,6 +55,9 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
     private IEnumerator Cor_LoadNewScene(string SceneName)
     {
         loadingFlag = true;
+
+        if (PlayerController.instance != null) PlayerController.instance.ControlEnabled = false;
+
         var tw = coverAnimation.tween;
         coverAnimation.DORestartById("Loader_Close");
         yield return tw.WaitForCompletion();
@@ -86,6 +89,9 @@ public class LoadingSceneController : SingletonMonoBehaviour<LoadingSceneControl
  
         coverAnimation.DORestartById("Loader_Open");
         yield return tw.WaitForCompletion();
+
+        if (PlayerController.instance != null && PlayerController.instance.ControlEnabled == false) 
+            PlayerController.instance.ControlEnabled = true;
 
         loadingFlag = false;
 
