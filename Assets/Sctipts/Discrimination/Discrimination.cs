@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class Discrimination : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Discrimination : MonoBehaviour
     [SerializeField] private Image TargetItemUI;
     [SerializeField] private Image TargetPatternUI;
     [SerializeField] private PuzzleIngredientItems itemView;
+    [SerializeField] GameObject notice_Warning;
     [SerializeField] SoundModule sound;
     private Ingredient_Item activeIngredient;
 
@@ -34,7 +36,7 @@ public class Discrimination : MonoBehaviour
 
         if(InventoryTitle.instance != null)
         itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient()); // InvenItemMapReturn() -> InventoryMapReturnExceptEquipment() 으로 변경
-
+        notice_Warning.SetActive(false);
         sound = GetComponent<SoundModule>();    
     }
 
@@ -66,9 +68,12 @@ public class Discrimination : MonoBehaviour
 
     public void DoDiscrimination()
     {
-        if (activeIngredient == null) sound.Play_No_Isplay("NoHasItem");
-
-        if (activeIngredient.count > 0)
+        if (activeIngredient == null)
+        {
+            notice_Warning.SetActive(true);
+            sound.Play_No_Isplay("NoHasItem");
+        }
+        else if (activeIngredient != null && activeIngredient.count > 0)
         {
             sound.Play_No_Isplay("DoDiscrimination");
 
@@ -77,11 +82,14 @@ public class Discrimination : MonoBehaviour
             InventoryTitle.instance.MinusItem(activeIngredient);
             InventoryTitle.instance.AlchemyItemPlus(activeIngredient);
 
-            if(activeIngredient.count == 0) TargetItemUI.gameObject.SetActive(false);
+            if (activeIngredient.count == 0) TargetItemUI.gameObject.SetActive(false);
 
             itemView.SetItemWindow(InventoryTitle.instance.InventoryMapReturnOnlyIngredient());
         }
-        else sound.Play_No_Isplay("NoHasItem");
-
+        else
+        {
+            notice_Warning.SetActive(true);
+            sound.Play_No_Isplay("NoHasItem");
+        }
     }
 }
