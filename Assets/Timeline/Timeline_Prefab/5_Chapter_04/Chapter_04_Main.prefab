@@ -837,10 +837,10 @@ Animator:
   m_GameObject: {fileID: 2465887734156944150}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 34ce9fe90322f5844979f1eef5f42d2f, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fb6f2e1307ed8a42a048452c8cdf911, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1155,14 +1155,22 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 37dec1f56990a80489be4b72a1fc4546, type: 3}
     - {fileID: 21300000, guid: 89481308bc94f4d43941a43e34b115f8, type: 3}
+    - {fileID: 21300000, guid: ea495d7c994291d41a5e96ad4ab04063, type: 3}
+    - {fileID: 2465887734156944151}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: bb5084f59bffdc44c99e3398ff2247ae, type: 3}
     - {fileID: 5259956585835236974}
     - {fileID: 0}
-    - {fileID: 21300000, guid: 37dec1f56990a80489be4b72a1fc4546, type: 3}
+    - {fileID: 21300000, guid: 3c870debe281b5647b3b13302823b08a, type: 3}
     - {fileID: 21300000, guid: 94c3f85525ae3344c999bc9e4af07110, type: 3}
-    - {fileID: 21300000, guid: ea495d7c994291d41a5e96ad4ab04063, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 21300000, guid: ee70db05520f7104c890cef925712ee3, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: eced64a7820cc8b44b99b35410c9ec00, type: 3}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 7578721408797714590}
@@ -1206,16 +1214,16 @@ MonoBehaviour:
       Data: "\uB9C8\uB9AC "
     - Name: context
       Entry: 1
-      Data: "\uC090\uC090! \uC77C\uB8E8\uC640! \uC544\uAD6C\uAD6C\r... \n"
+      Data: "\uC090\uC090! \uC77C\uB8E8\uC640! \uC544\uAD6C\uAD6C...\n"
     - Name: portrait_L
-      Entry: 6
-      Data: 
-    - Name: portrait_R
       Entry: 10
       Data: 0
+    - Name: portrait_R
+      Entry: 10
+      Data: 1
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: portrait_RFace
       Entry: 6
       Data: 
@@ -1223,14 +1231,81 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 4|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 5|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 3
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 8|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 4
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A64
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|DialogueSequence, Assembly-CSharp
+      Data: 9|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -1248,30 +1323,30 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 5
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 5|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 10|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 6|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 11|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 12|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 8|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 13|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 1
+      Data: 6
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -1283,10 +1358,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 9|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 14|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 2
+      Data: 7
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1328,7 +1403,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 10|DialogueSequence, Assembly-CSharp
+      Data: 15|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1339,70 +1414,38 @@ MonoBehaviour:
         \n"
     - Name: portrait_L
       Entry: 10
-      Data: 3
-    - Name: portrait_R
-      Entry: 10
-      Data: 4
-    - Name: portrait_LFace
-      Entry: 6
-      Data: 
-    - Name: portrait_RFace
-      Entry: 6
-      Data: 
-    - Name: popup_Image
-      Entry: 6
-      Data: 
-    - Name: action
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 11|DialogueSequence, Assembly-CSharp
-    - Name: speecher
-      Entry: 1
-      Data: "\uB9C8\uB9AC "
-    - Name: context
-      Entry: 1
-      Data: "\uC544\uC544. \uC74C, \uC774\uBC88\uC5D0 \uB098\uD0C0\uB09C \uC774 \uD604\uC0C1\uC5D0
-        \uAD00\uD574\uC11C \uC774\uC57C\uAE30\uB97C \uD558\uACE0 \uC788\uC5C8\uC5B4.
-        \r\n"
-    - Name: portrait_L
-      Entry: 10
-      Data: 5
-    - Name: portrait_R
-      Entry: 10
       Data: 0
+    - Name: portrait_R
+      Entry: 6
+      Data: 
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 8
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 9
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 12|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 16|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 13|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 17|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 18|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 15|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 19|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -1414,10 +1457,109 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 16|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 20|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
+      Data: 10
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: A29
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 21|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uB9C8\uB9AC "
+    - Name: context
+      Entry: 1
+      Data: "\uC544\uC544. \uC74C, \uC774\uBC88\uC5D0 \uB098\uD0C0\uB09C \uC774 \uD604\uC0C1\uC5D0
+        \uAD00\uD574\uC11C \uC774\uC57C\uAE30\uB97C \uD558\uACE0 \uC788\uC5C8\uC5B4.
+        \r\n"
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 1
+    - Name: portrait_LFace
+      Entry: 10
+      Data: 2
+    - Name: portrait_RFace
+      Entry: 10
+      Data: 5
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 22|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 23|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 24|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 25|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
       Data: 6
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Animator, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetTrigger
+    - Name: m_Mode
+      Entry: 3
+      Data: 5
+    - Name: m_Arguments
+      Entry: 7
+      Data: 26|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 11
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1459,7 +1601,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 17|DialogueSequence, Assembly-CSharp
+      Data: 27|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1469,28 +1611,95 @@ MonoBehaviour:
         \r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 3
+      Data: 0
     - Name: portrait_R
-      Entry: 10
-      Data: 4
-    - Name: portrait_LFace
-      Entry: 10
-      Data: 7
-    - Name: portrait_RFace
       Entry: 6
       Data: 
+    - Name: portrait_LFace
+      Entry: 10
+      Data: 12
+    - Name: portrait_RFace
+      Entry: 10
+      Data: 9
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 28|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 29|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 30|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 31|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 13
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: 
+    - Name: m_MethodName
+      Entry: 1
+      Data: 
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 32|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 14
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: 
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 18|DialogueSequence, Assembly-CSharp
+      Data: 33|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -1500,39 +1709,39 @@ MonoBehaviour:
         \uD639\uC2DC \uBAA8\uB974\uB2C8 \uBD80\uC801\uC744 \uB9CC\uB4E4\uC5B4\uC654\uC5B4!
         \uC774\uAC74 \uB124 \uAC70\uC57C. "
     - Name: portrait_L
-      Entry: 10
-      Data: 5
+      Entry: 6
+      Data: 
     - Name: portrait_R
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 15
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 19|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 34|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 20|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 35|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 21|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 36|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 22|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 37|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 1
+      Data: 6
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -1544,10 +1753,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 23|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 38|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 8
+      Data: 16
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1589,7 +1798,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 24|DialogueSequence, Assembly-CSharp
+      Data: 39|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1598,28 +1807,50 @@ MonoBehaviour:
       Data: "\uC624. \uACE0\uB9C8\uC6CC, \uC608\uC05C \uD478\uB978\uBE5B \uB3CC\uC774\uB124.\r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 3
+      Data: 0
     - Name: portrait_R
-      Entry: 10
-      Data: 4
+      Entry: 6
+      Data: 
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 9
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
-      Entry: 6
+      Entry: 7
+      Data: 40|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 41|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 42|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 25|DialogueSequence, Assembly-CSharp
+      Data: 43|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uB9C8\uB9AC "
@@ -1628,39 +1859,39 @@ MonoBehaviour:
       Data: "\uC77C\uB2E8 \uC624\uB298\uC740 \uC5EC\uAE30\uAE4C\uC9C0\uB9CC \uD558\uACE0
         \uB4E4\uC5B4\uAC00\uC11C \uC274\uAE4C? \r\n"
     - Name: portrait_L
-      Entry: 10
-      Data: 5
+      Entry: 6
+      Data: 
     - Name: portrait_R
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 5
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 26|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 44|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 27|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 45|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 28|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 46|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 29|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 47|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 1
+      Data: 6
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Animator, UnityEngine
@@ -1672,10 +1903,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 30|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 48|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 9
+      Data: 17
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -1717,7 +1948,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 31|DialogueSequence, Assembly-CSharp
+      Data: 49|DialogueSequence, Assembly-CSharp
     - Name: speecher
       Entry: 1
       Data: "\uC544\uBC00\uB77C "
@@ -1726,38 +1957,38 @@ MonoBehaviour:
       Data: "\uC751, \uADF8\uB798\uC57C\uACA0\uB2E4. \r\n"
     - Name: portrait_L
       Entry: 10
-      Data: 3
+      Data: 0
     - Name: portrait_R
       Entry: 10
-      Data: 4
+      Data: 1
     - Name: portrait_LFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 8
     - Name: portrait_RFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 9
     - Name: popup_Image
       Entry: 6
       Data: 
     - Name: action
       Entry: 7
-      Data: 32|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 50|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 33|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 51|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 34|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 52|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 35|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 53|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 10
+      Data: 18
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Playables.PlayableDirector, UnityEngine
@@ -1769,10 +2000,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 36|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 54|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 11
+      Data: 19
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
