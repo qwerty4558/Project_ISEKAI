@@ -90,12 +90,19 @@ public class QuestTitle : SerializedMonoBehaviour
 
         currentQuest = null;
         questUI.SetActiveQuest(6, false);
-
-        if(!QuestAllClear())
-            StartCoroutine(QuestClearAni());
-        else StopAllCoroutines();
+        
+        
 
         Debug.Log("퀘스트 체크");
+
+
+        Debug.Log(QuestAllClear());
+
+        if (QuestAllClear())
+            StopAllCoroutines(); 
+        else StartCoroutine(QuestClearAni());
+
+
     }
 
     private bool QuestAllClear()
@@ -104,12 +111,14 @@ public class QuestTitle : SerializedMonoBehaviour
         {
             for (int i = 0; i < pair.Value.questInfoDatas.Length; i++)
             {
-                if(pair.Value.questInfoDatas[i].isClear == true) return true;
+                if (!pair.Value.questInfoDatas[i].isClear)
+                {
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
-
     private IEnumerator QuestClearAni()
     {
         clearDotweenAni.DORestartById("in");

@@ -208,8 +208,8 @@ public class DiaryController : SerializedMonoBehaviour
             float duration = .5f;
             float elapsedTime = 0f;
 
-            Color startColor = new Color(0, 0, 0, 0);
-            Color endColor = new Color(0, 0, 0, 1);
+            Color startColor = new Color(255, 255, 0, 0);
+            Color endColor = new Color(255, 255, 0, 1);
 
             while (elapsedTime < duration)
             {
