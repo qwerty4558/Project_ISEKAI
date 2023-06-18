@@ -252,5 +252,9 @@ public class QuestTitle : SerializedMonoBehaviour
         }
 
     }
-
+    public void CurrentAndTempQuestClear()
+    {
+        currentQuest = null;
+        tempQuest = null;
+    }
 }

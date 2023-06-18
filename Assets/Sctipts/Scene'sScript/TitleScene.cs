@@ -51,6 +51,7 @@ public class TitleScene : MonoBehaviour
             case 0:
                 ItemManager.instance.ItemDataInitailize();
                 uiCanvas.gameObject.SetActive(true);
+                QuestTitle.instance.CurrentAndTempQuestClear();
                 QuestTitle.instance.QuestInput("CH_01");
                 SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
                 LoadingSceneController.Instance.LoadScene("L_Midas");
