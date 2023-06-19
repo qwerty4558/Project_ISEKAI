@@ -105,6 +105,17 @@ public class QuestTitle : SerializedMonoBehaviour
 
     }
 
+    public void QusetPanelHide()
+    {
+        if (isQuestActive)
+        {
+            titleDotweenAni.DOPause();
+            titleDotweenAni.DORestartAllById("false");
+            isQuestActive = !isQuestActive;
+        }
+        else return;
+    }
+
     private bool QuestAllClear()
     {
         foreach (KeyValuePair<string, QuestInfo> pair in questMap)

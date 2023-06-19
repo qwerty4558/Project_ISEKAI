@@ -52,4 +52,9 @@ public class Actived_In_Scene : MonoBehaviour
     {
         questUI.SetActive(false);
     }
+
+    public void HideQuestUI()
+    {
+        QuestTitle.instance.QusetPanelHide();
+    }
 }
