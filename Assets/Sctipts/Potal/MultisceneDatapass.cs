@@ -15,8 +15,13 @@ public class MultisceneDatapass : SingletonMonoBehaviour<MultisceneDatapass>
         craftableItems = new List<Result_Item>();
     }
 
-    public void ResetPotalDestinationID()
+    public void ResetPortalDestinationID()
     {
         PortalDestinationID = string.Empty;
+    }
+
+    public void SetPortalDestinarionID(string portalDestinarionID)
+    {
+        PortalDestinationID = portalDestinarionID;
     }
 }

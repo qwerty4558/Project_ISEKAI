@@ -203,7 +203,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             ingame_obj.SetActive(true);
         }
         //string savePath = Application.persistentDataPath + "Quest.Sav";
-        MultisceneDatapass.Instance.ResetPotalDestinationID();
+        MultisceneDatapass.Instance.ResetPortalDestinationID();
         DiaryController.instance.InitDiary();
         SceneBroadcaster.RemoveAllBroadcast();
         QuestTitle.instance.CurrentAndTempQuestClear();
