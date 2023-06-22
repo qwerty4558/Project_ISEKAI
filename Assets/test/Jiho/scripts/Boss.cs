@@ -130,7 +130,7 @@ public class Boss : MonoBehaviour
 
         if (ToPlayerDistance(3))
         {
-            int rand = Random.Range(0, 3);
+            int rand = Random.Range(0, 2);
             if (rand < 1) AttackRoar();
             else KickAttack();
         }
