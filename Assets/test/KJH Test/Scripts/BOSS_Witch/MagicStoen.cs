@@ -34,7 +34,7 @@ public class MagicStoen : Enemy
         currentHp -= damage;
         player.OtherCheck(this);
         player.TargetOutline(this.outline);
-        if(currentHp < 0)
+        if(currentHp <= 0)
         {
             player.IsTarget = false;
             EnemyDead();
