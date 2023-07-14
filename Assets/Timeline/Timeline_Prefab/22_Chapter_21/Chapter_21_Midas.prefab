@@ -1,0 +1,1159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2343489890920776900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9188721871313140198}
+  m_Layer: 0
+  m_Name: Chapter_21_Midas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9188721871313140198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343489890920776900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2376395787498993243}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2376395786333951813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2376395786333951815}
+  - component: {fileID: 2376395786333951814}
+  m_Layer: 0
+  m_Name: Chapter_21_Signal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2376395786333951815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395786333951813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2376395787498993243}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2376395786333951814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395786333951813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 09537283dc48d8140be56431a60b9b7d, type: 2}
+    - {fileID: 11400000, guid: dfc466f7f31c7e74689ea4b66f7f506f, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls: []
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2376395787501501733}
+          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+          m_MethodName: StartLargeDialogue
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CH210101
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2376395787498993242}
+          m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2376395787501501733}
+          m_TargetAssemblyTypeName: DialogueContainer, Assembly-CSharp
+          m_MethodName: StartDialogue
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CH210201
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &2376395787498993241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2376395787498993243}
+  - component: {fileID: 2376395787498993242}
+  m_Layer: 0
+  m_Name: Chapter_21_Midas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2376395787498993243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395787498993241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2376395786333951815}
+  - {fileID: 2376395787501501734}
+  m_Father: {fileID: 9188721871313140198}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &2376395787498993242
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395787498993241}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 47828fc7cb52ece478ec795c46f0526d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -2700588831240710305, guid: 2e67af7a0b4a7a4478a69a93f7b284dc, type: 2}
+    value: {fileID: 2376395786333951814}
+  - key: {fileID: -2700588831240710305, guid: 47828fc7cb52ece478ec795c46f0526d, type: 2}
+    value: {fileID: 2376395786333951814}
+  m_ExposedReferences:
+    m_References: []
+--- !u!1 &2376395787501501732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2376395787501501734}
+  - component: {fileID: 2376395787501501733}
+  m_Layer: 0
+  m_Name: Chapter_21_Midas_Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2376395787501501734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395787501501732}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2376395787498993243}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2376395787501501733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376395787501501732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a47be357e522cf4ebfb095021dfaf5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: f33e4dd5fcf283b42bafc82bb4a0a4ca, type: 3}
+    - {fileID: 21300000, guid: 90b6ebdcfbb5dad42bc0edb9ff850f6f, type: 3}
+    - {fileID: 21300000, guid: cd67a7e5f3478774aa46296596b88d83, type: 3}
+    - {fileID: 21300000, guid: 2f853c2065ea1d146b4d9853e2e3c830, type: 3}
+    - {fileID: 21300000, guid: b620ca507ca04114b965453ca57e2a3c, type: 3}
+    - {fileID: 21300000, guid: ba28f647c5730da4aa808dc7a46e509e, type: 3}
+    - {fileID: 21300000, guid: 425114f8625875048834de142d8de168, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 21300000, guid: 5ad914a9fd5577d4eabac4edd209375c, type: 3}
+    - {fileID: 21300000, guid: 57e75b2c525765e4d81114c6e4f9ba9c, type: 3}
+    - {fileID: 21300000, guid: 1b6f5d8185136b642bef4fe61c65a0e8, type: 3}
+    - {fileID: 21300000, guid: 2a7228f3bd66bf345a33e00322dbeee7, type: 3}
+    - {fileID: 21300000, guid: 68e013e17c0143c448e6f39ad95ffb99, type: 3}
+    - {fileID: 2376395787498993242}
+    - {fileID: 0}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: dialogues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DialogueSequence[],
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CH210201
+    - Name: $v
+      Entry: 7
+      Data: 2|DialogueSequence[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 3|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC218\uC778"
+    - Name: context
+      Entry: 1
+      Data: "\uC73C.. \uC74C? \uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0? "
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 0
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 10
+      Data: 1
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uB4DC\uB8E8\uC774\uB4DC"
+    - Name: context
+      Entry: 1
+      Data: "\uC73D... \uBA38\uB9AC\uC57C.. \uC544\uACE0\uACE0... "
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 2
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC5D8\uD504"
+    - Name: context
+      Entry: 1
+      Data: "\uC5B4\uB5BB\uAC8C \uB41C \uAC70\uC9C0... \uB09C \uBD84\uBA85... "
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 3
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 10
+      Data: 4
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uBC84\uC12F\uD3EC\uC790"
+    - Name: context
+      Entry: 1
+      Data: "\uD5C9! \uD070\uC77C\uC774\uC57C! \uB9C8\uBC95\uC0AC\uAC00! \uB9C8\uBC95\uC0AC...\uAC00? "
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 5
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|DialogueSequence, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC624\uD06C"
+    - Name: context
+      Entry: 1
+      Data: "\uB098\uBB34\uAC00... \uB3CC\uC544\uC654\uC5B4! "
+    - Name: portrait_L
+      Entry: 6
+      Data: 
+    - Name: portrait_R
+      Entry: 10
+      Data: 6
+    - Name: portrait_LFace
+      Entry: 6
+      Data: 
+    - Name: portrait_RFace
+      Entry: 6
+      Data: 
+    - Name: popup_Image
+      Entry: 6
+      Data: 
+    - Name: action
+      Entry: 7
+      Data: 8|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 9|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 11|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 7
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Playables.PlayableDirector, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: Play
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 12|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 8
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: cutscene_dialogues
+      Entry: 7
+      Data: 13|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[LargeDialogueData[],
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 14|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CH210101
+    - Name: $v
+      Entry: 7
+      Data: 15|LargeDialogueData[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 13
+    - Name: 
+      Entry: 7
+      Data: 16|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uD638\uD06C\uB9C8"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.7058824
+    - Name: 
+      Entry: 4
+      Data: 0.247058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uC774\uC81C \uC5B4\uC5FF\uD574\uC84C\uAD6C\uB098, \uC6B0\uB9AC \uB538. "
+    - Name: fullImage
+      Entry: 10
+      Data: 9
+    - Name: actions
+      Entry: 7
+      Data: 17|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 18|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 20|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uBC14\uBCF4\uC57C... \uC9C4\uC9DC \uBC14\uBCF4\uC57C. \uADF8\uB0E5
+        \uAC19\uC774 \uC12C\uC744 \uB5A0\uB098\uC9C0... "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 7
+      Data: 21|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 22|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uD638\uD06C\uB9C8"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.7058824
+    - Name: 
+      Entry: 4
+      Data: 0.247058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uADF8\uB7F4 \uC218 \uC5C6\uC5C8\uB358 \uAC78 \uC54C\uC796\uB2C8... 
+        \uBC14\uB85C\uC7A1\uC9C0 \uC54A\uC558\uB354\uB77C\uBA74... "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 7
+      Data: 25|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 26|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 28|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uCC28\uB77C\uB9AC \uB3C4\uB9DD\uAC14\uC73C\uBA74 \uC774\uB807\uAC8C
+        \uB9CC\uB098\uC9C0 \uC54A\uC544\uB3C4 \uB418\uC5C8\uC744 \uD150\uB370... "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 29|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uC774\uBBF8 \uC9C0\uB098\uAC04 \uC77C\uC740 \uB418\uB3CC\uB9B4 \uC218
+        \uC5C6\uACA0\uC9C0? "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 30|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uD638\uD06C\uB9C8"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.7058824
+    - Name: 
+      Entry: 4
+      Data: 0.247058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uBBF8\uC548\uD558\uAD6C\uB098... "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 31|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uADF8\uB798\uB3C4... \uB355\uBD84\uC5D0 \uB9C8\uC744 \uC0AC\uB78C\uB4E4\uB3C4
+        \uB098\uB3C4 \uD0C8\uC5C6\uC774 \uC9C0\uB0C8\uC73C\uB2C8\uAE4C. \uACE0\uB9C8\uC6CC,
+        \uC5C4\uB9C8\uC544\uBE60. "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 32|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uAC00\uB054 \uCC3E\uC544\uC624\uBA74, \uC778\uC0AC\uD574 \uC904 \uAC70\uC9C0? "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 33|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uD638\uD06C\uB9C8"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.7058824
+    - Name: 
+      Entry: 4
+      Data: 0.247058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uADF8\uB7FC. \uC9C0\uC800\uADC0\uB294 \uC0C8\uAC00 \uB418\uC5B4\uC11C\uB77C\uB3C4,
+        \uD754\uB4E4\uB9AC\uB294 \uAF43\uC774 \uB418\uC5B4\uC11C\uB77C\uB3C4 \uC778\uC0AC\uD558\uB9C8. "
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 34|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uADF8\uB7FC \uB410\uC5B4. \uC544\uBE60 \uBAA9\uAC78\uC774... \uB9CE\uC774
+        \uAE68\uC84C\uAD6C\uB098..."
+    - Name: fullImage
+      Entry: 10
+      Data: 10
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 35|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uC544\uBC00\uB77C"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.0117647061
+    - Name: 
+      Entry: 4
+      Data: 0.419607848
+    - Name: 
+      Entry: 4
+      Data: 0.905882359
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uC5EC\uAE30.  \uC774 \uD314\uCC0C\uB77C\uB3C4 \uAC00\uC838\uAC00. \uD544\uC694\uD558\uC796\uC544. "
+    - Name: fullImage
+      Entry: 10
+      Data: 11
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 36|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: 
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: 
+    - Name: fullImage
+      Entry: 10
+      Data: 12
+    - Name: actions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 37|LargeDialogueData, Assembly-CSharp
+    - Name: speecher
+      Entry: 1
+      Data: "\uD638\uD06C\uB9C8"
+    - Name: SpeecherColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.164705887
+    - Name: 
+      Entry: 4
+      Data: 0.7058824
+    - Name: 
+      Entry: 4
+      Data: 0.247058824
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: context
+      Entry: 1
+      Data: "\uC774\uB807\uAC8C \uC798 \uCEE4\uC918\uC11C \uACE0\uB9D9\uAD6C\uB098.
+        \uD56D\uC0C1 \uACC1\uC5D0 \uC788\uC73C\uB9C8. \uC0AC\uB791\uD55C\uB2E4."
+    - Name: fullImage
+      Entry: 10
+      Data: 13
+    - Name: actions
+      Entry: 7
+      Data: 38|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 39|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 41|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 14
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Playables.PlayableDirector, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: Play
+    - Name: m_Mode
+      Entry: 3
+      Data: 1
+    - Name: m_Arguments
+      Entry: 7
+      Data: 42|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 15
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
