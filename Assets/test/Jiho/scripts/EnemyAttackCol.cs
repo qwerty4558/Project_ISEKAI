@@ -11,7 +11,9 @@ public class EnemyAttackCol : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(ActiveFalseCol());
+       
+            StartCoroutine(ActiveFalseCol());
+        
     }
 
     private IEnumerator ActiveFalseCol()

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum WitchAnimationParam
+public enum WITCH_STATES
 {
-    None,
-    Flying,
-    Attack,
+    Phase = 1,
     Faint
 }
 
@@ -17,43 +15,14 @@ public class WitchState
     virtual public void OnEnterAction(BOSS_Witch witch) { }
 }
 
-public class Witch_Idle : WitchState
+public class Witch_Phase : WitchState
 {
-    public override void Action(BOSS_Witch witch)
+    override public void Action(BOSS_Witch witch)
     {
-        base.Action(witch);
-    }
-    public override void OnEnterAction(BOSS_Witch witch)
-    {
-        base.OnEnterAction(witch);  
-    }
-}
-
-public class Witch_Flying : WitchState
-{
-    public override void Action(BOSS_Witch witch)
-    {
-        base.Action(witch);
-    }
-    public override void OnEnterAction(BOSS_Witch witch)
-    {
-        base.OnEnterAction(witch);
-    }
-}
-
-public class Witch_Attack : WitchState
-{
-    public override void Action(BOSS_Witch witch)
-    {
-        base.Action(witch);
+        
     }
 
-    public override void OnEnterAction(BOSS_Witch witch)
-    {
-        base.OnEnterAction(witch);
-    }
-
-    public void Attack(PlayerController player, int attackIndex)
+    override public void OnEnterAction(BOSS_Witch witch) 
     {
 
     }
@@ -63,10 +32,10 @@ public class Witch_Faint : WitchState
 {
     public override void Action(BOSS_Witch witch)
     {
-        base.Action(witch);
+        
     }
     public override void OnEnterAction(BOSS_Witch witch)
     {
-        base.OnEnterAction(witch);
+        
     }
 }

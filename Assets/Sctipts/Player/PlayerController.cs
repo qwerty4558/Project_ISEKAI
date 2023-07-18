@@ -600,6 +600,16 @@ public class PlayerController : SerializedMonoBehaviour
         PlayerController.Instance.gameObject.SetActive(true);
     }
 
+    public void CameraRotationOff()
+    {
+        cameraFollow.isInteraction = false;
+    }
+
+    public void CameraRotationOn()
+    {
+        cameraFollow.isInteraction = true;
+    }
+
     public void SavePlayerStates()
     {
 
