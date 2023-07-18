@@ -170,7 +170,18 @@ public class InventoryTitle : MonoBehaviour
         if(QuestTitle.instance != null)
             QuestTitle.instance.QuestItemCheck();
     }
-
+    public void PlusItem2(Ingredient_Item item)
+    {
+        if (itemMap.ContainsKey(item.name))
+        {
+            itemMap[item.name].count += 1;
+        }
+        else
+        {
+            itemMap.Add(item.name, item);
+            itemMap[item.name].count += 1;
+        }
+    }
     public void MinusItem(Ingredient_Item item)
     {
         if(itemMap.ContainsKey(item.name))
