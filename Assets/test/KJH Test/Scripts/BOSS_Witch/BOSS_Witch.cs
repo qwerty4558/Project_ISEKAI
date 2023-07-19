@@ -46,7 +46,9 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     [SerializeField]
     GameObject[] magicStone;
-    [SerializeField] GameObject puzzleOBJ;
+    [SerializeField]
+    GameObject[] magicStone_Interactable;
+    [SerializeField] GameObject[] spawn_Interactable;
     [SerializeField] int stoneCount;
 
     [SerializeField] Animator animator;
@@ -56,11 +58,11 @@ public class BOSS_Witch : SerializedMonoBehaviour
     [SerializeField] DOTweenAnimation bossDotween;
 
     private List<GameObject> magicStoneObjects = new List<GameObject>();
+    private List<GameObject> magicStoneObjects_Puzzle = new List<GameObject>();
 
     private CapsuleCollider cap;
     private float outlineDelay;
 
-    [SerializeField] int bulletCount = 3;
     int current_State_Index;
     private bool isAttackActive = false;
 
@@ -75,7 +77,6 @@ public class BOSS_Witch : SerializedMonoBehaviour
         stoneCount = magicStone.Length;
         cap = GetComponent<CapsuleCollider>();
         magicStoneBreak = new bool[stoneCount];
-        puzzleOBJ.SetActive(false);
         isBossStart = true;
         isPuzzleSet = false;
         InitWitchBoss();
@@ -88,6 +89,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
         current_State_Index = 1;
         hasSpawnMagicStone = false;
         states[current_State_Index].OnEnterAction(this);
+        spawn_Interactable = new GameObject[magicStone_Interactable.Length];
         isFaint = false;
         WitchBossStart();
     }
@@ -119,9 +121,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
         hasSpawnMagicStone = true; // 상승 완료 후에 생성된 오브젝트 플래그를 true로 설정
 
         isAttackActive = true;
-        StartCoroutine(Attack_To_Player());
-
-
+        if(current_State_Index == 1 || current_State_Index == 3)
+            StartCoroutine(Attack_To_Player());
     }
 
     IEnumerator CO_Drop_Witch()
@@ -155,55 +156,106 @@ public class BOSS_Witch : SerializedMonoBehaviour
         groundHeight -= midasTree.transform.position.y;
 
         magicStoneObjects.RemoveAll(obj => obj == null);
-
-        // 이미 생성된 오브젝트가 없다면 오브젝트들을 생성하고 리스트에 저장
-        if (magicStoneObjects.Count == 0)
+        magicStoneObjects_Puzzle.RemoveAll(obj => obj == null);
+        if(current_State_Index == 2)
         {
-            for (int i = 0; i < stoneCount; ++i)
+            if(magicStoneObjects_Puzzle.Count == 0)
             {
-                bool isValidPosition = false;
-                Vector3 spawnPos = Vector3.zero;
-                Quaternion spawnRot = Quaternion.identity;
-
-                // 겹치지 않는 위치 찾기
-                while (!isValidPosition)
+                for(int i = 0; i < stoneCount; ++i)
                 {
-                    float randomAngle = Random.Range(0f, 180f); // 0도부터 180도 사이의 랜덤한 각도
-                    float angle = randomAngle * Mathf.Deg2Rad;
-                    float x = Mathf.Cos(angle) * spawnStoneRidius;
-                    float z = Mathf.Sin(angle) * spawnStoneRidius;
-                    spawnPos = midasTree.transform.position + new Vector3(x, groundHeight, z);
+                    bool isValidPosition = false;
+                    Vector3 spawnPos = Vector3.zero;
+                    Quaternion spawnRot = Quaternion.identity;
 
-                    isValidPosition = true; // 초기 값은 유효한 위치라고 가정
-
-                    // 이미 생성된 오브젝트와 거리 비교
-                    foreach (GameObject obj in magicStoneObjects)
+                    while (!isValidPosition)
                     {
-                        if (Vector3.Distance(spawnPos, obj.transform.position) < minDistance)
+                        float randomAngle = Random.Range(0f, 180f);
+                        float angle = randomAngle * Mathf.Deg2Rad;
+
+                        float x = Mathf.Cos(angle) * spawnStoneRidius;
+                        float z = Mathf.Sin(angle) * spawnStoneRidius;
+
+                        spawnPos = midasTree.transform.position + new Vector3(x, groundHeight, z);
+
+                        isValidPosition = true;
+                        foreach(GameObject obj in magicStoneObjects_Puzzle)
                         {
-                            isValidPosition = false;
-                            break;
+                            if(Vector3.Distance(spawnPos, obj.transform.position) < minDistance)
+                            {
+                                isValidPosition = false;
+                                break;
+                            }
                         }
                     }
+                    magicStoneBreak[i] = true;
+                    GameObject spawnobj = Instantiate(magicStone_Interactable[i], spawnPos, spawnRot);
+                    magicStoneObjects_Puzzle.Add(spawnobj);
                 }
+            }
 
-                magicStoneBreak[i] = true;
-                GameObject spawnObj = Instantiate(magicStone[i], spawnPos, spawnRot);
-                magicStoneObjects.Add(spawnObj); // 생성된 오브젝트를 리스트에 추가
+            else
+            {
+                for (int i = 0; i < stoneCount; ++i)
+                {
+                    if (i < magicStoneObjects_Puzzle.Count)
+                    {
+                        magicStoneObjects_Puzzle[i].SetActive(true);
+                        magicStoneObjects_Puzzle[i].transform.position = CalculateValidPosition(groundHeight, minDistance);
+                    }
+                }
             }
         }
         else
         {
-            // 이미 생성된 오브젝트들을 활성화하고 위치 조정
-            for (int i = 0; i < stoneCount; ++i)
+            if (magicStoneObjects.Count == 0)
             {
-                if (i < magicStoneObjects.Count)
+                for (int i = 0; i < stoneCount; ++i)
                 {
-                    magicStoneObjects[i].SetActive(true);
-                    magicStoneObjects[i].transform.position = CalculateValidPosition(groundHeight, minDistance);
+                    bool isValidPosition = false;
+                    Vector3 spawnPos = Vector3.zero;
+                    Quaternion spawnRot = Quaternion.identity;
+
+                    // 겹치지 않는 위치 찾기
+                    while (!isValidPosition)
+                    {
+                        float randomAngle = Random.Range(0f, 180f); // 0도부터 180도 사이의 랜덤한 각도
+                        float angle = randomAngle * Mathf.Deg2Rad;
+                        float x = Mathf.Cos(angle) * spawnStoneRidius;
+                        float z = Mathf.Sin(angle) * spawnStoneRidius;
+                        spawnPos = midasTree.transform.position + new Vector3(x, groundHeight, z);
+
+                        isValidPosition = true; // 초기 값은 유효한 위치라고 가정
+
+                        // 이미 생성된 오브젝트와 거리 비교
+                        foreach (GameObject obj in magicStoneObjects)
+                        {
+                            if (Vector3.Distance(spawnPos, obj.transform.position) < minDistance)
+                            {
+                                isValidPosition = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    magicStoneBreak[i] = true;
+                    GameObject spawnObj = Instantiate(magicStone[i], spawnPos, spawnRot);
+                    magicStoneObjects.Add(spawnObj); // 생성된 오브젝트를 리스트에 추가
+                }
+            }
+            else
+            {
+                // 이미 생성된 오브젝트들을 활성화하고 위치 조정
+                for (int i = 0; i < stoneCount; ++i)
+                {
+                    if (i < magicStoneObjects.Count)
+                    {
+                        magicStoneObjects[i].SetActive(true);
+                        magicStoneObjects[i].transform.position = CalculateValidPosition(groundHeight, minDistance);
+                    }
                 }
             }
         }
+        
     }
 
     private Vector3 CalculateValidPosition(float groundHeight, float minDistance)
@@ -240,12 +292,24 @@ public class BOSS_Witch : SerializedMonoBehaviour
         magicStoneBreak[index] = false;
 
 
-        if (CheckAllStoneBreak() && isPuzzleSet == false)
+        if (CheckAllStoneBreak())
         {
             isAttackActive = false;
 
 
             StartCoroutine(CO_Drop_Witch());
+        }
+    }
+
+    public void BreakStonePuzzle(int index)
+    {
+        Destroy(spawn_Interactable[index]);
+        magicStoneBreak[index] = false;
+        if (CheckAllStoneBreak())
+        {
+            current_State_Index = 3;
+            states[(int)WITCH_STATES.Phase].Action(this);
+            StartCoroutine(Attack_To_Player());
         }
     }
 
@@ -305,13 +369,6 @@ public class BOSS_Witch : SerializedMonoBehaviour
         {
             StartCoroutine(CO_Flying_Witch());
             current_State_Index = 2;
-            states[(int)WITCH_STATES.Phase].Action(this);
-            puzzleOBJ.SetActive(true);
-        }
-        else if (currentHP <= maxHP * 1 / 3 && current_State_Index == 2)
-        {
-            StartCoroutine(CO_Flying_Witch());
-            current_State_Index = 3;
             states[(int)WITCH_STATES.Phase].Action(this);
         }
     }
