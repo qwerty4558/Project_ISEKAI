@@ -29,6 +29,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private EnemyAttackCol bossRoarAttackCol;
     [SerializeField] private EnemyAttackCol bossKickAttackCol;
     [SerializeField] private EnemyAttackCol bossHitCol;
+    [SerializeField] private EnemyAttackCol effect01;
+    [SerializeField] private EnemyAttackCol effect02;
     [SerializeField] private GameObject hitEffect_obj;
     [SerializeField] private GameObject bossDefPos;
 
@@ -264,5 +266,13 @@ public class Boss : MonoBehaviour
     public void HitCol()
     {
         bossHitCol.gameObject.SetActive(true);
+    }
+    public void Effect01()
+    {
+        effect01.gameObject.SetActive(true);
+    }
+    public void Effect02()
+    {
+        effect02.gameObject.SetActive(true);
     }
 }
