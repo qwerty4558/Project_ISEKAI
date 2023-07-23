@@ -10,10 +10,10 @@ Material:
   m_Name: BushLeaves01 1
   m_Shader: {fileID: 4800000, guid: 0f96a2937f6bace459a5fdaac39c0fb3, type: 3}
   m_ValidKeywords:
-  - _BASEWINDCHANNEL_B
+  - _BASEWINDCHANNEL_A
   - _HIDESIDES_ON
   - _INVERTGRADIENT_ON
-  - _MICROWINDCHANNEL_R
+  - _MICROWINDCHANNEL_A
   m_InvalidKeywords:
   - _HIDEHARDANGLES_ON
   - _USEDITHER_ON
@@ -109,7 +109,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _BaseWindChannel: 2
+    - _BaseWindChannel: 3
     - _Bias: 1
     - _BranchPhase: 0.35
     - _BranchPhase1: 1.05
@@ -144,8 +144,8 @@ Material:
     - _MicroFrequency: 5
     - _MicroPower: 0.1
     - _MicroSpeed: 2
-    - _MicroWindChannel: 0
-    - _MicroWindMultiplier: 1
+    - _MicroWindChannel: 3
+    - _MicroWindMultiplier: 0.01
     - _Mode: 0
     - _NoiseScale: 0.15
     - _NormalAttenuation: 1
@@ -186,11 +186,11 @@ Material:
     - _WindBurstsScale: 1
     - _WindBurstsSpeed: 50
     - _WindDebugView: 0
-    - _WindMultiplier: 1
+    - _WindMultiplier: 0.01
     - _WindMultiplier2: 1
     - _WindPower: 0.01
     - _WindSpeed: 1
-    - _WindTrunkContrast: 10
+    - _WindTrunkContrast: 1
     - _WindTrunkPosition: 0
     - _ZWrite: 1
     - __dirty: 0
