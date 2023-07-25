@@ -188,7 +188,8 @@ public class CraftPuzzleCore : MonoBehaviour
 
     public void PuzzleComplete()
     {
-        img.sprite = currentItem.outputItem.itemImage;
+        if(img != null)
+            img.sprite = currentItem.outputItem.itemImage;
         PuzzleEnabled = false;
         potFrame.GetComponent<DOTweenAnimation>().DORestartById("ClosePot");
     }

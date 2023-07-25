@@ -20,6 +20,6 @@ public class AcceptPuzzle : MonoBehaviour
 
     public void OpenCore()
     {
-        activeCore.OpenCore();
+        activeCore.OpenCore(this.gameObject, index);
     }
 }
