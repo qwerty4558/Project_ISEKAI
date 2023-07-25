@@ -17,7 +17,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     [SerializeField] float attackTime;
     [SerializeField] float faintTimeDelay;
 
-    [SerializeField] float spawnStoneRidius = 10f;
+    [SerializeField] float spawnStoneRidius = -10f;
 
     [SerializeField] bool isPuzzleSet = false;
 
@@ -31,7 +31,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     [SerializeField]
     bool[] magicStoneBreak;
 
-    [SerializeField] GameObject bossDefPos;
+
 
     [SerializeField] GameObject midasTree;
 
@@ -71,9 +71,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
     void Start()
     {
         if (player == null)
-            player = FindObjectOfType<PlayerController>();
-        if (bossDefPos == null)
-            bossDefPos = GameObject.FindGameObjectWithTag("BossInitPos");
+            player = PlayerController.instance;
+
         stoneCount = magicStone.Length;
         cap = GetComponent<CapsuleCollider>();
         magicStoneBreak = new bool[stoneCount];
@@ -106,8 +105,6 @@ public class BOSS_Witch : SerializedMonoBehaviour
         isFaint = false;
         cap.enabled = false;
 
-        if (current_State_Index <= 2) isPuzzleSet = true;
-
         while (elapsedTime < upPositionDuration)
         {
             float newY = Mathf.Lerp(_startY, targetHeight, elapsedTime / upPositionDuration);
@@ -134,13 +131,13 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         while (elapsedTime < upPositionDuration)
         {
-            float newY = Mathf.Lerp(startY, 0f, elapsedTime / upPositionDuration);
+            float newY = Mathf.Lerp(startY, 3.7f, elapsedTime / upPositionDuration);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 3.7f, transform.position.z);
         cap.enabled = true;
         yield return new WaitForSeconds(faintTimeDelay);
         hasSpawnMagicStone = false;
@@ -151,7 +148,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     }
     private void MagicStoneSpawner()
     {
-        float groundHeight = 0f;
+        float groundHeight = 3.5f;
         float minDistance = 10f; // 오브젝트들 간의 최소 거리
         groundHeight -= midasTree.transform.position.y;
 
@@ -165,7 +162,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
                 {
                     bool isValidPosition = false;
                     Vector3 spawnPos = Vector3.zero;
-                    Quaternion spawnRot = Quaternion.identity;
+                    Quaternion spawnRot = Quaternion.Euler(0f, 180f, 0f);
 
                     while (!isValidPosition)
                     {
@@ -213,7 +210,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
                 {
                     bool isValidPosition = false;
                     Vector3 spawnPos = Vector3.zero;
-                    Quaternion spawnRot = Quaternion.identity;
+                    Quaternion spawnRot = Quaternion.Euler(0f, 180f, 0f);
 
                     // 겹치지 않는 위치 찾기
                     while (!isValidPosition)
@@ -367,6 +364,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         if (currentHP <= maxHP * 2 / 3 && current_State_Index == 1)
         {
+            StopCoroutine(CO_Drop_Witch());
             StartCoroutine(CO_Flying_Witch());
             current_State_Index = 2;
             states[(int)WITCH_STATES.Phase].Action(this);
