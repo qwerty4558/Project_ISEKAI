@@ -12,12 +12,13 @@ public class ActiveCore : MonoBehaviour
     [SerializeField] int index;
     [SerializeField] BOSS_Witch _witch;
     [SerializeField] PlayerController _player;
-
+    [SerializeField] UIManager _manager;
     void Start()
     {
         puzzleCore.SetActive(false);
         _witch = FindObjectOfType<BOSS_Witch>();
         _player = PlayerController.instance;
+        _manager = UIManager.Instance;
     }
 
     private void Update()
@@ -36,6 +37,7 @@ public class ActiveCore : MonoBehaviour
 
     public void OpenCore(GameObject _object, int _index)
     {
+        
         _player.ControlEnabled = false;
         puzzleCore.SetActive(true);
         index = _index;
@@ -46,10 +48,12 @@ public class ActiveCore : MonoBehaviour
     {
         puzzleCore.SetActive(false);
         _player.ControlEnabled = true;
+        _manager.cameraFollow.isInteraction = false;
     }
 
     public void ClearPuzzle()
     {
+        _manager.cameraFollow.isInteraction = true;
         _player.ControlEnabled = true;
         GameObject destroyObj = magicStone;
         _witch.StoneBreakCheck(index);

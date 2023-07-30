@@ -95,7 +95,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     private void InitWitchBoss()
     {
-        StopAllCoroutines();
+        
         bossDotween.DORestartById("start");
         pat = PATTERN_BOSS.Attack;
         currentHP = maxHP;
@@ -114,6 +114,16 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     public void ReStart()
     {
+        StopAllCoroutines();
+        for (int i = 0; i< stoneCount; i++)
+        {
+            Destroy(parant_MagicStone.transform.GetChild(i).gameObject);
+        }
+        for(int j = 0; j < parant_Attack.transform.childCount; j++)
+        {
+            Destroy(parant_Attack.transform.GetChild(j).gameObject);
+        }
+
         InitWitchBoss();
     }
 
