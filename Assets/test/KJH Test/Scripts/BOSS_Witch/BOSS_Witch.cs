@@ -371,12 +371,17 @@ public class BOSS_Witch : SerializedMonoBehaviour
     }
     private void Dead()
     {
-        //bossAnimator.SetTrigger("isDead");
-        if(parant_MagicStone != null)
+        StopAllCoroutines();
+        for (int i = 0; i < stoneCount; i++)
         {
-            Destroy(parant_MagicStone);
+            Destroy(parant_MagicStone.transform.GetChild(i).gameObject);
         }
-        if (clearEvent != null) clearEvent.Invoke();
+        for (int j = 0; j < parant_Attack.transform.childCount; j++)
+        {
+            Destroy(parant_Attack.transform.GetChild(j).gameObject);
+        }
+        if (clearEvent != null) 
+            clearEvent.Invoke();
     }
 
     private void Hit()
