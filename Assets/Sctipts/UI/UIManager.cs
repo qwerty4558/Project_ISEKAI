@@ -129,7 +129,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                     }
                 }
             }
-
         }
     }
 
@@ -169,7 +168,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (cameraFollow != null)
                 cameraFollow.isInteraction = true;
             diary_obj.GetComponent<DiaryController>().OpenPage();
-            Time.timeScale = 0f;
         }
     }
 

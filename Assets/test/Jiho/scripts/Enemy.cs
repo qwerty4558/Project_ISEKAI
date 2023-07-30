@@ -117,23 +117,27 @@ public class Enemy : MonoBehaviour
 
     protected virtual void TargetCheck()
     {
-        if(!player.IsTarget)
+        if(player != null)
         {
-            if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
+            if (!player.IsTarget)
             {
-                player.IsTarget = true;
-                player.TargetOutline(outline);
+                if (Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
+                {
+                    player.IsTarget = true;
+                    player.TargetOutline(outline);
+                }
             }
-        }
 
-        if(outline.enabled == true)
-        {
-            if (Vector3.Distance(player.transform.position, this.transform.position) > 3f)
+            if (outline.enabled == true)
             {
-                player.IsTarget = false;
-                outline.enabled = false;
+                if (Vector3.Distance(player.transform.position, this.transform.position) > 3f)
+                {
+                    player.IsTarget = false;
+                    outline.enabled = false;
+                }
             }
         }
+        
     }
 
     protected virtual void Respawn()
