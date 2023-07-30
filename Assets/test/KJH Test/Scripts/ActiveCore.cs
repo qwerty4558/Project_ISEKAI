@@ -50,6 +50,6 @@ public class ActiveCore : MonoBehaviour
         _witch.StoneBreakCheck(index);
         _witch.GetDamage(boss_Damage);
         Destroy(destroyObj);
-        CloseCore();
+        puzzleCore.SetActive(false);
     }
 }

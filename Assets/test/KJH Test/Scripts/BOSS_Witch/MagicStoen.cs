@@ -44,6 +44,13 @@ public class MagicStoen : Enemy
     protected override void EnemyDead()
     {
         _witch.StoneBreakCheck(stoneIndex);
+        for (int i = 0; i < items.Length; i++)
+        {
+            GameObject temp = Instantiate(items[i], new Vector3(this.transform.position.x, this.transform.position.y + 2f, this.transform.position.z), Quaternion.identity);
+
+            temp.SetActive(true);
+        }
+        this.gameObject.SetActive(false);
         Destroy(this.gameObject);
     }
 
