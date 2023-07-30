@@ -5,6 +5,7 @@ using UnityEngine;
 public class Witch_Laser : MonoBehaviour
 {
     [SerializeField] GameObject obj;
+    [SerializeField] GameObject attackCol;
     public Transform target;
     public float rotationSpeed = 1f;
     public float pathDisplayTime = 2f;
@@ -19,6 +20,7 @@ public class Witch_Laser : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.enabled = false;
         obj.SetActive(false);
+        attackCol.SetActive(false);
     }
 
     private void Update()
@@ -38,15 +40,18 @@ public class Witch_Laser : MonoBehaviour
             else if (isDisplayingPath && !isLaserActive)
             {
                 obj.SetActive(true);
+                attackCol.SetActive(true);
                 isLaserActive = true;
             }
 
             if (isLaserActive)
             {
+                
                 laserTime -= Time.deltaTime;
                 if (laserTime < 0.5f)
                 {
                     obj.SetActive(false);
+                    attackCol.SetActive(false);
                     isLaserActive = false;
                     Destroy(gameObject);
                 }
@@ -67,11 +72,4 @@ public class Witch_Laser : MonoBehaviour
         isDisplayingPath = true;
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerController>().GetDamage(10f);
-        }
-    }
 }

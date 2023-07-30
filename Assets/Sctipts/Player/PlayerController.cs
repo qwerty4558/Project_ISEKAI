@@ -96,6 +96,8 @@ public class PlayerController : SerializedMonoBehaviour
     private bool isAttack;
     public bool IsAttack { get { return isAttack; } set { isAttack = value; } }
     public bool IsTarget { get => isTarget; set => isTarget = value; }
+
+    public bool isParticleCollision = false;
     public InventoryTitle inven;
     public bool isClicks;
     private Animator animator;
@@ -109,6 +111,8 @@ public class PlayerController : SerializedMonoBehaviour
     private float hpTime;
     private float enemyMaxHP;
     private float enemyCurrentHP;
+
+    private float particleColDamage = 0f;
 
     BoxCollider hitCollider;
     //[SerializeField] float dashSpeed = 7f;
@@ -194,7 +198,7 @@ public class PlayerController : SerializedMonoBehaviour
         {
             OnGameOver.Invoke();
             currentHp = maxHp;
-            //SceneInfomation.Instance.ReSpawnPlayer();
+            SceneInfomation.Instance.ReSpawnPlayer();
         }
     }
 
@@ -342,7 +346,7 @@ public class PlayerController : SerializedMonoBehaviour
                     interactionUI.Disable();
             }
         }
-
+        
         rd.AddForce(Vector3.up * desiredGravityForce, ForceMode.Acceleration);
     }
 
@@ -404,6 +408,15 @@ public class PlayerController : SerializedMonoBehaviour
     public void GetDamage(float damage)
     {
         currentHp -= damage;
+    }
+
+    public void GetDamegeOnParticle()
+    {
+        currentHp -= particleColDamage * Time.deltaTime;
+        if (currentHp <= 0f)
+        {
+            // 플레이어 사망 또는 필요한 처리를 여기에 추가
+        }
     }
 
     public void FillAmountHP()
@@ -577,19 +590,46 @@ public class PlayerController : SerializedMonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.CompareTag("EnemyAttackCol"))
+        if(other != null)
         {
-            GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
-            amountShake.DORestartById("DamagedPlayer");
-        }
+            if (other.CompareTag("EnemyAttackCol"))
+            {
+                GetDamage(other.GetComponent<EnemyAttackCol>().Damage);
+                amountShake.DORestartById("DamagedPlayer");
+            }
 
-        if (other.CompareTag("QuestPos"))
-        {
-            QuestTitle.instance.QuestPositionCheck(other.name);
+            if (other.CompareTag("QuestPos"))
+            {
+                QuestTitle.instance.QuestPositionCheck(other.name);
+            }
+
+            if (other.CompareTag("EnemyColUpdate"))
+            {
+                particleColDamage = other.GetComponent<EnemyAttackColFromParticle>().Damage;
+                isParticleCollision = true;
+            }
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("EnemyColUpdate"))
+        {
+            if (isParticleCollision)
+            {
+                GetDamegeOnParticle();
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnemyColUpdate"))
+        {
+            particleColDamage = 0f;
+            isParticleCollision = false;
+        }
+    }
+
     public static void DeActivePlayer()
     {
         PlayerController.Instance.gameObject.SetActive(false);

@@ -5,10 +5,18 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Events;
 
+
+public enum PATTERN_BOSS
+{
+    Attack = 0,
+    Puzzle
+}
+
 public class BOSS_Witch : SerializedMonoBehaviour
 {
     PlayerController player;
     public List<WitchState> states = new List<WitchState>();
+    public PATTERN_BOSS pat;
 
     [SerializeField] float maxHP = 100f;
     [SerializeField] float currentHP;
@@ -34,6 +42,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
 
     [SerializeField] GameObject midasTree;
+    [SerializeField] GameObject spawn;
 
     [SerializeField] GameObject attack_Prefab1;
     [SerializeField] GameObject attack_Prefab2;
@@ -44,6 +53,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
     [SerializeField] float upPositionDuration;
     float _faintTime = 10f;
 
+    [SerializeField] GameObject parant_MagicStone;
+    [SerializeField] GameObject parant_Attack;
     [SerializeField]
     GameObject[] magicStone;
     [SerializeField]
@@ -63,7 +74,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     private CapsuleCollider cap;
     private float outlineDelay;
 
-    int current_State_Index;
+
     private bool isAttackActive = false;
 
     [SerializeField] UnityEvent clearEvent;
@@ -75,6 +86,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         stoneCount = magicStone.Length;
         cap = GetComponent<CapsuleCollider>();
+        spawn_Interactable = new GameObject[magicStone_Interactable.Length];
         magicStoneBreak = new bool[stoneCount];
         isBossStart = true;
         isPuzzleSet = false;
@@ -83,12 +95,14 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     private void InitWitchBoss()
     {
+        StopAllCoroutines();
         bossDotween.DORestartById("start");
+        pat = PATTERN_BOSS.Attack;
         currentHP = maxHP;
-        current_State_Index = 1;
+        transform.position = spawn.transform.position;
         hasSpawnMagicStone = false;
-        states[current_State_Index].OnEnterAction(this);
-        spawn_Interactable = new GameObject[magicStone_Interactable.Length];
+
+        
         isFaint = false;
         WitchBossStart();
     }
@@ -96,6 +110,11 @@ public class BOSS_Witch : SerializedMonoBehaviour
     private void WitchBossStart()
     {
         StartCoroutine(CO_Flying_Witch());
+    }
+
+    public void ReStart()
+    {
+        InitWitchBoss();
     }
 
     IEnumerator CO_Flying_Witch()
@@ -118,7 +137,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
         hasSpawnMagicStone = true; // 상승 완료 후에 생성된 오브젝트 플래그를 true로 설정
 
         isAttackActive = true;
-        if(current_State_Index == 1 || current_State_Index == 3)
+        yield return new WaitForSeconds(0.2f);
+        if(pat == PATTERN_BOSS.Attack)
             StartCoroutine(Attack_To_Player());
     }
 
@@ -154,7 +174,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         magicStoneObjects.RemoveAll(obj => obj == null);
         magicStoneObjects_Puzzle.RemoveAll(obj => obj == null);
-        if(current_State_Index == 2)
+        if (pat == PATTERN_BOSS.Puzzle)
         {
             if(magicStoneObjects_Puzzle.Count == 0)
             {
@@ -186,6 +206,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
                     }
                     magicStoneBreak[i] = true;
                     GameObject spawnobj = Instantiate(magicStone_Interactable[i], spawnPos, spawnRot);
+                    spawnobj.transform.parent = parant_MagicStone.transform;
                     magicStoneObjects_Puzzle.Add(spawnobj);
                 }
             }
@@ -202,7 +223,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
                 }
             }
         }
-        else
+        else if(pat == PATTERN_BOSS.Attack)
         {
             if (magicStoneObjects.Count == 0)
             {
@@ -236,6 +257,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
                     magicStoneBreak[i] = true;
                     GameObject spawnObj = Instantiate(magicStone[i], spawnPos, spawnRot);
+                    spawnObj.transform.parent = parant_MagicStone.transform;
                     magicStoneObjects.Add(spawnObj); // 생성된 오브젝트를 리스트에 추가
                 }
             }
@@ -293,6 +315,14 @@ public class BOSS_Witch : SerializedMonoBehaviour
         {
             isAttackActive = false;
 
+            if (pat == PATTERN_BOSS.Puzzle)
+            {
+                pat = PATTERN_BOSS.Attack;
+            }
+            else if (pat == PATTERN_BOSS.Attack)
+            {
+                pat = PATTERN_BOSS.Puzzle;
+            }
 
             StartCoroutine(CO_Drop_Witch());
         }
@@ -304,9 +334,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
         magicStoneBreak[index] = false;
         if (CheckAllStoneBreak())
         {
-            current_State_Index = 3;
             states[(int)WITCH_STATES.Phase].Action(this);
-            StartCoroutine(Attack_To_Player());
+            
         }
     }
 
@@ -333,6 +362,10 @@ public class BOSS_Witch : SerializedMonoBehaviour
     private void Dead()
     {
         //bossAnimator.SetTrigger("isDead");
+        if(parant_MagicStone != null)
+        {
+            Destroy(parant_MagicStone);
+        }
         if (clearEvent != null) clearEvent.Invoke();
     }
 
@@ -361,14 +394,6 @@ public class BOSS_Witch : SerializedMonoBehaviour
         currentHP -= _damage;
         OutlineActive();
         Hit();
-
-        if (currentHP <= maxHP * 2 / 3 && current_State_Index == 1)
-        {
-            StopCoroutine(CO_Drop_Witch());
-            StartCoroutine(CO_Flying_Witch());
-            current_State_Index = 2;
-            states[(int)WITCH_STATES.Phase].Action(this);
-        }
     }
     private void OutlineActive()
     {
@@ -401,7 +426,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         GameObject instanceLaser = Instantiate(attack_Prefab1, transform.position, transform.rotation);
-
+        instanceLaser.transform.parent = parant_Attack.transform;
 
         
         yield return new WaitForSeconds(5f);
@@ -417,6 +442,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
             Transform target = PlayerController.instance.transform;
             Vector3 playerPosition = target.position;
             GameObject instanceExplosion = Instantiate(attack_Prefab2, playerPosition, Quaternion.identity);
+            instanceExplosion.transform.parent = parant_Attack.transform;
             yield return new WaitForSeconds(1.5f);
         }
 

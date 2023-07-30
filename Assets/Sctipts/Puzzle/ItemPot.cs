@@ -13,7 +13,7 @@ public enum PotSlot
     Finish
 }
 
-public class ItemPot : SerializedMonoBehaviour
+public class ItemPot : MonoBehaviour
 {
     [Title("Prefab")]
     [SerializeField] private GameObject slotPrefab;

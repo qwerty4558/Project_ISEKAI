@@ -31,6 +31,7 @@ public class ExplosionAttack : MonoBehaviour
         indicator.SetActive(false);
 
         particleOBJ.SetActive(true);
+        explosionCol?.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
     }

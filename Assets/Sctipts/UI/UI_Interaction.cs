@@ -30,9 +30,12 @@ public class UI_Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (interactionObject.activeInHierarchy)
+        if (interactionObject != null)
         {
-            interactionObject.transform.position = Camera.main.WorldToScreenPoint(targetObject.transform.position);
+            if (interactionObject.activeInHierarchy)
+            {
+                interactionObject.transform.position = Camera.main.WorldToScreenPoint(targetObject.transform.position);
+            }
         }
     }
 }

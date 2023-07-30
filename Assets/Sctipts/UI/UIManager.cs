@@ -90,8 +90,6 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-            
             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
@@ -105,29 +103,33 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
                 sound.Play("OnOff");
             }
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (!settingBoard_obj.activeSelf)
         {
-            
-            if (diary_obj.activeSelf)
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                ContinueGame();
-                sound.Play("OnOff");
-            }
-            else
-            {
-                
-                if (checkingDiary == false)
+
+                if (diary_obj.activeSelf)
                 {
-                    checkingDiary = true;
-                    sound.Play("OpenBookSound");
-                    ViewDiary();
+                    ContinueGame();
+                    sound.Play("OnOff");
                 }
                 else
                 {
-                    sound.Play("OpenBookSound");
-                    ViewDiary();
+
+                    if (checkingDiary == false)
+                    {
+                        checkingDiary = true;
+                        sound.Play("OpenBookSound");
+                        ViewDiary();
+                    }
+                    else
+                    {
+                        sound.Play("OpenBookSound");
+                        ViewDiary();
+                    }
                 }
             }
+
         }
     }
 
@@ -167,6 +169,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             if (cameraFollow != null)
                 cameraFollow.isInteraction = true;
             diary_obj.GetComponent<DiaryController>().OpenPage();
+            Time.timeScale = 0f;
         }
     }
 
