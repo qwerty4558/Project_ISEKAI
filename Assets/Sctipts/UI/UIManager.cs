@@ -166,7 +166,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             diary_obj.SetActive(true);
             if (cameraFollow != null)
                 cameraFollow.isInteraction = true;
-            diary_obj.GetComponent<DiaryController>().UnLockPage();
+            diary_obj.GetComponent<DiaryController>().OpenPage();
         }
     }
 

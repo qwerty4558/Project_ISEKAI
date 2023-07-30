@@ -9,7 +9,7 @@ using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 #endif
 
-public class DiaryController : SerializedMonoBehaviour
+public class DiaryController : MonoBehaviour
 {
 
     public static DiaryController instance;
@@ -129,11 +129,18 @@ public class DiaryController : SerializedMonoBehaviour
         }
     }
 
+    public void OpenPage()
+    {
+        if(isDiaryPageActive || isRecipePageActive)
+        {
+            UnLockPage();
+        }
+    }
+
     public void UnLockPage()
     {
-        StopAllCoroutines();
-
-        if (isDiaryPageActive && isRecipePageActive)
+        StartCoroutine(CO_UnLockPage());
+        /*if (isDiaryPageActive && isRecipePageActive)
         {
             StartCoroutine(CO_Open_Diary_Page(bookPage_diary - 1));
             StartCoroutine(CO_Open_Recipe_Page(bookPage_recipe - 1));
@@ -150,6 +157,21 @@ public class DiaryController : SerializedMonoBehaviour
         {
 
             StartCoroutine(CO_Open_Recipe_Page(bookPage_recipe - 1));
+        }*/
+    }
+
+    IEnumerator CO_UnLockPage()
+    {
+        if (isDiaryPageActive)
+        {
+            isDiaryPageActive = false;
+            yield return StartCoroutine(CO_Open_Diary_Page(bookPage_diary - 1));
+        }
+
+        if (isRecipePageActive)
+        {
+            isRecipePageActive = false;
+            yield return StartCoroutine(CO_Open_Recipe_Page(bookPage_recipe - 1));
         }
     }
 
