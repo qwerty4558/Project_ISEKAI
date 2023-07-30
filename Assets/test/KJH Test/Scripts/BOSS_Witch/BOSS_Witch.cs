@@ -333,7 +333,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
             {
                 pat = PATTERN_BOSS.Puzzle;
             }
-
+            StopCoroutine(CO_Attack_Pattern_1());
+            StopCoroutine(CO_Attack_Pattern_2());
             StartCoroutine(CO_Drop_Witch());
         }
     }

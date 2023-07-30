@@ -13,8 +13,11 @@ public class ActiveCore : MonoBehaviour
     [SerializeField] BOSS_Witch _witch;
     [SerializeField] PlayerController _player;
     [SerializeField] UIManager _manager;
+    [SerializeField] GameObject questUI;
+    [SerializeField] UnityEngine.UI.Image timerFill;
     void Start()
     {
+        questUI = GameObject.FindGameObjectWithTag("QuestUI");
         puzzleCore.SetActive(false);
         _witch = FindObjectOfType<BOSS_Witch>();
         _player = PlayerController.instance;
@@ -25,20 +28,24 @@ public class ActiveCore : MonoBehaviour
     {
         if (puzzleCore.activeSelf)
         {
+            _manager.cameraFollow.isInteraction = true;
             puzzle_Time -= Time.deltaTime;
-
+            timerFill.fillAmount = puzzle_Time / 10f;
             if (puzzle_Time < 0f)
             {
-                PlayerController.instance.GetDamage(10f);
+                _player.GetDamage(10f);
                 puzzle_Time = 10f;
             }
         }
+        else _manager.cameraFollow.isInteraction = false;
     }
 
     public void OpenCore(GameObject _object, int _index)
     {
-        
-        _player.ControlEnabled = false;
+        _manager.gameObject.SetActive(false);
+        questUI.SetActive(false);
+        puzzle_Time = 10f;
+
         puzzleCore.SetActive(true);
         index = _index;
         magicStone = _object;
@@ -46,14 +53,18 @@ public class ActiveCore : MonoBehaviour
 
     public void CloseCore()
     {
+        _manager.gameObject.SetActive(true);
+        questUI.SetActive(true);
         puzzleCore.SetActive(false);
+ 
         _player.ControlEnabled = true;
-        _manager.cameraFollow.isInteraction = false;
+        
     }
 
     public void ClearPuzzle()
     {
-        _manager.cameraFollow.isInteraction = true;
+        _manager.gameObject.SetActive(true);
+
         _player.ControlEnabled = true;
         GameObject destroyObj = magicStone;
         _witch.StoneBreakCheck(index);
