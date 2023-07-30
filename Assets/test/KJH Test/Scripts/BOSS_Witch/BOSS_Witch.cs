@@ -115,7 +115,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     public void ReStart()
     {
         StopAllCoroutines();
-        for (int i = 0; i< stoneCount; i++)
+        for (int i = 0; i< parant_MagicStone.transform.childCount; i++)
         {
             Destroy(parant_MagicStone.transform.GetChild(i).gameObject);
         }
@@ -372,7 +372,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
     private void Dead()
     {
         StopAllCoroutines();
-        for (int i = 0; i < stoneCount; i++)
+
+        for (int i = 0; i < parant_MagicStone.transform.childCount; i++)
         {
             Destroy(parant_MagicStone.transform.GetChild(i).gameObject);
         }
@@ -380,6 +381,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
         {
             Destroy(parant_Attack.transform.GetChild(j).gameObject);
         }
+
         if (clearEvent != null) 
             clearEvent.Invoke();
     }

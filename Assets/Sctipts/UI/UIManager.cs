@@ -90,7 +90,7 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (settingBoard_obj.activeSelf)
+             if (settingBoard_obj.activeSelf)
             {
                 ContinueGame();
                 sound.Play("OnOff");
