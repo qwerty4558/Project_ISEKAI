@@ -6,7 +6,7 @@ public class ActiveCore : MonoBehaviour
 {
     [SerializeField] GameObject puzzleCore;
     [SerializeField] GameObject magicStone;
-    [SerializeField] float puzzle_Time = 10f;
+    [SerializeField] float puzzle_Time = 3f;
     [SerializeField] float player_Damage = 10f;
     [SerializeField] float boss_Damage = 33f;
     [SerializeField] int index;
@@ -30,11 +30,11 @@ public class ActiveCore : MonoBehaviour
         {
             _manager.cameraFollow.isInteraction = true;
             puzzle_Time -= Time.deltaTime;
-            timerFill.fillAmount = puzzle_Time / 10f;
+            timerFill.fillAmount = puzzle_Time / 3f;
             if (puzzle_Time < 0f)
             {
                 _player.GetDamage(10f);
-                puzzle_Time = 10f;
+                puzzle_Time = 3f;
             }
         }
         else _manager.cameraFollow.isInteraction = false;
@@ -44,7 +44,7 @@ public class ActiveCore : MonoBehaviour
     {
         _manager.gameObject.SetActive(false);
         questUI.SetActive(false);
-        puzzle_Time = 10f;
+        puzzle_Time = 3f;
 
         puzzleCore.SetActive(true);
         index = _index;
