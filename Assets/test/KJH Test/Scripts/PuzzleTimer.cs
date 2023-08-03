@@ -10,16 +10,14 @@ public class PuzzleTimer : MonoBehaviour
     [SerializeField] float puzzleTime = 30f;
     [SerializeField] float currentTime;
     [SerializeField] float player_Damage = 10f;
-    [SerializeField] float boss_Damage = 33f;
 
     [SerializeField] PlayerController _player;
-    [SerializeField] BOSS_Witch _witch;
 
 
     void Start()
     {
         _player = PlayerController.Instance;
-        _witch = FindObjectOfType<BOSS_Witch>();
+
     }
 
     public void OnEnable()
