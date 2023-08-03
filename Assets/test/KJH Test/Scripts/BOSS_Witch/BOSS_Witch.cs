@@ -333,10 +333,17 @@ public class BOSS_Witch : SerializedMonoBehaviour
             }
             else if (pat == PATTERN_BOSS.Attack)
             {
+                StopCoroutine(Attack_To_Player());
+                StopCoroutine(CO_Attack_Pattern_1());
+                StopCoroutine(CO_Attack_Pattern_2());
+
+                for (int j = 0; j < parant_Attack.transform.childCount; j++)
+                {
+                    Destroy(parant_Attack.transform.GetChild(j).gameObject);
+                }
                 pat = PATTERN_BOSS.Puzzle;
             }
-            StopCoroutine(CO_Attack_Pattern_1());
-            StopCoroutine(CO_Attack_Pattern_2());
+            
             StartCoroutine(CO_Drop_Witch());
         }
     }
