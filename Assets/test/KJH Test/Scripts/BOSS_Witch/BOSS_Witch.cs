@@ -39,7 +39,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     [SerializeField]
     bool[] magicStoneBreak;
 
-
+    [SerializeField] GameObject timer;
 
     [SerializeField] GameObject midasTree;
     [SerializeField] GameObject spawn;
@@ -83,7 +83,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
     {
         if (player == null)
             player = PlayerController.instance;
-
+        timer.SetActive(false);
         stoneCount = magicStone.Length;
         cap = GetComponent<CapsuleCollider>();
         spawn_Interactable = new GameObject[magicStone_Interactable.Length];
@@ -219,6 +219,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
                     spawnobj.transform.parent = parant_MagicStone.transform;
                     magicStoneObjects_Puzzle.Add(spawnobj);
                 }
+                timer.SetActive(true);
             }
 
             else
@@ -327,6 +328,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
             if (pat == PATTERN_BOSS.Puzzle)
             {
+                timer.SetActive(false);
                 pat = PATTERN_BOSS.Attack;
             }
             else if (pat == PATTERN_BOSS.Attack)
