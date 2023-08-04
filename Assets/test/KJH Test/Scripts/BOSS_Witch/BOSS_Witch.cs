@@ -473,11 +473,14 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         for (int i = 0; i < 5; ++i)
         {
-            Transform target = PlayerController.instance.transform;
-            Vector3 playerPosition = target.position;
-            GameObject instanceExplosion = Instantiate(attack_Prefab2, playerPosition, Quaternion.identity);
-            instanceExplosion.transform.parent = parant_Attack.transform;
-            yield return new WaitForSeconds(1.5f);
+            if (isAttackActive)
+            {
+                Transform target = PlayerController.instance.transform;
+                Vector3 playerPosition = target.position;
+                GameObject instanceExplosion = Instantiate(attack_Prefab2, playerPosition, Quaternion.identity);
+                instanceExplosion.transform.parent = parant_Attack.transform;
+                yield return new WaitForSeconds(1.5f);
+            }
         }
 
         yield return new WaitForSeconds(2f);
