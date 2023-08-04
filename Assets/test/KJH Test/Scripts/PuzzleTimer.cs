@@ -17,7 +17,7 @@ public class PuzzleTimer : MonoBehaviour
     void Start()
     {
         _player = PlayerController.Instance;
-
+        currentTime = puzzleTime;
     }
 
     public void OnEnable()

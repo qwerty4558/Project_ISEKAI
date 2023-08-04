@@ -115,6 +115,13 @@ public class BOSS_Witch : SerializedMonoBehaviour
     public void ReStart()
     {
         StopAllCoroutines();
+
+        if (timer.activeSelf)
+        {
+            timer.SetActive(false);
+        }
+
+        
         for (int i = 0; i< parant_MagicStone.transform.childCount; i++)
         {
             Destroy(parant_MagicStone.transform.GetChild(i).gameObject);
