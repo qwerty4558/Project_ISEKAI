@@ -14,6 +14,7 @@ public class InventoryTitle : MonoBehaviour
     public static InventoryTitle instance;
 
     [SerializeField] private SlotItem[] slotItems;
+    [SerializeField] private SlotItem[] appraiseItems;
     [SerializeField] private GameObject itemStatus;
     [SerializeField] private TextMeshProUGUI[] statusTexts;
     [SerializeField] public Image puzzleImage;
@@ -85,6 +86,11 @@ public class InventoryTitle : MonoBehaviour
             slotItems[i].itemStatus = itemStatus;
             slotItems[i].statusTexts = statusTexts;
         }
+        for(int j = 0; j < appraiseItems.Length; j++)
+        {
+            appraiseItems[j].itemStatus = itemStatus;
+            appraiseItems[j].statusTexts = statusTexts;
+        }
     }
 
     private void Update()
@@ -93,10 +99,11 @@ public class InventoryTitle : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                if (inventoryObj.activeSelf)
+                if (inventoryObj.activeSelf && appraiseObj.activeSelf)
                 {
                     inventoryObj.SetActive(false);
                     itemStatus.SetActive(false);
+                    appraiseObj.SetActive(false);
                     if (cameraFollow != null)
                         cameraFollow.isInteraction = false;
                     CursorManage.instance.HideMouse();
@@ -106,6 +113,7 @@ public class InventoryTitle : MonoBehaviour
                     cameraFollow = FindObjectOfType<CameraFollow>();
                     PrintInventory();
                     inventoryObj.SetActive(true);
+                    appraiseObj.SetActive(true);
                     if (cameraFollow != null)
                         cameraFollow.isInteraction = true;
                     CursorManage.instance.ShowMouse();
@@ -139,19 +147,37 @@ public class InventoryTitle : MonoBehaviour
 
     public void PrintInventory()
     {
-        int count = 0;
+        int item_Count = 0;
         for(int i = 0; i < slotItems.Length; i++)
             slotItems[i].itemData = null;
+
+        
 
         foreach(KeyValuePair<string, Ingredient_Item> pair in itemMap)
         {
             Ingredient_Item temp = pair.Value;
             if(temp.itemType != ItemType.Equipment)
             {
-                slotItems[count].itemData = temp;
-                slotItems[count].updateData();
-                count++;
+                slotItems[item_Count].itemData = temp;
+                slotItems[item_Count].updateData();
+                item_Count++;
             }            
+        }
+
+        int appriase_Count = 0;
+
+        for (int j = 0; j < appraiseItems.Length; j++)
+            appraiseItems[j].itemData = null;
+
+        foreach (KeyValuePair<string, Ingredient_Item> pair in alchemyItemMap)
+        {
+            Ingredient_Item temp = pair.Value;
+            if(temp.itemType != ItemType.Equipment && temp.appraiseCount > 0)
+            {
+                appraiseItems[appriase_Count].appraiseItemData = temp;
+                appraiseItems[appriase_Count].updateData();
+                appriase_Count++;
+            }
         }
     }
 

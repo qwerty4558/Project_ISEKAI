@@ -8,6 +8,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+public enum SHOW_NUM
+{
+    ITEMCOUNT = 1,
+    APPRAISECOUNT
+}
+
 public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private int id;
@@ -21,6 +27,8 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private Image puzzleImage;
     [SerializeField] private TextMeshProUGUI countText;
 
+    public SHOW_NUM show = SHOW_NUM.ITEMCOUNT;
+
     private Vector3 orgPos;
     private bool isAlchemy;
 
@@ -30,6 +38,7 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Sprite appraiseImage;
 
     public Ingredient_Item itemData;
+    public Ingredient_Item appraiseItemData;
 
     public string ItemName { get => itemName; set => itemName = value; }
     public string Status { get => status; set => status = value; }
@@ -46,57 +55,103 @@ public class SlotItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void updateData()
     {
-        if(itemData != null)
+        if(show == SHOW_NUM.ITEMCOUNT)
         {
-            itemImage = itemData.itemImage;
-            appraiseImage = itemData.itemPatternImage;
-            count = itemData.count;
-            status = itemData.status;
-            route = itemData.route;
-            itemName = itemData.name_KR;
-            appraiseCount = itemData.appraiseCount;
+            if (itemData != null)
+            {
+                itemImage = itemData.itemImage;
+                appraiseImage = itemData.itemPatternImage;
+                count = itemData.count;
+                status = itemData.status;
+                route = itemData.route;
+                itemName = itemData.name_KR;
+                appraiseCount = itemData.appraiseCount;
+            }
         }
         
+        else if(show == SHOW_NUM.APPRAISECOUNT)
+        {
+            if (appraiseItemData != null)
+            {
+                itemImage = appraiseItemData.itemImage;
+                appraiseImage = appraiseItemData.itemPatternImage;
+                count = appraiseItemData.count;
+                status = appraiseItemData.status;
+                route = appraiseItemData.route;
+                itemName = appraiseItemData.name_KR;
+                appraiseCount = appraiseItemData.appraiseCount;
+            }
+        }
     }
     
     private void Update()
     {
-        if(itemData != null)
+        if(show == SHOW_NUM.ITEMCOUNT)
         {
-            if (itemData.count != 0)
+            if (itemData != null)
             {
-                slotImage.enabled = true;
-                slotImage.sprite = itemImage;
-                countText.enabled = true;
-                countText.text = count.ToString();
+                if (itemData.count != 0)
+                {
+                    slotImage.enabled = true;
+                    slotImage.sprite = itemImage;
+                    countText.enabled = true;
+                    countText.text = count.ToString();                    
+                }
+                else
+                {
+                    itemData = null;
+                    slotImage.enabled = false;
+                    countText.enabled = false;
+                }
             }
             else
             {
-                itemData = null;
                 slotImage.enabled = false;
                 countText.enabled = false;
             }
         }
-        else
+        else if (show == SHOW_NUM.APPRAISECOUNT)
         {
-            slotImage.enabled = false;
-            countText.enabled = false;
+            if (appraiseItemData != null)
+            {
+                if (appraiseItemData.appraiseCount != 0)
+                {
+                    slotImage.enabled = true;
+                    slotImage.sprite = itemImage;
+                    countText.enabled = true;
+                    countText.text = appraiseCount.ToString();
+                }
+                else
+                {
+                    itemData = null;
+                    slotImage.enabled = false;
+                    countText.enabled = false;
+                }
+            }
+            else
+            {
+                slotImage.enabled = false;
+                countText.enabled = false;
+            }
         }
     }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        statusTexts[0].text = itemName;
-        statusTexts[1].text = status;
-        statusTexts[2].text = route;
-        InventoryTitle.instance.puzzleImage.sprite = appraiseImage;
-        itemStatus.transform.position = this.transform.position;
-        if(count > 0)
-            itemStatus.SetActive(true);
-        if (appraiseCount > 0)
-            InventoryTitle.instance.puzzleImage.enabled = true;
-        else InventoryTitle.instance.puzzleImage.enabled = false;
+        if(show != SHOW_NUM.APPRAISECOUNT)
+        {
+            statusTexts[0].text = itemName;
+            statusTexts[1].text = status;
+            statusTexts[2].text = route;
+            InventoryTitle.instance.puzzleImage.sprite = appraiseImage;
+            itemStatus.transform.position = this.transform.position;
+            if (count > 0)
+                itemStatus.SetActive(true);
+            if (appraiseCount > 0)
+                InventoryTitle.instance.puzzleImage.enabled = true;
+            else InventoryTitle.instance.puzzleImage.enabled = false;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
