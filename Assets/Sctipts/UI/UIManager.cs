@@ -9,6 +9,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     
     [SerializeField] private GameObject settingBoard_obj;
     [SerializeField] private GameObject option_obj;
+    [SerializeField] private GameObject option_Ghrapic;
+    [SerializeField] private GameObject option_Sound;
+    [SerializeField] private GameObject option_Gameplay;
     [SerializeField] public CameraFollow cameraFollow;
     [SerializeField] private GameObject diary_obj;
     [SerializeField] private GameObject ingame_obj;
@@ -171,10 +174,16 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
     }
 
+    public IEnumerator PausegameDellay()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Time.timeScale = 0f;
+    }
     private void PauseGame()
     {
-        Time.timeScale = 0f;
+        PausegameDellay();
         settingBoard_obj.SetActive(true);
+        settingBoard_obj.GetComponent<DOTweenAnimation>().DORestart();
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
     }
@@ -183,7 +192,10 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     {
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
-        settingBoard_obj.SetActive(false);
+        option_Ghrapic.SetActive(false);
+        option_Sound.SetActive(false);
+        option_Gameplay.SetActive(false);
+        settingBoard_obj.GetComponent<DOTweenAnimation>().DOPlayBackwards();
         diary_obj.GetComponent<DOTweenAnimation>().DOPlayBackwards();
         CursorManage.instance.HideMouse();
         if (cameraFollow != null)
@@ -195,6 +207,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         
         Time.timeScale = 1.0f;
         option_obj.SetActive(false);
+        option_Ghrapic.SetActive(false);
+        option_Sound.SetActive(false);
+        option_Gameplay.SetActive(false);
         settingBoard_obj.SetActive(false);
         if (cameraFollow != null)
             cameraFollow.isInteraction = false;
