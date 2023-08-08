@@ -174,10 +174,18 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
         }
     }
 
+    public void StopAllcoroutines()
+    {
+        if (settingBoard_obj.activeSelf)
+        {
+            StopAllCoroutines();
+        }
+    }
     public IEnumerator PausegameDellay()
     {
         yield return new WaitForSeconds(0.3f);
         Time.timeScale = 0f;
+        StopAllcoroutines();
     }
     private void PauseGame()
     {
