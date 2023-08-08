@@ -176,8 +176,8 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     public IEnumerator PausegameDellay()
     {
         yield return new WaitForSeconds(0.3f);
-        StopAllCoroutines();
         Time.timeScale = 0f;
+        StopAllCoroutines();
     }
     private void PauseGame()
     {
