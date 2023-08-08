@@ -173,19 +173,11 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
             diary_obj.GetComponent<DiaryController>().OpenPage();
         }
     }
-
-    public void StopAllcoroutines()
-    {
-        if (settingBoard_obj.activeSelf)
-        {
-            StopAllCoroutines();
-        }
-    }
     public IEnumerator PausegameDellay()
     {
         yield return new WaitForSeconds(0.3f);
+        StopAllCoroutines();
         Time.timeScale = 0f;
-        StopAllcoroutines();
     }
     private void PauseGame()
     {
