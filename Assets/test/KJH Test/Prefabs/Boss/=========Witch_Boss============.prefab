@@ -550,7 +550,7 @@ RectTransform:
   m_Children:
   - {fileID: 927203317968696157}
   - {fileID: 5815206915137409359}
-  m_Father: {fileID: 8066653704527446592}
+  m_Father: {fileID: 7156791086485650554}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1452,7 +1452,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7156791086485650554}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2252024222798316503
 GameObject:
@@ -1483,7 +1483,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7156791086485650554}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2647663013163700681
 GameObject:
@@ -4195,7 +4195,7 @@ Transform:
   - {fileID: 3796298938181581967}
   - {fileID: 3935749263673985461}
   m_Father: {fileID: 7156791086485650554}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8795729977732665422
 MonoBehaviour:
@@ -4211,15 +4211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleCore: {fileID: 3796298938181581963}
   magicStone: {fileID: 0}
-  puzzle_Time: 10
-  player_Damage: 10
   boss_Damage: 33
   index: 0
   _witch: {fileID: 0}
   _player: {fileID: 0}
   _manager: {fileID: 0}
   questUI: {fileID: 0}
-  timerFill: {fileID: 0}
 --- !u!1 &3796298938054999101
 GameObject:
   m_ObjectHideFlags: 0
@@ -8223,6 +8220,7 @@ Transform:
   m_Children:
   - {fileID: 8066653704527446592}
   - {fileID: 3427386881793517094}
+  - {fileID: 927203316787256765}
   - {fileID: 3796298938011363567}
   - {fileID: 1200852680931434098}
   - {fileID: 3639846286217472964}
@@ -8523,7 +8521,6 @@ Transform:
   m_Children:
   - {fileID: 3430681438576292130}
   - {fileID: 6305999594341357817}
-  - {fileID: 927203316787256765}
   m_Father: {fileID: 7156791086485650554}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8608,8 +8605,10 @@ MonoBehaviour:
   isBossStart: 0
   hasSpawnMagicStone: 0
   magicStoneBreak: 
+  timer: {fileID: 0}
   midasTree: {fileID: 0}
   spawn: {fileID: 0}
+  startBoss: {fileID: 0}
   attack_Prefab1: {fileID: 4181417936108700966, guid: 899fcaf4072a62f478e41e6768707a05, type: 3}
   attack_Prefab2: {fileID: 1191925428262796744, guid: b6b9adc9eb2c71f4cb340b19f7229bac, type: 3}
   attack_Prefab3: {fileID: 0}

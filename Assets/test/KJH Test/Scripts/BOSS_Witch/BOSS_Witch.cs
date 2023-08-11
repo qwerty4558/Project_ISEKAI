@@ -43,6 +43,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     [SerializeField] GameObject midasTree;
     [SerializeField] GameObject spawn;
+    [SerializeField] GameObject startBoss;
 
     [SerializeField] GameObject attack_Prefab1;
     [SerializeField] GameObject attack_Prefab2;
@@ -51,6 +52,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     [SerializeField] float targetHeight;
     [SerializeField] float upPositionDuration;
+    [SerializeField] float dropPositionDuration = 2f;
     float _faintTime = 10f;
 
     [SerializeField] GameObject parant_MagicStone;
@@ -77,6 +79,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     private bool isAttackActive = false;
 
+
     [SerializeField] UnityEvent clearEvent;
 
     void Start()
@@ -88,8 +91,9 @@ public class BOSS_Witch : SerializedMonoBehaviour
         cap = GetComponent<CapsuleCollider>();
         spawn_Interactable = new GameObject[magicStone_Interactable.Length];
         magicStoneBreak = new bool[stoneCount];
-        isBossStart = true;
+        isBossStart = false;
         isPuzzleSet = false;
+        animator = GetComponent<Animator>();
         InitWitchBoss();
     }
 
@@ -109,7 +113,8 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     private void WitchBossStart()
     {
-        StartCoroutine(CO_Flying_Witch());
+        StartCoroutine(Walk_To_StartPos());
+            
     }
 
     public void ReStart()
@@ -133,14 +138,35 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
         InitWitchBoss();
     }
+    IEnumerator Walk_To_StartPos()
+    {
+        animator.SetTrigger("Start_Boss");
+        float startZ = transform.position.z;
+        float elapsedTime = 0f;
+        float duratioon = 3f;
+        while(elapsedTime < duratioon)
+        {
+            float newZ = Mathf.Lerp(startZ, startBoss.transform.position.z, elapsedTime / duratioon);
+            transform.position = new Vector3(transform.position.x, transform.position.y, newZ);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        isBossStart = true;
 
+        StartCoroutine(CO_Flying_Witch());
+    }
     IEnumerator CO_Flying_Witch()
     {
         float _startY = transform.position.y;
         float elapsedTime = 0f;
         isFaint = false;
         cap.enabled = false;
-
+        if (animator != null)
+        {
+            animator.SetBool("IsFlying", true);
+            animator.SetBool("IsFalling", false);
+        }
+            
         while (elapsedTime < upPositionDuration)
         {
             float newY = Mathf.Lerp(_startY, targetHeight, elapsedTime / upPositionDuration);
@@ -161,22 +187,33 @@ public class BOSS_Witch : SerializedMonoBehaviour
 
     IEnumerator CO_Drop_Witch()
     {
-        StopCoroutine(Attack_To_Player());
+        animator.SetBool("IsAttack1", false);
+        animator.SetBool("IsAttack2", false);
+        animator.SetBool("IsFalling", true);
+        animator.SetBool("IsFlying", false);
 
+        StopCoroutine(Attack_To_Player());
+        
         float startY = transform.position.y;
         float elapsedTime = 0f;
-
-        while (elapsedTime < upPositionDuration)
+        
+        while (elapsedTime < dropPositionDuration)
         {
-            float newY = Mathf.Lerp(startY, 3.7f, elapsedTime / upPositionDuration);
+            float newY = Mathf.Lerp(startY, 3.5f, elapsedTime / dropPositionDuration);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        transform.position = new Vector3(transform.position.x, 3.7f, transform.position.z);
+        
+        transform.position = new Vector3(transform.position.x, 3.5f, transform.position.z);
         cap.enabled = true;
+        animator.SetBool("IsOnGeoundAfterFall", true);
+        yield return new WaitForSeconds(2.5f);
+
+        animator.SetBool("IsOnGeoundAfterFall", false);
+
         yield return new WaitForSeconds(faintTimeDelay);
+        
         hasSpawnMagicStone = false;
         StartCoroutine(CO_Flying_Witch());
 
@@ -332,6 +369,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
         if (CheckAllStoneBreak())
         {
             isAttackActive = false;
+            
 
             if (pat == PATTERN_BOSS.Puzzle)
             {
@@ -459,11 +497,13 @@ public class BOSS_Witch : SerializedMonoBehaviour
     IEnumerator CO_Attack_Pattern_1() // laser
     {
         yield return new WaitForSeconds(0.2f);
+        animator.SetBool("IsAttack1", true);
         GameObject instanceLaser = Instantiate(attack_Prefab1, transform.position, transform.rotation);
         instanceLaser.transform.parent = parant_Attack.transform;
-
+        
         
         yield return new WaitForSeconds(5f);
+        animator.SetBool("IsAttack1", false);
         StartCoroutine(Attack_To_Player());
     }
     IEnumerator CO_Attack_Pattern_2() // explosion

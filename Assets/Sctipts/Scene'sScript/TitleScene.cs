@@ -49,19 +49,24 @@ public class TitleScene : MonoBehaviour
         switch (btnNum)
         {
             case 0:
-                ItemManager.instance.ItemDataInitailize();
-                uiCanvas.gameObject.SetActive(true);
-                QuestTitle.instance.CurrentAndTempQuestClear();
-                QuestTitle.instance.QuestInput("CH_01");
-                SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
-                LoadingSceneController.Instance.LoadScene("L_Midas");
-                
+                if (option_Window.activeSelf)
+                    break;
+                else
+                {
+                    ItemManager.instance.ItemDataInitailize();
+                    uiCanvas.gameObject.SetActive(true);
+                    QuestTitle.instance.CurrentAndTempQuestClear();
+                    QuestTitle.instance.QuestInput("CH_01");
+                    SceneBroadcaster.AddBroadcast("L_Midas,ToIntro");
+                    LoadingSceneController.Instance.LoadScene("L_Midas");
+                }
                 break;
             case 1:
                 option_Window.SetActive(true);
                 break;
             case 2:
-                Application.Quit();
+                if (option_Window.activeSelf) break;
+                else Application.Quit();
                 break;
         }
     }
