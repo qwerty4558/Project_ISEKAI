@@ -181,9 +181,9 @@ public class UIManager : SingletonMonoBehaviour<UIManager>
     }
     private void PauseGame()
     {
-        PausegameDellay();
         settingBoard_obj.SetActive(true);
         settingBoard_obj.GetComponent<DOTweenAnimation>().DORestart();
+        StartCoroutine(PausegameDellay());
         if (cameraFollow != null)
             cameraFollow.isInteraction = true;
     }
