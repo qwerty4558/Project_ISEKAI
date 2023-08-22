@@ -143,7 +143,7 @@ public class BOSS_Witch : SerializedMonoBehaviour
         animator.SetTrigger("Start_Boss");
         float startZ = transform.position.z;
         float elapsedTime = 0f;
-        float duratioon = 3f;
+        float duratioon = 1f;
         while(elapsedTime < duratioon)
         {
             float newZ = Mathf.Lerp(startZ, startBoss.transform.position.z, elapsedTime / duratioon);
