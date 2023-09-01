@@ -528,7 +528,7 @@ public class PlayerController : SerializedMonoBehaviour
 
     private void Player_Run()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && isMove)
+        if (Input.GetKey(KeyCode.Space) && isMove)
         {
             playerSpeed = runSpeed;
             isRun = true;
