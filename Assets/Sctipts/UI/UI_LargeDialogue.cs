@@ -35,6 +35,8 @@ public class UI_LargeDialogue : MonoBehaviour
 
     private float dialogueTextInterval = 0.05f;
 
+    private DialogueSequence[] currentDialogue;
+
     private void Start()
     {
         PlayDialogue(test_dialogues);
@@ -97,6 +99,7 @@ public class UI_LargeDialogue : MonoBehaviour
                 dialogues[i].actions.Invoke();
         }
 
+        currentDialogue = null;
         DialogueGroup.SetActive(false);
 
     }
@@ -135,5 +138,22 @@ public class UI_LargeDialogue : MonoBehaviour
             }
             IsAside = true;
         }
+    }
+
+    public void AbortDialogue()
+    {
+        StopAllCoroutines();
+
+        if (currentDialogue != null)
+        {
+            for (int i = 0; i < currentDialogue.Length; i++)
+            {
+                currentDialogue[i].action.Invoke();
+            }
+
+            currentDialogue = null;
+        }
+
+        DialogueGroup.SetActive(false);
     }
 }

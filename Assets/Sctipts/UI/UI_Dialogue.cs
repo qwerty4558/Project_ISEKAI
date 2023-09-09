@@ -38,9 +38,9 @@ public class UI_Dialogue : MonoBehaviour
     [SerializeField] private Image popup_Image_UI;
     [SerializeField] private GameObject triangle;
 
-
-
     private float textInterval = .02f;
+
+    private DialogueSequence[] currentDialogue;
 
     public void PlayDialogue(DialogueSequence[] dialogues)
     {
@@ -51,6 +51,8 @@ public class UI_Dialogue : MonoBehaviour
 
     public IEnumerator Cor_PlayDialogue(DialogueSequence[] dialogues)
     {
+        currentDialogue = dialogues;
+
         portrait_L.gameObject.SetActive(false);
         portrait_R.gameObject.SetActive(false);
         portrait_L_Face.gameObject.SetActive(false);
@@ -130,6 +132,23 @@ public class UI_Dialogue : MonoBehaviour
                 dialogues[i].action.Invoke();
 
             yield return null;
+        }
+
+        dialogueGroup.SetActive(false);
+    }
+
+    public void AbortDialogue()
+    {
+        StopAllCoroutines();
+
+        if (currentDialogue != null)
+        {
+            for (int i = 0; i < currentDialogue.Length; i++)
+            {
+                currentDialogue[i].action.Invoke();
+            }
+
+            currentDialogue = null;
         }
 
         dialogueGroup.SetActive(false);
