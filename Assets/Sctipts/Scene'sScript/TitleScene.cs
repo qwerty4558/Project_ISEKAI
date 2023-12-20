@@ -62,9 +62,24 @@ public class TitleScene : MonoBehaviour
                 }
                 break;
             case 1:
+                if (option_Window.activeSelf)
+                    break;
+                else
+                {
+                    ItemManager.instance.ItemDataInitailize();
+                    uiCanvas.gameObject.SetActive(true);
+                    QuestTitle.instance.CurrentAndTempQuestClear();
+                    QuestTitle.instance.QuestInput("To_Title");
+                    SceneBroadcaster.AddBroadcast("L_Main,ToEnding");
+                    LoadingSceneController.Instance.LoadScene("L_Main");
+                }
+                break;
+
+
+            case 2:
                 option_Window.SetActive(true);
                 break;
-            case 2:
+            case 3:
                 if (option_Window.activeSelf) break;
                 else Application.Quit();
                 break;

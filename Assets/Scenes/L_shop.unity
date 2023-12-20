@@ -3196,6 +3196,10 @@ PrefabInstance:
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5554548801408890106, guid: 777e522bdd3558a4dbcdd6a16af430e9, type: 3}
+      propertyPath: m_InitialState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5554548802296144960, guid: 777e522bdd3558a4dbcdd6a16af430e9, type: 3}
       propertyPath: m_Name
       value: Intro_2_Shop
@@ -3708,7 +3712,7 @@ MonoBehaviour:
   DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
   EnablePlayerOnDisabled: 1
-  SkipEnabled: 1
+  SkipEnabled: 0
 --- !u!1 &117959692
 GameObject:
   m_ObjectHideFlags: 0
@@ -13022,7 +13026,7 @@ MonoBehaviour:
   DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
   EnablePlayerOnDisabled: 1
-  SkipEnabled: 1
+  SkipEnabled: 0
 --- !u!1 &422911183
 GameObject:
   m_ObjectHideFlags: 0
@@ -29262,8 +29266,6 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 101442057}
     - {fileID: 11400000, guid: 19f16386a8778704987ea35331a988af, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 1314527416}
     - {fileID: 0}
     - {fileID: 287390441}
@@ -29386,7 +29388,7 @@ MonoBehaviour:
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
       Data: 5|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
@@ -29478,51 +29480,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 9|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 4
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: SoundManager, Assembly-CSharp
-    - Name: m_MethodName
-      Entry: 1
-      Data: AudioBGMControll
-    - Name: m_Mode
-      Entry: 3
-      Data: 1
-    - Name: m_Arguments
-      Entry: 7
-      Data: 10|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 5
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -29545,23 +29502,23 @@ MonoBehaviour:
       Data: ToCH501
     - Name: $v
       Entry: 7
-      Data: 11|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 9|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 12|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 10|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 13|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 11|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 14|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 12|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 6
+      Data: 4
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -29573,10 +29530,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 15|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 13|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 7
+      Data: 5
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29603,10 +29560,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 16|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 14|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 8
+      Data: 6
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -29618,10 +29575,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 17|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 15|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 9
+      Data: 7
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29669,23 +29626,23 @@ MonoBehaviour:
       Data: ToCH503Trigger
     - Name: $v
       Entry: 7
-      Data: 18|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 16|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 19|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 17|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 20|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 18|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 21|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 19|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 10
+      Data: 8
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -29697,10 +29654,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 22|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 20|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 11
+      Data: 9
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29748,23 +29705,23 @@ MonoBehaviour:
       Data: ToCH701Potal
     - Name: $v
       Entry: 7
-      Data: 23|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 21|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 24|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 22|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 25|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 23|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 26|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 24|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -29776,10 +29733,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 27|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 25|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 13
+      Data: 11
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29806,10 +29763,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 28|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 26|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 14
+      Data: 12
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -29821,10 +29778,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 29|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 27|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 15
+      Data: 13
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29872,23 +29829,23 @@ MonoBehaviour:
       Data: CH901_ING
     - Name: $v
       Entry: 7
-      Data: 30|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 28|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 31|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 29|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 32|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 30|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 33|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 31|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -29900,10 +29857,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 34|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 32|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 16
+      Data: 14
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -29951,23 +29908,23 @@ MonoBehaviour:
       Data: Axe
     - Name: $v
       Entry: 7
-      Data: 35|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 33|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 36|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 34|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 37|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 35|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 38|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 36|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -29979,10 +29936,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 39|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 37|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 17
+      Data: 15
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30030,23 +29987,23 @@ MonoBehaviour:
       Data: automatic_waterer
     - Name: $v
       Entry: 7
-      Data: 40|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 38|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 41|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 39|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 42|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 40|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 43|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 41|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30058,10 +30015,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 44|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 42|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 18
+      Data: 16
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30109,23 +30066,23 @@ MonoBehaviour:
       Data: swordandpickaxe
     - Name: $v
       Entry: 7
-      Data: 45|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 43|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 46|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 44|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 47|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 45|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 48|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 46|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30137,10 +30094,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 49|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 47|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 19
+      Data: 17
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30167,10 +30124,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 50|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 48|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30182,10 +30139,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 51|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 49|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 20
+      Data: 18
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30233,23 +30190,23 @@ MonoBehaviour:
       Data: agile_elix
     - Name: $v
       Entry: 7
-      Data: 52|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 50|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 53|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 51|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 54|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 52|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 55|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 53|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30261,10 +30218,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 56|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 54|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 21
+      Data: 19
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30312,23 +30269,23 @@ MonoBehaviour:
       Data: after_make_autowaterer
     - Name: $v
       Entry: 7
-      Data: 57|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 55|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 58|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 56|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 59|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 57|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 60|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 58|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 22
+      Data: 20
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30340,10 +30297,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 61|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 59|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 23
+      Data: 21
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30391,23 +30348,23 @@ MonoBehaviour:
       Data: 12After_OnMainPotal
     - Name: $v
       Entry: 7
-      Data: 62|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 60|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 63|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 61|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 64|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 62|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 65|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 63|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 24
+      Data: 22
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30419,10 +30376,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 66|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 64|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 25
+      Data: 23
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30449,10 +30406,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 67|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 65|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 26
+      Data: 24
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30464,10 +30421,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 68|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 66|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 27
+      Data: 25
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30515,23 +30472,23 @@ MonoBehaviour:
       Data: 12After_NPC_StatusTrigger
     - Name: $v
       Entry: 7
-      Data: 69|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 67|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 70|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 68|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 71|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 69|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 72|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 70|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30543,10 +30500,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 73|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 71|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 28
+      Data: 26
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30594,23 +30551,23 @@ MonoBehaviour:
       Data: status_potion
     - Name: $v
       Entry: 7
-      Data: 74|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 72|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 75|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 73|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 76|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 74|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 77|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 75|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30622,10 +30579,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 78|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 76|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 29
+      Data: 27
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30673,23 +30630,23 @@ MonoBehaviour:
       Data: ToCH1501
     - Name: $v
       Entry: 7
-      Data: 79|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 77|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 80|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 78|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 81|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 79|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 82|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 80|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 30
+      Data: 28
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30701,10 +30658,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 83|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 81|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 31
+      Data: 29
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30752,23 +30709,23 @@ MonoBehaviour:
       Data: shovels
     - Name: $v
       Entry: 7
-      Data: 84|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 82|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 85|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 83|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 86|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 84|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 87|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 85|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30780,10 +30737,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 88|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 86|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 32
+      Data: 30
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30831,23 +30788,23 @@ MonoBehaviour:
       Data: vines_removing_potion
     - Name: $v
       Entry: 7
-      Data: 89|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 87|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 90|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 88|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 91|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 89|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 92|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 90|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -30859,10 +30816,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 93|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 91|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 33
+      Data: 31
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -30889,10 +30846,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 94|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 92|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 34
+      Data: 32
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30904,10 +30861,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 95|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 93|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 35
+      Data: 33
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -30955,23 +30912,23 @@ MonoBehaviour:
       Data: ToCH1502
     - Name: $v
       Entry: 7
-      Data: 96|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 94|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 97|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 95|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 98|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 96|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 99|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 97|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 36
+      Data: 34
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -30983,10 +30940,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 100|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 98|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 37
+      Data: 35
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -31034,23 +30991,23 @@ MonoBehaviour:
       Data: ToCH1601
     - Name: $v
       Entry: 7
-      Data: 101|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 99|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 102|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 100|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 103|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 101|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 8
     - Name: 
       Entry: 7
-      Data: 104|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 102|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 38
+      Data: 36
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -31062,13 +31019,58 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
+      Data: 103|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 37
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 104|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 38
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Playables.PlayableDirector, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: Play
+    - Name: m_Mode
+      Entry: 3
+      Data: 2
+    - Name: m_Arguments
+      Entry: 7
       Data: 105|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 39
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
-      Data: UnityEngine.Object, UnityEngine
+      Data: UnityEngine.Playables.PlayableAsset, UnityEngine
     - Name: m_IntArgument
       Entry: 3
       Data: 0
@@ -31098,13 +31100,13 @@ MonoBehaviour:
       Data: 40
     - Name: m_TargetAssemblyTypeName
       Entry: 1
-      Data: UnityEngine.Playables.PlayableDirector, UnityEngine
+      Data: UnityEngine.GameObject, UnityEngine
     - Name: m_MethodName
       Entry: 1
-      Data: Play
+      Data: SetActive
     - Name: m_Mode
       Entry: 3
-      Data: 2
+      Data: 6
     - Name: m_Arguments
       Entry: 7
       Data: 107|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
@@ -31113,7 +31115,7 @@ MonoBehaviour:
       Data: 41
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
-      Data: UnityEngine.Playables.PlayableAsset, UnityEngine
+      Data: UnityEngine.Object, UnityEngine
     - Name: m_IntArgument
       Entry: 3
       Data: 0
@@ -31125,7 +31127,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -31215,7 +31217,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -31260,7 +31262,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -31305,7 +31307,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -31336,51 +31338,6 @@ MonoBehaviour:
     - Name: m_ObjectArgument
       Entry: 10
       Data: 51
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 118|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 52
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetActive
-    - Name: m_Mode
-      Entry: 3
-      Data: 6
-    - Name: m_Arguments
-      Entry: 7
-      Data: 119|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 53
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -31428,17 +31385,62 @@ MonoBehaviour:
       Data: ToCH1602
     - Name: $v
       Entry: 7
-      Data: 120|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 118|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 121|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 119|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 122|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 120|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 7
+    - Name: 
+      Entry: 7
+      Data: 121|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 52
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.GameObject, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetActive
+    - Name: m_Mode
+      Entry: 3
+      Data: 6
+    - Name: m_Arguments
+      Entry: 7
+      Data: 122|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 53
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 123|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
@@ -31474,7 +31476,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -31519,7 +31521,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -31537,13 +31539,13 @@ MonoBehaviour:
       Data: 58
     - Name: m_TargetAssemblyTypeName
       Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
+      Data: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
     - Name: m_MethodName
       Entry: 1
-      Data: SetActive
+      Data: DOPlay
     - Name: m_Mode
       Entry: 3
-      Data: 6
+      Data: 1
     - Name: m_Arguments
       Entry: 7
       Data: 128|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
@@ -31564,7 +31566,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: true
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -31582,13 +31584,13 @@ MonoBehaviour:
       Data: 60
     - Name: m_TargetAssemblyTypeName
       Entry: 1
-      Data: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
+      Data: UnityEngine.GameObject, UnityEngine
     - Name: m_MethodName
       Entry: 1
-      Data: DOPlay
+      Data: SetActive
     - Name: m_Mode
       Entry: 3
-      Data: 1
+      Data: 6
     - Name: m_Arguments
       Entry: 7
       Data: 130|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
@@ -31609,7 +31611,7 @@ MonoBehaviour:
       Data: 
     - Name: m_BoolArgument
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -31627,51 +31629,6 @@ MonoBehaviour:
       Data: 62
     - Name: m_TargetAssemblyTypeName
       Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetActive
-    - Name: m_Mode
-      Entry: 3
-      Data: 6
-    - Name: m_Arguments
-      Entry: 7
-      Data: 132|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 63
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 133|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 64
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
       Data: SoundModule, Assembly-CSharp
     - Name: m_MethodName
       Entry: 1
@@ -31681,10 +31638,10 @@ MonoBehaviour:
       Data: 5
     - Name: m_Arguments
       Entry: 7
-      Data: 134|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 132|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 65
+      Data: 63
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -31711,10 +31668,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 135|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 133|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -31726,10 +31683,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 136|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 134|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 66
+      Data: 64
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -31777,23 +31734,23 @@ MonoBehaviour:
       Data: potion_of_nature
     - Name: $v
       Entry: 7
-      Data: 137|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 135|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 138|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 136|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 139|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 137|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 140|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 138|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -31805,10 +31762,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 141|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 139|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 67
+      Data: 65
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -31856,23 +31813,23 @@ MonoBehaviour:
       Data: excalibur
     - Name: $v
       Entry: 7
-      Data: 142|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 140|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 143|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 141|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 144|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 142|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 145|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 143|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 12
+      Data: 10
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: SceneBroadcastReceiver, Assembly-CSharp
@@ -31884,10 +31841,10 @@ MonoBehaviour:
       Data: 2
     - Name: m_Arguments
       Entry: 7
-      Data: 146|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 144|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 68
+      Data: 66
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: Result_Item, Assembly-CSharp
@@ -31935,23 +31892,23 @@ MonoBehaviour:
       Data: ToCH1603
     - Name: $v
       Entry: 7
-      Data: 147|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 145|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 148|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 146|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 149|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 147|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 150|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 148|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 69
+      Data: 67
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -31963,10 +31920,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 151|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 149|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 70
+      Data: 68
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32014,23 +31971,23 @@ MonoBehaviour:
       Data: OnCH1604ClearPos
     - Name: $v
       Entry: 7
-      Data: 152|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 150|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 153|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 151|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 154|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 152|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 155|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 153|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 71
+      Data: 69
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -32042,10 +31999,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 156|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 154|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 72
+      Data: 70
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32093,23 +32050,23 @@ MonoBehaviour:
       Data: ToDiary04
     - Name: $v
       Entry: 7
-      Data: 157|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 155|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 158|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 156|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 159|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 157|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 160|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 158|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 73
+      Data: 71
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -32121,10 +32078,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 161|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 159|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 74
+      Data: 72
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32172,17 +32129,62 @@ MonoBehaviour:
       Data: OnDiary_1603
     - Name: $v
       Entry: 7
-      Data: 162|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 160|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 163|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 161|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 164|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 162|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
+    - Name: 
+      Entry: 7
+      Data: 163|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+    - Name: m_Target
+      Entry: 10
+      Data: 73
+    - Name: m_TargetAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.GameObject, UnityEngine
+    - Name: m_MethodName
+      Entry: 1
+      Data: SetActive
+    - Name: m_Mode
+      Entry: 3
+      Data: 6
+    - Name: m_Arguments
+      Entry: 7
+      Data: 164|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+    - Name: m_ObjectArgument
+      Entry: 10
+      Data: 74
+    - Name: m_ObjectArgumentAssemblyTypeName
+      Entry: 1
+      Data: UnityEngine.Object, UnityEngine
+    - Name: m_IntArgument
+      Entry: 3
+      Data: 0
+    - Name: m_FloatArgument
+      Entry: 4
+      Data: 0
+    - Name: m_StringArgument
+      Entry: 1
+      Data: 
+    - Name: m_BoolArgument
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_CallState
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 165|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
@@ -32274,8 +32276,42 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 7
-      Data: 169|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: OnDiary_1604
+    - Name: $v
+      Entry: 7
+      Data: 169|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+    - Name: m_PersistentCalls
+      Entry: 7
+      Data: 170|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+    - Name: m_Calls
+      Entry: 7
+      Data: 171|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 172|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
       Data: 79
@@ -32290,7 +32326,7 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 170|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 173|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
       Data: 80
@@ -32319,45 +32355,11 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: OnDiary_1604
-    - Name: $v
-      Entry: 7
-      Data: 171|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
-    - Name: m_PersistentCalls
-      Entry: 7
-      Data: 172|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
-    - Name: m_Calls
-      Entry: 7
-      Data: 173|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
       Entry: 7
       Data: 174|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 81
+      Data: 75
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -32372,7 +32374,7 @@ MonoBehaviour:
       Data: 175|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 82
+      Data: 81
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32417,52 +32419,7 @@ MonoBehaviour:
       Data: 177|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 83
-    - Name: m_ObjectArgumentAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.Object, UnityEngine
-    - Name: m_IntArgument
-      Entry: 3
-      Data: 0
-    - Name: m_FloatArgument
-      Entry: 4
-      Data: 0
-    - Name: m_StringArgument
-      Entry: 1
-      Data: 
-    - Name: m_BoolArgument
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_CallState
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 178|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
-    - Name: m_Target
-      Entry: 10
-      Data: 79
-    - Name: m_TargetAssemblyTypeName
-      Entry: 1
-      Data: UnityEngine.GameObject, UnityEngine
-    - Name: m_MethodName
-      Entry: 1
-      Data: SetActive
-    - Name: m_Mode
-      Entry: 3
-      Data: 6
-    - Name: m_Arguments
-      Entry: 7
-      Data: 179|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
-    - Name: m_ObjectArgument
-      Entry: 10
-      Data: 84
+      Data: 82
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32510,23 +32467,23 @@ MonoBehaviour:
       Data: MakeItemBeforeOnDiary
     - Name: $v
       Entry: 7
-      Data: 180|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 178|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 181|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 179|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 182|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 180|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 183|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 181|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 85
+      Data: 83
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -32538,10 +32495,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 184|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 182|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 86
+      Data: 84
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32568,10 +32525,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 185|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 183|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 87
+      Data: 85
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
@@ -32583,10 +32540,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 186|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 184|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 88
+      Data: 86
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32634,23 +32591,23 @@ MonoBehaviour:
       Data: OnDiary_02
     - Name: $v
       Entry: 7
-      Data: 187|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
+      Data: 185|UnityEngine.Events.UnityEvent, UnityEngine.CoreModule
     - Name: m_PersistentCalls
       Entry: 7
-      Data: 188|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
+      Data: 186|UnityEngine.Events.PersistentCallGroup, UnityEngine.CoreModule
     - Name: m_Calls
       Entry: 7
-      Data: 189|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
+      Data: 187|System.Collections.Generic.List`1[[UnityEngine.Events.PersistentCall,
         UnityEngine.CoreModule]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 190|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 188|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 85
+      Data: 83
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: UnityEngine.GameObject, UnityEngine
@@ -32662,10 +32619,10 @@ MonoBehaviour:
       Data: 6
     - Name: m_Arguments
       Entry: 7
-      Data: 191|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 189|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 89
+      Data: 87
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -32692,10 +32649,10 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 192|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
+      Data: 190|UnityEngine.Events.PersistentCall, UnityEngine.CoreModule
     - Name: m_Target
       Entry: 10
-      Data: 87
+      Data: 85
     - Name: m_TargetAssemblyTypeName
       Entry: 1
       Data: DG.Tweening.DOTweenAnimation, Assembly-CSharp-firstpass
@@ -32707,10 +32664,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_Arguments
       Entry: 7
-      Data: 193|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
+      Data: 191|UnityEngine.Events.ArgumentCache, UnityEngine.CoreModule
     - Name: m_ObjectArgument
       Entry: 10
-      Data: 90
+      Data: 88
     - Name: m_ObjectArgumentAssemblyTypeName
       Entry: 1
       Data: UnityEngine.Object, UnityEngine
@@ -36181,7 +36138,7 @@ MonoBehaviour:
   DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
   EnablePlayerOnDisabled: 1
-  SkipEnabled: 1
+  SkipEnabled: 0
 --- !u!1 &1304267009
 GameObject:
   m_ObjectHideFlags: 0
@@ -37637,16 +37594,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipUI
       objectReference: {fileID: 0}
-    - target: {fileID: 8594543844481275116, guid: 9db7d31ff24bfe249b9a42c5d9f05529, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594543844963940694, guid: 9db7d31ff24bfe249b9a42c5d9f05529, type: 3}
-      propertyPath: m_text
-      value: "\uC2A4\uD0B5 (Z)"
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8594543844481275118, guid: 9db7d31ff24bfe249b9a42c5d9f05529, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db7d31ff24bfe249b9a42c5d9f05529, type: 3}
 --- !u!1 &1348933421
 GameObject:
@@ -46138,7 +46086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.008337647
+      value: -0.008337632
       objectReference: {fileID: 0}
     - target: {fileID: 5049202109129680133, guid: 8bea42320aa8f2a42b96ad20e330ae53, type: 3}
       propertyPath: m_LocalRotation.y
@@ -52843,7 +52791,7 @@ MonoBehaviour:
   DisablePlayerOnEnabled: 1
   EnablePlayerOnComplete: 1
   EnablePlayerOnDisabled: 1
-  SkipEnabled: 1
+  SkipEnabled: 0
 --- !u!1001 &1932183568
 PrefabInstance:
   m_ObjectHideFlags: 0
